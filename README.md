@@ -14,4 +14,4 @@ We manage an [open source repository](https://github.com/pinecoders/pine-utils) 
 Guides:
 - Learning Pine Roadmap
 - Pine FAQ & Code
-- Pine Coding Conventions
+- Pine Coding Conventions.
