@@ -9,7 +9,7 @@ We operate the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-
 We manage an [open source repository](https://github.com/pinecoders/pine-utils) of Pine code where you will find:
 - [Snippets](https://github.com/pinecoders/pine-utils/tree/master/snippets) of reusable Pine code
 - Tricks and techniques to help you accomplish frequently needed tasks
-- Other open source projects related to Pine
+- [Other open source projects](https://github.com/pinecoders) related to Pine
 
 Guides:
 - Learning Pine Roadmap
