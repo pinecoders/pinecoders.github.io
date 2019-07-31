@@ -1,4 +1,4 @@
-![logo](PineCoders.png "Pine")
+![logo](PineCoders.png "PineCoders")
 
 PineCoders is a TradingView-supported group of programmers using TradingView's Pine script language. We help TV users learn the Pine programming language, provide tools and resources for beginning as well as pro coders, and we collaborate with TradingView to make using Pine indicators and strategies easier for both coders and the general TV community.
 
