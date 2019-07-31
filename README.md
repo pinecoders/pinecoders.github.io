@@ -11,7 +11,8 @@ We manage an [open source repository](https://github.com/pinecoders/pine-utils) 
 - Tricks and techniques to help you accomplish frequently needed tasks
 - [Other open source projects](https://github.com/pinecoders) related to Pine
 
-Guides:
-- [Learning Pine Roadmap](https://github.com/pinecoders/pine-utils/tree/master/guides/learning_pine_roadmap)
-- Pine FAQ & Code
-- [Pine Coding Conventions](https://github.com/pinecoders/pine-utils/tree/master/guides/coding_conventions).
+New to Pine? Start your journey with our [Learning Pine Roadmap](https://github.com/pinecoders/pine-utils/tree/master/guides/learning_pine_roadmap)
+
+Have a question? Go to our Pine FAQ & Code
+
+Want to learn proper Pine coding style? Read our [Pine Coding Conventions](https://github.com/pinecoders/pine-utils/tree/master/guides/coding_conventions).
