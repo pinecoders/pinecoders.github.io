@@ -12,6 +12,6 @@ We manage an [open source repository](https://github.com/pinecoders/pine-utils) 
 - [Other open source projects](https://github.com/pinecoders) related to Pine
 
 Guides:
-- Learning Pine Roadmap
+- [Learning Pine Roadmap](https://github.com/pinecoders/pine-utils/tree/master/guides/learning_pine_roadmap)
 - Pine FAQ & Code
-- Pine Coding Conventions.
+- [Pine Coding Conventions](https://github.com/pinecoders/pine-utils/tree/master/guides/coding_conventions).
