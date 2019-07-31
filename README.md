@@ -13,6 +13,8 @@ We manage an [open source repository](https://github.com/pinecoders/pine-utils) 
 - Tricks and techniques to help you accomplish frequently needed tasks,
 - [Other open source projects](https://github.com/pinecoders) related to Pine.
 
+---
+
 **New to Pine?** Begin your journey with our [Learning Pine Roadmap](https://github.com/pinecoders/pine-utils/tree/master/guides/learning_pine_roadmap).
 
 **Have a question?** Go to our Pine FAQ & Code.
