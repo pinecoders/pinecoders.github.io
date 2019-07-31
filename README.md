@@ -4,7 +4,7 @@ PineCoders is a [TradingView](https://www.tradingview.com/)-supported group of p
 
 We co-manage with TradingView the [Suggestions For Improvements To Pine](https://trello.com/b/Jmv6c8Cx) Trello Board. This [card](https://trello.com/c/r0jKAKhK) explains how the board works, how any Trello user can comment/vote on suggestions and how to make new suggestions.
 
-We operate the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-scripts) TV moderator account, from which we answer questions in the [Pine Script TV chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235), publish open source tools and examples in Pine, and from where we follow [top publishers](https://www.tradingview.com/u/PineCoders/#following-people) of mostly open source scripts on TV who's code you can learn much from.
+We man the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-scripts) TV moderator account, from which we answer questions in the [Pine Script TV chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235), publish open source tools and examples in Pine, and from where we follow [top publishers](https://www.tradingview.com/u/PineCoders/#following-people) of mostly open source scripts on TV who's code you can learn much from.
 
 We manage an [open source repository](https://github.com/pinecoders/pine-utils) of Pine code where you will find:
 - [Snippets](https://github.com/pinecoders/pine-utils/tree/master/snippets) of reusable Pine code,
