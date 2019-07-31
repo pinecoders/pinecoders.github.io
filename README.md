@@ -15,8 +15,8 @@ We manage an [open source repository](https://github.com/pinecoders/pine-utils) 
 
 ---
 
-**New to Pine?** Begin your journey with our [Learning Pine Roadmap](https://github.com/pinecoders/pine-utils/tree/master/guides/learning_pine_roadmap).
+**New to Pine?** Begin your journey with our [Learning Pine Roadmap](https://github.com/pinecoders/pine-utils/blob/master/guides/learning_pine_roadmap/README.md).
 
 **Have a question?** Go to our Pine FAQ & Code.
 
-**Want to learn proper Pine coding style?** Read our [Pine Coding Conventions](https://github.com/pinecoders/pine-utils/tree/master/guides/coding_conventions).
+**Want to learn proper Pine coding style?** Read our [Pine Coding Conventions](https://github.com/pinecoders/pine-utils/tree/master/guides/coding_conventions/README.md).
