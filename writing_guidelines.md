@@ -6,7 +6,8 @@ We don't use the term *annotation*. We use *function* for everything that was ca
 
 ## Study vs Indicator
 
-We try to use *indicator* whenever we can, except when referring to the `study()` declaration statement itself.
+We try to use *indicator* whenever we can, except when referring to the `study()` declaration statement itself. Example:
+> The first line of an indicator should be the `study()` declaration statement.
 
 ## Script
 
