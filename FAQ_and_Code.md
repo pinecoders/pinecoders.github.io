@@ -30,7 +30,7 @@ To access the close of the previous bar's close in Pine, use `close[1]`. In Pine
 ```
 greenCandle = close > open
 ```
-Once you have defined the `greenCandle` variable, if you wanted a boolean variable to be `true` when the 3 last candles were green ones, you could write:
+Once you have defined the `greenCandle` variable, if you wanted a boolean variable to be `true` when the last three candles were green ones, you could write:
 ```
 threeGreenCandles = greenCandle and greenCandle[1] and greenCandle[2]
 ```
