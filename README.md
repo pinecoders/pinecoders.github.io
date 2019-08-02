@@ -1,7 +1,7 @@
 ![logo](PineCoders.png "PineCoders")
 
 
-<div align="center"><strong><b>New to Pine?</b></strong> Begin your journey with our <a href="https://github.com/pinecoders/pine-utils/blob/master/guides/learning_pine_roadmap/README.md">Learning Pine Roadmap</a>.</div>
+<div align="center"><strong>New to Pine?<br></strong> Begin your journey with our <a href="https://github.com/pinecoders/pine-utils/blob/master/guides/learning_pine_roadmap/README.md">Learning Pine Roadmap</a>.</div>
 
 <div align="center"><strong>Have a question?</strong> Go to our Pine <a href="FAQ_and_Code.md">FAQ & Code</a>.</div>[]().
 
