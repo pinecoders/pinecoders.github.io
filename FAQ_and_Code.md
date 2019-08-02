@@ -1,4 +1,4 @@
-![logo](../../images/pinelong.png "Pine")
+![logo](PineCodersLong.png "Pine")
 
 # FAQ & Code
 
