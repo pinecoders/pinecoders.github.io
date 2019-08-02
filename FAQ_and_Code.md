@@ -95,12 +95,12 @@ The limit for variables is 1000.
 We do not know of a limit to the number of lines in a script. There is, however a limit of 50K compiled tokens, but they don't correspond to code lines.
 
 ### How can I use colors in my indicator plots?
-See [Working with colours](https://kodify.net/tradingview/colours/) by kodify.
+See [Working with colours](https://kodify.net/tradingview/colours/) by Kodify.
 
 ### How do I make my indicator plot over the chart?
 Use `overlay=true` in `strategy()` or `study()` declaration statement, e.g.,:
 ```
-study("My Script", overlay=true)
+study("My Script", overlay = true)
 ```
 If your indicator was already in a Pane before applying this change, you will need to use Add to Chart again for the change to become active.
 
@@ -150,15 +150,15 @@ Once you've made sure your scales will be compatible (or you have devised a way 
 ### How do I implement date range filtering in strategies?
 ```
 DateFilter = input(false, "═════════════ Date Range Filtering")
-FromYear = input(1900, "From Year", minval=1900)
-FromMonth = input(1, "From Month", minval=1, maxval=12)
-FromDay = input(1, "From Day", minval=1, maxval=31)
-ToYear = input(2999, "To Year", minval=1900)
-ToMonth = input(1, "To Month", minval=1, maxval=12)
-ToDay = input(1, "To Day", minval=1, maxval=31)
+FromYear = input(1900, "From Year", minval = 1900)
+FromMonth = input(1, "From Month", minval = 1, maxval = 12)
+FromDay = input(1, "From Day", minval = 1, maxval = 31)
+ToYear = input(2999, "To Year", minval = 1900)
+ToMonth = input(1, "To Month", minval = 1, maxval = 12)
+ToDay = input(1, "To Day", minval = 1, maxval = 31)
 FromDate = timestamp(FromYear, FromMonth, FromDay, 00, 00)
 ToDate = timestamp(ToYear, ToMonth, ToDay, 23, 59)
-TradeDateIsAllowed() => DateFilter? (time >= FromDate and time <= ToDate) : true
+TradeDateIsAllowed() => DateFilter ? (time >= FromDate and time <= ToDate) : true
 ```
 You can then use the result of `TradeDateIsAllowed()` to confirm your entries using something like this:
 ```
