@@ -5,7 +5,7 @@
 
 <div align="center"><font size="+1"><strong>Have a question?</strong></font> Go to our Pine <a href="https://github.com/pinecoders/pinecoders.github.io/FAQ_and_Code.md">FAQ & Code</a>.</div>
 
-<div align="center"><font size="+1"><strong>Want to learn proper Pine coding style?</strong></font> Read our </div><a href="https://github.com/pinecoders/pine-utils/tree/master/guides/coding_conventions/README.md">Pine Coding Conventions</a>.</div>
+<div align="center"><font size="+1"><strong>Want to learn proper Pine coding style?</strong></font> Read our <a href="https://github.com/pinecoders/pine-utils/tree/master/guides/coding_conventions/README.md">Pine Coding Conventions</a>.</div>
 
 ---
 
