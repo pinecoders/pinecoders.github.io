@@ -77,14 +77,16 @@ plot(a == 0 ? 1 : 2, color = aqua)
 ### Can I plot diagonals between two points on the chart?
 Yes, using the [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function available in v4.
 
-### How do I plot a support line?
+### How do I plot a support or a trend line line?
 To plot a continuous line in Pine, you need to either:
 1. Look back into elapsed bars to find an occurrence that will return the same value over consecutive bars so you can plot it, or
-1. Find levels and save them so that you can plot them. In this case your saving mechanism will determine how many levels you can save. 
+1. Find levels and save them so that you can plot them. In this case your saving mechanism will determine how many levels you can save.
+1. You may also use the [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function available in v4.
 These are examples of three different techniques used to determine and draw support lines:
-- [Backtest Rookies](https://backtest-rookies.com/2018/10/05/tradingview-support-and-resistance-indicator/),
+- [Backtest Rookies](https://backtest-rookies.com/2018/10/05/tradingview-support-and-resistance-indicator/)
 - [Auto-Support v 0.2 by jamc](https://www.tradingview.com/script/hBrQx1tG-Auto-Support-v-0-2/)
 - [S/R Barry by likebike](https://www.tradingview.com/script/EHqtQi2g-S-R-Barry/)
+- [Trendlines - JD by Duyck](https://www.tradingview.com/script/mpeEgn5J-Trendlines-JD/) is a v4 example.
 
 ### How many plots, security() calls, variables or lines of code can I use?
 The limit for plots is 64. Note than one plot statement can use up more than one allowed plot, depending on how it is structured.
