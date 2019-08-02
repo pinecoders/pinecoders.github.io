@@ -1,9 +1,9 @@
 ![logo](PineCoders.png "PineCoders")
 
 
-<div align="center"><strong>**New to Pine?</strong> Begin your journey with our <a href="https://github.com/pinecoders/pine-utils/blob/master/guides/learning_pine_roadmap/README.md">Learning Pine Roadmap</a>.</div>
+<div align="center"><strong>New to Pine?</strong> Begin your journey with our <a href="https://github.com/pinecoders/pine-utils/blob/master/guides/learning_pine_roadmap/README.md">Learning Pine Roadmap</a>.</div>
 
-**Have a question?** Go to our Pine [FAQ & Code](FAQ_and_Code.md).
+<div align="center"><strong>Have a question?</strong> Go to our Pine <a href="FAQ_and_Code.md">FAQ & Code</a>.</div>[]().
 
 **Want to learn proper Pine coding style?** Read our [Pine Coding Conventions](https://github.com/pinecoders/pine-utils/tree/master/guides/coding_conventions/README.md).
 
