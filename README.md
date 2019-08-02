@@ -15,7 +15,7 @@ We co-manage with TradingView the [Suggestions For Improvements To Pine](https:/
 
 We man the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-scripts) TV moderator account, from which we answer questions in the [Pine Script TV chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235), publish open source tools and examples in Pine, and from where we follow [top publishers](https://www.tradingview.com/u/PineCoders/#following-people) of mostly open source scripts on TV who's code you can learn much from.
 
-We work daily with the Pine team to identify/validate bug reports and test upcoming new features.
+We work daily with the Pine team to identify and validate anomalies and test upcoming new features.
 
 We manage an [open source repository](https://github.com/pinecoders/pine-utils) of Pine code where you will find:
 - [Snippets](https://github.com/pinecoders/pine-utils/tree/master/snippets) of reusable code,
