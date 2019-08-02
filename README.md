@@ -1,7 +1,7 @@
 ![logo](PineCoders.png "PineCoders")
 
 
-<div align="center"><strong>**New to Pine?</strong> Begin your journey with our [Learning Pine Roadmap](https://github.com/pinecoders/pine-utils/blob/master/guides/learning_pine_roadmap/README.md).</div>
+<div align="center"><strong>**New to Pine?</strong> Begin your journey with our <a href="https://github.com/pinecoders/pine-utils/blob/master/guides/learning_pine_roadmap/README.md">Learning Pine Roadmap</a>.</div>
 
 **Have a question?** Go to our Pine [FAQ & Code](FAQ_and_Code.md).
 
