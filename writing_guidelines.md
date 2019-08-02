@@ -14,5 +14,6 @@ Use *indicator* whenever you can, except when referring to the `study()` declara
 
 Example:
 > The first line of an indicator should be the `study()` declaration statement.
+
 Note than *indicator* is understood to include only *studies*. Pine strategies should be referred to as *strategies*—not *indicators*.
 
