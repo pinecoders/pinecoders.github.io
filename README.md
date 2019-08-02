@@ -23,4 +23,4 @@ We manage an [open source repository](https://github.com/pinecoders/pine-utils) 
 - [Snippets](https://github.com/pinecoders/pine-utils/tree/master/snippets) of reusable code,
 - Tricks and techniques to help you accomplish frequently needed tasks,
 - [Other open source projects](https://github.com/pinecoders) related to Pine.
-[a](FAQ_and_Code.md)
+
