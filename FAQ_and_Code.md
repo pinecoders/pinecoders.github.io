@@ -24,7 +24,7 @@ This is a compendium of frequently asked questions on Pine. Answers often give c
 ### What is the variable name for the current price? 
 The `close` variable holds both the price at the close of historical bars and the current price when an **indicator** is running on the realtime bar. If the script is a **strategy** running on the realtime bar, by default it runs only at the bar's close. If the `calc_on_every_tick` parameter of the `strategy()` declaration statement is set to `true`, the strategy will behave as an indicator and run on every price change of the realtime bar.
 
-To access the close of the previous bar's close in Pine, use `close[1]`. The brackets in Pine are the [history-referencing operator](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator).
+To access the close of the previous bar's close in Pine, use `close[1]`. In Pine, brackets are used as the [history-referencing operator](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator).
 
 ### What is the code for a green candle?
 ```
