@@ -1,4 +1,4 @@
-<link rel="shortcut icon" href="http://pinecoders.com/favicon.ico" />
+<link rel="icon" href="http://pinecoders.com/favicon.ico?v=2" />
 
 ![logo](PineCoders.png "PineCoders")
 
