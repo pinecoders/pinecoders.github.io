@@ -1,5 +1,5 @@
 
-![logo](../../images/PineCodersLong.png "PineCoders")
+![logo](../images/PineCodersLong.png "PineCoders")
 
 # Pine Script Coding Conventions
 
