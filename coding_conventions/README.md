@@ -69,6 +69,7 @@ plot(signal, color=color.orange)
 **[Back to top](#table-of-contents)**
 
 <br>
+
 ## Naming Conventions
 
 ### Variable Names
