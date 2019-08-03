@@ -227,6 +227,36 @@ You need to create a separate alert for each symbol. There is currently no way t
 
 If one of the generic indicators supplied with the Screener suits your needs and your symbols are tagged with a color label, you can create an alert on those markets from within the Screener.
 
+### Is it possible to pass a string that varies as an argument to the `alertcondition()` function's `message` parameter?
+The string may vary, but it must be known at compile time, which means its content cannot depend on:
+- The current chart or interval, as variables like `syminfo.ticker` or `timeframe.period` do;
+- Calculations with results that can only be determined at runtime, e.g.,:
+```
+//@version=4
+study("alertcondition arguments")
+
+// ————— These strings will not work.
+// The rsi() value can only be known at compile time and it is a "series", so "wrongMsgArg1" becomes a "series string".
+wrongMsgArg1 = "RSI value is:" + tostring( rsi(close, 14))
+// This does not work because although the result can be calculated at compile time,
+// "tostring()" returns an "simple string" (a.k.a. "string"),
+// and automatic casting rules do not allow for that type to be cast to "const string".
+wrongMsgArg2 = "Enter at: " + tostring(100.3)
+// This fails because the condition can only be evaluated at compile time,
+// so the result of the ternary is a "series string".
+wrongMsgArg3 = close > open ? "Long Entry" : "Short Entry"
+
+// ————— These strings will work because:
+// ————— 1. They can be evaluated at compile time,
+// ————— 1. Their type is "literal string" or "const string".
+// Test condition "false" is known at compile time and result of ternary is a "const string".
+goodMsgArg1 = false ? "Long Entry" : "Short Entry"
+// Both values in the expression are literal strings known at compile time. Result is "const string".
+goodMsgArg2 = "AAA " + "BBB"
+
+alertcondition(true, title="Id appearing in Create Alert db", message = goodMsgArg1)```
+```
+
 
 
 <br><br>
