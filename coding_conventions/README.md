@@ -3,16 +3,17 @@
 
 # Pine Script Coding Conventions
 
-## Introduction
-
 The goal of these Coding Conventions is to present a set of best practices and style guidelines for Pine Script. By making Pine scripts easier to read, these guidelines make open source code more usable, while also providing safeguards that minimize the risk of errors for developers.
 
 ### Table of Contents
 
-1. [Script Structure](#script-structure)
-1. [Naming Conventions](#naming-conventions)
-1. [Spacing](#spacing)
-1. [Line Wrapping](#line-wrapping)
+- [Script Structure](#script-structure)
+- [Naming Conventions](#naming-conventions)
+- [Spacing](#spacing)
+- [Line Wrapping](#line-wrapping)
+
+
+<br>
 
 ## Script Structure
 
@@ -64,6 +65,8 @@ plot(signal, color=color.orange)
 ```
 
 **[Back to top](#table-of-contents)**
+
+<br>
 
 ## Naming Conventions
 
@@ -128,6 +131,8 @@ for _i = 0 to 100
 
 **[Back to top](#table-of-contents)**
 
+<br>
+
 ## Spacing
 
 A space should be used on both sides of all operators, whether they be assignment, arithmetic (binary or unary) or logical. A space should also be used after commas. Example:
@@ -142,6 +147,8 @@ index = bar_index % 2 == 0 ? 1 : 2
 plot(series, color = color.red)
 
 ```
+
+<br>
 
 ## Line Wrapping
 
