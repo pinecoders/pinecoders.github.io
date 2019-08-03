@@ -40,7 +40,7 @@ Here is an example of a complete script:
 ```
 //@version=4
 // MACD indicator, a Gerald Appel concept.
-// Author: PineCoders, v1.0, 2019.07.31
+// Author: TradingView, mods by PineCoders, v1.0, 2019.07.31
 study("MACD")
 
 // ————— Inputs
