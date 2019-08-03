@@ -251,7 +251,7 @@ The string may vary, but it must respect two conditions:
 This implies that it **cannot** depend on:
 - Variables that are only known with the current chart or interval information such as `syminfo.ticker` or `timeframe.period`;
 - Calculations with results that can only be determined at runtime, e.g.,: `close > open`, `rsi(14)`, etc.;
-- Calculations with results known at compile time but which do not produce results of a type that can be cast to *const string*, such as `tostring()`.
+- Calculations with results known at compile time which produce results of a type that cannot be cast to *const string*, such as `tostring()`.
 
 The first step when you are in doubt as to what can be used as an argument to a built-in function such as [`alertcondition()`](https://www.tradingview.com/pine-script-reference/v4/#fun_alertcondition) is to look up the Reference Manual:
 
