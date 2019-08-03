@@ -12,6 +12,8 @@ This is a compendium of frequently asked questions on Pine. Answers often give c
 - [Plotting](#plotting)
 - [Indicators (a.k.a. studies)](#indicators)
 - [Strategies](#strategies)
+- [Time and dates](#time-and-dates)
+- [Other intervals (MTF)](#other-intervals-mtf)
 - [Alerts](#alerts)
 - [Techniques](#techniques)
 
@@ -174,6 +176,16 @@ See [How to Plot Entry Price](https://www.tradingview.com/script/bHTnipgY-HOWTO-
 The best way to go about this is to write your strategies in such a way that their behavior depends the least possible on `strategy.*` variables and `strategy.*()` call parameters, because these cannot be converted into an indicator.
 
 The PineCoders [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/) is a framework that allows you to easily convert betweeen strategy and indicator modes because it manages trades using custom Pine code that does not depend on an involved setup of `strategy.*()` call parameters.
+
+
+
+<br><br>
+## TIME AND DATES
+
+
+
+<br><br>
+## OTHER INTERVALS (MTF)
 
 
 
