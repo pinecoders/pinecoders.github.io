@@ -3,8 +3,6 @@
 
 # Pine Script Coding Conventions
 
-### Introduction
-
 The goal of these Coding Conventions is to present a set of best practices and style guidelines for Pine Script. By making Pine scripts easier to read, these guidelines make open source code more usable, while also providing safeguards that minimize the risk of errors for developers.
 
 ### Table of Contents
