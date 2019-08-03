@@ -222,6 +222,6 @@ Pine Example: [Holding a state in a variable](https://www.tradingview.com/script
 1. If you just want the average between two values, you can use `avg(val1, val2)` or `(val1 + val2)/2`. Note that the [`avg()`](https://www.tradingview.com/pine-script-reference/v4/#fun_avg) accepts up to 6 values.
 1. To average the last x values in a series, you can use `sma(series, x)`.
 
-### How can I calculate averages only when a condition is true?
+### How can I calculate an average only when a certain condition is true?
 [This script](https://www.tradingview.com/script/isSfahiX-Averages-PineCoders-FAQ/) shows how to calculate a conditional average using three different methods.
 
