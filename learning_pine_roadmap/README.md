@@ -1,4 +1,4 @@
-![logo](../images/PineCodersLong.png "PineCoders")
+[<img src="http://pinecoders.com/images/PineCodersLong.png">](http://pinecoders.com)
 
 # Learning Pine Roadmap
 
