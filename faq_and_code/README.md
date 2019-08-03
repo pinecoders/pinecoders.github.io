@@ -38,6 +38,15 @@ threeGreenCandles = greenCandle and greenCandle[1] and greenCandle[2]
 ```
 > Note that the variable name `3GreenCandles` would have caused a compilation error. It is not legal in Pine as it begins with a digit.
 
+If you need to define up and down candles, then make sure one of those definitions allows for the case where the `open` and `close` are equal:
+```
+upCandle = close >= open
+downCandle = close < open
+
+```
+
+**[Back to top](#table-of-contents)**
+
 
 
 <br><br>
@@ -46,6 +55,8 @@ threeGreenCandles = greenCandle and greenCandle[1] and greenCandle[2]
 
 ### Why do I get an error message when using highest() or lowest()?
 Most probably because you are trying to use a series instead of an integer as the second parameter (the length). Either use a [simple integer](https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html#simple) or use the [RicardoSantos](https://www.tradingview.com/u/RicardoSantos/#published-scripts) replacements [here](https://www.tradingview.com/script/32ohT5SQ-Function-Highest-Lowest/). If you don't know Ricardo, take the time to look at his indicators while you're there. Ricardo is among the most prolific and ingenious Pinescripters out there.
+
+**[Back to top](#table-of-contents)**
 
 
 
@@ -67,6 +78,8 @@ plot(b == 0 ? 3 : 4, color = orange)
 a := 2
 plot(a == 0 ? 1 : 2, color = aqua)
 ```
+
+**[Back to top](#table-of-contents)**
 
 
 
@@ -103,6 +116,8 @@ Use `overlay=true` in `strategy()` or `study()` declaration statement, e.g.,:
 study("My Script", overlay = true)
 ```
 If your indicator was already in a Pane before applying this change, you will need to use Add to Chart again for the change to become active.
+
+**[Back to top](#table-of-contents)**
 
 
 
@@ -141,6 +156,8 @@ Once you've made sure your scales will be compatible (or you have devised a way 
 
 > Note that if the indicators you've merged are CPU intensive, you may run into runtime limitations when executing the compound script.
 
+**[Back to top](#table-of-contents)**
+
 
 
 <br><br>
@@ -177,15 +194,21 @@ The best way to go about this is to write your strategies in such a way that the
 
 The PineCoders [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/) is a framework that allows you to easily convert betweeen strategy and indicator modes because it manages trades using custom Pine code that does not depend on an involved setup of `strategy.*()` call parameters.
 
+**[Back to top](#table-of-contents)**
+
 
 
 <br><br>
 ## TIME AND DATES
 
+**[Back to top](#table-of-contents)**
+
 
 
 <br><br>
 ## OTHER INTERVALS (MTF)
+
+**[Back to top](#table-of-contents)**
 
 
 
@@ -220,6 +243,60 @@ You need to create a separate alert for each symbol. There is currently no way t
 
 If one of the generic indicators supplied with the Screener suits your needs and your symbols are tagged with a color label, you can create an alert on those markets from within the Screener.
 
+### Is it possible to use a string that varies as an argument to the `alertcondition()` function's `message=` parameter?
+The string may vary, but it must respect two conditions:
+- It must be known at compile time;
+- It must be of type *const string*.
+
+This implies that it **cannot** depend on:
+- Variables that are only known with the current chart or interval information such as `syminfo.ticker` or `timeframe.period`;
+- Calculations with results that can only be determined at runtime, e.g.,: `close > open`, `rsi(14)`, etc.;
+- Calculations with results known at compile time, but of a type that cannot be cast to *const string*, such as `tostring()`.
+
+The first step when you are in doubt as to what can be used as an argument to a built-in function such as [`alertcondition()`](https://www.tradingview.com/pine-script-reference/v4/#fun_alertcondition) is to look up the Reference Manual:
+
+![.](Refman_alertcondition.png "alertcondition()")
+
+You now know that a *const string* is required as an argument.
+
+The next step is to consult the automatic type casting rules diagram in the User Manual's [*Type system* page](https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html#type-casting):
+
+![.](TypeCasting_ConstString.png "Type Casting")
+
+The diagram shows you where the *const string* type is situated in the casting rules, which allows you to determine:
+- The types that will be allowed because they are above *const string*, meaning they can be cast to a *const string*;
+- The types that will **not** be allowed because they are below *const string*, meaning they **cannot** be cast to a *const string*;
+
+This code shows examples that work and don't work:
+```
+//@version=4
+study("alertcondition arguments")
+
+// ————— These strings will not work.
+// The rsi() value can only be known at compile time and it is a "series",
+// so "wrongMsgArg1" becomes a "series string".
+wrongMsgArg1 = "RSI value is:" + tostring( rsi(close, 14))
+// This does not work because although the result can be calculated at compile time,
+// "tostring()" returns an "simple string" (a.k.a. "string"),
+// and automatic casting rules do not allow for that type to be cast to "const string".
+wrongMsgArg2 = "Enter at: " + tostring(100.3)
+// This fails because the condition can only be evaluated at compile time,
+// so the result of the ternary is a "series string".
+wrongMsgArg3 = close > open ? "Long Entry" : "Short Entry"
+
+// ————— These strings will work because:
+// ————— 1. They can be evaluated at compile time,
+// ————— 1. Their type is "literal string" or "const string".
+// Test condition "false" is known at compile time and result of ternary is a "const string".
+goodMsgArg1 = false ? "Long Entry" : "Short Entry"
+// Both values in the expression are literal strings known at compile time. Result is "const string".
+goodMsgArg2 = "AAA " + "BBB"
+
+alertcondition(true, title="Id appearing in Create Alert db", message = goodMsgArg1)```
+```
+
+**[Back to top](#table-of-contents)**
+
 
 
 <br><br>
@@ -236,4 +313,6 @@ Pine Example: [Holding a state in a variable](https://www.tradingview.com/script
 
 ### How can I calculate an average only when a certain condition is true?
 [This script](https://www.tradingview.com/script/isSfahiX-Averages-PineCoders-FAQ/) shows how to calculate a conditional average using three different methods.
+
+**[Back to top](#table-of-contents)**
 
