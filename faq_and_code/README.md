@@ -257,7 +257,7 @@ The first step when you are in doubt as to what can be used as an argument to a 
 
 ![.](Refman_alertcondition.png "alertcondition()")
 
-You now know that a "const string" is required as an argument.
+You now know that a *const string* is required as an argument.
 
 The next step is to consult the automatic type casting rules diagram in the User Manual's [*Type system* page](https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html#type-casting):
 
