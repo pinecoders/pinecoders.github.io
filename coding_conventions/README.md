@@ -16,6 +16,7 @@ The goal of these Coding Conventions is to present a set of best practices and s
 
 
 <br>
+
 ## Script Structure
 
 The Pine compiler is not very strict on exact positioning of specific statements or compiler directives. While many other arrangements are syntactically correct, these guidelines aim to provide a standard way of ordering elements in scripts:
@@ -68,6 +69,7 @@ plot(signal, color=color.orange)
 **[Back to top](#table-of-contents)**
 
 <br>
+
 ## Naming Conventions
 
 ### Variable Names
@@ -132,6 +134,7 @@ for _i = 0 to 100
 **[Back to top](#table-of-contents)**
 
 <br>
+
 ## Spacing
 
 A space should be used on both sides of all operators, whether they be assignment, arithmetic (binary or unary) or logical. A space should also be used after commas. Example:
@@ -148,6 +151,7 @@ plot(series, color = color.red)
 ```
 
 <br>
+
 ## Line Wrapping
 
 When lines need to be continued on the next, use two spaces to indent each continuation line. Example:
