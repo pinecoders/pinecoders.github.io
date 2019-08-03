@@ -2,8 +2,6 @@
 
 # FAQ & Code
 
-## Introduction
-
 This is a compendium of frequently asked questions on Pine. Answers often give code examples or link to the best sources on the subject.
 
 ### Table of Contents
