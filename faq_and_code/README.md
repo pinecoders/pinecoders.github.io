@@ -286,7 +286,7 @@ wrongMsgArg3 = close > open ? "Long Entry" : "Short Entry"
 
 // ————— These strings will work because:
 // ————— 1. They can be evaluated at compile time,
-// ————— 1. Their type is "literal string" or "const string".
+// ————— 2. Their type is "literal string" or "const string".
 // Test condition "false" is known at compile time and result of ternary is a "const string".
 goodMsgArg1 = false ? "Long Entry" : "Short Entry"
 // Both values in the expression are literal strings known at compile time. Result is "const string".
