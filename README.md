@@ -1,6 +1,6 @@
 <link rel="icon" href="http://pinecoders.com/favicon.ico?v=2" />
 
-![logo](PineCoders.png "PineCoders")
+![logo](images/PineCoders.png "PineCoders")
 
 
 <div align="center"><font size="+1"><strong>New to Pine?<br></strong></font> Begin your journey with our <a href="https://github.com/pinecoders/pine-utils/blob/master/guides/learning_pine_roadmap/README.md">Learning Pine Roadmap</a>.</div>
