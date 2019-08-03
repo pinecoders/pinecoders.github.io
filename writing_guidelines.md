@@ -1,7 +1,7 @@
 # Writing guidelines for PineCoders Web content
 
 ## Annotations
-Don't use the term *annotation*, as it is most probably going to be phased out. We use *function* for everything that was called an annotation, except for `study()` and `strategy()`, for which we use the term *declaration statement*.
+Don't use the term *annotation*, as it most probably will be phased out. We use *function* for everything that was called an annotation, except for `study()` and `strategy()`, for which we use the term *declaration statement*.
 
 ## Realtime
 Use *realtime* rather than *real time* or *real-time*.

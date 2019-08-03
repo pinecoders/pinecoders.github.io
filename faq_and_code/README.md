@@ -1,4 +1,4 @@
-![logo](../images/PineCodersLong.png "Pine")
+[<img src="http://pinecoders.com/images/PineCodersLong.png">](http://pinecoders.com)
 
 # FAQ & Code
 
@@ -12,6 +12,8 @@ This is a compendium of frequently asked questions on Pine. Answers often give c
 - [Plotting](#plotting)
 - [Indicators (a.k.a. studies)](#indicators)
 - [Strategies](#strategies)
+- [Time and dates](#time-and-dates)
+- [Other intervals (MTF)](#other-intervals-mtf)
 - [Alerts](#alerts)
 - [Techniques](#techniques)
 
@@ -43,7 +45,7 @@ threeGreenCandles = greenCandle and greenCandle[1] and greenCandle[2]
 
 
 ### Why do I get an error message when using highest() or lowest()?
-Most probably because you are trying to use a series instead of an integer as the second parameter (the length). Either use an integer or use the [RicardoSantos](https://www.tradingview.com/u/RicardoSantos/#published-scripts) replacements [here](https://www.tradingview.com/script/32ohT5SQ-Function-Highest-Lowest/). If you don't know Ricardo, take the time to look at his indicators while you're there. Ricardo is among the most prolific and ingenious Pinescripters out there.
+Most probably because you are trying to use a series instead of an integer as the second parameter (the length). Either use a [simple integer](https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html#simple) or use the [RicardoSantos](https://www.tradingview.com/u/RicardoSantos/#published-scripts) replacements [here](https://www.tradingview.com/script/32ohT5SQ-Function-Highest-Lowest/). If you don't know Ricardo, take the time to look at his indicators while you're there. Ricardo is among the most prolific and ingenious Pinescripters out there.
 
 
 
@@ -52,9 +54,9 @@ Most probably because you are trying to use a series instead of an integer as th
 
 
 ### What's the difference between `==`, `=` and `:=`?
-`==` is used to test for true/false conditions.<br>
-`=` is used to declare and initialize variables.<br>
-`:=` is used to assign values to variables after initialization, transforming them into *mutable variables*.
+`==` is a [comparison operator](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#comparison-operators) used to test for true/false conditions.<br>
+`=` is used to [declare and initialize variables](https://www.tradingview.com/pine-script-docs/en/v4/language/Expressions_declarations_and_statements.html#variable-declaration).<br>
+`:=` is used to [assign values to variables](https://www.tradingview.com/pine-script-docs/en/v4/language/Expressions_declarations_and_statements.html#variable-assignment) after initialization, transforming them into *mutable variables*.
 ```
 //@version=3
 study("")
@@ -178,6 +180,16 @@ The PineCoders [Backtesting-Trading Engine](https://www.tradingview.com/script/d
 
 
 <br><br>
+## TIME AND DATES
+
+
+
+<br><br>
+## OTHER INTERVALS (MTF)
+
+
+
+<br><br>
 ## ALERTS
 
 
@@ -219,9 +231,9 @@ Backtest Rookies has a [blog post](https://backtest-rookies.com/2018/11/23/tradi
 Pine Example: [Holding a state in a variable](https://www.tradingview.com/script/llcoIPKG-Pine-Example-Holding-a-state-in-a-variable/) by vitvlkv.
 
 ### How do I calculate averages?
-1. If you just want the average between two values, you can use `avg(val1, val2)` or `(val1 + val2)/2`.
+1. If you just want the average between two values, you can use `avg(val1, val2)` or `(val1 + val2)/2`. Note that the [`avg()`](https://www.tradingview.com/pine-script-reference/v4/#fun_avg) accepts up to 6 values.
 1. To average the last x values in a series, you can use `sma(series, x)`.
 
-### How can I calculate averages only when a condition is true?
+### How can I calculate an average only when a certain condition is true?
 [This script](https://www.tradingview.com/script/isSfahiX-Averages-PineCoders-FAQ/) shows how to calculate a conditional average using three different methods.
 
