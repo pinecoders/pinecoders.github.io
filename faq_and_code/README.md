@@ -37,6 +37,7 @@ Once you have defined the `greenCandle` variable, if you wanted a boolean variab
 threeGreenCandles = greenCandle and greenCandle[1] and greenCandle[2]
 ```
 > Note that the variable name `3GreenCandles` would have caused a compilation error. It is not legal in Pine as it begins with a digit.
+
 If you need to define up and down candles, then make sure one of those definitions allows for the case where the `open` and `close` are equal:
 ```
 upCandle = close >= open
