@@ -45,6 +45,8 @@ downCandle = close < open
 
 ```
 
+**[Back to top](#table-of-contents)**
+
 
 
 <br><br>
@@ -53,6 +55,8 @@ downCandle = close < open
 
 ### Why do I get an error message when using highest() or lowest()?
 Most probably because you are trying to use a series instead of an integer as the second parameter (the length). Either use a [simple integer](https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html#simple) or use the [RicardoSantos](https://www.tradingview.com/u/RicardoSantos/#published-scripts) replacements [here](https://www.tradingview.com/script/32ohT5SQ-Function-Highest-Lowest/). If you don't know Ricardo, take the time to look at his indicators while you're there. Ricardo is among the most prolific and ingenious Pinescripters out there.
+
+**[Back to top](#table-of-contents)**
 
 
 
@@ -74,6 +78,8 @@ plot(b == 0 ? 3 : 4, color = orange)
 a := 2
 plot(a == 0 ? 1 : 2, color = aqua)
 ```
+
+**[Back to top](#table-of-contents)**
 
 
 
@@ -110,6 +116,8 @@ Use `overlay=true` in `strategy()` or `study()` declaration statement, e.g.,:
 study("My Script", overlay = true)
 ```
 If your indicator was already in a Pane before applying this change, you will need to use Add to Chart again for the change to become active.
+
+**[Back to top](#table-of-contents)**
 
 
 
@@ -148,6 +156,8 @@ Once you've made sure your scales will be compatible (or you have devised a way 
 
 > Note that if the indicators you've merged are CPU intensive, you may run into runtime limitations when executing the compound script.
 
+**[Back to top](#table-of-contents)**
+
 
 
 <br><br>
@@ -184,15 +194,21 @@ The best way to go about this is to write your strategies in such a way that the
 
 The PineCoders [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/) is a framework that allows you to easily convert betweeen strategy and indicator modes because it manages trades using custom Pine code that does not depend on an involved setup of `strategy.*()` call parameters.
 
+**[Back to top](#table-of-contents)**
+
 
 
 <br><br>
 ## TIME AND DATES
 
+**[Back to top](#table-of-contents)**
+
 
 
 <br><br>
 ## OTHER INTERVALS (MTF)
+
+**[Back to top](#table-of-contents)**
 
 
 
@@ -278,6 +294,8 @@ goodMsgArg2 = "AAA " + "BBB"
 alertcondition(true, title="Id appearing in Create Alert db", message = goodMsgArg1)```
 ```
 
+**[Back to top](#table-of-contents)**
+
 
 
 <br><br>
@@ -294,4 +312,6 @@ Pine Example: [Holding a state in a variable](https://www.tradingview.com/script
 
 ### How can I calculate an average only when a certain condition is true?
 [This script](https://www.tradingview.com/script/isSfahiX-Averages-PineCoders-FAQ/) shows how to calculate a conditional average using three different methods.
+
+**[Back to top](#table-of-contents)**
 
