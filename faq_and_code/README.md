@@ -238,13 +238,13 @@ This implies that it **cannot** depend on:
 
 The first step when you are in doubt as to what can be used as an argument to a built-in function such as [`alertcondition()`](https://www.tradingview.com/pine-script-reference/v4/#fun_alertcondition) is to look up the Reference Manual:
 
-[.](Refman_alertcondition.png)
+![.](Refman_alertcondition.png "alertcondition()")
 
 You now know that a "const string" is required as an argument.
 
 The next step is to consult the automatic type casting rules diagram in the User Manual's [*Type system* page](https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html#type-casting):
 
-[.](TypeCasting_ConstString.png)
+![.](TypeCasting_ConstString.png "Type Casting")
 
 
 ```
