@@ -14,6 +14,7 @@ The goal of these Coding Conventions is to present a set of best practices and s
 - [Spacing](#spacing)
 - [Line Wrapping](#line-wrapping)
 
+
 <br>
 ## Script Structure
 
