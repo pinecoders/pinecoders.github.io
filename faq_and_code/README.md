@@ -228,9 +228,25 @@ You need to create a separate alert for each symbol. There is currently no way t
 If one of the generic indicators supplied with the Screener suits your needs and your symbols are tagged with a color label, you can create an alert on those markets from within the Screener.
 
 ### Is it possible to pass a string that varies as an argument to the `alertcondition()` function's `message` parameter?
-The string may vary, but it must be known at compile time, which means its content cannot depend on:
-- The current chart or interval, as variables like `syminfo.ticker` or `timeframe.period` do;
-- Calculations with results that can only be determined at runtime, e.g.,:
+The string may vary, but it must respect 2 conditions:
+- It must be known at compile time;
+- It must be of type *const string*.
+
+This implies that it **cannot** depend on:
+- Variables that are only known with he current chart or interval information, as variables like `syminfo.ticker` or `timeframe.period` do;
+- Calculations with results that can only be determined at runtime, e.g.,: `close > open`, `rsi(14)`,etc.
+
+The first step when you are in doubt as to what can be used as an argument to a built-in function such as [`alertcondition()`](https://www.tradingview.com/pine-script-reference/v4/#fun_alertcondition) is to look up the Reference Manual:
+
+[.](Refman_alertcondition.png)
+
+You now know that a "const string" is required as an argument.
+
+The next step is to consult the automatic type casting rules diagram in the User Manual's [*Type system* page](https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html#type-casting):
+
+[.](TypeCasting_ConstString.png)
+
+
 ```
 //@version=4
 study("alertcondition arguments")
