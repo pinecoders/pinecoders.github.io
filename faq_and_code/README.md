@@ -1,4 +1,4 @@
-![logo](../images/PineCodersLong.png "Pine")
+[<img src="http://pinecoders.com/images/PineCodersLong.png">](http://pinecoders.com)
 
 # FAQ & Code
 
