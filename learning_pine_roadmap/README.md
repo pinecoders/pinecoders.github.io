@@ -6,14 +6,14 @@ This document aims to provide information that will be useful for newcomers to t
 
 ### Table of Contents
 
-1. [Where to go?](#where-to-go)
-1. [What’s Pine?](#whats-Pine)
-1. [Pine runtime environment](#pine-runtime-environment)
-1. [Series](#series)
-1. [New to programming?](#new-to-programming)
-1. [Code examples](#code-examples)
-1. [Troubleshooting Pine code](#troubleshooting-pine-code)
-1. [Conversion from other platforms](#conversion-from-other-platforms)
+- [Where to go?](#where-to-go)
+- [What’s Pine?](#whats-Pine)
+- [Pine runtime environment](#pine-runtime-environment)
+- [Series](#series)
+- [New to programming?](#new-to-programming)
+- [Code examples](#code-examples)
+- [Troubleshooting Pine code](#troubleshooting-pine-code)
+- [Conversion from other platforms](#conversion-from-other-platforms)
 
 ## Where to go?
 
