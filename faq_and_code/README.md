@@ -219,7 +219,7 @@ Backtest Rookies has a [blog post](https://backtest-rookies.com/2018/11/23/tradi
 Pine Example: [Holding a state in a variable](https://www.tradingview.com/script/llcoIPKG-Pine-Example-Holding-a-state-in-a-variable/) by vitvlkv.
 
 ### How do I calculate averages?
-1. If you just want the average between two values, you can use `avg(val1, val2)` or `(val1 + val2)/2`.
+1. If you just want the average between two values, you can use `avg(val1, val2)` or `(val1 + val2)/2`. Note that the [`avg()`](https://www.tradingview.com/pine-script-reference/v4/#fun_avg) accepts up to 6 values.
 1. To average the last x values in a series, you can use `sma(series, x)`.
 
 ### How can I calculate averages only when a condition is true?
