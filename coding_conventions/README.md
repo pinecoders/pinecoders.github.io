@@ -1,6 +1,6 @@
 
-![logo](../images/PineCodersLong.png "PineCoders")
-
+<!--- ![logo](../images/PineCodersLong.png "PineCoders") --->
+[<img src="http://www.google.com.au/images/nav_logo7.png">](http://google.com.au/)
 # Pine Script Coding Conventions
 
 The goal of these Coding Conventions is to present a set of best practices and style guidelines for Pine Script. By making Pine scripts easier to read, these guidelines make open source code more usable, while also providing safeguards that minimize the risk of errors for developers.
