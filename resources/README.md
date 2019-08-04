@@ -14,11 +14,12 @@ This document provides a list of Pine-related resources and tools.
 - [PineCoders](#pinecoders)
 - [Educational Content](#educational-content)
 - [Forums](#forums)
-- [Text Editor Highlighters for Pine](#text-editor-highlighters-for-pine)
 - [Videos](#videos)
 - [Automation](#automation)
+- [Text Editor Highlighters for Pine](#text-editor-highlighters-for-pine)
 - [Color Pickers](#color-pickers)
 - [Custom Pine Coding](#custom-pine-coding)
+
 
 ## TradingView
 [Pine v4 Reference Manual](https://www.tradingview.com/pine-script-reference/v4/)
@@ -41,6 +42,7 @@ From the Pine Editor: choose *New* and select from the list of built-in scripts 
 
 Visit the *Scripts* page of good scripters publishing open source by using the [*Following* list from the PineCoders TV account](https://www.tradingview.com/u/PineCoders/#following-people).
 
+
 ## PineCoders
 Our <a href="http://www.pinecoders.com/learning_pine_roadmap">Learning Pine Roadmap</a> for newcomers also has tips on what to do when you get stuck.
 
@@ -55,6 +57,7 @@ Our managed [open source repository](https://github.com/pinecoders/pine-utils) o
 - Tricks and techniques to help you accomplish frequently needed tasks,
 - [Other open source projects](https://github.com/pinecoders) related to Pine.
 
+
 ## Educational Content
 [Kodify](https://kodify.net/tradingview-programming-articles/): This is where you will find the largest, most complete and well-written set of in-depth articles on Pine.
 
@@ -64,6 +67,7 @@ Our managed [open source repository](https://github.com/pinecoders/pine-utils) o
 
 [CryptoNTez (Medium)](https://medium.com/@CryptoNTez): Has a few Pine-related articles.
 
+
 ## Forums
 Besides the TV Pine Editor chat there are two other forums worth mentioning where you can ask questions:
 
@@ -71,14 +75,6 @@ Besides the TV Pine Editor chat there are two other forums worth mentioning wher
 
 - [Pinescripters Telegram group](https://t.me/pinescripters): A large group with coders of all levels.
 
-## Text Editor Highlighters for Pine
-[Notepad++ Highlighter](https://github.com/nidkil/tradingview-pine-script-udl-npp)
-
-[VSCode Highlighter](https://marketplace.visualstudio.com/items?itemName=leifcr.pine-script-syntax-highlighting)
-
-[VIM](https://github.com/jbmorgado/vim-pine-script)
-
-[GNU Emacs major-mode](https://github.com/EricCrosson/pine-script-mode)
 
 ## Videos
 [QuantNomad (YouTube)](https://www.youtube.com/channel/UC57DoaeefbGM9nbcVA3V5mg): By far the publisher who has the most videos on Pine.
@@ -88,6 +84,7 @@ Besides the TV Pine Editor chat there are two other forums worth mentioning wher
 [m1xolyd1an (YouTube)](https://www.youtube.com/user/m1xolyd1an/featured): This guy doesn’t seem that many videos on Pine but he produces quite a lot of other content.
 
 [Market Calls (YouTube)](https://www.youtube.com/user/marketcalls/featured): Has many videos on trading concepts and a handful about TradingView and Pine.
+
 
 ## Automation
 [Alertatron](https://alertatron.com/): A service that allows you to relay TradingView alerts to Telegram, Discord, Slack, Email or webhooks, with a chart snapshot attached. The developer is well-known in the Pinescripters community.
@@ -99,6 +96,17 @@ Besides the TV Pine Editor chat there are two other forums worth mentioning wher
 [AutoView](https://autoview.with.pink/): Google Chrome extension that receives TV alerts and relays orders to crypto exchanges.
 
 [Instabot](https://instabot42.github.io/): An open source execution engine that relays orders received from HTTP requests to Bitfinex, Deribit and Coinbase Pro, with support for Bitmex and Binance planned.
+
+
+## Text Editor Highlighters for Pine
+[Notepad++ Highlighter](https://github.com/nidkil/tradingview-pine-script-udl-npp)
+
+[VSCode Highlighter](https://marketplace.visualstudio.com/items?itemName=leifcr.pine-script-syntax-highlighting)
+
+[VIM](https://github.com/jbmorgado/vim-pine-script)
+
+[GNU Emacs major-mode](https://github.com/EricCrosson/pine-script-mode)
+
 
 ## Color Pickers
 [w3schools.com](https://www.w3schools.com/colors/default.asp)
