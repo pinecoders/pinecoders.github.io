@@ -21,7 +21,9 @@ Note than *indicator* is understood to include only *studies*. Pine strategies s
 
 ## Style
 
-### Bulleted or enumerated lists punctiation
+### Bulleted or enumerated lists punctuation
+Capitalize the first word of each element.
+
 List elements use no ending punctiation when they are not a sentence. This also applies to the last element in the list.
 Use an ending period on all list elements when they are sentences, or when the majority is.
 
