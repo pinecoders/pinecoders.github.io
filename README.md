@@ -9,7 +9,7 @@
 
 <div align="center"><font size="+1"><strong>Want to learn proper Pine coding style?<br></strong></font> Read our <a href="http://www.pinecoders.com/coding_conventions">Pine Coding Conventions</a>.</div>
 
-<div align="center"><font size="+1"><strong>Looking for Pine-related tools and resources?<br></strong></font> Read our <a href="http://www.pinecoders.com/resources">Pine Resources</a>.</div>
+<div align="center"><font size="+1"><strong>Looking for Pine-related tools or resources?<br></strong></font> Use our list of <a href="http://www.pinecoders.com/resources">Pine Resources</a>.</div>
 
 ---
 

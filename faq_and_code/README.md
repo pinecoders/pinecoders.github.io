@@ -42,7 +42,6 @@ If you need to define up and down candles, then make sure one of those definitio
 ```
 upCandle = close >= open
 downCandle = close < open
-
 ```
 
 **[Back to top](#table-of-contents)**
@@ -196,9 +195,9 @@ The PineCoders [Backtesting-Trading Engine](https://www.tradingview.com/script/d
 
 ### Can my strategy generate orders through TV-supported brokers?
 No. The brokers can only be used for manual trading. Currently, the only way to automate trading using TradingView is to:
-- Create an indicator (a.k.a. *study*) from your strategy,
-- Insert `alertcondition()` calls in your indicator using your buy/sell conditions,
-- Create separate Buy and Sell alerts from TV Web,
+- Create an indicator (a.k.a. *study*) from your strategy.
+- Insert `alertcondition()` calls in your indicator using your buy/sell conditions.
+- Create separate Buy and Sell alerts from TV Web.
 - Link those alerts to a third-party app/bot which will relay orders to exchanges or brokers. See the [Automation](http://pinecoders.com/resources#automation) section of our Resources document.
 
 **[Back to top](#table-of-contents)**
@@ -238,12 +237,12 @@ When you need to create multiple alerts you can repeat the method above for ever
 When more than one condition can trigger a single alert, you will most probably need to have visual cues for each condition so that when users bring up a chart on which an alert triggered they can figure out which condition caused the alert to trigger. This is a method that allows users of your script to customize the alert to their needs.
 
 When TradingView creates an alert, it saves a snapshot of the environment that will enable the alert to run on the servers. The elements saved with an alert are:
-- Current symbol,
-- Current time frame,
-- State of the script's *Inputs* selections,
-- Current version of the script. Subsequent updates to the script’s code will not affect the alerts created with prior versions.
+- Current symbol
+- Current time frame
+- State of the script's *Inputs* selections
+- Current version of the script. Subsequent updates to the script’s code will not affect the alerts created with prior versions
 
-> Note that while alert condition code will compile in strategy scripts, they are only functional in studies.
+> Note that while alert condition code will compile in strategy scripts, alerts are only functional in studies.
 
 ### I have a custom script that generates alerts. How do I run it on many symbols?
 You need to create a separate alert for each symbol. There is currently no way to create an alert for all the symbols in a watchlist or for the Screener.
@@ -254,8 +253,8 @@ If one of the generic indicators supplied with the Screener suits your needs and
 The string may vary conditionally, but it must be of type *const string*, which implies it **must be known at compile time**.
 
 This requirement entails that neither the condition used to build the string nor values used to calculate the string itself can depend on:
-- Variables that are only known with the current chart or interval information such as `syminfo.ticker` or `timeframe.period`;
-- Calculations with results that can only be determined at runtime, e.g.,: `close > open`, `rsi(14)`, etc.;
+- Variables that are only known with the current chart or interval information such as `syminfo.ticker` or `timeframe.period`.
+- Calculations with results that can only be determined at runtime, e.g.,: `close > open`, `rsi(14)`, etc.
 - Calculations with results known at compile time, but of a type that cannot be cast to *const string*, such as `tostring()`.
 
 The first step when you are in doubt as to what can be used as an argument to a built-in function such as [`alertcondition()`](https://www.tradingview.com/pine-script-reference/v4/#fun_alertcondition) is to look up the Reference Manual:
@@ -269,8 +268,8 @@ The next step is to consult the automatic type casting rules diagram in the User
 ![.](TypeCasting_ConstString.png "Type Casting")
 
 The diagram shows you where the *const string* type is situated in the casting rules, which allows you to determine:
-- The types that will be allowed because they are above *const string*, meaning they can be cast to a *const string*;
-- The types that will **not** be allowed because they are below *const string*, meaning they **cannot** be cast to a *const string*;
+- The types that will be allowed because they are above *const string*, meaning they can be cast to a *const string*.
+- The types that will **not** be allowed because they are below *const string*, meaning they **cannot** be cast to a *const string*.
 
 This code shows examples that work and don't work:
 ```

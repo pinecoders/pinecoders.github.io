@@ -1,15 +1,17 @@
 # Writing guidelines for PineCoders Web content
 
-## Annotations
+## Terminology
+
+### Annotations
 Don't use the term *annotation*, as it most probably will be phased out. We use *function* for everything that was called an annotation, except for `study()` and `strategy()`, for which we use the term *declaration statement*.
 
-## Realtime
+### Realtime
 Use *realtime* rather than *real time* or *real-time*.
 
-## Script
+### Script
 *Script* is useful when referring to both *indicators* and *strategies*.
 
-## Study vs Indicator
+### Study vs Indicator
 Use *indicator* whenever you can, except when referring to the `study()` declaration statement itself.
 
 Example:
@@ -17,3 +19,13 @@ Example:
 
 Note than *indicator* is understood to include only *studies*. Pine strategies should be referred to as *strategies*—not *indicators*.
 
+## Style
+
+### Bulleted or enumerated lists punctuation
+Capitalize the first word of each element.
+
+List elements use no ending punctuation when they are not a sentence. This also applies to the last element in the list.<br>
+Use an ending period on all list elements when they are sentences, or when the majority is.
+
+### Capitalization of titles
+We follow the TradingView standard of capitalizing only the **first word** of titles.
