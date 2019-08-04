@@ -199,7 +199,7 @@ No. The brokers can only be used for manual trading. Currently, the only way to 
 - Create an indicator (a.k.a. *study*) from your strategy,
 - Insert `alertcondition()` calls in your indicator using your buy/sell conditions,
 - Create separate Buy and Sell alerts from TV Web,
-- Link those alerts to a third-party app/bot which will relay orders to exchanges. See the [Automation](https://pinecoders.com/resources#automation) section of our Resources document.
+- Link those alerts to a third-party app/bot which will relay orders to exchanges or brokers. See the [Automation](http://pinecoders.com/resources#automation) section of our Resources document.
 
 **[Back to top](#table-of-contents)**
 
