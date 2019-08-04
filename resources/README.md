@@ -17,6 +17,7 @@ Some of the tools are provided by third-party vendors. PineCoders does not benef
 - [Text Editor Highlighters for Pine](#text-editor-highlighters-for-pine)
 - [Videos](#videos)
 - [Automation](#automation)
+- [Color Pickers](#color-pickers)
 - [Custom Pine Coding](#custom-pine-coding)
 
 ## TradingView
@@ -100,6 +101,18 @@ ProfitView: Google Chrome extension that receives TV alerts and relays orders to
 AutoView: Google Chrome extension that receives TV alerts and relays orders to crypto exchanges.
 
 Instabot: An open source execution engine that relays orders received from HTTP requests to Bitfinex, Deribit and Coinbase Pro, with support for Bitmex and Binance planned.
+
+## Color Pickers
+[w3schools.com](https://www.w3schools.com/colors/default.asp)
+
+[ColorHexa](https://www.colorhexa.com/)
+
+[Paletton](http://paletton.com)
+
+[500 Most Popular PNG Image Colors](https://imgbin.com/colors)
+
+[december.com](https://www.december.com/html/spec/)
+
 
 ## Custom Pine Coding
 You can ask in the TV Pine Script Chat when you need custom Pine programming. If some coders are free, they will PM you.
