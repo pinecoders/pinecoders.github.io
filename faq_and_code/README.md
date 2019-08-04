@@ -42,7 +42,6 @@ If you need to define up and down candles, then make sure one of those definitio
 ```
 upCandle = close >= open
 downCandle = close < open
-
 ```
 
 **[Back to top](#table-of-contents)**
