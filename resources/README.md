@@ -21,33 +21,38 @@ Some of the tools are provided by third-party vendors. PineCoders does not benef
 
 ## TradingView
 [Pine v4 Reference Manual](https://www.tradingview.com/pine-script-reference/v4/)
+
 [Pine v4 User Manual](https://www.tradingview.com/pine-script-docs/en/v4/index.html)
 
-Pine v3 Language Reference Manual
+[Pine v3 Reference Manual](https://www.tradingview.com/pine-script-reference/v3/)
 
-Pine v3 Tutorial
+[Pine v3 User Manual](https://www.tradingview.com/wiki/Pine_Script_Tutorial)
 
-TV indicators wiki : a list of TV-developed indicators with source code for most of them and good explanations. This is also where you can find explanations on the TV Volume Profile, the source of which is not available.
+[TV indicators wiki](https://www.tradingview.com/wiki/Category:Indicators_and_overlays) : a list of TV-developed indicators with source code for most of them and good explanations. This is also where you can find explanations on the TV Volume Profile, the source of which is not available.
 
-From the Pine Editor: choose New and select from the list of built-in scripts to bring up its Pine source.
+From the Pine Editor: choose *New* and select from the list of built-in scripts to bring up its Pine source.
 
-TV Blog Posts on Pine: a selection of TV blog posts related to Pine.
+[TV Blog Posts on Pine](https://www.tradingview.com/blog/en/category/market-analysis/pine/): a selection of TV blog posts related to Pine.
 
-Pine Script Editor Chat Room: this is the TV chat dedicated to Pine. You can also access it from the Public Chats icon in TV. A useful chatroom where budding Pine scripters share and solve one another’s problems. When posting code in the chat, you can use the [pine] and [/pine] tags.
+[Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235): this is the TV chat dedicated to Pine. You can also access it from the Public Chats icon in TV. A useful chatroom where budding Pine scripters share and solve one another’s problems. When posting code in the chat, you can use the [pine] and [/pine] tags.
 
-Searching for scripts on TV: Go to TV's home page, select Scripts from the Ticker dropdown and enter your search criteria.
-Visit the Scripts page of good scripters publishing open source by using the list of TV scripters that Pinescripters follow on their Pinescripters TV account.
+[Searching for scripts on TV](https://www.tradingview.com/): From TV's home page, select *Scripts* from the *Ticker* dropdown and enter your search criteria.
+
+Visit the *Scripts* page of good scripters publishing open source by using the [*Following* list from the PineCoders TV account](https://www.tradingview.com/u/PineCoders/#following-people).
 
 ## PineCoders
-Learning Pine Roadmap: Our roadmap to learning Pine, for newcomers. Also has tips on what to do when you get stuck.
+<a href="http://www.pinecoders.com/learning_pine_roadmap">: Our roadmap to learning Pine, for newcomers. Also has tips on what to do when you get stuck.
 
-Pine FAQ & Code: Common questions asked by Pine coders, with answers or links to answers.
+<a href="http://www.pinecoders.com/faq_and_code">FAQ & Code</a>: Common questions asked by Pine coders, with answers or links to answers.
 
-Tools and educational Pine code on TradingView: We use our TradingView account to publish useful or fun code snippets, as well as full-blown tools like our Backtesting-Trading Engine.
+[Tools and educational Pine code on TradingView](https://www.tradingview.com/u/PineCoders/#published-scripts): We use our TradingView account to publish useful or fun code snippets, as well as full-blown tools like our [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/).
 
-We co-manage with TradingView staff our own Suggestions for Improvement to both Pine and the TradingView platform.
+We co-manage with TradingView's Pine team the [Suggestions for Improvement to Pine](https://trello.com/b/Jmv6c8Cx/tradingview-rfcs).
 
-GitHub: Pine-related Repositories
+Our managed [open source repository](https://github.com/pinecoders/pine-utils) of Pine code is where you will find:
+- [Snippets](https://github.com/pinecoders/pine-utils/tree/master/snippets) of reusable code,
+- Tricks and techniques to help you accomplish frequently needed tasks,
+- [Other open source projects](https://github.com/pinecoders) related to Pine.
 
 ## Educational Content
 Kodify: This is where you will find the largest, most complete and well-written set of in-depth articles on Pine.
