@@ -13,7 +13,7 @@
 
 ---
 
-PineCoders is a [TradingView](https://www.tradingview.com/)-supported group of programmers using TradingView's [Pine Script](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html) programming language. We help TV members learn Pine, provide tools and resources for beginning as well as pro coders, and collaborate with TradingView to make using Pine indicators and strategies easier for both coders and the general TV community.
+PineCoders is a [TradingView](https://www.tradingview.com/)-supported group of programmers using TradingView's [Pine Script](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html) programming language. We help TV members learn Pine, provide tools and resources for beginning as well as pro coders, and collaborate with TradingView to make using Pine indicators and strategies easier for both coders and the at-large TV community.
 
 The [Suggestions For Improvements To Pine](https://trello.com/b/Jmv6c8Cx) Trello board is co-managed by PineCoders and TradingView. This [card](https://trello.com/c/r0jKAKhK) explains how the board works, how any Trello user can comment/vote on suggestions and how to contribute new ideas or concepts to existing or non-existing topics.
 
