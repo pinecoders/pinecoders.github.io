@@ -13,7 +13,7 @@ Pinescripters does not endorse nor is involved with any of the resources mention
 - [PineCoders](#pinecoders)
 - [Pine Content Providers](#pine-content-providers)
 - [Forums](#forums)
-- [Text Editor Highlighters for Pine](#text-editor-highlighters-for-pine)
+- [Text Editor Highlighters for Pine](#highlighters)
 - [Videos](#videos)
 - [Automation](#automation)
 - [Custom Pine Coding](#custom-pine-coding)
