@@ -41,7 +41,7 @@ From the Pine Editor: choose *New* and select from the list of built-in scripts 
 Visit the *Scripts* page of good scripters publishing open source by using the [*Following* list from the PineCoders TV account](https://www.tradingview.com/u/PineCoders/#following-people).
 
 ## PineCoders
-<a href="http://www.pinecoders.com/learning_pine_roadmap">: Our roadmap to learning Pine, for newcomers. Also has tips on what to do when you get stuck.
+Our <a href="http://www.pinecoders.com/learning_pine_roadmap">Learning Pine Roadmap</a> for newcomers also has tips on what to do when you get stuck.
 
 <a href="http://www.pinecoders.com/faq_and_code">FAQ & Code</a>: Common questions asked by Pine coders, with answers or links to answers.
 
