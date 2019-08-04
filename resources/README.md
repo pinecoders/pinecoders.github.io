@@ -48,6 +48,8 @@ Our <a href="http://www.pinecoders.com/learning_pine_roadmap">Learning Pine Road
 
 <a href="http://www.pinecoders.com/faq_and_code">FAQ & Code</a>: Common questions asked by Pine coders, with answers or links to answers.
 
+Our <a href="http://www.pinecoders.com/coding_conventions">Coding Conventions</a> provide standard guidelines for writing Pine.
+
 [Tools and educational Pine code on TradingView](https://www.tradingview.com/u/PineCoders/#published-scripts): We use our TradingView account to publish useful or fun code snippets, as well as full-blown tools like our [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/).
 
 We co-manage with TradingView's Pine team the [Suggestions for Improvement to Pine](https://trello.com/b/Jmv6c8Cx/tradingview-rfcs).
