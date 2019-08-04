@@ -122,7 +122,11 @@ Besides the TV Pine Editor chat there are two other forums worth mentioning wher
 
 ## Custom Pine Coding
 You can ask in the TV Pine Script Chat when you need custom Pine programming. If some coders are free, they will PM you.
-Some well-known Pine coders with a good reputation for providing custom Pine-coding services can be found on TradingView. Here are their TV ids: @everget, @glaz (indicators only), @paaax, @mortdiggiddy.
+Some well-known Pine coders with a good reputation for providing custom Pine-coding services can be found on TradingView. Here are their TV ids:
+- @everget
+- @glaz (indicators only)
+- @mortdiggiddy
+- @paaax
 
 A few other suppliers of such services:
 - [Backtest Rookies](https://backtest-rookies.com/professional-services/): Backtest Rookies provide a slew of services related to Pine and trading.
