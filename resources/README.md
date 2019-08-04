@@ -20,9 +20,8 @@ Some of the tools are provided by third-party vendors. PineCoders does not benef
 - [Custom Pine Coding](#custom-pine-coding)
 
 ## TradingView
-Pine v4 Language Reference Manual
-
-Pine v4 Tutorial
+[Pine v4 Reference Manual](https://www.tradingview.com/pine-script-reference/v4/)
+[Pine v4 User Manual](https://www.tradingview.com/pine-script-docs/en/v4/index.html)
 
 Pine v3 Language Reference Manual
 
