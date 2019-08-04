@@ -9,6 +9,8 @@
 
 <div align="center"><font size="+1"><strong>Want to learn proper Pine coding style?<br></strong></font> Read our <a href="http://www.pinecoders.com/coding_conventions">Pine Coding Conventions</a>.</div>
 
+<div align="center"><font size="+1"><strong>Looking for Pine-related tools and resources?<br></strong></font> Read our <a href="http://www.pinecoders.com/resources">Pine Resources</a>.</div>
+
 ---
 
 PineCoders is a [TradingView](https://www.tradingview.com/)-supported group of programmers using TradingView's [Pine Script](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html) programming language. We help TV users learn Pine, provide tools and resources for beginning as well as pro coders, and collaborate with TradingView to make using Pine indicators and strategies easier for both coders and the general TV community.
