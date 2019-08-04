@@ -12,7 +12,7 @@ Some of the tools are provided by third-party vendors. PineCoders does not benef
 
 - [TradingView](#tradingview)
 - [PineCoders](#pinecoders)
-- [Pine Content Providers](#pine-content-providers)
+- [Educational Content](#educational-content)
 - [Forums](#forums)
 - [Text Editor Highlighters for Pine](#text-editor-highlighters-for-pine)
 - [Videos](#videos)
@@ -50,7 +50,7 @@ We co-manage with TradingView staff our own Suggestions for Improvement to both 
 
 GitHub: Pine-related Repositories
 
-## Pine Content Providers
+## Educational Content
 Kodify: This is where you will find the largest, most complete and well-written set of in-depth articles on Pine.
 
 Backtest Rookies: They produce quality material illustrating many of the typical tasks or subjects Pine coders want to do or explore.
