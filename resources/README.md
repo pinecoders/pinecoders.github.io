@@ -72,7 +72,7 @@ Besides the TV Pine Editor chat there are two other forums worth mentioning wher
 - [Pinescripters Telegram group](https://t.me/pinescripters): A large group with coders of all levels.
 
 ## Text Editor Highlighters for Pine
-[Notepad++ Highlighter](http://nidkil.me/2018/03/09/tradingview-pine-script-syntax-highlighting-for-notepad/)
+[Notepad++ Highlighter](https://github.com/nidkil/tradingview-pine-script-udl-npp)
 
 [VSCode Highlighter](https://marketplace.visualstudio.com/items?itemName=leifcr.pine-script-syntax-highlighting)
 
