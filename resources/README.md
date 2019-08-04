@@ -67,9 +67,9 @@ Our managed [open source repository](https://github.com/pinecoders/pine-utils) o
 ## Forums
 Besides the TV Pine Editor chat there are two other forums worth mentioning where you can ask questions:
 
-[StackOverflow](https://stackoverflow.com/questions/tagged/pine-script): In typical StackOverflow fashion, you ask questions and if they are appropriately detailed and clear, you will most often receive high-quality and reliable information as an answer.
+- [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script): In typical StackOverflow fashion, you ask questions and if they are appropriately detailed and clear, you will most often receive high-quality and reliable information as an answer.
 
-[Pinescripters Telegram group](https://t.me/pinescripters): A large group with coders of all levels.
+- [Pinescripters Telegram group](https://t.me/pinescripters): A large group with coders of all levels.
 
 ## Text Editor Highlighters for Pine
 [Notepad++ Highlighter](http://nidkil.me/2018/03/09/tradingview-pine-script-syntax-highlighting-for-notepad/)
