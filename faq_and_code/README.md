@@ -45,7 +45,7 @@ downCandle = close < open
 
 ```
 
-**[Back to top](#faq-code)**
+**[Back to top](#table-of-contents)**
 
 
 
@@ -56,7 +56,7 @@ downCandle = close < open
 ### Why do I get an error message when using highest() or lowest()?
 Most probably because you are trying to use a series instead of an integer as the second parameter (the length). Either use a [simple integer](https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html#simple) or use the [RicardoSantos](https://www.tradingview.com/u/RicardoSantos/#published-scripts) replacements [here](https://www.tradingview.com/script/32ohT5SQ-Function-Highest-Lowest/). If you don't know Ricardo, take the time to look at his indicators while you're there. Ricardo is among the most prolific and ingenious Pinescripters out there.
 
-**[Back to top](#faq-code)**
+**[Back to top](#table-of-contents)**
 
 
 
@@ -79,7 +79,7 @@ a := 2
 plot(a == 0 ? 1 : 2, color = aqua)
 ```
 
-**[Back to top](#faq-code)**
+**[Back to top](#table-of-contents)**
 
 
 
