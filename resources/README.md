@@ -4,7 +4,7 @@
 
 This document provides a list of Pine-related resources and tools.
 
-**Disclaimer**: PineCoders does not benefit from the adoption of these tools. Links to these tools do not contain referencing information benefiting PineCoders. While we select the tools and resources mentioned here, we do not endorse any of them and their inclusion here does not imply any guarantee of their worthiness. So please, before you decide to purchase anything, show due diligence and do your own research.
+**Disclaimer**: While we select the tools and resources mentioned here, we do not endorse any of them and their inclusion here does not imply any guarantee of their worthiness. So please, before you decide to purchase anything, show due diligence and do your own research. PineCoders does not benefit from the adoption of these tools and no links to them contain explicit referral information. 
 
 > The original version of this list was written by @chrysopoetics, a TradingView member.<br>We are grateful to him for allowing us to maintain it. **Thanks Hermes!**
 
