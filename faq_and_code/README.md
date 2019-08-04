@@ -45,7 +45,7 @@ downCandle = close < open
 
 ```
 
-**[Back to top](#faq-&-code)**
+**[Back to top](#faq-code)**
 
 
 
