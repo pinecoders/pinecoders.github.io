@@ -194,6 +194,13 @@ The best way to go about this is to write your strategies in such a way that the
 
 The PineCoders [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/) is a framework that allows you to easily convert betweeen strategy and indicator modes because it manages trades using custom Pine code that does not depend on an involved setup of `strategy.*()` call parameters.
 
+### Can my strategy generate orders through TV-supported brokers?
+No. The brokers can only be used for manual trading. Currently, the only way to automate trading using TradingView is to:
+- Create an indicator (a.k.a. *study*) from your strategy,
+- Insert `alertcondition()` calls in your indicator using your buy/sell conditions,
+- Create separate Buy and Sell alerts from TV Web,
+- Link those alerts to a third-party app/bot which will relay orders to exchanges or brokers. See the [Automation](http://pinecoders.com/resources#automation) section of our Resources document.
+
 **[Back to top](#table-of-contents)**
 
 
@@ -244,11 +251,9 @@ You need to create a separate alert for each symbol. There is currently no way t
 If one of the generic indicators supplied with the Screener suits your needs and your symbols are tagged with a color label, you can create an alert on those markets from within the Screener.
 
 ### Is it possible to use a string that varies as an argument to the `alertcondition()` function's `message=` parameter?
-The string may vary, but it must respect two conditions:
-- It must be known at compile time;
-- It must be of type *const string*.
+The string may vary conditionally, but it must be of type *const string*, which implies it **must be known at compile time**.
 
-This implies that it **cannot** depend on:
+This requirement entails that neither the condition used to build the string nor values used to calculate the string itself can depend on:
 - Variables that are only known with the current chart or interval information such as `syminfo.ticker` or `timeframe.period`;
 - Calculations with results that can only be determined at runtime, e.g.,: `close > open`, `rsi(14)`, etc.;
 - Calculations with results known at compile time, but of a type that cannot be cast to *const string*, such as `tostring()`.
@@ -304,8 +309,10 @@ alertcondition(true, title="Id appearing in Create Alert db", message = goodMsgA
 
 
 ### How do I save a value or state for later use?
-Backtest Rookies has a [blog post](https://backtest-rookies.com/2018/11/23/tradingview-save-a-variable-store-a-value-for-later/) on the subject.
-Pine Example: [Holding a state in a variable](https://www.tradingview.com/script/llcoIPKG-Pine-Example-Holding-a-state-in-a-variable/) by vitvlkv.
+Since v4 there exists a simpler way to save variable value from bar to bar, using the `var` keyword when initializing variables. See [here](https://www.tradingview.com/pine-script-docs/en/v4/language/Expressions_declarations_and_statements.html#variable-declaration) for more information. When using earlier versions of Pine, the following articles will be more useful:
+
+- Backtest Rookies has a [blog post](https://backtest-rookies.com/2018/11/23/tradingview-save-a-variable-store-a-value-for-later/) on the subject.
+- Pine Example: [Holding a state in a variable](https://www.tradingview.com/script/llcoIPKG-Pine-Example-Holding-a-state-in-a-variable/) by vitvlkv.
 
 ### How do I calculate averages?
 1. If you just want the average between two values, you can use `avg(val1, val2)` or `(val1 + val2)/2`. Note that the [`avg()`](https://www.tradingview.com/pine-script-reference/v4/#fun_avg) accepts up to 6 values.
