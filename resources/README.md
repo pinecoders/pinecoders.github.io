@@ -56,40 +56,38 @@ Our managed [open source repository](https://github.com/pinecoders/pine-utils) o
 - [Other open source projects](https://github.com/pinecoders) related to Pine.
 
 ## Educational Content
-Kodify: This is where you will find the largest, most complete and well-written set of in-depth articles on Pine.
+[Kodify](https://kodify.net/tradingview-programming-articles/): This is where you will find the largest, most complete and well-written set of in-depth articles on Pine.
 
-Backtest Rookies: They produce quality material illustrating many of the typical tasks or subjects Pine coders want to do or explore.
+[Backtest Rookies](https://backtest-rookies.com/category/tradingview/): They produce quality material illustrating many of the typical tasks or subjects Pine coders want to do or explore.
 
-PuppyTherapy (Medium): This is the Medium account of a user on TradingView and a Pinescripter by the same name. You may have used or seen his APEX indicators.
+[PuppyTherapy (Medium)](https://medium.com/@PuppyTherapyhttps://medium.com/@CryptoNTez): This is the Medium account of a user on TradingView and a Pinescripter by the same name. You may have used or seen his APEX indicators.
 
-CryptoNTez (Medium): Has a few Pine-related articles.
+[CryptoNTez (Medium)](https://medium.com/@CryptoNTez): Has a few Pine-related articles.
 
 ## Forums
-Besides the TV Pine Editor chat and the Pinescripters Telegram group, there are two other forums worth mentioning where you can ask questions:
+Besides the TV Pine Editor chat there are two other forums worth mentioning where you can ask questions:
 
-StackOverflow: In typical StackOverflow fashion, you ask questions and if they are appropriately detailed and clear, you will most often receive high-quality and reliable information as an answer.
+[StackOverflow](https://stackoverflow.com/questions/tagged/pine-script): In typical StackOverflow fashion, you ask questions and if they are appropriately detailed and clear, you will most often receive high-quality and reliable information as an answer.
 
-GetSatisfaction: This has served as the more or less official TV repository for user suggestions and questions since TV's beginnings. TV monitors activity there, but does not commit to providing answers to all posts.
-
-Pinescripters Telegram group: By far the most active group of Pine coders. Over 650 members, with pro scripters as well as newcomers. Makes for a hodgepodge of questions from beginners to discussions on intricate details of indicator and system design, and everything in between. 
+[Pinescripters Telegram group](https://t.me/pinescripters): A large group with coders of all levels.
 
 ## Text Editor Highlighters for Pine
-Notepad++ Highlighter
+[Notepad++ Highlighter](http://nidkil.me/2018/03/09/tradingview-pine-script-syntax-highlighting-for-notepad/)
 
-VS Highlighter
+[VSCode Highlighter](https://marketplace.visualstudio.com/items?itemName=leifcr.pine-script-syntax-highlighting)
 
-VIM
+[VIM](https://github.com/jbmorgado/vim-pine-script)
 
-GNU Emacs major-mode
+[GNU Emacs major-mode](https://github.com/EricCrosson/pine-script-mode)
 
 ## Videos
-QuantNomad (YouTube): By far the publisher who has the most videos on Pine.
+[QuantNomad (YouTube)](https://www.youtube.com/channel/UC57DoaeefbGM9nbcVA3V5mg): By far the publisher who has the most videos on Pine.
 
-Squiggly Lion (YouTube): Good quality tutorials.
+[Squiggly Lion (YouTube)](https://www.youtube.com/channel/UC4O-W0DfsAfPYPbxws2dIOw): Good quality tutorials.
 
-m1xolyd1an (YouTube): This guy doesn’t seem that many videos on Pine but he produces quite a lot of other content.
+[m1xolyd1an (YouTube)](https://www.youtube.com/user/m1xolyd1an/featured): This guy doesn’t seem that many videos on Pine but he produces quite a lot of other content.
 
-Market Calls (YouTube): Has many videos on trading concepts and a handful about TradingView and Pine.
+[Market Calls (YouTube)](https://www.youtube.com/user/marketcalls/featured): Has many videos on trading concepts and a handful about TradingView and Pine.
 
 ## Automation
 [Alertatron](https://alertatron.com/): A service that allows you to relay TradingView alerts to Telegram, Discord, Slack, Email or webhooks, with a chart snapshot attached. The developer is well-known in the Pinescripters community.
