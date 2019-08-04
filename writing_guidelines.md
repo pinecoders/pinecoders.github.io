@@ -26,4 +26,4 @@ List elements use no ending punctiation when they are not a sentence. This also 
 Use an ending period on all list elements when they are sentences, or when the majority is.
 
 ### Capitalization of titles
-We follow the TradingView standard of **capitalizing the first word only**.
+We follow the TradingView standard of capitalizing only the **first word** of titles.
