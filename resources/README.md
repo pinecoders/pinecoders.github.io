@@ -13,7 +13,7 @@ Pinescripters does not endorse nor is involved with any of the resources mention
 - [PineCoders](#pinecoders)
 - [Pine Content Providers](#pine-content-providers)
 - [Forums](#forums)
-- [Text Editor Highlighters for Pine](#highlighters)
+- [Text Editor Highlighters for Pine](#text-editor-highlighters-for-pine)
 - [Videos](#videos)
 - [Automation](#automation)
 - [Custom Pine Coding](#custom-pine-coding)
@@ -50,7 +50,7 @@ StackOverflow: In typical StackOverflow fashion, you ask questions and if they a
 GetSatisfaction: This has served as the more or less official TV repository for user suggestions and questions since TV's beginnings. TV monitors activity there, but does not commit to providing answers to all posts.
 Pinescripters Telegram group: By far the most active group of Pine coders. Over 650 members, with pro scripters as well as newcomers. Makes for a hodgepodge of questions from beginners to discussions on intricate details of indicator and system design, and everything in between. 
 
-## Text Editor Highlighters for Pine {#highlighters}
+## Text Editor Highlighters for Pine
 Notepad++ Highlighter
 VS Highlighter
 VIM
