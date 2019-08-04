@@ -92,15 +92,15 @@ m1xolyd1an (YouTube): This guy doesn’t seem that many videos on Pine but he pr
 Market Calls (YouTube): Has many videos on trading concepts and a handful about TradingView and Pine.
 
 ## Automation
-Alertatron: A service that allows you to relay TradingView alerts to Telegram, Discord, Slack, Email or webhooks, with a chart snapshot attached. The developer is well-known in the Pinescripters community.
+[Alertatron](https://alertatron.com/): A service that allows you to relay TradingView alerts to Telegram, Discord, Slack, Email or webhooks, with a chart snapshot attached. The developer is well-known in the Pinescripters community.
 
-3Commas: Can receive TV alerts and connect them to their bots to execute simple orders on crypto exchanges.
+[3Commas](https://3commas.io/): Can receive TV alerts and connect them to their bots to execute simple orders on crypto exchanges.
 
-ProfitView: Google Chrome extension that receives TV alerts and relays orders to crypto exchanges. Among Pinescripters, has the reputation of being better than AutoView.
+[ProfitView](https://wiki.profitview.app/home): Google Chrome extension that receives TV alerts and relays orders to crypto exchanges. Among Pinescripters, has the reputation of being better than AutoView.
 
-AutoView: Google Chrome extension that receives TV alerts and relays orders to crypto exchanges.
+[AutoView](https://autoview.with.pink/): Google Chrome extension that receives TV alerts and relays orders to crypto exchanges.
 
-Instabot: An open source execution engine that relays orders received from HTTP requests to Bitfinex, Deribit and Coinbase Pro, with support for Bitmex and Binance planned.
+[Instabot](https://instabot42.github.io/): An open source execution engine that relays orders received from HTTP requests to Bitfinex, Deribit and Coinbase Pro, with support for Bitmex and Binance planned.
 
 ## Color Pickers
 [w3schools.com](https://www.w3schools.com/colors/default.asp)
@@ -119,6 +119,6 @@ You can ask in the TV Pine Script Chat when you need custom Pine programming. If
 Some well-known Pine coders with a good reputation for providing custom Pine-coding services can be found on TradingView. Here are their TV ids: @everget, @glaz (indicators only), @paaax, @mortdiggiddy.
 
 A few other suppliers of such services:
-- Backtest Rookies: Backtest Rookies provide a slew of services related to Pine and trading.
-- 7G Trading Tools: Provides bespoke programming for trading strategies in multiple languages. Run by a guy called Mark Cottons. 
-- Codementor: This is simply a search for Pine script developers through the codementor platform.
+- [Backtest Rookies](https://backtest-rookies.com/professional-services/): Backtest Rookies provide a slew of services related to Pine and trading.
+- [7G Trading Tools](http://7gtradingtools.com/): Provides bespoke programming for trading strategies in multiple languages. Run by a guy called Mark Cottons. 
+- [Codementor](https://www.codementor.io/pine-script-experts): This is simply a search for Pine script developers through the codementor platform.
