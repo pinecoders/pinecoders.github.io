@@ -251,9 +251,9 @@ You need to create a separate alert for each symbol. There is currently no way t
 If one of the generic indicators supplied with the Screener suits your needs and your symbols are tagged with a color label, you can create an alert on those markets from within the Screener.
 
 ### Is it possible to use a string that varies as an argument to the `alertcondition()` function's `message=` parameter?
-The string may vary, but it must be of type *const string*, which implies it **must be known at compile time**.
+The string may vary conditionally, but it must be of type *const string*, which implies it **must be known at compile time**.
 
-This implies that it **cannot** depend on:
+This requirement entails that neither the condition used to build the string nor values used to calculate the string itself can depend on:
 - Variables that are only known with the current chart or interval information such as `syminfo.ticker` or `timeframe.period`;
 - Calculations with results that can only be determined at runtime, e.g.,: `close > open`, `rsi(14)`, etc.;
 - Calculations with results known at compile time, but of a type that cannot be cast to *const string*, such as `tostring()`.
