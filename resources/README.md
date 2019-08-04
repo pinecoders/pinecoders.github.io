@@ -2,10 +2,11 @@
 
 # Pine Resources
 
-This document provides a list of Pine-related resources and tools. Some of the tools are provided by third-party vendors. PineCoders has does not benefit from adoption of those tools and no links to them contain referencing information PineCoders benefits from. While we don't include all tools or resources available, their inclusion here does not imply any guarantee of their worthiness.
+This document provides a list of Pine-related resources and tools.
 
-The idea for this list and its first version originated from chrysopoetics on TradingView. We are grateful to him for allowing us to maintain it. Thanks Hermes!
-Pinescripters does not endorse nor is involved with any of the resources mentioned here. While some of their developers may be part of Pinescripters, their activities are independent from ours. So please, before you decide to purchase anything, show due diligence and do your own research. If in doubt, reach out to our community.
+Some of the tools are provided by third-party vendors. PineCoders does not benefit from adoption of those tools and no links to them from this document contain referencing information which PineCoders benefits from. While we don't include all tools or resources available, their inclusion here does not imply any guarantee of their worthiness. We do not endorse any of the tools mentioned here. So please, before you decide to purchase anything, show due diligence and do your own research.
+
+> The idea for this list and its first version originated from @chrysopoetics on TradingView. We are grateful to him for allowing us to maintain it. Thanks Hermes!
 
 ### Table of Contents
 
