@@ -194,6 +194,13 @@ The best way to go about this is to write your strategies in such a way that the
 
 The PineCoders [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/) is a framework that allows you to easily convert betweeen strategy and indicator modes because it manages trades using custom Pine code that does not depend on an involved setup of `strategy.*()` call parameters.
 
+### Can my strategy generate orders through TV-supported brokers?
+No. The brokers can only be used for manual trading. Currently, the only way to automate trading using TradingView is to:
+- Create an indicator (a.k.a. *study*) from your strategy,
+- Insert `alertcondition()` calls in your indicator using your buy/sell conditions,
+- Create separate Buy and Sell alerts from TV Web,
+- Link those alerts to a third-party app/bot which will relay orders to exchanges. See the [Automation]() section of our Resources document.
+
 **[Back to top](#table-of-contents)**
 
 
