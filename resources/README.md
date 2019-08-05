@@ -18,7 +18,7 @@ This document provides a list of Pine-related resources and tools.
 - [Automation](#automation)
 - [Text Editor Highlighters for Pine](#text-editor-highlighters-for-pine)
 - [Color Pickers](#color-pickers)
-- [Custom Pine Coding](#custom-pine-coding)
+- [Work For Hire Pine Programmers](#work-forh-ire-pine-programmers)
 - [On GitHub](#on-github)
 
 
@@ -123,9 +123,9 @@ Besides the TV Pine Editor chat there are two other forums worth mentioning wher
 [december.com](https://www.december.com/html/spec/)
 
 
-## Custom Pine Coding
-You can ask in the TV Pine Script Chat when you need custom Pine programming. If some coders are free, they will PM you.
-Some well-known Pine coders with a good reputation for providing custom Pine-coding services can be found on TradingView. Here are their TV ids:
+## Work For Hire Pine Programmers
+This list contains the TV id of Pine programmers we know and who have a good reputation of providing quality paid Pine custom coding. You can also ask in the TV Pine Script Chat when you need paid custom Pine programming. If some coders are free, they will PM you.
+
 - [a.tesla2018](https://www.tradingview.com/u/a.tesla2018/)
 - [Daveatt](https://www.tradingview.com/u/Daveatt/)
 - [Duyck](https://www.tradingview.com/u/Duyck/)
