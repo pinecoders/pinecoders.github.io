@@ -152,3 +152,5 @@ Well-know TV Pine Coder [@everget](https://www.tradingview.com/u/everget/) has a
 [VIM](https://github.com/jbmorgado/vim-pine-script)
 
 [GNU Emacs major-mode](https://github.com/EricCrosson/pine-script-mode)
+
+**[Back to top](#pine-resources)**
