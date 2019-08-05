@@ -62,7 +62,7 @@ Our managed [PineCoders Repository](https://github.com/pinecoders/pine-utils) on
 
 
 ## Educational Content
-[Kodify](https://kodify.net/tradingview-programming-articles/): The indispensable and largest, most complete and well-written set of in-depth articles on Pine. Articles discuss many finer points of Pine not covered elsewhere.
+[Kodify](https://kodify.net/tradingview-programming-articles/): The indispensable and largest, most complete and well-written set of in-depth articles on Pine. Articles discuss many finer points of Pine not covered elsewhere. More than 200 articles to help you master Pine.
 
 [Backtest Rookies](https://backtest-rookies.com/category/tradingview/): They produce quality material illustrating many of the typical tasks or subjects Pine coders want to do or explore.
 
