@@ -23,7 +23,7 @@ We also pilot the [PineCoders](https://www.tradingview.com/u/PineCoders/#publish
 
 PineCoders works daily with TradingView's Pine team to identify and validate anomalies and test upcoming new features.
 
-Our managed [open source repository](https://github.com/pinecoders/pine-utils) of Pine code is where you will find:
+Our managed [open source repository](https://github.com/pinecoders/pine-utils) of Pine code contains:
 - [Snippets](https://github.com/pinecoders/pine-utils/tree/master/snippets) of reusable code,
 - Tricks and techniques to help you accomplish frequently needed tasks,
 - [Other open source projects](https://github.com/pinecoders) related to Pine.
