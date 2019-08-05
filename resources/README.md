@@ -35,7 +35,7 @@ This document provides a list of Pine-related resources and tools.
 
 From the Pine Editor: choose *New* and select from the list of built-in scripts to bring up its Pine source.
 
-[TV Blog Posts on Pine](https://www.tradingview.com/blog/en/category/market-analysis/pine/): a selection of TV blog posts related to Pine.
+[TV blog posts on Pine](https://www.tradingview.com/blog/en/category/market-analysis/pine/): a selection of TV blog posts related to Pine.
 
 [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235): this is the TV chat dedicated to Pine. You can also access it from the Public Chats icon in TV. A useful chatroom where budding Pine scripters share and solve one another’s problems. When posting code in the chat, you can use the [pine] and [/pine] tags.
 
