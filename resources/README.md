@@ -153,4 +153,6 @@ Well-know TV Pine Coder [@everget](https://www.tradingview.com/u/everget/) has a
 
 [GNU Emacs major-mode](https://github.com/EricCrosson/pine-script-mode)
 
+<br>
+
 **[Back to top](#pine-resources)**
