@@ -116,7 +116,7 @@ study("My Script", overlay = true)
 ```
 If your indicator was already in a Pane before applying this change, you will need to use Add to Chart again for the change to become active.
 
-### Can I put plot calls in a `for` loop?
+### Can I use `plot()` calls in a `for` loop?
 No, but you can use the v4 [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function in `for` loops.
 
 **[Back to top](#table-of-contents)**
