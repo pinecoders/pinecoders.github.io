@@ -55,7 +55,7 @@ Our <a href="http://www.pinecoders.com/coding_conventions">Coding Conventions</a
 
 We co-manage with TradingView's Pine team the [Suggestions for Improvement to Pine](https://trello.com/b/Jmv6c8Cx/tradingview-rfcs).
 
-Our managed [open source repository](https://github.com/pinecoders/pine-utils) of Pine code is where you will find:
+Our managed [PineCoders Repository](https://github.com/pinecoders/pine-utils) on GitHub contains:
 - [Snippets](https://github.com/pinecoders/pine-utils/tree/master/snippets) of reusable code,
 - Tricks and techniques to help you accomplish frequently needed tasks,
 - [Other open source projects](https://github.com/pinecoders) related to Pine.
