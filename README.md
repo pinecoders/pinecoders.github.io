@@ -7,7 +7,7 @@
 
 <div align="center"><font size="+1"><strong>Have a question?<br></strong></font> Go to our Pine <a href="http://www.pinecoders.com/faq_and_code">FAQ & Code</a>.</div>
 
-<div align="center"><font size="+1"><strong>Looking for reusable Pine code?<br></strong></font> The PineCoders repository<a href="https://github.com/pinecoders/pine-utils">FAQ & Code</a> is your friend.</div>
+<div align="center"><font size="+1"><strong>Looking for reusable Pine code?<br></strong></font> The <a href="https://github.com/pinecoders/pine-utils">PineCoders repository</a> is your friend.</div>
 
 <div align="center"><font size="+1"><strong>Want to learn proper Pine coding style?<br></strong></font> Read our <a href="http://www.pinecoders.com/coding_conventions">Pine Coding Conventions</a>.</div>
 
