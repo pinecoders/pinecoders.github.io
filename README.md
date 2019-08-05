@@ -7,6 +7,8 @@
 
 <div align="center"><font size="+1"><strong>Have a question?<br></strong></font> Go to our Pine <a href="http://www.pinecoders.com/faq_and_code">FAQ & Code</a>.</div>
 
+<div align="center"><font size="+1"><strong>Looking for reusable Pine code?<br></strong></font> The <a href="https://github.com/pinecoders/pine-utils">PineCoders Repository</a>  on GitHub is your friend.</div>
+
 <div align="center"><font size="+1"><strong>Want to learn proper Pine coding style?<br></strong></font> Read our <a href="http://www.pinecoders.com/coding_conventions">Pine Coding Conventions</a>.</div>
 
 <div align="center"><font size="+1"><strong>Looking for Pine-related tools or resources?<br></strong></font> Use our list of <a href="http://www.pinecoders.com/resources">Pine Resources</a>.</div>
@@ -21,8 +23,7 @@ We also pilot the [PineCoders](https://www.tradingview.com/u/PineCoders/#publish
 
 PineCoders works daily with TradingView's Pine team to identify and validate anomalies and test upcoming new features.
 
-Our managed [open source repository](https://github.com/pinecoders/pine-utils) of Pine code is where you will find:
+Our managed [PineCoders Repository](https://github.com/pinecoders/pine-utils) on GitHub contains:
 - [Snippets](https://github.com/pinecoders/pine-utils/tree/master/snippets) of reusable code,
 - Tricks and techniques to help you accomplish frequently needed tasks,
 - [Other open source projects](https://github.com/pinecoders) related to Pine.
-
