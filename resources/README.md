@@ -141,7 +141,7 @@ A few other suppliers of such services:
 
 
 ## On GitHub
-Well-know TV Pine Coder [@everget](https://www.tradingview.com/u/everget/) has a large collection of indicators [here](https://github.com/pinecoders/tradingview-pinescript-indicators).
+Well-known TV Pine coder [everget](https://www.tradingview.com/u/everget/) has a large collection of indicators [here](https://github.com/pinecoders/tradingview-pinescript-indicators).
 
 [Instabot](https://instabot42.github.io/): An open source execution engine that relays orders received from HTTP requests to Bitfinex, Deribit and Coinbase Pro, with support for Bitmex and Binance planned.
 
