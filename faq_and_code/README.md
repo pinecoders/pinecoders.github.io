@@ -277,11 +277,11 @@ This code shows examples that work and don't work:
 study("alertcondition arguments")
 
 // ————— These strings will not work.
-// The rsi() value can only be known at compile time and it is a "series",
+// The rsi() value can only be known at runtime time and it is a "series",
 // so "wrongMsgArg1" becomes a "series string".
 wrongMsgArg1 = "RSI value is:" + tostring( rsi(close, 14))
 // This does not work because although the result can be calculated at compile time,
-// "tostring()" returns an "simple string" (a.k.a. "string"),
+// "tostring()" returns a "simple string" (a.k.a. "string"),
 // and automatic casting rules do not allow for that type to be cast to "const string".
 wrongMsgArg2 = "Enter at: " + tostring(100.3)
 // This fails because the condition can only be evaluated at compile time,
