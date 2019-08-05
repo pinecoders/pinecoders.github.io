@@ -18,7 +18,7 @@ This document provides a list of Pine-related resources and tools.
 - [Automation](#automation)
 - [Text Editor Highlighters for Pine](#text-editor-highlighters-for-pine)
 - [Color Pickers](#color-pickers)
-- [Work For Hire Pine Programmers](#work-forh-ire-pine-programmers)
+- [Work For Hire Pine Programmers](#work-for-hire-pine-programmers)
 - [On GitHub](#on-github)
 
 
