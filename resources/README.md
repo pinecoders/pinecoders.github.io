@@ -124,7 +124,7 @@ Besides the TV Pine Editor chat there are two other forums worth mentioning wher
 
 
 ## Work For Hire Pine Programmers
-This list contains the TV id of Pine programmers we know and who have a good reputation of providing quality paid Pine custom coding. You can also ask in the TV Pine Script Chat when you need paid custom Pine programming. If some coders are free, they will PM you.
+This list contains the TV name of Pine programmers we know and who have a good reputation of providing quality paid Pine custom coding. You can also ask in the TV Pine Script Chat when you need paid custom Pine programming. If some coders are free, they will PM you.
 
 - [a.tesla2018](https://www.tradingview.com/u/a.tesla2018/)
 - [Daveatt](https://www.tradingview.com/u/Daveatt/)
