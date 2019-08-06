@@ -35,7 +35,7 @@ This document provides a list of Pine-related resources and tools.
 
 From the Pine Editor: choose *New* and select from the list of built-in scripts to bring up its Pine source.
 
-[TV Blog Posts on Pine](https://www.tradingview.com/blog/en/category/market-analysis/pine/): a selection of TV blog posts related to Pine.
+[TV blog posts on Pine](https://www.tradingview.com/blog/en/category/market-analysis/pine/): a selection of TV blog posts related to Pine.
 
 [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235): this is the TV chat dedicated to Pine. You can also access it from the Public Chats icon in TV. A useful chatroom where budding Pine scripters share and solve one another’s problems. When posting code in the chat, you can use the [pine] and [/pine] tags.
 
@@ -55,14 +55,14 @@ Our <a href="http://www.pinecoders.com/coding_conventions">Coding Conventions</a
 
 We co-manage with TradingView's Pine team the [Suggestions for Improvement to Pine](https://trello.com/b/Jmv6c8Cx/tradingview-rfcs).
 
-Our managed [open source repository](https://github.com/pinecoders/pine-utils) of Pine code is where you will find:
+Our managed [PineCoders Repository](https://github.com/pinecoders/pine-utils) on GitHub contains:
 - [Snippets](https://github.com/pinecoders/pine-utils/tree/master/snippets) of reusable code,
 - Tricks and techniques to help you accomplish frequently needed tasks,
 - [Other open source projects](https://github.com/pinecoders) related to Pine.
 
 
 ## Educational Content
-[Kodify](https://kodify.net/tradingview-programming-articles/): This is where you will find the largest, most complete and well-written set of in-depth articles on Pine.
+[Kodify](https://kodify.net/tradingview-programming-articles/): The indispensable and largest, most complete and well-written set of in-depth articles on Pine. Articles discuss many finer points of Pine not covered elsewhere. More than 200 articles to help you master Pine.
 
 [Backtest Rookies](https://backtest-rookies.com/category/tradingview/): They produce quality material illustrating many of the typical tasks or subjects Pine coders want to do or explore.
 
@@ -124,7 +124,7 @@ Besides the TV Pine Editor chat there are two other forums worth mentioning wher
 
 
 ## Work For Hire Pine Programmers
-This list contains the TV id of Pine programmers we know and who have a good reputation of providing quality paid Pine custom coding. You can also ask in the TV Pine Script Chat when you need paid custom Pine programming. If some coders are free, they will PM you.
+This list contains the TV name of Pine programmers we know and who have a good reputation of providing quality paid Pine custom coding. You can also ask in the TV Pine Script Chat when you need paid custom Pine programming. If some coders are free, they will PM you.
 
 - [a.tesla2018](https://www.tradingview.com/u/a.tesla2018/)
 - [Daveatt](https://www.tradingview.com/u/Daveatt/)
