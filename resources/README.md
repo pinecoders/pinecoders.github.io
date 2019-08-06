@@ -15,10 +15,10 @@ This document provides a list of Pine-related resources and tools.
 - [Educational Content](#educational-content)
 - [Forums](#forums)
 - [Videos](#videos)
+- [Work For Hire Pine Programmers](#work-for-hire-pine-programmers)
 - [Automation](#automation)
 - [Text Editor Highlighters for Pine](#text-editor-highlighters-for-pine)
 - [Color Pickers](#color-pickers)
-- [Work For Hire Pine Programmers](#work-for-hire-pine-programmers)
 - [On GitHub](#on-github)
 
 
@@ -89,6 +89,24 @@ Besides the TV Pine Editor chat there are two other forums worth mentioning wher
 [Market Calls (YouTube)](https://www.youtube.com/user/marketcalls/featured): Has many videos on trading concepts and a handful about TradingView and Pine.
 
 
+## Work For Hire Pine Programmers
+This list contains the TV name of Pine programmers we know and who have a good reputation of providing quality paid Pine custom coding. You can also ask in the TV Pine Script Chat when you need paid custom Pine programming. If some coders are free, they will PM you.
+
+- [a.tesla2018](https://www.tradingview.com/u/a.tesla2018/)
+- [Daveatt](https://www.tradingview.com/u/Daveatt/)
+- [Duyck](https://www.tradingview.com/u/Duyck/)
+- [everget](https://www.tradingview.com/u/everget/)
+- [gyromatical](https://www.tradingview.com/u/gyromatical/)
+- [glaz](https://www.tradingview.com/u/glaz/) (indicators only)
+- [mortdiggiddy](https://www.tradingview.com/u/mortdiggiddy/)
+- [paaax](https://www.tradingview.com/u/paaax/)
+
+A few other suppliers of such services:
+- [Backtest Rookies](https://backtest-rookies.com/professional-services/): Backtest Rookies provide a slew of services related to Pine and trading.
+- [7G Trading Tools](http://7gtradingtools.com/): Provides bespoke programming for trading strategies in multiple languages. Run by a guy called Mark Cottons. 
+- [Codementor](https://www.codementor.io/pine-script-experts): This is simply a search for Pine script developers through the codementor platform.
+
+
 ## Automation
 [Alertatron](https://alertatron.com/): A service that allows you to relay TradingView alerts to Telegram, Discord, Slack, Email or webhooks, with a chart snapshot attached. The developer is well-known in the Pinescripters community.
 
@@ -123,25 +141,9 @@ Besides the TV Pine Editor chat there are two other forums worth mentioning wher
 [december.com](https://www.december.com/html/spec/)
 
 
-## Work For Hire Pine Programmers
-This list contains the TV name of Pine programmers we know and who have a good reputation of providing quality paid Pine custom coding. You can also ask in the TV Pine Script Chat when you need paid custom Pine programming. If some coders are free, they will PM you.
-
-- [a.tesla2018](https://www.tradingview.com/u/a.tesla2018/)
-- [Daveatt](https://www.tradingview.com/u/Daveatt/)
-- [Duyck](https://www.tradingview.com/u/Duyck/)
-- [everget](https://www.tradingview.com/u/everget/)
-- [gyromatical](https://www.tradingview.com/u/gyromatical/)
-- [glaz](https://www.tradingview.com/u/glaz/) (indicators only)
-- [mortdiggiddy](https://www.tradingview.com/u/mortdiggiddy/)
-- [paaax](https://www.tradingview.com/u/paaax/)
-
-A few other suppliers of such services:
-- [Backtest Rookies](https://backtest-rookies.com/professional-services/): Backtest Rookies provide a slew of services related to Pine and trading.
-- [7G Trading Tools](http://7gtradingtools.com/): Provides bespoke programming for trading strategies in multiple languages. Run by a guy called Mark Cottons. 
-- [Codementor](https://www.codementor.io/pine-script-experts): This is simply a search for Pine script developers through the codementor platform.
-
-
 ## On GitHub
+[PineCoders Repository](https://github.com/pinecoders/pine-utils) of reusable Pine code on GitHub.
+
 Well-known TV Pine coder [everget](https://www.tradingview.com/u/everget/) has a large collection of indicators [here](https://github.com/pinecoders/tradingview-pinescript-indicators).
 
 [Instabot](https://instabot42.github.io/): An open source execution engine that relays orders received from HTTP requests to Bitfinex, Deribit and Coinbase Pro, with support for Bitmex and Binance planned.
