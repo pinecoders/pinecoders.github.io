@@ -130,6 +130,7 @@ This list contains the TV name of Pine programmers we know and who have a good r
 - [Daveatt](https://www.tradingview.com/u/Daveatt/)
 - [Duyck](https://www.tradingview.com/u/Duyck/)
 - [everget](https://www.tradingview.com/u/everget/)
+- [gyromatical](https://www.tradingview.com/u/gyromatical/)
 - [glaz](https://www.tradingview.com/u/glaz/) (indicators only)
 - [mortdiggiddy](https://www.tradingview.com/u/mortdiggiddy/)
 - [paaax](https://www.tradingview.com/u/paaax/)
