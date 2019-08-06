@@ -10,7 +10,7 @@ This document aims to provide information that will be useful for newcomers to t
 - [What’s Pine?](#whats-Pine)
 - [Pine runtime environment](#pine-runtime-environment)
 - [Series](#series)
-- [New to programming?](#new-to-programming)
+- [Programming in Pine](#programming-in-pine)
 - [Code examples](#code-examples)
 - [Troubleshooting Pine code](#troubleshooting-pine-code)
 - [Conversion from other platforms](#conversion-from-other-platforms)
@@ -47,12 +47,14 @@ Pine indicator code executes once for each bar of the dataset, starting from the
 The main data type used in Pine scripts is called a series. It is a continuous list of values that stretches back in time from the current bar and where one value exists for each bar. While this structure may remind many of an array, a Pine series is totally different and thinking in terms of arrays will be detrimental to understanding this key Pine concept. You can read about series [here](https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html#series) and get more information on how to use them [here](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-referencing-operator).<br/>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;— quoted from the Pine v4 documentation
 
-## New to programming?
+## Programming in Pine
 If you are new to programming, then you have a double learning curve to go through: learn to program and learn Pine. You will need to do your homework and spend the countless hours required to become able to convert your trading ideas into working code.
 
 Either way, the most productive way to learn is always to start playing with real code early. Start with the examples in the next section. Make slight changes to the code and see what impact they have, and you’ll be on your way.
 
 If you already have programming experience, learning Pine is mostly about becoming proficient in manipulating series, and then understanding the abstractions, the runtime environment and the typing and runtime limitations, as the language itself is straightforward.
+
+Whether you are new to programming or a veteran, the PineCoders <a href="http://www.pinecoders.com/coding_conventions">Pine Coding Conventions</a> will provide useful coding guidelines you can choose to adopt.
 
 ## Code examples
 
