@@ -52,7 +52,7 @@ downCandle = close < open
 ## BUILT-IN FUNCTIONS
 
 
-### Why do I get an error message when using highest() or lowest()?
+### Why do I get an error message when using `highest()` or `lowest()`?
 Most probably because you are trying to use a series instead of an integer as the second parameter (the length). Either use a [simple integer](https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html#simple) or use the [RicardoSantos](https://www.tradingview.com/u/RicardoSantos/#published-scripts) replacements [here](https://www.tradingview.com/script/32ohT5SQ-Function-Highest-Lowest/). If you don't know Ricardo, take the time to look at his indicators while you're there. Ricardo is among the most prolific and ingenious Pinescripters out there.
 
 **[Back to top](#table-of-contents)**

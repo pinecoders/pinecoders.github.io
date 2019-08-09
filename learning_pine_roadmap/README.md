@@ -7,10 +7,10 @@ This document aims to provide information that will be useful for newcomers to t
 ### Table of Contents
 
 - [Where to go?](#where-to-go)
-- [What’s Pine?](#whats-Pine)
+- [What’s Pine?](#whats-pine)
 - [Pine runtime environment](#pine-runtime-environment)
 - [Series](#series)
-- [New to programming?](#new-to-programming)
+- [Programming in Pine](#programming-in-pine)
 - [Code examples](#code-examples)
 - [Troubleshooting Pine code](#troubleshooting-pine-code)
 - [Conversion from other platforms](#conversion-from-other-platforms)
@@ -30,7 +30,7 @@ Follow the instructions in the User Manual's [Quickstart Guide](https://www.trad
 
 ## What’s Pine?
 
-Pine is a specialized language used to write scripts that can take two very different forms: **studies** (a.k.a. **indicators**, as we will name them) or backtesting **strategies**. *Indicators* are used to show graphic information on a chart or in an indicator Pane. If you wish to write a MACD indicator in Pine, you do that by creating a script using the `study()` declaration statement at the beginning of the script. **Strategies** use the `strategy()` declaration statement and can display visual information on charts or Panes in the same way an indicator would, but they also contain additional Pine statements to simulate trades in order to run backtests.
+Pine is a specialized language used to write scripts that can take two very different forms: **studies** (a.k.a. **indicators**, as we will name them) or backtesting **strategies**. *Indicators* are used to show graphic information on a chart or in an indicator Pane. If you wish to write a MACD indicator in Pine, you do that by creating a script using the `study()` declaration statement at the beginning of the script. **Strategies** use the `strategy()` declaration statement and can display visual information on charts or in panes in the same way an indicator would, but they also contain additional Pine statements to simulate trades in order to run backtests.
 
 If you want to design a trading system that trades on MACD setups, you may write a *strategy* to test it, and then convert it to an *indicator* to generate alerts in order to discretionary trade on them, or send them to a third-party execution bot for relaying orders to markets. Be sure to look at the PineCoders [Backtesting and Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-Pinescripters/) if this is your objective.
 
@@ -47,12 +47,14 @@ Pine indicator code executes once for each bar of the dataset, starting from the
 The main data type used in Pine scripts is called a series. It is a continuous list of values that stretches back in time from the current bar and where one value exists for each bar. While this structure may remind many of an array, a Pine series is totally different and thinking in terms of arrays will be detrimental to understanding this key Pine concept. You can read about series [here](https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html#series) and get more information on how to use them [here](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-referencing-operator).<br/>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;— quoted from the Pine v4 documentation
 
-## New to programming?
+## Programming in Pine
 If you are new to programming, then you have a double learning curve to go through: learn to program and learn Pine. You will need to do your homework and spend the countless hours required to become able to convert your trading ideas into working code.
 
 Either way, the most productive way to learn is always to start playing with real code early. Start with the examples in the next section. Make slight changes to the code and see what impact they have, and you’ll be on your way.
 
 If you already have programming experience, learning Pine is mostly about becoming proficient in manipulating series, and then understanding the abstractions, the runtime environment and the typing and runtime limitations, as the language itself is straightforward.
+
+Whether you are new to programming or a veteran, the PineCoders <a href="http://www.pinecoders.com/coding_conventions">Pine Coding Conventions</a> will provide useful coding guidelines you can choose to adopt.
 
 ## Code examples
 
@@ -67,7 +69,7 @@ If you already have programming experience, learning Pine is mostly about becomi
 
 Here are a few methods for troubleshooting pine-related issues:
 
-- The are tens of thousands of scripts published on TradingView, many with open source code. To find them, you can browse scripts on TV from [here](https://www.tradingview.com/scripts/), or search TV scripts by going to TradingView’s [main page](https://www.tradingview.com/), selecting *Scripts* in the dropdown at the left of the search field and entering what you are looking for.
+- There are tens of thousands of scripts published on TradingView, many with open source code. To find them, you can browse scripts on TV from [here](https://www.tradingview.com/scripts/), or search TV scripts by going to TradingView’s [main page](https://www.tradingview.com/), selecting *Scripts* in the dropdown at the left of the search field and entering what you are looking for.
 
 ![search](search_for_scripts.png "Search for scripts")
 
