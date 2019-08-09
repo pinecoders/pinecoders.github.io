@@ -7,7 +7,7 @@ This document aims to provide information that will be useful for newcomers to t
 ### Table of Contents
 
 - [Where to go?](#where-to-go)
-- [What’s Pine?](#whats-Pine)
+- [What’s Pine?](#whats-Pine?)
 - [Pine runtime environment](#pine-runtime-environment)
 - [Series](#series)
 - [Programming in Pine](#programming-in-pine)
