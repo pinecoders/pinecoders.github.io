@@ -324,7 +324,7 @@ Since v4 there exists a simpler way to save variable value from bar to bar, usin
 [This script](https://www.tradingview.com/script/isSfahiX-Averages-PineCoders-FAQ/) shows how to calculate a conditional average using three different methods.
 
 ### How to avoid repainting when using the ``security()`` function?
-See the discussion published with the How to avoid repainting when using security() indicator.
+See the discussion published with the PineCoders indicator [How to avoid repainting when using security()]().
 
 The easiest way is to use the following syntax for v4:
 ```
