@@ -323,5 +323,18 @@ Since v4 there exists a simpler way to save variable value from bar to bar, usin
 ### How can I calculate an average only when a certain condition is true?
 [This script](https://www.tradingview.com/script/isSfahiX-Averages-PineCoders-FAQ/) shows how to calculate a conditional average using three different methods.
 
+### How to avoid repainting when using the ``security()`` function?
+See the discussion published with the How to avoid repainting when using security() indicator.
+
+The easiest way is to use the following syntax for v4:
+```
+security(syminfo.tickerid, “D”, close[1], lookahead = barmerge.lookahead_on)
+```
+And this for v3:
+```
+security(tickerid, “D”, close[1], lookahead = barmerge.lookahead_on)
+```
+
+
 **[Back to top](#table-of-contents)**
 
