@@ -87,7 +87,7 @@ plot(a == 0 ? 1 : 2, color = aqua)
 
 
 ### Can I plot diagonals between two points on the chart?
-Yes, using the [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function available in v4.
+Yes, using the [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function available in v4. See the [Trendlines - JD](https://www.tradingview.com/script/mpeEgn5J-Trendlines-JD/) indicator by Duyck.
 
 ### How do I plot a line using start/stop criteria?
 You'll need to define your start and stop conditions and use logic to remember states and the level you want to plot.
@@ -200,6 +200,9 @@ Once you've made sure your scales will be compatible (or you have devised a way 
 <br><br>
 ## STRATEGIES
 
+
+### Why are my orders executed on the bar following my triggers?
+TradingView backtesting evaluates conditions at the close of historical bars. When a condition triggers, the associated order is executed at the open of the **next bar**, since the bar where the condition is detected is already closed. In the real-time bar, orders may be executed on the *tick* (price change) following detection of a condition. While this may seem appealing, it is important to realize that if you use `cal_on_every_tick=true` in the `strategy()` declaration statement to make your strategy work this way, you are going to be running a different strategy than the one you tested on historical bars. See the [Strategies](https://www.tradingview.com/pine-script-docs/en/v4/essential/Strategies.html) page of the User Manual for more information.
 
 ### How do I implement date range filtering in strategies?
 ```
