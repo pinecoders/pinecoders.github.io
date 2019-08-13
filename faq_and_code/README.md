@@ -91,7 +91,8 @@ Yes, using the [`line.new()`](https://www.tradingview.com/pine-script-reference/
 
 ### How do I plot a line using start/stop criteria?
 You'll need to define your start and stop conditions and use logic to remember states and the level you want to plot.
-> Note the combination of plotting `na` and using the `style = plot.style_linebr` parameter to avoid the plot lines from being joined on the chart.
+
+Note the combination of plotting `na` and using the `style = plot.style_linebr` parameter to avoid a continuous line to be plotted, including inelegant joins when it changes levels.
 ```
 //@version=4
 study("Plot line from start to end condition", overlay=true)
