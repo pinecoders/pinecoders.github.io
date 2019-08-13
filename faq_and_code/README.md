@@ -93,6 +93,8 @@ Yes, using the [`line.new()`](https://www.tradingview.com/pine-script-reference/
 You'll need to define your start and stop conditions and use logic to remember states and the level you want to plot.
 
 Note the `plot()` call using a combination of plotting `na` and the `style = plot.style_linebr` parameter to avoid plotting a continuous line, which would produce inelegant joins between different levels.
+
+Also note how `plotchar()` is used to plot debugging information revealing the states of the base conditions we use in our logic. These plots are not necessary in the final product, but they are very useful when you are writing your code, to ensure that your code is doing what you expect.
 ```
 //@version=4
 study("Plot line from start to end condition", overlay=true)
