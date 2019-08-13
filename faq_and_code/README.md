@@ -97,7 +97,7 @@ Note the combination of plotting `na` and using the `style = plot.style_linebr` 
 //@version=4
 study("Plot line from start to end condition", overlay=true)
 lineExpiryBars = input(300, "Maximum bars line will plot", minval = 0)
-// Saves "close" level when start condition occurs.
+// Stores "close" level when start condition occurs.
 var savedLevel = float(na)
 // True when the line needs to be plotted.
 var plotLine = false
