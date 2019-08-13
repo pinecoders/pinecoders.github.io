@@ -89,6 +89,38 @@ plot(a == 0 ? 1 : 2, color = aqua)
 ### Can I plot diagonals between two points on the chart?
 Yes, using the [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function available in v4.
 
+### How do I plot a line using start/stop criteria?
+You'll need to define your start and stop conditions and use logic to remember states and the level you want to plot.
+> Note the combination of plotting `na` and using the `style = plot.style_linebr` parameter to avoid the plot lines from being joined on the chart.
+```
+//@version=4
+study("Plot line from start to end condition", overlay=true)
+lineExpiryBars = input(300, "Maximum bars line will plot", minval = 0)
+// Saves "close" level when start condition occurs.
+var savedLevel = float(na)
+// True when the line needs to be plotted.
+var plotLine = false
+// This is where you enter your start and end conditions.
+startCondition = pivothigh(close, 5, 2)
+endCondition = cross(close, savedLevel)
+// Determine if a line start/stop condition has occured.
+startEvent = not plotLine and startCondition
+// If you do not need a limit on the length of the line, use this line instead: endEvent = plotLine and endCondition
+endEvent = plotLine and (endCondition or barssince(startEvent) > lineExpiryBars)
+// Start plotting or keep plotting until stop condition.
+plotLine := startEvent or (plotLine and not endEvent)
+if plotLine and not plotLine[1]
+    // We are starting to plot; save close level.
+    savedLevel := close
+// Plot line conditionally.
+plot(plotLine ? savedLevel : na, color = color.orange, style = plot.style_linebr)
+// State plots revealing states of conditions.
+plotchar(startCondition, "startCondition", "•", color = color.green, size=size.tiny, transp = 0)
+plotchar(endCondition, "endCondition", "•", color = color.red, size=size.tiny, location = location.belowbar, transp = 0)
+plotchar(startEvent, "startEvent", "►", color = color.green, size=size.tiny)
+plotchar(endEvent, "endEvent", "◄", color = color.red, size=size.tiny, location = location.belowbar)
+```
+
 ### How do I plot a support or a trend line line?
 To plot a continuous line in Pine, you need to either:
 1. Look back into elapsed bars to find an occurrence that will return the same value over consecutive bars so you can plot it, or
