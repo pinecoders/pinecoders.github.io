@@ -87,7 +87,7 @@ plot(a == 0 ? 1 : 2, color = aqua)
 
 
 ### Can I plot diagonals between two points on the chart?
-Yes, using the [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function available in v4.
+Yes, using the [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function available in v4. See the [Trendlines - JD](https://www.tradingview.com/script/mpeEgn5J-Trendlines-JD/) indicator by Duyck.
 
 ### How do I plot a line using start/stop criteria?
 You'll need to define your start and stop conditions and use logic to remember states and the level you want to plot.
