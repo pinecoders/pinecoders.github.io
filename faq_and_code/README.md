@@ -248,6 +248,10 @@ No. The brokers can only be used for manual trading. Currently, the only way to 
 <br><br>
 ## TIME AND DATES
 
+
+###How can I get the time of the first bar in the dataset?
+``time[bar_index]`` will return that [time](https://www.tradingview.com/pine-script-reference/v4/#var_time) in Unix format, i.e., the number of milliseconds that have elapsed since 00:00:00 UTC, 1 January 1970.
+
 **[Back to top](#table-of-contents)**
 
 
