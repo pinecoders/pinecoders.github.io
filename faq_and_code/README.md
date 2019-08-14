@@ -255,6 +255,25 @@ No. The brokers can only be used for manual trading. Currently, the only way to 
 <br><br>
 ## OTHER INTERVALS (MTF)
 
+
+### How do I define a higher interval that is a multiple of the current one?
+```
+//@version=4
+study("Multiple of current TF")
+resMult = input(2, minval = 1)
+minuteLimit = 1440
+res_ = timeframe.multiplier * resMult
+resLetter = timeframe.isdaily ? "D" : timeframe.isweekly ? "W" : timeframe.ismonthly ? "M" : res_ > minuteLimit ? "X" : ""
+res = resLetter!="X" ? tostring(res_)+resLetter : res_ > minuteLimit ? tostring(round(res_/minuteLimit)) + "D" : tostring(res_)
+myRsi = rsi(close, 14)
+// Repainting
+myRsiHtf = security(syminfo.tickerid, res, myRsi)
+// No repainting
+// myRsiHtf = security(syminfo.tickerid, res, myRsi[1], lookahead = barmerge.lookahead_on)
+plot(myRsi)
+plot(myRsiHtf, color = color.orange)
+```
+
 **[Back to top](#table-of-contents)**
 
 
