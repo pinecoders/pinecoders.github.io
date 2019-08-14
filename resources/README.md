@@ -99,7 +99,7 @@ This list contains the TV name of Pine programmers we know and who have a good r
 - [gyromatical](https://www.tradingview.com/u/gyromatical/)
 - [glaz](https://www.tradingview.com/u/glaz/) (indicators only)
 - [mortdiggiddy](https://www.tradingview.com/u/mortdiggiddy/)
-- [paaax](https://www.tradingview.com/u/paaax/)
+- [paaax](https://www.tradingview.com/u/paaax/)<br>Offering services for study and strategy development, alert automation, custom-made indicators, market screener and other services on top on Tradingview.
 
 A few other suppliers of such services, unverified by PineCoders:
 - [Backtest Rookies](https://backtest-rookies.com/professional-services/): Backtest Rookies provide a slew of services related to Pine and trading.
