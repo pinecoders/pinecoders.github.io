@@ -248,12 +248,53 @@ No. The brokers can only be used for manual trading. Currently, the only way to 
 <br><br>
 ## TIME AND DATES
 
+
+### How can I get the time of the first bar in the dataset?
+``time[bar_index]`` will return that [time](https://www.tradingview.com/pine-script-reference/v4/#var_time) in Unix format, i.e., the number of milliseconds that have elapsed since 00:00:00 UTC, 1 January 1970.
+
 **[Back to top](#table-of-contents)**
 
 
 
 <br><br>
 ## OTHER INTERVALS (MTF)
+
+
+### How do I define a higher interval that is a multiple of the current one?
+Use the PineCoders ``f_MultipleOfRes()`` function.
+```
+//@version=4
+//@author=LucF, for PineCoders
+study("Multiple of current TF")
+
+resMult = input(2, minval = 1)
+
+// Returns a multiple of current TF as a string usable with "security()".
+f_MultipleOfRes( _mult) => 
+    // Convert target timeframe in minutes.
+    _TargetResInMin = timeframe.multiplier * _mult * (
+      timeframe.isseconds   ? 1. / 60. :
+      timeframe.isminutes   ? 1. :
+      timeframe.isdaily     ? 1440. :
+      timeframe.isweekly    ? 7. * 24. * 60. :
+      timeframe.ismonthly   ? 30.417 * 24. * 60. : na)
+      // Find best way to express the TF.
+    _TargetResInMin     <= 0.0417       ? "1S"  :
+      _TargetResInMin   <= 0.167        ? "5S"  :
+      _TargetResInMin   <= 0.376        ? "15S" :
+      _TargetResInMin   <= 0.751        ? "30S" :
+      _TargetResInMin   <= 1440         ? tostring(round(_TargetResInMin)) :
+      tostring(round(min(_TargetResInMin / 1440, 365))) + "D"
+
+myRsi = rsi(close, 14)
+plot(myRsi, color = color.silver)
+// No repainting
+myRsiHtf = security(syminfo.tickerid, f_MultipleOfRes(resMult), myRsi[1], lookahead = barmerge.lookahead_on)
+plot(myRsiHtf, color = color.green)
+// Repainting
+myRsiHtf2 = security(syminfo.tickerid, f_MultipleOfRes(resMult), myRsi)
+plot(myRsiHtf2, color = color.red)
+```
 
 **[Back to top](#table-of-contents)**
 
