@@ -97,7 +97,7 @@ This list contains the TV name of Pine programmers we know and who have a good r
 - [Duyck](https://www.tradingview.com/u/Duyck/)
 - [everget](https://www.tradingview.com/u/everget/)
 - [gyromatical](https://www.tradingview.com/u/gyromatical/)
-- [glaz](https://www.tradingview.com/u/glaz/) (indicators only)
+- [glaz](https://www.tradingview.com/u/glaz/)<br>I work on indicators only (no strategies). Have been coding in Pine for 6 years and do indicator ports from other platforms.
 - [mortdiggiddy](https://www.tradingview.com/u/mortdiggiddy/)
 - [paaax](https://www.tradingview.com/u/paaax/)<br>Offering services for study and strategy development, alert automation, custom-made indicators, market screener and other services on top on Tradingview.
 
