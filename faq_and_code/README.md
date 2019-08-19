@@ -295,6 +295,40 @@ plot(myRsiHtf, color = color.green)
 myRsiHtf2 = security(syminfo.tickerid, f_MultipleOfRes(resMult), myRsi)
 plot(myRsiHtf2, color = color.red)
 ```
+For v3, use:
+```
+//@version=3
+//@author=LucF, for PineCoders
+study("Multiple of current TF")
+
+resMult = input(2, minval = 1)
+
+// Returns a multiple of current TF as a string usable with "security()".
+f_MultipleOfRes( _mult) => 
+    // Convert target timeframe in minutes.
+    _TargetResInMin = interval * _mult * (
+      isseconds   ? 1. / 60. :
+      isminutes   ? 1. :
+      isdaily     ? 1440. :
+      isweekly    ? 7. * 24. * 60. :
+      ismonthly   ? 30.417 * 24. * 60. : na)
+      // Find best way to express the TF.
+    _TargetResInMin     <= 0.0417       ? "1S"  :
+      _TargetResInMin   <= 0.167        ? "5S"  :
+      _TargetResInMin   <= 0.376        ? "15S" :
+      _TargetResInMin   <= 0.751        ? "30S" :
+      _TargetResInMin   <= 1440         ? tostring(round(_TargetResInMin)) :
+      tostring(round(min(_TargetResInMin / 1440, 365))) + "D"
+
+myRsi = rsi(close, 14)
+plot(myRsi, color = silver)
+// No repainting
+myRsiHtf = security(tickerid, f_MultipleOfRes(resMult), myRsi[1], lookahead = barmerge.lookahead_on)
+plot(myRsiHtf, color = green)
+// Repainting
+myRsiHtf2 = security(tickerid, f_MultipleOfRes(resMult), myRsi)
+plot(myRsiHtf2, color = red)
+```
 
 **[Back to top](#table-of-contents)**
 
