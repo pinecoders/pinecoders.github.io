@@ -293,7 +293,8 @@ myRsiHtf = security(syminfo.tickerid, f_multipleOfRes(resMult), myRsi[1], lookah
 plot(myRsiHtf, color = color.green)
 // Repainting
 myRsiHtf2 = security(syminfo.tickerid, f_multipleOfRes(resMult), myRsi)
-plot(myRsiHtf2, color = color.red)```
+plot(myRsiHtf2, color = color.red)
+```
 For v3, use:
 ```
 //@version=3
