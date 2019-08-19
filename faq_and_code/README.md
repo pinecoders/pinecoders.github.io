@@ -414,6 +414,17 @@ And this for v3:
 security(tickerid, “D”, close[1], lookahead = barmerge.lookahead_on)
 ```
 
+### How can I trigger a condition only when a number of bars have elapsed since the last one?
+Use the [``barssince()``](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) function:
+```
+//@version=4
+study("", overlay=true)
+len = input(3)
+cond = close > open and close[1] > open[1]
+trigger = cond and barssince(cond[1]) > len - 1
+plotchar(cond)
+plotchar(trigger, "", "O", color=color.red)
+```
 
 **[Back to top](#table-of-contents)**
 
