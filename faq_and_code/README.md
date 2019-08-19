@@ -165,20 +165,16 @@ No, but you can use the v4 [`line.new()`](https://www.tradingview.com/pine-scrip
 ### Can I create an indicator that plots like the built-in Volume or Volume Profile indicators?
 No.
 
-### How do I feed the output of one script to another script?
+### How can I use one script's output as an input into another?
 Use the following in your code:
 ```
 ExternalIndicator = input(close, "External Indicator")
 ```
 From the script's *Inputs* you will then be able to select a plot from another indicator if it present on your chart.
-You can use only one such statement in your script. If you use more than one, the other indicator plots will not be visible from the *Inputs* dropdown.
-You cannot use this technique in strategies.
+You can use only one such statement in your script. If you use more than one, the other indicator plots will not be visible from the *Inputs* dropdown. You cannot use this technique in strategies.
 
-### Can I write a script that plots like the built-in Volume Profile or Volume indicators?
+See how our [Signal for Backtesting-Trading Engine](https://www.tradingview.com/script/y4CvTwRo-Signal-for-Backtesting-Trading-Engine-PineCoders/) can be integrated as an input to our [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/).### Can I write a script that plots like the built-in Volume Profile or Volume indicators?
 No. TradingView uses special code for these that is not available to standard Pine scripts.
-
-### How can I use one script's output as an input into another?
-See how our [Signal for Backtesting-Trading Engine](https://www.tradingview.com/script/y4CvTwRo-Signal-for-Backtesting-Trading-Engine-PineCoders/) can be integrated as an input to our [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/).
 
 ### Is it possible to export indicator data to a file?
 No. The only way for now is through screen scraping.
