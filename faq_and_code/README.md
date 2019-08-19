@@ -53,7 +53,7 @@ downCandle = close < open
 
 
 ### Why do I get an error message when using `highest()` or `lowest()`?
-Most probably because you are trying to use a series instead of an integer as the second parameter (the length). Either use a [simple integer](https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html#simple) or use the [RicardoSantos](https://www.tradingview.com/u/RicardoSantos/#published-scripts) replacements [here](https://www.tradingview.com/script/32ohT5SQ-Function-Highest-Lowest/). If you don't know Ricardo, take the time to look at his indicators while you're there. Ricardo is among the most prolific and ingenious Pinescripters out there.
+Most probably because you are trying to use a series integer instead of a simple integer as the second parameter (the length). Either use a [simple integer](https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html#simple) or use the [RicardoSantos](https://www.tradingview.com/u/RicardoSantos/#published-scripts) replacements [here](https://www.tradingview.com/script/32ohT5SQ-Function-Highest-Lowest/). If you don't know Ricardo, take the time to look at his indicators while you're there. Ricardo is among the most prolific and ingenious Pinescripters out there.
 
 **[Back to top](#table-of-contents)**
 
@@ -165,20 +165,16 @@ No, but you can use the v4 [`line.new()`](https://www.tradingview.com/pine-scrip
 ### Can I create an indicator that plots like the built-in Volume or Volume Profile indicators?
 No.
 
-### How do I feed the output of one script to another script?
+### How can I use one script's output as an input into another?
 Use the following in your code:
 ```
 ExternalIndicator = input(close, "External Indicator")
 ```
 From the script's *Inputs* you will then be able to select a plot from another indicator if it present on your chart.
-You can use only one such statement in your script. If you use more than one, the other indicator plots will not be visible from the *Inputs* dropdown.
-You cannot use this technique in strategies.
+You can use only one such statement in your script. If you use more than one, the other indicator plots will not be visible from the *Inputs* dropdown. You cannot use this technique in strategies.
 
-### Can I write a script that plots like the built-in Volume Profile or Volume indicators?
+See how our [Signal for Backtesting-Trading Engine](https://www.tradingview.com/script/y4CvTwRo-Signal-for-Backtesting-Trading-Engine-PineCoders/) can be integrated as an input to our [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/).### Can I write a script that plots like the built-in Volume Profile or Volume indicators?
 No. TradingView uses special code for these that is not available to standard Pine scripts.
-
-### How can I use one script's output as an input into another?
-See how our [Signal for Backtesting-Trading Engine](https://www.tradingview.com/script/y4CvTwRo-Signal-for-Backtesting-Trading-Engine-PineCoders/) can be integrated as an input to our [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/).
 
 ### Is it possible to export indicator data to a file?
 No. The only way for now is through screen scraping.
@@ -447,6 +443,11 @@ And this for v3:
 ```
 security(tickerid, “D”, close[1], lookahead = barmerge.lookahead_on)
 ```
+
+### How to avoid repainting when NOT using the ``security()`` function?
+See the discussion published with the PineCoders indicator [How to avoid repainting when NOT using security()]().
+
+The best way is to use the `[1]` history-referencing operator to use confirmed information from the last bar for calculations.
 
 ### How can I trigger a condition only when a number of bars have elapsed since the last condition occurred?
 Use the [``barssince()``](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) function:
