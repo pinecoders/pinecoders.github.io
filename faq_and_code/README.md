@@ -270,31 +270,30 @@ study("Multiple of current TF")
 resMult = input(2, minval = 1)
 
 // Returns a multiple of current TF as a string usable with "security()".
-f_MultipleOfRes( _mult) => 
+f_multipleOfRes( _mult) => 
     // Convert target timeframe in minutes.
-    _TargetResInMin = timeframe.multiplier * _mult * (
+    _targetResInMin = timeframe.multiplier * _mult * (
       timeframe.isseconds   ? 1. / 60. :
       timeframe.isminutes   ? 1. :
       timeframe.isdaily     ? 1440. :
       timeframe.isweekly    ? 7. * 24. * 60. :
       timeframe.ismonthly   ? 30.417 * 24. * 60. : na)
       // Find best way to express the TF.
-    _TargetResInMin     <= 0.0417       ? "1S"  :
-      _TargetResInMin   <= 0.167        ? "5S"  :
-      _TargetResInMin   <= 0.376        ? "15S" :
-      _TargetResInMin   <= 0.751        ? "30S" :
-      _TargetResInMin   <= 1440         ? tostring(round(_TargetResInMin)) :
-      tostring(round(min(_TargetResInMin / 1440, 365))) + "D"
+    _targetResInMin     <= 0.0417       ? "1S"  :
+      _targetResInMin   <= 0.167        ? "5S"  :
+      _targetResInMin   <= 0.376        ? "15S" :
+      _targetResInMin   <= 0.751        ? "30S" :
+      _targetResInMin   <= 1440         ? tostring(round(_targetResInMin)) :
+      tostring(round(min(_targetResInMin / 1440, 365))) + "D"
 
 myRsi = rsi(close, 14)
 plot(myRsi, color = color.silver)
 // No repainting
-myRsiHtf = security(syminfo.tickerid, f_MultipleOfRes(resMult), myRsi[1], lookahead = barmerge.lookahead_on)
+myRsiHtf = security(syminfo.tickerid, f_multipleOfRes(resMult), myRsi[1], lookahead = barmerge.lookahead_on)
 plot(myRsiHtf, color = color.green)
 // Repainting
-myRsiHtf2 = security(syminfo.tickerid, f_MultipleOfRes(resMult), myRsi)
-plot(myRsiHtf2, color = color.red)
-```
+myRsiHtf2 = security(syminfo.tickerid, f_multipleOfRes(resMult), myRsi)
+plot(myRsiHtf2, color = color.red)```
 For v3, use:
 ```
 //@version=3
@@ -304,29 +303,29 @@ study("Multiple of current TF")
 resMult = input(2, minval = 1)
 
 // Returns a multiple of current TF as a string usable with "security()".
-f_MultipleOfRes( _mult) => 
+f_multipleOfRes( _mult) => 
     // Convert target timeframe in minutes.
-    _TargetResInMin = interval * _mult * (
+    _targetResInMin = interval * _mult * (
       isseconds   ? 1. / 60. :
       isminutes   ? 1. :
       isdaily     ? 1440. :
       isweekly    ? 7. * 24. * 60. :
       ismonthly   ? 30.417 * 24. * 60. : na)
       // Find best way to express the TF.
-    _TargetResInMin     <= 0.0417       ? "1S"  :
-      _TargetResInMin   <= 0.167        ? "5S"  :
-      _TargetResInMin   <= 0.376        ? "15S" :
-      _TargetResInMin   <= 0.751        ? "30S" :
-      _TargetResInMin   <= 1440         ? tostring(round(_TargetResInMin)) :
-      tostring(round(min(_TargetResInMin / 1440, 365))) + "D"
+    _targetResInMin     <= 0.0417       ? "1S"  :
+      _targetResInMin   <= 0.167        ? "5S"  :
+      _targetResInMin   <= 0.376        ? "15S" :
+      _targetResInMin   <= 0.751        ? "30S" :
+      _targetResInMin   <= 1440         ? tostring(round(_targetResInMin)) :
+      tostring(round(min(_targetResInMin / 1440, 365))) + "D"
 
 myRsi = rsi(close, 14)
 plot(myRsi, color = silver)
 // No repainting
-myRsiHtf = security(tickerid, f_MultipleOfRes(resMult), myRsi[1], lookahead = barmerge.lookahead_on)
+myRsiHtf = security(tickerid, f_multipleOfRes(resMult), myRsi[1], lookahead = barmerge.lookahead_on)
 plot(myRsiHtf, color = green)
 // Repainting
-myRsiHtf2 = security(tickerid, f_MultipleOfRes(resMult), myRsi)
+myRsiHtf2 = security(tickerid, f_multipleOfRes(resMult), myRsi)
 plot(myRsiHtf2, color = red)
 ```
 
