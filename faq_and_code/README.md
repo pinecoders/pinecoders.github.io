@@ -267,7 +267,7 @@ study("Multiple of current TF v4", precision = 8)
 resMult = input(2, minval = 1)
 
 // Returns a multiple of current TF as a string usable with "security()".
-f_multipleOfRes( _mult) => 
+f_multipleOfRes(_mult) => 
     // Convert target timeframe in minutes.
     _targetResInMin = timeframe.multiplier * _mult * (
       timeframe.isseconds   ? 1. / 60. :
@@ -319,7 +319,7 @@ study("Multiple of current TF v3")
 resMult = input(2, minval = 1)
 
 // Returns a multiple of current TF as a string usable with "security()".
-f_multipleOfRes( _mult) => 
+f_multipleOfRes(_mult) => 
     // Convert target timeframe in minutes.
     _targetResInMin = interval * _mult * (
       isseconds   ? 1. / 60. :
