@@ -261,69 +261,95 @@ Use the PineCoders ``f_MultipleOfRes()`` function.
 ```
 //@version=4
 //@author=LucF, for PineCoders
-study("Multiple of current TF")
+study("Multiple of current TF v4", precision = 8)
 
+// Get multiple.
 resMult = input(2, minval = 1)
 
 // Returns a multiple of current TF as a string usable with "security()".
-f_multipleOfRes( _mult) => 
+f_multipleOfRes(_mult) => 
     // Convert target timeframe in minutes.
     _targetResInMin = timeframe.multiplier * _mult * (
       timeframe.isseconds   ? 1. / 60. :
       timeframe.isminutes   ? 1. :
       timeframe.isdaily     ? 1440. :
-      timeframe.isweekly    ? 7. * 24. * 60. :
-      timeframe.ismonthly   ? 30.417 * 24. * 60. : na)
+      timeframe.isweekly    ? 10080. :
+      timeframe.ismonthly   ? 43800. : na)
       // Find best way to express the TF.
     _targetResInMin     <= 0.0417       ? "1S"  :
       _targetResInMin   <= 0.167        ? "5S"  :
       _targetResInMin   <= 0.376        ? "15S" :
       _targetResInMin   <= 0.751        ? "30S" :
       _targetResInMin   <= 1440         ? tostring(round(_targetResInMin)) :
-      tostring(round(min(_targetResInMin / 1440, 365))) + "D"
+      _targetResInMin   <= 43800        ? tostring(round(min(_targetResInMin / 1440, 365))) + "D" :
+      tostring(round(min(_targetResInMin / 43800, 12))) + "M"
 
+// ————— Get string corresponding to current and target resolution.
+curResString = f_multipleOfRes(1)
+resString = f_multipleOfRes(resMult)
+// ————— Calculate current and target resolution RSI.
+// Current TF rsi.
 myRsi = rsi(close, 14)
-plot(myRsi, color = color.silver)
-// No repainting
-myRsiHtf = security(syminfo.tickerid, f_multipleOfRes(resMult), myRsi[1], lookahead = barmerge.lookahead_on)
-plot(myRsiHtf, color = color.green)
-// Repainting
-myRsiHtf2 = security(syminfo.tickerid, f_multipleOfRes(resMult), myRsi)
-plot(myRsiHtf2, color = color.red)
+// No repainting target resolution TF rsi.
+myRsiHtf = security(syminfo.tickerid, resString, myRsi[1], lookahead = barmerge.lookahead_on)
+// Repainting target resolution TF rsi.
+myRsiHtf2 = security(syminfo.tickerid, resString, myRsi)
+
+// ————— Plots
+plot(myRsi, "Current TF RSI", color = color.silver)
+plot(myRsiHtf, "Target TF no repainting RSI", color = color.green)
+plot(myRsiHtf2, "Target TF repainting RSI", color = color.red)
+hline(0)
+hline(100)
+// Show resolution information label.
+var lbl = label(na)
+if barstate.islast
+    label.delete(lbl)
+    lbl := label.new(bar_index, max(max(myRsiHtf, myRsi), myRsiHtf2) * 1.1,
+      "Current Res = " + curResString + "\nMultiple = " + tostring(resMult) + "\n Target Res = " + resString,
+      xloc = xloc.bar_index, yloc =  yloc.price)
 ```
 For v3, use:
 ```
 //@version=3
 //@author=LucF, for PineCoders
-study("Multiple of current TF")
+study("Multiple of current TF v3")
 
+// Get multiple.
 resMult = input(2, minval = 1)
 
 // Returns a multiple of current TF as a string usable with "security()".
-f_multipleOfRes( _mult) => 
+f_multipleOfRes(_mult) => 
     // Convert target timeframe in minutes.
     _targetResInMin = interval * _mult * (
       isseconds   ? 1. / 60. :
       isminutes   ? 1. :
       isdaily     ? 1440. :
-      isweekly    ? 7. * 24. * 60. :
-      ismonthly   ? 30.417 * 24. * 60. : na)
+      isweekly    ? 10080. :
+      ismonthly  ? 43800. : na)
       // Find best way to express the TF.
     _targetResInMin     <= 0.0417       ? "1S"  :
       _targetResInMin   <= 0.167        ? "5S"  :
       _targetResInMin   <= 0.376        ? "15S" :
       _targetResInMin   <= 0.751        ? "30S" :
       _targetResInMin   <= 1440         ? tostring(round(_targetResInMin)) :
-      tostring(round(min(_targetResInMin / 1440, 365))) + "D"
+      _targetResInMin   <= 43800        ? tostring(round(min(_targetResInMin / 1440, 365))) + "D" :
+      tostring(round(min(_targetResInMin / 43800, 12))) + "M"
 
+// ————— Calculate current and target resolution RSI.
+// Current TF rsi.
 myRsi = rsi(close, 14)
-plot(myRsi, color = silver)
-// No repainting
+// No repainting target resolution TF rsi.
 myRsiHtf = security(tickerid, f_multipleOfRes(resMult), myRsi[1], lookahead = barmerge.lookahead_on)
-plot(myRsiHtf, color = green)
-// Repainting
+// Repainting target resolution TF rsi.
 myRsiHtf2 = security(tickerid, f_multipleOfRes(resMult), myRsi)
-plot(myRsiHtf2, color = red)
+
+// ————— Plots
+plot(myRsi, "Current TF RSI", color = silver)
+plot(myRsiHtf, "Target TF no repainting RSI", color = green)
+plot(myRsiHtf2, "Target TF repainting RSI", color = red)
+hline(0)
+hline(100)
 ```
 
 **[Back to top](#table-of-contents)**
