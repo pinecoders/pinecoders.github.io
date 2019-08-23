@@ -19,7 +19,7 @@ PineCoders is a [TradingView](https://www.tradingview.com/)-supported group of p
 
 The [Suggestions For Improvement To Pine](https://trello.com/b/Jmv6c8Cx) Trello board is co-managed by PineCoders and TradingView. This [card](https://trello.com/c/r0jKAKhK) explains how the board works, how any Trello user can comment/vote on suggestions and how to contribute new ideas to existing or non-existing topics.
 
-We also pilot the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-scripts) TV moderator account, from which we answer questions in the [Pine Script TV chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235) and on [Stack Overflow](https://stackoverflow.com/questions/tagged/pine-script?sort=Newest), publish [open source tools and examples in Pine](https://www.tradingview.com/u/PineCoders/#published-scripts), and follow [leading publishers](https://www.tradingview.com/u/PineCoders/#following-people) of predominantly open source scripts on TV, who's public code you can learn a great deal from.
+We also pilot the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-scripts) TV moderator account, from which we answer questions in the [Pine Script TV chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235) and on [Stack Overflow](https://stackoverflow.com/questions/tagged/pine-script?sort=Newest), publish [open source tools and examples in Pine](https://www.tradingview.com/u/PineCoders/#published-scripts), and follow [leading publishers](https://www.tradingview.com/u/PineCoders/#following-people) of open source scripts on TV, who's code you can learn a great deal from.
 
 PineCoders works daily with TradingView's Pine team to identify and validate anomalies and test upcoming new features.
 
