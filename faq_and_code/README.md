@@ -154,6 +154,15 @@ If your indicator was already in a Pane before applying this change, you will ne
 ### Can I use `plot()` calls in a `for` loop?
 No, but you can use the v4 [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function in `for` loops.
 
+### How can I plot vertical lines on a chart?
+You can use the `plot.style_columns` style to plot them:
+```js
+//@version=4
+study("", "", true, scale = scale.none)
+cond = close > open
+plot(cond ? 10e20 : na, style = plot.style_columns, color = color.silver, transp=85)
+```
+
 **[Back to top](#table-of-contents)**
 
 
