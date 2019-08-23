@@ -71,11 +71,11 @@ plot(signal, color=color.orange)
 
 ### Variable Names
 
-We recommend using CamelCase for variable names. Example: `emaLength`, `obLevel`, `showSignal2`, `aLongVariableName`.
+We recommend using camelCase for variable names. Example: `emaLength`, `obLevel`, `showSignal2`, `aLongVariableName`.
 
 ### Function Names
 
-For function names, we recommend using a Hungarian-style `f_` prefix in combination with the usual CamelCase. The `f_` prefix guarantees disambiguation between user-defined and built-in functions. Example: `f_sinh`, `f_daysInMonth`.
+For function names, we recommend using a Hungarian-style `f_` prefix in combination with the usual camelCase. The `f_` prefix guarantees disambiguation between user-defined and built-in functions. Example: `f_sinh`, `f_daysInMonth`.
 
 ### Function Parameter Names
 

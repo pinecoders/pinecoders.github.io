@@ -29,17 +29,17 @@ The `close` variable holds both the price at the close of historical bars and th
 To access the close of the previous bar's close in Pine, use `close[1]`. In Pine, brackets are used as the [history-referencing operator](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator).
 
 ### What is the code for a green candle?
-```
+```js
 greenCandle = close > open
 ```
 Once you have defined the `greenCandle` variable, if you wanted a boolean variable to be `true` when the last three candles were green ones, you could write:
-```
+```js
 threeGreenCandles = greenCandle and greenCandle[1] and greenCandle[2]
 ```
 > Note that the variable name `3GreenCandles` would have caused a compilation error. It is not legal in Pine as it begins with a digit.
 
 If you need to define up and down candles, then make sure one of those definitions allows for the case where the `open` and `close` are equal:
-```
+```js
 upCandle = close >= open
 downCandle = close < open
 ```
@@ -67,7 +67,7 @@ Most probably because you are trying to use a series integer instead of a simple
 `==` is a [comparison operator](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#comparison-operators) used to test for true/false conditions.<br>
 `=` is used to [declare and initialize variables](https://www.tradingview.com/pine-script-docs/en/v4/language/Expressions_declarations_and_statements.html#variable-declaration).<br>
 `:=` is used to [assign values to variables](https://www.tradingview.com/pine-script-docs/en/v4/language/Expressions_declarations_and_statements.html#variable-assignment) after initialization, transforming them into *mutable variables*.
-```
+```js
 //@version=3
 study("")
 a = 0
@@ -95,7 +95,7 @@ You'll need to define your start and stop conditions and use logic to remember s
 Note the `plot()` call using a combination of plotting `na` and the `style = plot.style_linebr` parameter to avoid plotting a continuous line, which would produce inelegant joins between different levels.
 
 Also note how `plotchar()` is used to plot debugging information revealing the states of the boolean building blocks we use in our logic. These plots are not necessary in the final product; they are used to ensure your code is doing what you expect and can save you a lot of time when you are writing your code.
-```
+```js
 //@version=4
 study("Plot line from start to end condition", overlay=true)
 lineExpiryBars = input(300, "Maximum bars line will plot", minval = 0)
@@ -146,7 +146,7 @@ See [Working with colours](https://kodify.net/tradingview/colours/) by Kodify.
 
 ### How do I make my indicator plot over the chart?
 Use `overlay=true` in `strategy()` or `study()` declaration statement, e.g.,:
-```
+```js
 study("My Script", overlay = true)
 ```
 If your indicator was already in a Pane before applying this change, you will need to use Add to Chart again for the change to become active.
@@ -167,7 +167,7 @@ No.
 
 ### How can I use one script's output as an input into another?
 Use the following in your code:
-```
+```js
 ExternalIndicator = input(close, "External Indicator")
 ```
 From the script's *Inputs* you will then be able to select a plot from another indicator if it present on your chart.
@@ -201,7 +201,7 @@ Once you've made sure your scales will be compatible (or you have devised a way 
 TradingView backtesting evaluates conditions at the close of historical bars. When a condition triggers, the associated order is executed at the open of the **next bar**, since the bar where the condition is detected is already closed. In the real-time bar, orders may be executed on the *tick* (price change) following detection of a condition. While this may seem appealing, it is important to realize that if you use `cal_on_every_tick=true` in the `strategy()` declaration statement to make your strategy work this way, you are going to be running a different strategy than the one you tested on historical bars. See the [Strategies](https://www.tradingview.com/pine-script-docs/en/v4/essential/Strategies.html) page of the User Manual for more information.
 
 ### How do I implement date range filtering in strategies?
-```
+```js
 DateFilter = input(false, "═════════════ Date Range Filtering")
 FromYear = input(1900, "From Year", minval = 1900)
 FromMonth = input(1, "From Month", minval = 1, maxval = 12)
@@ -214,7 +214,7 @@ ToDate = timestamp(ToYear, ToMonth, ToDay, 23, 59)
 TradeDateIsAllowed() => DateFilter ? (time >= FromDate and time <= ToDate) : true
 ```
 You can then use the result of `TradeDateIsAllowed()` to confirm your entries using something like this:
-```
+```js
 EnterLong = GoLong and TradeDateIsAllowed()
 ```
 > Note that with this code snippet, date filtering can be enabled/disabled using a checkbox. This way you don't have to reset dates when filtering is no longer needed; just uncheck the box.
@@ -258,7 +258,7 @@ No. The brokers can only be used for manual trading. Currently, the only way to 
 
 ### How do I define a higher interval that is a multiple of the current one?
 Use the PineCoders ``f_MultipleOfRes()`` function.
-```
+```js
 //@version=4
 //@author=LucF, for PineCoders
 study("Multiple of current TF v4", precision = 8)
@@ -310,7 +310,7 @@ if barstate.islast
       xloc = xloc.bar_index, yloc =  yloc.price)
 ```
 For v3, use:
-```
+```js
 //@version=3
 //@author=LucF, for PineCoders
 study("Multiple of current TF v3")
@@ -366,7 +366,7 @@ Two steps are required:
 2. Create an alert from the TV Web user interface (ALT-A) and choose the script's alert condition.
 
 See the User Manual page on [`alertcondition()`](https://www.tradingview.com/pine-script-docs/en/v4/annotations/Alert_conditions.html). Code to create an alert condition looks like:
-```
+```js
 triggerCondition = close > close[1]
 alertcondition(triggerCondition, title = "Create Alert dialog box name", message = "Text sent with alert.")
 ```
@@ -410,7 +410,7 @@ The diagram shows you where the *const string* type is situated in the casting r
 - The types that will **not** be allowed because they are below *const string*, meaning they **cannot** be cast to a *const string*.
 
 This code shows examples that work and don't work:
-```
+```js
 //@version=4
 study("alertcondition arguments")
 
@@ -462,11 +462,11 @@ Since v4 there exists a simpler way to save variable value from bar to bar, usin
 See the discussion published with the PineCoders indicator [How to avoid repainting when using security()](https://www.tradingview.com/script/cyPWY96u-How-to-avoid-repainting-when-using-security-PineCoders-FAQ/).
 
 The easiest way is to use the following syntax for v4:
-```
+```js
 security(syminfo.tickerid, “D”, close[1], lookahead = barmerge.lookahead_on)
 ```
 And this for v3:
-```
+```js
 security(tickerid, “D”, close[1], lookahead = barmerge.lookahead_on)
 ```
 
@@ -477,7 +477,7 @@ The best way is to use the `[1]` history-referencing operator to use confirmed i
 
 ### How can I trigger a condition only when a number of bars have elapsed since the last condition occurred?
 Use the [``barssince()``](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) function:
-```
+```js
 //@version=4
 study("", overlay = true)
 len = input(3)
