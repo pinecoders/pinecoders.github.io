@@ -129,12 +129,14 @@ A few other suppliers of such services, unverified by PineCoders:
 [GNU Emacs major-mode](https://github.com/EricCrosson/pine-script-mode)
 
 
-## Color Pickers
+## Color Pickers or Palettes
 [w3schools.com](https://www.w3schools.com/colors/default.asp)
 
 [ColorHexa](https://www.colorhexa.com/)
 
 [Paletton](http://paletton.com)
+
+[PerBang](http://www.perbang.dk/rgbgradient/)
 
 [500 Most Popular PNG Image Colors](https://imgbin.com/colors)
 
