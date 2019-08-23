@@ -21,7 +21,7 @@ The [Suggestions For Improvement To Pine](https://trello.com/b/Jmv6c8Cx) Trello 
 
 We also pilot the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-scripts) TV moderator account, from which we answer questions in the [Pine Script TV chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235) and on [Stack Overflow](https://stackoverflow.com/questions/tagged/pine-script?sort=Newest), publish [open source tools and examples in Pine](https://www.tradingview.com/u/PineCoders/#published-scripts), and follow [leading publishers](https://www.tradingview.com/u/PineCoders/#following-people) of open source scripts on TV, who's code you can learn a great deal from.
 
-PineCoders works daily with TradingView's Pine team to identify and validate anomalies and test upcoming new features.
+PineCoders works daily with TradingView's Pine team to identify and validate anomalies, and test upcoming new features.
 
 Our managed [PineCoders Repository](https://github.com/pinecoders/pine-utils) on GitHub contains:
 - [Snippets](https://github.com/pinecoders/pine-utils/tree/master/snippets) of reusable code
