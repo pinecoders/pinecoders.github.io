@@ -488,7 +488,7 @@ plotchar(trigger, "", "O", color = color.red)
 ```
 
 ### How can my script identify what chart type is active?
-Use @everget's [Chart Type Identifier](https://www.tradingview.com/script/8xCRJkGR-RESEARCH-Chart-Type-Identifier/).
+Use everget's [Chart Type Identifier](https://www.tradingview.com/script/8xCRJkGR-RESEARCH-Chart-Type-Identifier/).
 
 
 **[Back to top](#table-of-contents)**
