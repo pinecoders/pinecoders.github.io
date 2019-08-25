@@ -499,6 +499,30 @@ plotchar(trigger, "", "O", color = color.red)
 ### How can my script identify what chart type is active?
 Use everget's [Chart Type Identifier](https://www.tradingview.com/script/8xCRJkGR-RESEARCH-Chart-Type-Identifier/).
 
+### How can I plot the chart's historical high and low?
+Notice how we take advantage of the fact that script execution begin at the first bar of the dataset and executes once for each successive bar. By working this way we don't need a `for` loop as our script is already running in a sort of giant for loop taking it on each of the dataset's bars.
+```js
+//@version=4
+study("Plot history's high and low", "", true)
+var hi = 0.
+var lo = 10e20
+hi := max(hi, high)
+lo := min(lo, low)
+plot(hi, trackprice = true)
+plot(lo, trackprice = true)
+```
+Also note that we are using the `var` keyword to initialize variables only once on the first bar of the dataset. This results in the variable's value being automatically propagated throughout bars so we don't have to use the equivalent of what was necessary in v3 to fetch the value of the variable from the previous bar:
+```js
+//@version=3
+study("Plot history's high and low", "", true)
+hi = 0.
+lo = 10e20
+hi := max(nz(hi[1]), high)
+lo := min(nz(lo[1]), low)
+plot(hi, trackprice = true)
+plot(lo, trackprice = true)
+```
+
 
 **[Back to top](#table-of-contents)**
 
