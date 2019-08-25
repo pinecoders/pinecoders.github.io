@@ -443,7 +443,7 @@ goodMsgArg1 = false ? "Long Entry" : "Short Entry"
 // Both values in the expression are literal strings known at compile time. Result is "const string".
 goodMsgArg2 = "AAA " + "BBB"
 
-alertcondition(true, title="Id appearing in Create Alert db", message = goodMsgArg1)```
+alertcondition(true, title="Id appearing in Create Alert db", message = goodMsgArg1)
 ```
 
 **[Back to top](#table-of-contents)**
