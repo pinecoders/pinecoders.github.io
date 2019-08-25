@@ -154,6 +154,15 @@ If your indicator was already in a Pane before applying this change, you will ne
 ### Can I use `plot()` calls in a `for` loop?
 No, but you can use the v4 [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function in `for` loops.
 
+### How can I plot vertical lines on a chart?
+You can use the `plot.style_columns` style to plot them:
+```js
+//@version=4
+study("", "", true, scale = scale.none)
+cond = close > open
+plot(cond ? 10e20 : na, style = plot.style_columns, color = color.silver, transp=85)
+```
+
 **[Back to top](#table-of-contents)**
 
 
@@ -489,6 +498,30 @@ plotchar(trigger, "", "O", color = color.red)
 
 ### How can my script identify what chart type is active?
 Use everget's [Chart Type Identifier](https://www.tradingview.com/script/8xCRJkGR-RESEARCH-Chart-Type-Identifier/).
+
+### How can I plot the chart's historical high and low?
+Notice how we take advantage of the fact that script execution begins at the first bar of the dataset and executes once for each successive bar. By working this way we don't need a `for` loop to go inspect past bars, as our script is already running in a sort of giant loop taking it on each of the dataset's bars, from the oldest to the realtime bar. Scripts with calculations structured in the following way will execute much faster than ones using `for` loops:
+```js
+//@version=4
+study("Plot history's high and low", "", true)
+var hi = 0.
+var lo = 10e20
+hi := max(hi, high)
+lo := min(lo, low)
+plot(hi, trackprice = true)
+plot(lo, trackprice = true)
+```
+Also note that we are using the `var` keyword to initialize variables only once on the first bar of the dataset. This results in the variable's value being automatically propagated throughout bars so we don't have to use the equivalent of what was necessary in v3 to fetch the value of the variable from the previous bar:
+```js
+//@version=3
+study("Plot history's high and low", "", true)
+hi = 0.
+lo = 10e20
+hi := max(nz(hi[1]), high)
+lo := min(nz(lo[1]), low)
+plot(hi, trackprice = true)
+plot(lo, trackprice = true)
+```
 
 
 **[Back to top](#table-of-contents)**
