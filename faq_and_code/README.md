@@ -593,7 +593,7 @@ plotshape(6, "cond4", shape.square, location.absolute, cond4 ? color.green : col
 bgcolor(cond5 ? color.green : cond6 ? color.red : na, title = "cond5/6")
 ```
 
-![.](debugging_states_with_plotchar_and_bgcolor.png "alertcondition()")
+![.](debugging_states_with_plotshape_and_bgcolor.png "")
 
 You could also use `plot()` to achieve a somewhat similar result. Here we are plotting the condition number only when the condition is true:
 ```js
@@ -613,7 +613,7 @@ plot(cond4 ? 4 : na, "cond4", linewidth = 4, style = plot.style_circles)
 bgcolor(cond5 ? color.green : cond6 ? color.red : na, title = "cond5/6")
 ```
 
-![.](debugging_states_with_plot_and_bgcolor.png "alertcondition()")
+![.](debugging_states_with_plot_and_bgcolor.png "")
 
 ### How can I visualize my script's conditions on the chart?
 When building compound conditions that rely on the accuracy of multiple underlying conditions used as building blocks, you will usually  want to confirm your code is correctly identifying the underlying conditions. Here, markers identifying them are plotted at the top and bottom of the chart using `plotshape()`, while the compound conditions 5 an 6 are marked above and below bars using `plotshape()`, and one bar later using `plotchar()` and a Unicode character:
