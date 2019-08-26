@@ -16,6 +16,7 @@ This is a compendium of frequently asked questions on Pine. Answers often give c
 - [Other intervals (MTF)](#other-intervals-mtf)
 - [Alerts](#alerts)
 - [Techniques](#techniques)
+- [Debugging](#debugging)
 
 
 
@@ -526,3 +527,19 @@ plot(lo, trackprice = true)
 
 **[Back to top](#table-of-contents)**
 
+
+
+
+<br><br>
+## DEBUGGING
+
+### How can I examine the value of a string in my script?
+This code will show a label containing the current values of the variables you wish to see. Non-string variables need to be converting to strings using `tostring()`. The label will show when price changes in the realtime bar, so the code needs to run on a live chart.
+```
+//@version=4
+study("f_print()", "", true)
+f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, close, _txt, xloc.bar_time, yloc.price, size = size.large)
+a = f_print("Timeframe = " + tostring(timeframe.multiplier) + timeframe.period + "\nHigh =" + tostring(high))
+```
+
+**[Back to top](#table-of-contents)**
