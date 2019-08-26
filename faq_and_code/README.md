@@ -546,6 +546,8 @@ a = f_print("Timeframe = " + tostring(timeframe.multiplier) + timeframe.period +
 The solution is to use the `plotchar()` function, but without actually printing a character, and using the fact that values plotted with `plotchar()` will appear both:
 - in the Indicator's values (their display is controlled by the chart's *Settings/Status Line/Indicator Values* checkbox)
 - in the Data Window (third icon down the list at the right of your TV window)
+
+The reason for using the `location = location.top` parameter is that `plotchar()` uses `location.abovebar` as the default when the `location=` parameter is not specified, and this puts price into play in your indicator's scale, even if no character is actually plotted by `plotchar()`.
 ```
 //@version=4
 study("Debugging with plotchar()")
