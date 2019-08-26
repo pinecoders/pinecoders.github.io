@@ -559,7 +559,7 @@ plotchar(timeframe.period == "1", "timeframe.period='1'", "", location = locatio
 ```
 
 ### How can I visualize many different states?
-This code display green or red squares corresponding to four different conditions, and colors the background when they are either all true or all false:
+This code displays green or red squares corresponding to the two different states of four different conditions, and colors the background when they are either all true or all false:
 ```
 //@version=4
 study("Debugging states")
