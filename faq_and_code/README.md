@@ -592,9 +592,11 @@ plotshape(7, "cond3", shape.square, location.absolute, cond3 ? color.green : col
 plotshape(6, "cond4", shape.square, location.absolute, cond4 ? color.green : color.red, size = size.tiny)
 bgcolor(cond5 ? color.green : cond6 ? color.red : na, title = "cond5/6")
 ```
+
+![.](debugging_states_with_plotchar_and_bgcolor.png "alertcondition()")
+
 You could also use `plot()` to achieve a somewhat similar result. Here we are plotting the condition number only when the condition is true:
 ```js
-// ——————————————————————————————————————————————————
 //@version=4
 study("Debugging states with plot() and bgcolor()")
 // ————— States
@@ -611,11 +613,13 @@ plot(cond4 ? 4 : na, "cond4", linewidth = 4, style = plot.style_circles)
 bgcolor(cond5 ? color.green : cond6 ? color.red : na, title = "cond5/6")
 ```
 
+![.](debugging_states_with_plot_and_bgcolor.png "alertcondition()")
+
 ### How can I visualize my script's conditions on the chart?
 When building compound conditions that rely on the accuracy of multiple underlying conditions used as building blocks, you will usually  want to confirm your code is correctly identifying the underlying conditions. Here, markers identifying them are plotted at the top and bottom of the chart using `plotshape()`, while the compound conditions 5 an 6 are marked above and below bars using `plotshape()`, and one bar later using `plotchar()` and a Unicode character:
 ```
 //@version=4
-study("Plotting markers with plotshape() and plotchar()", "", true)
+study("Plotting markers with plotshape()", "", true)
 cond1 = close > open
 cond2 = close > close[2]
 cond3 = volume > volume[1]
@@ -632,6 +636,7 @@ plotshape(cond6, "cond6", shape.triangledown, location.abovebar, color.maroon, 0
 plotchar(cond5[1], "cond5", "⮝", location.belowbar, color.lime, 0, size = size.tiny)
 plotchar(cond6[1], "cond6", "⮟", location.abovebar, color.red, 0, size = size.tiny)
 ```
+
 You will find lists of Unicode arrows [here](https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows/) and [here](http://xahlee.info/comp/unicode_arrows.html). Because they are not all mapped in the MS Trebuchet font TV uses, not all characters will work with `plotchar()`. Some work as arguments to the `text=` parameter, but not as arguments to `char=`.
 
 
