@@ -559,7 +559,7 @@ f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(tim
 a = f_print("Timeframe = " + tostring(timeframe.multiplier) + timeframe.period + "\nHigh =" + tostring(high))
 ```
 
-[.](https://www.tradingview.com/x/kG2OOCIp/)
+![.](https://www.tradingview.com/x/kG2OOCIp/ "f_print()")
 
 ### How can I plot numeric values so that they do not disrupt the indicator's scale?
 The solution is to use the `plotchar()` function, but without actually printing a character, and using the fact that values plotted with `plotchar()` will appear both:
@@ -646,7 +646,7 @@ plotchar(cond5[1], "cond5", "⮝", location.belowbar, color.lime, 0, size = size
 plotchar(cond6[1], "cond6", "⮟", location.abovebar, color.red, 0, size = size.tiny)
 ```
 
-[.](https://www.tradingview.com/x/BUkdl478/)
+[.](https://www.tradingview.com/x/BUkdl478/ "Plotting markers with plotshape()")
 
 You will find lists of Unicode arrows [here](https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows/) and [here](http://xahlee.info/comp/unicode_arrows.html). Because they are not all mapped in the MS Trebuchet font TV uses, not all characters will work with `plotchar()`. Some work as arguments to the `text=` parameter, but not as arguments to `char=`.
 
