@@ -593,5 +593,25 @@ plotshape(6, "cond4", shape.square, location.absolute, cond4 ? color.green : col
 bgcolor(cond5 ? color.green : cond6 ? color.red : na, title = "cond5/6")
 ```
 
-
+### How can I visualize my script's conditions on the chart?
+When building complex compund conditions that rely on the accuracy of multiple underlying conditions used as building blocks, you will save yourself lots of time by validating that all the underlying conditions are being identified as planned. Here, the underlying conditions markers are plotted at the top and bottom of the chart using `plotshape()` and the compund conditions 5 an 6 are marked on the chart using `plotshape()', and one bar later using `plotchar()` and a Unicode character:
+```
+//@version=4
+study("Plotting markers with plotshape() and plotchar()", "", true)
+cond1 = close > open
+cond2 = close > close[2]
+cond3 = volume > volume[1]
+cond4 = high - close < open - low
+cond5 = cond1 and cond2 and cond3 and cond4
+cond6 = not (cond1 or cond2 or cond3 or cond4)
+plotshape(cond1, "cond1", shape.circle, location.top, color.silver, text = "1", size = size.small)
+plotshape(cond2, "cond2", shape.diamond, location.top, color.orange, text = "2", size = size.tiny)
+plotshape(cond3, "cond3", shape.circle, location.bottom, color.fuchsia, text = "3", size = size.small)
+plotshape(cond4, "cond4", shape.diamond, location.bottom, color.aqua, text = "4", size = size.tiny)
+plotshape(cond5, "cond5", shape.triangleup, location.belowbar, color.green, 0, text = "cond5", size = size.tiny)
+plotshape(cond6, "cond6", shape.triangledown, location.abovebar, color.maroon, 0, text = "cond6", size = size.tiny)
+// Place these markers one bar late so they don't overprint the "plotshape()" triangles.
+plotchar(cond5[1], "cond5", "⮝", location.belowbar, color.lime, 0, size = size.tiny)
+plotchar(cond6[1], "cond6", "⮟", location.abovebar, color.red, 0, size = size.tiny)
+```
 **[Back to top](#table-of-contents)**
