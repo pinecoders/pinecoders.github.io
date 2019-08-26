@@ -594,7 +594,7 @@ bgcolor(cond5 ? color.green : cond6 ? color.red : na, title = "cond5/6")
 ```
 
 ### How can I visualize my script's conditions on the chart?
-When building compound conditions that rely on the accuracy of multiple underlying conditions used as building blocks, you will usually first want to make sure your underlying conditions are correctly identified by your code. Here, markers identifying the underlying conditions are plotted at the top and bottom of the chart using `plotshape()`, while the compound conditions 5 an 6 are marked above and below bars using `plotshape()`, and one bar later using `plotchar()` and a Unicode character:
+When building compound conditions that rely on the accuracy of multiple underlying conditions used as building blocks, you will usually  want to confirm your code is correctly identifying the underlying conditions. Here, markers identifying them are plotted at the top and bottom of the chart using `plotshape()`, while the compound conditions 5 an 6 are marked above and below bars using `plotshape()`, and one bar later using `plotchar()` and a Unicode character:
 ```
 //@version=4
 study("Plotting markers with plotshape() and plotchar()", "", true)
