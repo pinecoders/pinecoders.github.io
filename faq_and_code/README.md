@@ -579,7 +579,7 @@ plotchar(timeframe.period == "1", "timeframe.period='1'", "", location = locatio
 This code displays green or red squares corresponding to the two different states of four different conditions, and colors the background when they are either all true or all false:
 ```js
 //@version=4
-study("Debugging states")
+study("Debugging states with plotshape() and bgcolor()")
 cond1 = close > open
 cond2 = close > close[1]
 cond3 = volume > volume[1]
@@ -590,6 +590,24 @@ plotshape(9, "cond1", shape.square, location.absolute, cond1 ? color.green : col
 plotshape(8, "cond2", shape.square, location.absolute, cond2 ? color.green : color.red, size = size.tiny)
 plotshape(7, "cond3", shape.square, location.absolute, cond3 ? color.green : color.red, size = size.tiny)
 plotshape(6, "cond4", shape.square, location.absolute, cond4 ? color.green : color.red, size = size.tiny)
+bgcolor(cond5 ? color.green : cond6 ? color.red : na, title = "cond5/6")
+```
+You could also use `plot()` to achieve a somewhat similar result. Here we are plotting the condition number only when the condition is true:
+```js
+// ——————————————————————————————————————————————————
+//@version=4
+study("Debugging states with plot() and bgcolor()")
+// ————— States
+cond1 = close > open
+cond2 = close > close[1]
+cond3 = volume > volume[1]
+cond4 = high - close < open - low
+cond5 = cond1 and cond2 and cond3 and cond4
+cond6 = not (cond1 or cond2 or cond3 or cond4)
+plot(cond1 ? 1 : na, "cond1", linewidth = 4, style = plot.style_circles)
+plot(cond2 ? 2 : na, "cond2", linewidth = 4, style = plot.style_circles)
+plot(cond3 ? 3 : na, "cond3", linewidth = 4, style = plot.style_circles)
+plot(cond4 ? 4 : na, "cond4", linewidth = 4, style = plot.style_circles)
 bgcolor(cond5 ? color.green : cond6 ? color.red : na, title = "cond5/6")
 ```
 
