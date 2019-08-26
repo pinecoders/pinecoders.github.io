@@ -555,9 +555,11 @@ This code will show a label containing the current values of the variables you w
 ```js
 //@version=4
 study("f_print()", "", true)
-f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, close, _txt, xloc.bar_time, yloc.price, size = size.large)
+f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, high, _txt, xloc.bar_time, yloc.price, size = size.large)
 a = f_print("Timeframe = " + tostring(timeframe.multiplier) + timeframe.period + "\nHigh =" + tostring(high))
 ```
+
+![.](https://www.tradingview.com/x/kG2OOCIp/ "")
 
 ### How can I plot numeric values so that they do not disrupt the indicator's scale?
 The solution is to use the `plotchar()` function, but without actually printing a character, and using the fact that values plotted with `plotchar()` will appear both:
