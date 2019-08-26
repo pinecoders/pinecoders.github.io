@@ -16,6 +16,7 @@ This is a compendium of frequently asked questions on Pine. Answers often give c
 - [Other intervals (MTF)](#other-intervals-mtf)
 - [Alerts](#alerts)
 - [Techniques](#techniques)
+- [Debugging](#debugging)
 
 
 
@@ -106,7 +107,7 @@ var plotLine = false
 // This is where you enter your start and end conditions.
 startCondition = pivothigh(close, 5, 2)
 endCondition = cross(close, savedLevel)
-// Determine if a line start/stop condition has occured.
+// Determine if a line start/stop condition has occurred.
 startEvent = not plotLine and startCondition
 // If you do not need a limit on the length of the line, use this line instead: endEvent = plotLine and endCondition
 endEvent = plotLine and (endCondition or barssince(startEvent) > lineExpiryBars)
@@ -443,7 +444,7 @@ goodMsgArg1 = false ? "Long Entry" : "Short Entry"
 // Both values in the expression are literal strings known at compile time. Result is "const string".
 goodMsgArg2 = "AAA " + "BBB"
 
-alertcondition(true, title="Id appearing in Create Alert db", message = goodMsgArg1)```
+alertcondition(true, title="Id appearing in Create Alert db", message = goodMsgArg1)
 ```
 
 **[Back to top](#table-of-contents)**
@@ -523,6 +524,74 @@ plot(hi, trackprice = true)
 plot(lo, trackprice = true)
 ```
 
-
+### How can I remember when the last time a condition occurred?
+This script shows how to keep track of how many bars ago a condition occurred. We are only tracking the distance from the last time the condition occurred, and rather than using a more costly `valuewhen()` call, we simply watch for the condition, initialize our distance to 0 when we encounter the condition, and until we encounter the condition again, add 1 to the distance at each bar. The resulting value can be used as an index with the`[]` [history-referecing operator](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator).
+```js
+//@version=4
+study("Track distance from condition", "", true)
+// Conditions.
+upBar = close > open
+dnBar = close < open
+up3Bars = dnBar and upBar[1] and upBar[2] and upBar[3]
+dn3Bars = upBar and dnBar[1] and dnBar[2] and dnBar[3]
+// Track distance from conditions.
+var barsFromUp = 0
+var barsFromDn = 0
+barsFromUp := up3Bars ? 0 : barsFromUp + 1
+barsFromDn := dn3Bars ? 0 : barsFromDn + 1
+plot(high[barsFromUp])
+plot(low[barsFromDn], color = color.red)
+```
 **[Back to top](#table-of-contents)**
 
+
+
+
+<br><br>
+## DEBUGGING
+
+### How can I examine the value of a string in my script?
+This code will show a label containing the current values of the variables you wish to see. Non-string variables need to be converted to strings using `tostring()`. The label will show when price changes in the realtime bar, so the code needs to run on a live chart.
+```js
+//@version=4
+study("f_print()", "", true)
+f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, close, _txt, xloc.bar_time, yloc.price, size = size.large)
+a = f_print("Timeframe = " + tostring(timeframe.multiplier) + timeframe.period + "\nHigh =" + tostring(high))
+```
+
+### How can I plot numeric values so that they do not disrupt the indicator's scale?
+The solution is to use the `plotchar()` function, but without actually printing a character, and using the fact that values plotted with `plotchar()` will appear both:
+- in the Indicator's values (their display is controlled by the chart's *Settings/Status Line/Indicator Values* checkbox)
+- in the Data Window (third icon down the list at the right of your TV window)
+
+The reason for using the `location = location.top` parameter is that `plotchar()` uses `location.abovebar` as the default when the `location=` parameter is not specified, and this puts price into play in your indicator's scale, even if no character is actually plotted by `plotchar()`.
+
+Note that you may use `plotchar()` to test variables of string type, but only by comparing them to a single string, as is done in the second `plotchar()` call in the following code:
+```js
+//@version=4
+study("Debugging with plotchar()")
+plotchar(bar_index, "Bar Index", "", location = location.top)
+// This will be true (1) when chart is at 1min. Otherwise it will show false (0).
+plotchar(timeframe.period == "1", "timeframe.period='1'", "", location = location.top)
+```
+
+### How can I visualize many different states?
+This code displays green or red squares corresponding to the two different states of four different conditions, and colors the background when they are either all true or all false:
+```js
+//@version=4
+study("Debugging states")
+cond1 = close > open
+cond2 = close > close[1]
+cond3 = volume > volume[1]
+cond4 = high - close < open - low
+cond5 = cond1 and cond2 and cond3 and cond4
+cond6 = not (cond1 or cond2 or cond3 or cond4)
+plotshape(9, "cond1", shape.square, location.absolute, cond1 ? color.green : color.red, size = size.tiny)
+plotshape(8, "cond2", shape.square, location.absolute, cond2 ? color.green : color.red, size = size.tiny)
+plotshape(7, "cond3", shape.square, location.absolute, cond3 ? color.green : color.red, size = size.tiny)
+plotshape(6, "cond4", shape.square, location.absolute, cond4 ? color.green : color.red, size = size.tiny)
+bgcolor(cond5 ? color.green : cond6 ? color.red : na, title = "cond5/6")
+```
+
+
+**[Back to top](#table-of-contents)**
