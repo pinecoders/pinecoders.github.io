@@ -555,9 +555,11 @@ This code will show a label containing the current values of the variables you w
 ```js
 //@version=4
 study("f_print()", "", true)
-f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, close, _txt, xloc.bar_time, yloc.price, size = size.large)
+f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, high, _txt, xloc.bar_time, yloc.price, size = size.large)
 a = f_print("Timeframe = " + tostring(timeframe.multiplier) + timeframe.period + "\nHigh =" + tostring(high))
 ```
+
+![.](https://www.tradingview.com/x/kG2OOCIp/ "")
 
 ### How can I plot numeric values so that they do not disrupt the indicator's scale?
 The solution is to use the `plotchar()` function, but without actually printing a character, and using the fact that values plotted with `plotchar()` will appear both:
@@ -569,17 +571,24 @@ The reason for using the `location = location.top` parameter is that `plotchar()
 Note that you may use `plotchar()` to test variables of string type, but only by comparing them to a single string, as is done in the second `plotchar()` call in the following code:
 ```js
 //@version=4
-study("Debugging with plotchar()")
+study("Printing values with plotchar()")
 plotchar(bar_index, "Bar Index", "", location = location.top)
 // This will be true (1) when chart is at 1min. Otherwise it will show false (0).
 plotchar(timeframe.period == "1", "timeframe.period='1'", "", location = location.top)
 ```
 
+![.](printing_values_with_plotchar.png "")
+
+Note that:
+- The indicator's scale is not affected by the `bar_index` value of `11215` being plotted.
+- The value of `1` printed by the second call to `plotchar()`, indicating that we are on a 1 min chart.
+- Values appear in both the indicator's values and the Data Window, even if nothing is plotted in the indicator's scale.
+
 ### How can I visualize many different states?
 This code displays green or red squares corresponding to the two different states of four different conditions, and colors the background when they are either all true or all false:
 ```js
 //@version=4
-study("Debugging states")
+study("Debugging states with plotshape() and bgcolor()")
 cond1 = close > open
 cond2 = close > close[1]
 cond3 = volume > volume[1]
@@ -592,6 +601,54 @@ plotshape(7, "cond3", shape.square, location.absolute, cond3 ? color.green : col
 plotshape(6, "cond4", shape.square, location.absolute, cond4 ? color.green : color.red, size = size.tiny)
 bgcolor(cond5 ? color.green : cond6 ? color.red : na, title = "cond5/6")
 ```
+
+![.](debugging_states_with_plotshape_and_bgcolor.png "")
+
+You could also use `plot()` to achieve a somewhat similar result. Here we are plotting the condition number only when the condition is true:
+```js
+//@version=4
+study("Debugging states with plot() and bgcolor()")
+// ————— States
+cond1 = close > open
+cond2 = close > close[1]
+cond3 = volume > volume[1]
+cond4 = high - close < open - low
+cond5 = cond1 and cond2 and cond3 and cond4
+cond6 = not (cond1 or cond2 or cond3 or cond4)
+plot(cond1 ? 1 : na, "cond1", linewidth = 4, style = plot.style_circles)
+plot(cond2 ? 2 : na, "cond2", linewidth = 4, style = plot.style_circles)
+plot(cond3 ? 3 : na, "cond3", linewidth = 4, style = plot.style_circles)
+plot(cond4 ? 4 : na, "cond4", linewidth = 4, style = plot.style_circles)
+bgcolor(cond5 ? color.green : cond6 ? color.red : na, title = "cond5/6")
+```
+
+![.](debugging_states_with_plot_and_bgcolor.png "")
+
+### How can I visualize my script's conditions on the chart?
+When building compound conditions that rely on the accuracy of multiple underlying conditions used as building blocks, you will usually  want to confirm your code is correctly identifying the underlying conditions. Here, markers identifying them are plotted at the top and bottom of the chart using `plotshape()`, while the compound conditions 5 an 6 are marked above and below bars using `plotshape()`, and one bar later using `plotchar()` and a Unicode character:
+```
+//@version=4
+study("Plotting markers with plotshape()", "", true)
+cond1 = close > open
+cond2 = close > close[2]
+cond3 = volume > volume[1]
+cond4 = high - close < open - low
+cond5 = cond1 and cond2 and cond3 and cond4
+cond6 = not (cond1 or cond2 or cond3 or cond4)
+plotshape(cond1, "cond1", shape.circle, location.top, color.silver, text = "1", size = size.small)
+plotshape(cond2, "cond2", shape.diamond, location.top, color.orange, text = "2", size = size.tiny)
+plotshape(cond3, "cond3", shape.circle, location.bottom, color.fuchsia, text = "3", size = size.small)
+plotshape(cond4, "cond4", shape.diamond, location.bottom, color.aqua, text = "4", size = size.tiny)
+plotshape(cond5, "cond5", shape.triangleup, location.belowbar, color.green, 0, text = "cond5", size = size.tiny)
+plotshape(cond6, "cond6", shape.triangledown, location.abovebar, color.maroon, 0, text = "cond6", size = size.tiny)
+// Place these markers one bar late so they don't overprint the "plotshape()" triangles.
+plotchar(cond5[1], "cond5", "⮝", location.belowbar, color.lime, 0, size = size.tiny)
+plotchar(cond6[1], "cond6", "⮟", location.abovebar, color.red, 0, size = size.tiny)
+```
+
+![.](https://www.tradingview.com/x/BUkdl478/ "")
+
+You will find lists of Unicode arrows [here](https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows/) and [here](http://xahlee.info/comp/unicode_arrows.html). Because they are not all mapped in the MS Trebuchet font TV uses, not all characters will work with `plotchar()`. Some work as arguments to the `text=` parameter, but not as arguments to `char=`.
 
 
 **[Back to top](#table-of-contents)**
