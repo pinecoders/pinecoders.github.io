@@ -535,7 +535,7 @@ plot(lo, trackprice = true)
 
 ### How can I examine the value of a string in my script?
 This code will show a label containing the current values of the variables you wish to see. Non-string variables need to be converted to strings using `tostring()`. The label will show when price changes in the realtime bar, so the code needs to run on a live chart.
-```
+```js
 //@version=4
 study("f_print()", "", true)
 f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, close, _txt, xloc.bar_time, yloc.price, size = size.large)
@@ -550,7 +550,7 @@ The solution is to use the `plotchar()` function, but without actually printing 
 The reason for using the `location = location.top` parameter is that `plotchar()` uses `location.abovebar` as the default when the `location=` parameter is not specified, and this puts price into play in your indicator's scale, even if no character is actually plotted by `plotchar()`.
 
 Note that you may use `plotchar()` to test variables of string type, but only by comparing them to a single string, as is done in the second `plotchar()` call in the following code:
-```
+```js
 //@version=4
 study("Debugging with plotchar()")
 plotchar(bar_index, "Bar Index", "", location = location.top)
