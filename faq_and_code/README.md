@@ -548,6 +548,8 @@ The solution is to use the `plotchar()` function, but without actually printing 
 - in the Data Window (third icon down the list at the right of your TV window)
 
 The reason for using the `location = location.top` parameter is that `plotchar()` uses `location.abovebar` as the default when the `location=` parameter is not specified, and this puts price into play in your indicator's scale, even if no character is actually plotted by `plotchar()`.
+
+Note that you may use `plotchar()` to test variables of string type, but only by comparing them to a single string, as is done in the second `plotchar()` call in the following code:
 ```
 //@version=4
 study("Debugging with plotchar()")
