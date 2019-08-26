@@ -534,12 +534,25 @@ plot(lo, trackprice = true)
 ## DEBUGGING
 
 ### How can I examine the value of a string in my script?
-This code will show a label containing the current values of the variables you wish to see. Non-string variables need to be converting to strings using `tostring()`. The label will show when price changes in the realtime bar, so the code needs to run on a live chart.
+This code will show a label containing the current values of the variables you wish to see. Non-string variables need to be converted to strings using `tostring()`. The label will show when price changes in the realtime bar, so the code needs to run on a live chart.
 ```
 //@version=4
 study("f_print()", "", true)
 f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, close, _txt, xloc.bar_time, yloc.price, size = size.large)
 a = f_print("Timeframe = " + tostring(timeframe.multiplier) + timeframe.period + "\nHigh =" + tostring(high))
 ```
+
+### How can I plot numeric values so that they do not disrupt the indicator's scale?
+The solution is to use the `plotchar()` function, but without actually printing a character, and using the fact that values plotted with `plotchar()` will appear both:
+- in the Indicator's values (their display is controlled by the chart's *Settings/Status Line/Indicator Values* checkbox)
+- in the Data Window (third icon down the list at the right of your TV window)
+```
+//@version=4
+study("Debugging with plotchar()")
+plotchar(bar_index, "Bar Index", "", location = location.top)
+// This will be true (1) when chart is at 1min. Otherwise it will show false (0).
+plotchar(timeframe.period == "1", "timeframe.period='1'", "", location = location.top)
+```
+
 
 **[Back to top](#table-of-contents)**
