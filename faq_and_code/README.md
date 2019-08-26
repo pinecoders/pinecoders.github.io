@@ -579,6 +579,11 @@ plotchar(timeframe.period == "1", "timeframe.period='1'", "", location = locatio
 
 ![.](printing_values_with_plotchar.png "")
 
+Note that:
+- The indicator's scale is not affected by the `bar_index` value of `11215` being plotted.
+- The value of `1` printed bu the second call to `plotchar()`, indicating that we are on a 1 min chart.
+- The values appear both in the indicator's values and the Data Window.
+
 ### How can I visualize many different states?
 This code displays green or red squares corresponding to the two different states of four different conditions, and colors the background when they are either all true or all false:
 ```js
