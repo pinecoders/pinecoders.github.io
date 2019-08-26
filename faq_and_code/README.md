@@ -560,7 +560,7 @@ plotchar(timeframe.period == "1", "timeframe.period='1'", "", location = locatio
 
 ### How can I visualize many different states?
 This code displays green or red squares corresponding to the two different states of four different conditions, and colors the background when they are either all true or all false:
-```
+```js
 //@version=4
 study("Debugging states")
 cond1 = close > open
@@ -569,10 +569,10 @@ cond3 = volume > volume[1]
 cond4 = high - close < open - low
 cond5 = cond1 and cond2 and cond3 and cond4
 cond6 = not (cond1 or cond2 or cond3 or cond4)
-plotshape(99, "cond1", shape.square, location.absolute, cond1 ? color.green : color.red, size = size.tiny)
-plotshape(98, "cond2", shape.square, location.absolute, cond2 ? color.green : color.red, size = size.tiny)
-plotshape(97, "cond3", shape.square, location.absolute, cond3 ? color.green : color.red, size = size.tiny)
-plotshape(96, "cond4", shape.square, location.absolute, cond4 ? color.green : color.red, size = size.tiny)
+plotshape(9, "cond1", shape.square, location.absolute, cond1 ? color.green : color.red, size = size.tiny)
+plotshape(8, "cond2", shape.square, location.absolute, cond2 ? color.green : color.red, size = size.tiny)
+plotshape(7, "cond3", shape.square, location.absolute, cond3 ? color.green : color.red, size = size.tiny)
+plotshape(6, "cond4", shape.square, location.absolute, cond4 ? color.green : color.red, size = size.tiny)
 bgcolor(cond5 ? color.green : cond6 ? color.red : na, title = "cond5/6")
 ```
 
