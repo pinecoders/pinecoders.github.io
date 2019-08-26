@@ -571,11 +571,13 @@ The reason for using the `location = location.top` parameter is that `plotchar()
 Note that you may use `plotchar()` to test variables of string type, but only by comparing them to a single string, as is done in the second `plotchar()` call in the following code:
 ```js
 //@version=4
-study("Debugging with plotchar()")
+study("Printing values with plotchar()")
 plotchar(bar_index, "Bar Index", "", location = location.top)
 // This will be true (1) when chart is at 1min. Otherwise it will show false (0).
 plotchar(timeframe.period == "1", "timeframe.period='1'", "", location = location.top)
 ```
+
+![.](printing_values_with_plotchar.png "")
 
 ### How can I visualize many different states?
 This code displays green or red squares corresponding to the two different states of four different conditions, and colors the background when they are either all true or all false:
@@ -638,6 +640,8 @@ plotshape(cond6, "cond6", shape.triangledown, location.abovebar, color.maroon, 0
 plotchar(cond5[1], "cond5", "⮝", location.belowbar, color.lime, 0, size = size.tiny)
 plotchar(cond6[1], "cond6", "⮟", location.abovebar, color.red, 0, size = size.tiny)
 ```
+
+![.](https://www.tradingview.com/x/BUkdl478/ "")
 
 You will find lists of Unicode arrows [here](https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows/) and [here](http://xahlee.info/comp/unicode_arrows.html). Because they are not all mapped in the MS Trebuchet font TV uses, not all characters will work with `plotchar()`. Some work as arguments to the `text=` parameter, but not as arguments to `char=`.
 
