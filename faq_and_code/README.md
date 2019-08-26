@@ -524,7 +524,24 @@ plot(hi, trackprice = true)
 plot(lo, trackprice = true)
 ```
 
-
+### How can I remember when the last time a condition occured?
+This script shows how to keep track of how many bars ago a condition occurred. We are only tracking the distance from the last time the condition occurred, and rather than using a more costly `valuewhen()` call, we simply watch for the condition, initialize our distance to 0 when we encounter the condition, and until we encounter the condition again, add 1 to the distance at each bar. The resulting value can be used as an index to use the [history-referecing operator](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator).
+```js
+//@version=4
+study("Track distance from condition", "", true)
+// Conditions.
+upBar = close > open
+dnBar = close < open
+up3Bars = dnBar and upBar[1] and upBar[2] and upBar[3]
+dn3Bars = upBar and dnBar[1] and dnBar[2] and dnBar[3]
+// Track distance from conditions.
+var barsFromUp = 0
+var barsFromDn = 0
+barsFromUp := up3Bars ? 0 : barsFromUp + 1
+barsFromDn := dn3Bars ? 0 : barsFromDn + 1
+plot(high[barsFromUp])
+plot(low[barsFromDn], color = color.red)
+```
 **[Back to top](#table-of-contents)**
 
 
