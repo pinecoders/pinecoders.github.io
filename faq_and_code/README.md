@@ -614,4 +614,7 @@ plotshape(cond6, "cond6", shape.triangledown, location.abovebar, color.maroon, 0
 plotchar(cond5[1], "cond5", "⮝", location.belowbar, color.lime, 0, size = size.tiny)
 plotchar(cond6[1], "cond6", "⮟", location.abovebar, color.red, 0, size = size.tiny)
 ```
+You will find lists of Unicode arrows [here](https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows/) and [here](http://xahlee.info/comp/unicode_arrows.html). Because they are not all mapped in the MS Trebuchet font TV uses, not all characters will work with `plotchar()`. Some work as arguments to the `text=` parameter, but not as arguments to `char=`.
+
+
 **[Back to top](#table-of-contents)**
