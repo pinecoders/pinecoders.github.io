@@ -107,7 +107,7 @@ var plotLine = false
 // This is where you enter your start and end conditions.
 startCondition = pivothigh(close, 5, 2)
 endCondition = cross(close, savedLevel)
-// Determine if a line start/stop condition has occured.
+// Determine if a line start/stop condition has occurred.
 startEvent = not plotLine and startCondition
 // If you do not need a limit on the length of the line, use this line instead: endEvent = plotLine and endCondition
 endEvent = plotLine and (endCondition or barssince(startEvent) > lineExpiryBars)
@@ -524,7 +524,7 @@ plot(hi, trackprice = true)
 plot(lo, trackprice = true)
 ```
 
-### How can I remember when the last time a condition occured?
+### How can I remember when the last time a condition occurred?
 This script shows how to keep track of how many bars ago a condition occurred. We are only tracking the distance from the last time the condition occurred, and rather than using a more costly `valuewhen()` call, we simply watch for the condition, initialize our distance to 0 when we encounter the condition, and until we encounter the condition again, add 1 to the distance at each bar. The resulting value can be used as an index to use the [history-referecing operator](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator).
 ```js
 //@version=4
