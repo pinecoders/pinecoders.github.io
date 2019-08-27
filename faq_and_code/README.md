@@ -387,7 +387,7 @@ hline(100)
 ### Is it possible to use `security()` on lower intervals than the chart's current interval?
 Yes, except that seconds resolutions do not work. So you can call `security()` at 1m from a 15m chart, but not 30sec.
 
-If you call `security()` at a lower resolution using a series such as `close` or `volume` argument for its `expression=` parameter, `security()` returns its value at the last intrabar, as in the `lastClose` variable in the following script.
+If you call `security()` at a lower resolution using a series argument such as `close` or `volume` for its `expression=` parameter, `security()` returns the series' value at the last intrabar, as in the `lastClose` variable in the following script.
 
 If you use a function as the `expression=` argument, then that function will be executed on each intrabar, starting from the earliest one and ending at the most recent, even if the number of intrabars is sometimes irregular. The two functions used in the following code illustrate how you can use `change(time(_res))` (where `_res` is the chart's current resolution) to detect the first intrabar the function is running on:
 
