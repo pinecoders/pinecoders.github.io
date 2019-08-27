@@ -164,6 +164,28 @@ cond = close > open
 plot(cond ? 10e20 : na, style = plot.style_columns, color = color.silver, transp=85)
 ```
 
+### How can I access normal bar OHLC values on a Heikin Ashi chart?
+You need to use the `security()` function. This script also allows you to view normal candles on the chart::
+```js
+//@version=4
+study("Plot real OHLC on HA", "", true)
+// ————— Determine if normmal candles are plotted on the chart.
+plotCandles = input(false, "Plot Candles")
+// ————— Fetch normal bar OHLC.
+o = security(syminfo.ticker, timeframe.period, open)
+h = security(syminfo.ticker, timeframe.period, high)
+l = security(syminfo.ticker, timeframe.period, low)
+c = security(syminfo.ticker, timeframe.period, close)
+// ————— Plot normal close.
+plot(c, "Real Price", color = color.black, linewidth = 3, trackprice = true)
+// ————— Plot candles if required.
+invisibleColor = color.new(color.white, 100)
+plotcandle(plotCandles ? o : na, plotCandles ? h : na, plotCandles ? l : na, plotCandles ? c : na, color = color.orange, wickcolor = color.orange)
+// ————— Plot label.
+f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, c, _txt, xloc.bar_time, yloc.price, size = size.large)
+a = f_print("Real Price = " + tostring(c) + "\nHA Price = " + tostring(close) + "\n Delta = " + tostring(close - c))
+```
+
 **[Back to top](#table-of-contents)**
 
 
