@@ -384,6 +384,47 @@ hline(0)
 hline(100)
 ```
 
+### Is it possible to use `security()` on lower intervals than the chart's current interval?
+Yes, except that seconds resolutions do not work. So you can call `security()` at 1m from a 15m chart, but not 30sec.
+
+If you call `security()` at a lower resolution using a series argument such as `close` or `volume` for its `expression=` parameter, `security()` returns the series' value at the last intrabar, as in the `lastClose` variable in the following script.
+
+If you use a function as the `expression=` argument, then that function will be executed on each intrabar, starting from the earliest one and ending at the most recent, even if the number of intrabars is sometimes irregular. The two functions used in the following code illustrate how you can use `change(time(_res))` (where `_res` is the chart's current resolution) to detect the first intrabar the function is running on:
+
+```js
+//@version=4
+study("Intrabar inspection")
+
+insideBarNo = input(4, minval=1)
+// Current chart resolution. This needs to reflect the chart resolution you want the code working from.
+curRes = input("D", "Current resolution")
+// Lower TF we are inspecting. Cannot be in seconds and must be lower that chart's resolution.
+insideRes = input("60", "Inside resolution")
+
+f_qtyIntrabars(_res) =>
+    // Returns qty of intrabars in current chart bar.
+    var int _initCnt = 0
+    _initCnt := change(time(_res)) ? 1 : _initCnt + 1
+    
+f_valueAtIntrabar(_src, _bar, _res) =>
+    // Returns series value at intrabar n. First intrabar is 1, starting from the earliest.
+    var int _barNo = 0
+    var float _value = na
+    _barNo := change(time(_res)) ? 1 : _barNo + 1
+    _value := _barNo == _bar ? _src : _value
+
+// Returns close of last intrabar in "curRes" chart bar.
+lastClose = security(syminfo.tickerid, insideRes, close)
+// Returns volume at "insideBarNo" intrabar.
+valueAtIntrabar = security(syminfo.tickerid, insideRes, f_valueAtIntrabar(volume, insideBarNo, curRes))
+// Returns qty of "insideRes" intrabars in "curRes" chart bar.
+qtyIntrabars = security(syminfo.tickerid, insideRes, f_qtyIntrabars(curRes))
+
+plotchar(lastClose,"lastClose", "", location = location.top)
+plotchar(valueAtIntrabar,"valueAtIntrabar", "", location = location.top)
+plot(qtyIntrabars,"qtyIntrabars")
+```
+
 **[Back to top](#table-of-contents)**
 
 
