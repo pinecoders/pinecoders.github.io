@@ -625,7 +625,10 @@ barsFromUp := up3Bars ? 0 : barsFromUp + 1
 barsFromDn := dn3Bars ? 0 : barsFromDn + 1
 plot(high[barsFromUp])
 plot(low[barsFromDn], color = color.red)
+plotchar(barsFromUp, "barsFromUp", "", location.top)
+plotchar(barsFromDn, "barsFromDn", "", location.top)
 ```
+
 **[Back to top](#table-of-contents)**
 
 
