@@ -165,7 +165,7 @@ plot(cond ? 10e20 : na, style = plot.style_columns, color = color.silver, transp
 ```
 
 ### How can I access normal bar OHLC values on a Heikin Ashi chart?
-You need to use the `security()` function. This script also allows you to view normal candles on the chart::
+You need to use the `security()` function. This script also allows you to view normal candles on the chart:
 ```js
 //@version=4
 study("Plot real OHLC on HA", "", true)
