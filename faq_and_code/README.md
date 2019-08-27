@@ -521,7 +521,29 @@ alertcondition(true, title="Id appearing in Create Alert db", message = goodMsgA
 
 
 ### How do I save a value or state for later use?
-Since v4 there exists a simpler way to save variable value from bar to bar, using the `var` keyword when initializing variables. See [here](https://www.tradingview.com/pine-script-docs/en/v4/language/Expressions_declarations_and_statements.html#variable-declaration) for more information. This is another example by vitvlkv: [Holding a state in a variable](https://www.tradingview.com/script/llcoIPKG-Pine-Example-Holding-a-state-in-a-variable/).
+Since v4 the `var` keyword provides a way to initialize variables on the first bar of the dataset only, rather than on every bar the script is run on, as was the case before. This has the very useful benefit of automatically taking care of the value's propagation throughout bars:
+```js
+//@version=4
+study("Variable Initialization")
+
+// Initialization at first bar (bar_index=0) only. Value is propagated across bars.
+var initOnce = 0
+initOnce := initOnce + 1
+// Initialization at each bar. Value is not propagated across bars.
+initOnEachBar1 = 0
+initOnEachBar1 := initOnEachBar1 + 1
+// Initialization at each bar. Value is not propagated across bars,
+// so we must refer to the variable's previous value in the series,
+// while allowing for the special case on first bar where there is no previous value.
+initOnEachBar2 = 0
+initOnEachBar2 := nz(initOnEachBar2[1], 0) + 1
+
+plot(initOnce, "initOnce", color.blue, 10)
+plot(initOnEachBar1, "initOnEachBar1", color.red)
+plot(initOnEachBar2, "initOnEachBar2", color.orange, 3, transp = 0)
+```
+
+See [here](https://www.tradingview.com/pine-script-docs/en/v4/language/Expressions_declarations_and_statements.html#variable-declaration) for more information. This is another example by vitvlkv: [Holding a state in a variable](https://www.tradingview.com/script/llcoIPKG-Pine-Example-Holding-a-state-in-a-variable/).
 
 ### How do I calculate averages?
 1. If you just want the average between two values, you can use `avg(val1, val2)` or `(val1 + val2)/2`. Note that the [`avg()`](https://www.tradingview.com/pine-script-reference/v4/#fun_avg) accepts up to 6 values.
