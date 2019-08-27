@@ -164,6 +164,28 @@ cond = close > open
 plot(cond ? 10e20 : na, style = plot.style_columns, color = color.silver, transp=85)
 ```
 
+### How can I access normal bar OHLC values on a Heikin Ashi chart?
+You need to use the `security()` function. This script also allows you to view normal candles on the chart:
+```js
+//@version=4
+study("Plot real OHLC on HA", "", true)
+// ————— Determine if normmal candles are plotted on the chart.
+plotCandles = input(false, "Plot Candles")
+// ————— Fetch normal bar OHLC.
+o = security(syminfo.ticker, timeframe.period, open)
+h = security(syminfo.ticker, timeframe.period, high)
+l = security(syminfo.ticker, timeframe.period, low)
+c = security(syminfo.ticker, timeframe.period, close)
+// ————— Plot normal close.
+plot(c, "Real Price", color = color.black, linewidth = 3, trackprice = true)
+// ————— Plot candles if required.
+invisibleColor = color.new(color.white, 100)
+plotcandle(plotCandles ? o : na, plotCandles ? h : na, plotCandles ? l : na, plotCandles ? c : na, color = color.orange, wickcolor = color.orange)
+// ————— Plot label.
+f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, c, _txt, xloc.bar_time, yloc.price, size = size.large)
+a = f_print("Real Price = " + tostring(c) + "\nHA Price = " + tostring(close) + "\n Delta = " + tostring(close - c))
+```
+
 **[Back to top](#table-of-contents)**
 
 
@@ -559,7 +581,7 @@ f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(tim
 a = f_print("Timeframe = " + tostring(timeframe.multiplier) + timeframe.period + "\nHigh =" + tostring(high))
 ```
 
-![.](https://www.tradingview.com/x/kG2OOCIp/ "")
+![.](https://www.tradingview.com/x/kG2OOCIp/ "f_print()")
 
 ### How can I plot numeric values so that they do not disrupt the indicator's scale?
 The solution is to use the `plotchar()` function, but without actually printing a character, and using the fact that values plotted with `plotchar()` will appear both:
@@ -577,7 +599,7 @@ plotchar(bar_index, "Bar Index", "", location = location.top)
 plotchar(timeframe.period == "1", "timeframe.period='1'", "", location = location.top)
 ```
 
-![.](printing_values_with_plotchar.png "")
+![.](printing_values_with_plotchar.png "Printing values with plotchar()")
 
 Note that:
 - The indicator's scale is not affected by the `bar_index` value of `11215` being plotted.
@@ -602,7 +624,7 @@ plotshape(6, "cond4", shape.square, location.absolute, cond4 ? color.green : col
 bgcolor(cond5 ? color.green : cond6 ? color.red : na, title = "cond5/6")
 ```
 
-![.](debugging_states_with_plotshape_and_bgcolor.png "")
+![.](debugging_states_with_plotshape_and_bgcolor.png "Debugging states with plotshape() and bgcolor()")
 
 You could also use `plot()` to achieve a somewhat similar result. Here we are plotting the condition number only when the condition is true:
 ```js
@@ -622,11 +644,11 @@ plot(cond4 ? 4 : na, "cond4", linewidth = 4, style = plot.style_circles)
 bgcolor(cond5 ? color.green : cond6 ? color.red : na, title = "cond5/6")
 ```
 
-![.](debugging_states_with_plot_and_bgcolor.png "")
+![.](debugging_states_with_plot_and_bgcolor.png "Debugging states with plot() and bgcolor()")
 
 ### How can I visualize my script's conditions on the chart?
 When building compound conditions that rely on the accuracy of multiple underlying conditions used as building blocks, you will usually  want to confirm your code is correctly identifying the underlying conditions. Here, markers identifying them are plotted at the top and bottom of the chart using `plotshape()`, while the compound conditions 5 an 6 are marked above and below bars using `plotshape()`, and one bar later using `plotchar()` and a Unicode character:
-```
+```js
 //@version=4
 study("Plotting markers with plotshape()", "", true)
 cond1 = close > open
@@ -646,7 +668,7 @@ plotchar(cond5[1], "cond5", "⮝", location.belowbar, color.lime, 0, size = size
 plotchar(cond6[1], "cond6", "⮟", location.abovebar, color.red, 0, size = size.tiny)
 ```
 
-![.](https://www.tradingview.com/x/BUkdl478/ "")
+![.](https://www.tradingview.com/x/BUkdl478/ "Plotting markers with plotshape()")
 
 You will find lists of Unicode arrows [here](https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows/) and [here](http://xahlee.info/comp/unicode_arrows.html). Because they are not all mapped in the MS Trebuchet font TV uses, not all characters will work with `plotchar()`. Some work as arguments to the `text=` parameter, but not as arguments to `char=`.
 
