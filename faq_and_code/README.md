@@ -424,6 +424,8 @@ plotchar(lastClose,"lastClose", "", location = location.top)
 plotchar(valueAtIntrabar,"valueAtIntrabar", "", location = location.top)
 plot(qtyIntrabars,"qtyIntrabars")
 ```
+[This](https://www.tradingview.com/script/YFBNr8I6-Delta-Volume-Columns-LucF/) is an example of a script that uses the technique illustrated in the functions to calculate delta volume.
+
 
 **[Back to top](#table-of-contents)**
 
