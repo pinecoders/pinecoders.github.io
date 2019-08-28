@@ -536,7 +536,7 @@ initOnEachBar1 := initOnEachBar1 + 1
 // so we must refer to the variable's previous value in the series,
 // while allowing for the special case on first bar where there is no previous value.
 initOnEachBar2 = 0
-initOnEachBar2 := nz(initOnEachBar2[1], 0) + 1
+initOnEachBar2 := nz(initOnEachBar2[1]) + 1
 
 plot(initOnce, "initOnce", color.blue, 10)
 plot(initOnEachBar1, "initOnEachBar1", color.red)
