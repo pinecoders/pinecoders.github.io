@@ -2,7 +2,7 @@
 
 # FAQ & Code
 
-This is a compendium of frequently asked questions on Pine. Answers often give code examples or link to the best sources on the subject.
+This is a compendium of frequently asked questions on Pine. Answers often give code examples or link to the best sources on the subject. Do not make the mistake of assuming this is strictly beginner's material; some of the questions and answers explore advanced techniques.
 
 ### Table of Contents
 
@@ -17,8 +17,6 @@ This is a compendium of frequently asked questions on Pine. Answers often give c
 - [Alerts](#alerts)
 - [Techniques](#techniques)
 - [Debugging](#debugging)
-
-
 
 <br><br>
 ## BUILT-IN VARIABLES
