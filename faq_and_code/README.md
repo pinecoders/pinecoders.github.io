@@ -125,7 +125,7 @@ plotchar(startEvent, "startEvent", "►", color = color.green, size=size.tiny)
 plotchar(endEvent, "endEvent", "◄", color = color.red, size=size.tiny, location = location.belowbar)
 ```
 
-### How do I plot a support or a trend line line?
+### How do I plot a support or a trend line?
 To plot a continuous line in Pine, you need to either:
 1. Look back into elapsed bars to find an occurrence that will return the same value over consecutive bars so you can plot it, or
 1. Find levels and save them so that you can plot them. In this case your saving mechanism will determine how many levels you can save.
