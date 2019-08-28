@@ -21,7 +21,7 @@ This document provides a list of Pine-related resources and tools.
 - [Color Pickers](#color-pickers-or-palettes)
 - [On GitHub](#on-github)
 
-
+<br><br>
 ## TradingView
 [Pine v4 Reference Manual](https://www.tradingview.com/pine-script-reference/v4/)
 
