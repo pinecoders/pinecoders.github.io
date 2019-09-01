@@ -8,7 +8,7 @@ This document provides a list of Pine-related resources and tools.
 
 PineCoders does not benefit from the adoption of these tools. **This document contains no affiliate links.**
 
-> The original version of this list was written by [chrysopoetics](https://www.tradingview.com/u/chrysopoetics/), a TradingView member.<br>We are grateful to him for allowing us to maintain it. **Thanks Hermes!**
+> The original version of this document was written by [chrysopoetics](https://www.tradingview.com/u/chrysopoetics/), a TradingView member.<br>We are grateful to him for allowing us to maintain it. **Thanks Hermes!**
 
 ### Table of Contents
 
