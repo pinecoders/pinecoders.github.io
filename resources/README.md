@@ -123,7 +123,7 @@ A few other suppliers of such services, unverified by PineCoders:
 
 [Instabot](https://instabot42.github.io/): An open source execution engine that relays orders received from HTTP requests to Bitfinex, Deribit and Coinbase Pro, with support for Bitmex and Binance planned.
 
-[TradingView alerts to MT4](https://www.tradingconnector.com/) receives TV alerts and converts them into instant orders on MT4 in forex, indices and commodities markets.
+[TradingView alerts to MT4](https://www.tradingconnector.com/) receives TV alerts and converts them into instant orders on MT4 (and MT5 soon) in forex, indices and commodities markets. Latency is below 1 second.
 
 
 ## Text Editor Highlighters for Pine
