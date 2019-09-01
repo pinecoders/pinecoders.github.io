@@ -18,7 +18,7 @@ PineCoders does not benefit from the adoption of these tools. **This document co
 - [Forums](#forums)
 - [Videos](#videos)
 - [Work For Hire Pine Programmers](#work-for-hire-pine-programmers)
-- [Automation](#automation)
+- [Automated Order Execution](#automated-order-execution)
 - [Text Editor Highlighters for Pine](#text-editor-highlighters-for-pine)
 - [Color Pickers](#color-pickers-or-palettes)
 - [On GitHub](#on-github)
@@ -112,7 +112,7 @@ A few other suppliers of such services, unverified by PineCoders:
 - [Kick studios](http://kickstudios.com/retail-trading-dev-services/) offers custom Pine script development.
 
 
-## Automation
+## Automated Order Execution
 [Alertatron](https://alertatron.com/): A service that allows you to relay TradingView alerts to Telegram, Discord, Slack, Email or webhooks, with a chart snapshot attached. The developer is well-known in the Pinescripters community.
 
 [3Commas](https://3commas.io/): Can receive TV alerts and connect them to their bots to execute simple orders on crypto exchanges.
