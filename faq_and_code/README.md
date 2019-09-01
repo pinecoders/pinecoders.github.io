@@ -676,7 +676,7 @@ This code will show a label containing the current values of the variables you w
 //@version=4
 study("f_print()", "", true)
 f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, high, _txt, xloc.bar_time, yloc.price, size = size.large)
-a = f_print("Timeframe = " + tostring(timeframe.multiplier) + timeframe.period + "\nHigh =" + tostring(high))
+f_print("Multiplier = " + tostring(timeframe.multiplier) + "\nPeriod = " + timeframe.period + "\nHigh = " + tostring(high))
 ```
 
 ![.](https://www.tradingview.com/x/kG2OOCIp/ "f_print()")
