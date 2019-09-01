@@ -384,6 +384,39 @@ hline(0)
 hline(100)
 ```
 
+### How can I get the current resolution in a uniform numeric format?
+Use the PineCoders `f_resInMinutes()` function to get the current resolution expressed in minutes of type float.
+You can then manipulate it and use the `f_resFromMinutes(_minutes)` function to obtain a string usable in `security()`.
+
+```js
+//@version=4
+study("Resolution in minutes", "", true)
+f_resInMinutes() => 
+    // Converts current timeframe into minutes of type float.
+    _resInMinutes = timeframe.multiplier * (
+      timeframe.isseconds   ? 1. / 60. :
+      timeframe.isminutes   ? 1. :
+      timeframe.isdaily     ? 1440. :
+      timeframe.isweekly    ? 10080. :
+      timeframe.ismonthly   ? 43800. : na)
+
+f_resFromMinutes(_minutes) =>
+    // Converts a resolution expressed in minutes into a string usable by "security()"
+    _minutes     <= 0.0417       ? "1S"  :
+      _minutes   <= 0.167        ? "5S"  :
+      _minutes   <= 0.376        ? "15S" :
+      _minutes   <= 0.751        ? "30S" :
+      _minutes   <= 1440         ? tostring(round(_minutes)) :
+      _minutes   <= 43800        ? tostring(round(min(_minutes / 1440, 365))) + "D" :
+      tostring(round(min(_minutes / 43800, 12))) + "M"
+
+f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, high, _txt, xloc.bar_time, yloc.price, size = size.large)
+
+resInMinutes = f_resInMinutes()
+resFromMinutes = f_resFromMinutes(resInMinutes)
+f_print("f_resInMinutes() = " + tostring(resInMinutes) +"\nf_resFromMinutes(_minutes) = " + resFromMinutes)
+```
+
 ### Is it possible to use `security()` on lower intervals than the chart's current interval?
 Yes, except that seconds resolutions do not work. So you can call `security()` at 1m from a 15m chart, but not 30sec.
 
