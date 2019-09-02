@@ -417,6 +417,39 @@ resFromMinutes = f_resFromMinutes(resInMinutes)
 f_print("f_resInMinutes() = " + tostring(resInMinutes) +"\nf_resFromMinutes(_minutes) = " + resFromMinutes)
 ```
 
+### How can I get the resolution in milliseconds from a string in the `input.resolution` or `timeframe.period` format?
+This code presents two ways to go about it. The second method should be preferred, as it is more reliable than the first, which breaks when intervals between bars are irregular, which can happen for many reasons.
+```
+//@version=4
+study("f_resolution()", "", true, scale = scale.none)
+minutes = 60 * 1000
+higherRes = input("1D", "Interval used for security() calls", type = input.resolution)
+f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, high, _txt, xloc.bar_time, yloc.price, size = size.large)
+
+// ————— Method 1 (subject to irregularities).
+// Use "security()" to fetch delta in ms between bars.
+f_resolution(_resolution) => security(syminfo.tickerid, _resolution, change(time))
+higherResInMinutes  = f_resolution(higherRes) / minutes
+currentResInMinutes = f_resolution(timeframe.period) / minutes
+plot(higherResInMinutes, "higherResInMinutes", color.blue, linewidth = 10)
+plot(currentResInMinutes, "currentResInMinutes", color.aqua, linewidth = 10)
+
+// ————— Method 2 (more secure).
+// Get higher interval in ms, using only the smallest values retrieved,
+// since occasional situations generate higher than normal intervals.
+higherResInMs = 10e20
+higherResInMs := min(security(syminfo.tickerid, higherRes, change(time)), nz(higherResInMs[1], 10e20))
+// Get current interval in ms using same technique.
+currentResInMs = 10e20
+currentResInMs := min(change(time), nz(currentResInMs[1], 10e20))
+plot(higherResInMs / minutes, "higherTfInt / minutes", color.orange, linewidth = 3)
+plot(currentResInMs / minutes, "currentTfInt / minutes", color.yellow, linewidth = 3)
+
+// ————— Plot label.
+f_print("METHOD 1\nHigher Resolution = " + tostring(higherResInMinutes) + "\nCurrent resolution = " + tostring(currentResInMinutes) +
+  "\n⭐METHOD 2⭐\nHigher Resolution = " + tostring(higherResInMs / minutes) + "\nCurrent resolution = " + tostring(currentResInMs / minutes))
+```
+
 ### Is it possible to use `security()` on lower intervals than the chart's current interval?
 Yes, except that seconds resolutions do not work. So you can call `security()` at 1m from a 15m chart, but not 30sec.
 
