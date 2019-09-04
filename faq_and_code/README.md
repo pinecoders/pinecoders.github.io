@@ -698,12 +698,12 @@ plotchar(barsFromDn, "barsFromDn", "", location.top)
 ### How can I count the occurrences of a condition in the last x bars?
 The built-in [`sum()`](https://www.tradingview.com/pine-script-reference/v4/#fun_sum) function is the most efficient way to do it, but its length (the number of last bars in your sample) cannot be a series float or int. This script shows three different ways of achieving the count:
 
-1. *Method 1* in this script uses the `sum()` built-in.
+1. *Method 1* uses the `sum()` built-in.
 1. *Method 2* uses a technique that is also efficient, but not as efficient as the built-in. It has the advantage of accepting a series float or int as a length.
-1. *Method 3* also accepts a series float or int as a length, but is very inefficient as it uses a `for` loop to go back on past bars at every bar. It is inefficient because it is always recounting all *length* bars at every bar, which is unnecessary since all of them except the last bar have already been examined previously when the script first executed on them. In *Method 3* case the situation is even worse, as the `for` loop counts all *length* bars at every bar!
+1. *Method 3* also accepts a series float or int as a length, but is very inefficient because it uses a `for` loop to go back on past bars at every bar. Examining all *length* bars at every bar is unnecessary since all of them except the last bar have already been examined previously when the script first executed on them. This makes for slower code and will be detrimental to chart loading time.
 
-*Method 2* is a very good example of the *Pine way* of doing calculations taking advantage of using series and our understanding of the Pine runtime environment to code our scripts. While it is useful to count occurrences of a condition in the last x bars, it is also worth studying because the technique it uses will allow you to write much more efficient Pine code that using `for` loops.
-```
+*Method 2* is a very good example of the *Pine way* of doing calculations by taking advantage of series and a good understanding of the Pine runtime environment to code our scripts. While it is useful to count occurrences of a condition in the last x bars, it is also worth studying because the technique it uses will allow you to write much more efficient Pine code that using `for` loops when applied to other situations. There are situations when using a `for` loop is the only way to realize what we want, but in most cases they can be avoided.
+```js
 //@version=4
 //@author=LucF, for PineCoders
 
