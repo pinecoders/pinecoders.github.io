@@ -695,6 +695,97 @@ plotchar(barsFromUp, "barsFromUp", "", location.top)
 plotchar(barsFromDn, "barsFromDn", "", location.top)
 ```
 
+### How can I count the occurrences of a condition in the last x bars?
+The built-in [`sum()`](https://www.tradingview.com/pine-script-reference/v4/#fun_sum) function is the most efficient way to do it, but its length (the number of last bars in your sample) cannot be a series float or int. This script shows three different ways of achieving the count:
+
+1. *Method 1* in this script uses the `sum()` built-in.
+1. *Method 2* uses a technique that is also efficient, but not as efficient as the built-in. It has the advantage of accepting a series float or int as a length.
+1. *Method 3* also accepts a series float or int as a length, but is very inefficient as it uses a `for` loop to go back on past bars at every bar. It is inefficient because it is always recounting all *length* bars at every bar, which is unnecessary since all of them except the last bar have already been examined previously when the script first executed on them. In *Method 3* case the situation is even worse, as the `for` loop counts all *length* bars at every bar!
+
+*Method 2* is a very good example of the *Pine way* of doing calculations taking advantage of using series and our understanding of the Pine runtime environment to code our scripts. While it is useful to count occurrences of a condition in the last x bars, it is also worth studying because the technique it uses will allow you to write much more efficient Pine code that using `for` loops.
+```
+//@version=4
+//@author=LucF, for PineCoders
+
+// TimesInLast - PineCoders FAQ
+//  v1.0, 2019.07.15 19:37 — Luc 
+
+// This script illustrates 3 different ways of counting the number of occurrences when a condition occured in the last len bars.
+// By using the script's Settings/Inputs you can choose between 4 types of length to use with the functions.
+// If you look at results in the Data Window, you will see the impact of sending different types of length to each of the functions.
+
+// Conclusions: 
+//      - Unless your length is of series type, use Method 1.
+//      - Use Method 2 if you need to be able to use a series int or series float length.
+//      - Never use Method 3.
+study("TimesInLast - PineCoders FAQ")
+
+// Change this value when you want to use different lengths.
+// Inputs cannot be change through Settings/Inputs; only the form-type.
+deflen = 100
+
+// ————— Allow different types to be specified as length value.
+// This part is only there to show the impact of using different form-types of length with the 3 functions.
+// In normal situation, we would just use the following: len = input(100, "Length")
+LT1 = "1. input int", LT2 = "2. input float", LT3="3. series int", LT4="4. series float"
+lt = input(LT1, "Type of 'length' argument to functions", options=[LT1, LT2, LT3, LT4])
+len1 = input(deflen, LT1, type=input.integer, minval=deflen, maxval=deflen)
+len2 = input(deflen, LT2, type=input.float, minval=deflen, maxval=deflen)
+var len3 = 0
+len3 := len3 == deflen ? len3 : len3 + 1
+var len4 = 0.
+len4 := len4 == deflen ? len4 : len4 + 1
+// Choose proper form-type of length.
+len = lt == LT1 ? len1 : lt == LT2 ? len2 : lt == LT3 ? len3 : lt == LT4 ? len4 : na
+
+// Condition on which all counts are done.
+condition = close > open
+
+// ————— Method 1. This function uses Pine's built-in function but only accepts a simple int for the length.
+f_ideal_TimesInLast(_cond, _len) =>  sum(_cond ? 1 : 0, _len)
+
+// ————— Method 2. This function is equivalent to using sum() but works with a float and series value for _len.
+f_verboseButEfficient_TimesInLast(_cond, _len) =>
+    // For first _len bar we just add to cumulative count of occurrences.
+    // After that we add count for current bar and make adjustment to count for the tail bar in our mini-series of length=_len.
+    var _qtyBarsInCnt = 0
+    var _cnt = 0
+    if _cond
+        // Add to count as per current bar's condition state.
+        _cnt := _cnt + 1
+    if _qtyBarsInCnt < _len
+        // We have not counted the first _len bars yet; keep adding to checked bars count.
+        _qtyBarsInCnt := _qtyBarsInCnt + 1
+    else
+        // We already have a _len bar total, so need to subtract last count at the tail of our _len length count.
+        if _cond[_len]
+            _cnt := _cnt - 1
+    _qtyBarsInCnt == _len ? _cnt : na // Use this to return na until first _len bars have elapsed, as built-in "sum()" does.
+    // _cnt // Use this when you want the running count even if full _len bars haven't been examined yet.
+
+// ————— Method 3. Very inefficient way to go about the problem. Not recommended.
+f_verboseAndINEFFICIENT_TimesInLast(_cond, _len) =>
+    // At each bar we loop back _len-1 bars to re-count conditions that were already counted in previous calls, except for the current bar's condition.
+    _cnt = 0
+    for _i = 0 to _len - 1
+        if na(_cond[_i])
+            _cnt := na
+        else
+            if _cond[_i]
+                _cnt := _cnt + 1
+    _cnt
+
+// ————— Plots
+v1 = f_ideal_TimesInLast(condition, int(len))
+v2 = f_verboseButEfficient_TimesInLast(condition, int(len))
+v3 = f_verboseAndINEFFICIENT_TimesInLast(condition, int(len))
+plot(v1, "1. f_ideal_TimesInLast", color.fuchsia)
+plot(v2, "2. f_verboseButEfficient_TimesInLast", color.orange)
+plot(v3, "3. f_verboseAndINEFFICIENT_TimesInLast")
+// Plot red background on discrepancies between results.
+bgcolor(v1 != v2 or v2 != v3 ? color.red : na, transp = 80)
+```
+
 **[Back to top](#table-of-contents)**
 
 
