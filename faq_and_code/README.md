@@ -17,6 +17,7 @@ Do not make the mistake of assuming this is strictly beginner's material; some o
 - [Time and dates](#time-and-dates)
 - [Other intervals (MTF)](#other-intervals-mtf)
 - [Alerts](#alerts)
+- [Editor](#editor)
 - [Techniques](#techniques)
 - [Debugging](#debugging)
 
@@ -205,7 +206,9 @@ ExternalIndicator = input(close, "External Indicator")
 From the script's *Inputs* you will then be able to select a plot from another indicator if it present on your chart.
 You can use only one such statement in your script. If you use more than one, the other indicator plots will not be visible from the *Inputs* dropdown. You cannot use this technique in strategies.
 
-See how our [Signal for Backtesting-Trading Engine](https://www.tradingview.com/script/y4CvTwRo-Signal-for-Backtesting-Trading-Engine-PineCoders/) can be integrated as an input to our [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/).### Can I write a script that plots like the built-in Volume Profile or Volume indicators?
+See how our [Signal for Backtesting-Trading Engine](https://www.tradingview.com/script/y4CvTwRo-Signal-for-Backtesting-Trading-Engine-PineCoders/) can be integrated as an input to our [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/).
+
+### Can I write a script that plots like the built-in Volume Profile or Volume indicators?
 No. TradingView uses special code for these that is not available to standard Pine scripts.
 
 ### Is it possible to export indicator data to a file?
@@ -580,6 +583,19 @@ alertcondition(true, title="Id appearing in Create Alert db", message = goodMsgA
 
 **[Back to top](#table-of-contents)**
 
+
+
+<br><br>
+## EDITOR
+
+
+### How can I access the Pine code of the built-in indicators?
+From the Pine Editor, go to the *New* menu and select the built-in you want to work with. Note that some built-ins like the three Volume Profile and the Volume indicators are not written in Pine and their behavior cannot be reproduced in Pine.
+
+### How can I make the console appear in the editor?
+Use the CTRL-&#8997; + ` (grave accent) keyboard shortcut.
+
+**[Back to top](#table-of-contents)**
 
 
 <br><br>
