@@ -585,9 +585,14 @@ alertcondition(true, title="Id appearing in Create Alert db", message = goodMsgA
 From the Pine Editor, go to the *New* menu and select the built-in you want to work with. Note that some built-ins like the three Volume Profile and the Volume indicators are not written in Pine and their behavior cannot be reproduced in Pine.
 
 ### How can I make the console appear in the editor?
-Use the CTRL-&#8997; + ` (grave accent) keyboard shortcut or right click on the script's name and choose *Show Console*.
+Use the CTRL-&#8997; + \` (grave accent) keyboard shortcut or right click on the script's name and choose *Show Console*.
+
+### How can I convert a script from v3 to v4?
+With the script open in the editor, choose the *Convert to v4* button at the upper right of the editor window, to the right of the *Save* button.
+
 
 **[Back to top](#table-of-contents)**
+
 
 
 <br><br>
