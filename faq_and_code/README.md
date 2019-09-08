@@ -688,16 +688,25 @@ plot(lo, trackprice = true)
 ```
 
 ### How can I remember when the last time a condition occurred?
-This script shows how to keep track of how many bars ago a condition occurred. We are only tracking the distance from the last time the condition occurred, and rather than using a more costly `valuewhen()` call, we simply watch for the condition, initialize our distance to 0 when we encounter the condition, and until we encounter the condition again, add 1 to the distance at each bar. The resulting value can be used as an index with the`[]` [history-referecing operator](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator).
+The `barssince()` built-in function is the simplest way of doing it, as is done in Method 1 in the following script. Method 2 shows an alternate way to achieve the same result as `barssince()`. In Method 2 we watch for the condition as the script is executing on each successive bar, initialize our distance to 0 when we encounter the condition, and until we encounter the condition again, add 1 to the distance at each bar.
+
+In either case the resulting value can be used as an index with the`[]` [history-referecing operator](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator).
 ```js
 //@version=4
 study("Track distance from condition", "", true)
+// Plot the high/low from bar where condition occurred the last time.
+
 // Conditions.
 upBar = close > open
 dnBar = close < open
 up3Bars = dnBar and upBar[1] and upBar[2] and upBar[3]
 dn3Bars = upBar and dnBar[1] and dnBar[2] and dnBar[3]
-// Track distance from conditions.
+
+// Method 1, using "barssince()".
+plot(high[barssince(up3Bars)], linewidth = 10, transp = 80)
+plot(low[barssince(dn3Bars)], color = color.red, linewidth = 10, transp=80)
+
+// Method 2, doing manually the equivalent of "barssince()".
 var barsFromUp = 0
 var barsFromDn = 0
 barsFromUp := up3Bars ? 0 : barsFromUp + 1
