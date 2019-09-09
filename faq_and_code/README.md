@@ -80,14 +80,14 @@ a := 2
 plot(a == 0 ? 1 : 2, color = aqua)
 ```
 
-### Can I use the `:=` operator to assign new values to past values of a series?
+### Can I use the `:=` operator to assign values to past values of a series?
 No. Past values in Pine series are read-only, as is the past in real life. Only the current bar instance (`variableName[0]`) of a series variable can be assigned a value, and when you do, the `[]` history-referencing operator must **not** be used—only the variable name.
 
 What you can do is create a series with the values you require in it as the script is executed, bar by bar. The following code creates a new series called `range` with a value containing the difference between the bar's `close` and `open`, but only when it is positive. Otherwise, the series value is zero.
 ```js
 range = close > open ? close - open : 0
 ```
-In the previous example, we could determine the value to assign to the `range` series variable as we were going over each bar in the dataset because the condition used to assign values was known on that bar. Sometimes, you will only know the condition after the bar has elapsed. In such cases, a `for` loop must be used to go back in time and analyse past bars with the information that has only become available on the current bar. This will be the case in situations where you want to identify fractals or pivots, for example. See the [Pivots Points High/Low](https://www.tradingview.com/pine-script-docs/en/v4/essential/Drawings.html#pivot-points-high-low) from the User Manual, for example.
+In the previous example, we could determine the value to assign to the `range` series variable as we were going over each bar in the dataset because the condition used to assign values was known on that bar. Sometimes, you will only obtain enough information to identify the condition after a number of bars have elapsed. In such cases, a `for` loop must be used to go back in time and analyse past bars. This will be the case in situations where you want to identify fractals or pivots. See the [Pivots Points High/Low](https://www.tradingview.com/pine-script-docs/en/v4/essential/Drawings.html#pivot-points-high-low) from the User Manual, for example.
 
 
 **[Back to top](#table-of-contents)**
