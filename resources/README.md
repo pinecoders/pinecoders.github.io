@@ -62,6 +62,8 @@ Our managed [PineCoders Repository](https://github.com/pinecoders/pine-utils) on
 - Tricks and techniques to help you accomplish frequently needed tasks,
 - [Other open source projects](https://github.com/pinecoders) related to Pine.
 
+We have also begun publishing guides. See our first: the [Digital Signal Processing In Pine](http://www.pinecoders.com/techniques/dsp) written by [Alex Grover](https://www.tradingview.com/u/alexgrover/#published-scripts).
+
 
 ## Educational Content
 [Kodify](https://kodify.net/tradingview-programming-articles/): The indispensable and largest, most complete and well-written set of in-depth articles on Pine. Articles discuss many finer points of Pine not covered elsewhere. More than 200 articles to help you master Pine.
