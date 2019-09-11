@@ -28,7 +28,7 @@ A digital signal is simply a sequence of values that express a quantity that var
 
 ### Periodic Signals
 
-A periodic signal is a signal that repeat himself after some time, for example the image below show a different periodic signals.
+A periodic signal is a signal that repeat himself after some time, for example the image below show different periodic signals.
 
 <p align="center">
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Waveforms.svg/600px-Waveforms.svg.png">
@@ -109,7 +109,7 @@ plot(saw, color=color.blue)
 
 ## Cross Correlation
 
-Cross correlation measure the similarity between two signals, preferably stationary with mean ≈ 0. The cross correlation between signal `f` and `g` is often denoted with `f★g`. In pinescript cross correlation can be calculated as follows : `cum(f*g,length)` and the the running cross correlation of period `length` as `sum(f*g,length)`.
+Cross correlation measure the similarity between two signals, preferably stationary with mean ≈ 0. The cross correlation between signal `f` and `g` is often denoted with `f★g`. In pinescript cross correlation can be calculated as follows : `cum(f*g)` and the the running cross correlation of period `length` as `sum(f*g,length)`.
 
 ## Convolution
 
