@@ -260,6 +260,7 @@ The Gaussian filter is a filter with an impulse response equal to a Gaussian fun
 
 The Gaussian function is calculated using the standard formula:
 
+<br>
 <p align="left">
 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9d128aef1457349d67843e863bf84aaf24f66ecf">
 </p>  
