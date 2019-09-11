@@ -254,10 +254,6 @@ plot(Sma(close,100), color=color.blue)
 
 The Gaussian filter is a filter with an impulse response equal to a Gaussian function:
 
-<p align="center">
-<img src="https://www.mathworks.com/help/examples/fuzzy/win64/GaussianMembershipFunctionExample_01.png">
-</p>  
-
 The gaussian function is calculated using the standard formula:
 
 <br>
