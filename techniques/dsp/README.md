@@ -170,7 +170,7 @@ step = n > length ? 1 : 0
 //---- Plot
 plot(step, color=color.blue)
 ```
-Where the step is equal to 1 when `n` is greater than `length`.
+where the step is equal to 1 when `n` is greater than `length`.
 
 The step response of a system is a system using a step function as input. The step response of a filter is the filter output using a step function as input.
 
@@ -202,13 +202,13 @@ filter(input)=>
     a/b
 ```
 
-Here `w` does not add to 1, however because we divide the convolution output by the sum of the coefficients *(`b` in the script)* we can get the filter without problems.
+Here `w` does not add to 1, however because we divide the convolution output by the sum of the coefficients (`b` in the script) we can get the filter without a problem.
 
-You can also look at the following [template](https://www.tradingview.com/script/VttW3bJY-Template-For-Custom-FIR-Filters-Make-Your-Moving-Average/) which allow to design FIR filters.
+You can also look at the following [template](https://www.tradingview.com/script/VttW3bJY-Template-For-Custom-FIR-Filters-Make-Your-Moving-Average/) which allows to design FIR filters.
 
 ### Simple Moving Average *(Boxcar)* Filter In Pine
 
-The simple *(or arithmetic)* moving average *(SMA)* sometimes called boxcar filter can be made in different ways with Pine. The standard and more efficient way is to use the integrated `sma(source,length)` function as follows:
+The simple (or *arithmetic*) moving average (*SMA*) sometimes called *boxcar filter* can be made in different ways with Pine. The standard and most efficient way is to use the built-in `sma(source,length)` function as follows:
 
 ```
 //@version=4
@@ -237,7 +237,7 @@ plot(Sma(close,100), color=color.blue)
 ```
 `1/length` is the filter kernel of the simple moving average.
 
-An alternative way that allow to use variable integers as period can be made using the following code:
+An alternative way that allows a variable integer as the period can be made using the following code:
 
 ```
 //@version=4
@@ -252,7 +252,7 @@ plot(Sma(close,100), color=color.blue)
 
 ### Gaussian Filter  
 
-The gaussian filter is a filter who possess an impulse response equal to a gaussian function:
+The Gaussian filter is a filter with an impulse response equal to a Gaussian function:
 
 <p align="center">
 <img src="https://www.mathworks.com/help/examples/fuzzy/win64/GaussianMembershipFunctionExample_01.png">
@@ -262,9 +262,10 @@ The gaussian function is calculated using the standard formula:
 
 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9d128aef1457349d67843e863bf84aaf24f66ecf">
 
-<br> with *b* = position of the peak and *c* = curve width, by default Pine can return an approximation of a gaussian filter by using the function `alma(input, length, b, c)` with *b* = 0.5.  
+<br>
+with *b* = position of the peak and *c* = curve width. Pine can return an approximation of a gaussian filter using the `alma(input, length, b, c)`  function with `b` = 0.5.
 
-A gaussian filter can also be made in Pine via convolution using the following code:   
+A Gaussian filter can also be made in Pine via convolution using the following code:   
 
 ```
 //@version=4
@@ -284,11 +285,11 @@ plot(gauss(close, 100, 0.2), color=color.blue)
 
 ## Calculating Different Types Of Filters In Pine
 
-Filters comes with different types, where the type define how the filter interact with the frequency content of the signal.
+Filters comes in different types, where the type determines how the filter interacts with the frequency content of the signal.
 
 ### Low-Pass Filters
 
-Low-pass filters are the most widely used type of filters, they remove high-frequency components *(noise)* and thus smooth the signal. By default most of the filter function integrated in Pine *(sma, wma, swma, alma...etc)* comes as low-pass filters.
+Low-pass filters are the most widely used type of filters. They remove high-frequency components—the noise—and thus smooth the signal. Most of the filtering functions integrated in Pine (`sma`, `wma`, `swma`, `alma`, etc.) are low-pass filters.
 
 Low-pass filters posses the following frequency response:
 
