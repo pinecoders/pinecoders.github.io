@@ -20,7 +20,7 @@
 ## Introduction
 
 
-[Pine](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html) is a really lightweight scripting language but it still allows for the computation of basic signal processing processes. In this guide, basic techniques and tools used in signal processing are showcased alongside their implementation in Pine. It is recommended to know the basics of Pine before reading this article. Start [here](https://github.com/pinecoders/pinecoders.github.io/tree/master/learning_pine_roadmap) if you don't.
+[Pine](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html) is a really lightweight scripting language but it still allows for the computation of basic signal processing processes. In this guide, basic techniques and tools used in signal processing are showcased alongside their implementation in Pine. It is recommended to know the basics of Pine before reading this article. Start [here](http://www.pinecoders.com/learning_pine_roadmap/) if you don't.
 
 ## Digital Signals
 
