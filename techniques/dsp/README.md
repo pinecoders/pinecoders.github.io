@@ -6,7 +6,7 @@
 
 - [Introduction](#Introduction)
 - [Digital Signals](#Digital-Signals)
-- [Cross Correlation](#Integrator)
+- [Cross Correlation](#Cross-Correlation)
 - [Convolution](#Convolution)
 - [Impulse Function And Impulse Response](#Impulse-Function-And-Impulse-Response)
 - [Step Function And Step Response](#Step-Function-And-Step-Response)
