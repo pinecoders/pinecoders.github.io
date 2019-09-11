@@ -405,3 +405,5 @@ a := nz(a[1],input) + input
 ```
 
 For examples of DSP techniques used in Pine scripts, see my indicators [here](https://www.tradingview.com/u/alexgrover/#published-scripts).
+
+**[Back to top](#table-of-contents)**
