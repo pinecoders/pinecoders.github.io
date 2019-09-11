@@ -1,6 +1,7 @@
 [<img src="http://pinecoders.com/images/PineCodersLong.png">](http://pinecoders.com)
 
-# Digital Signal Processing In Pinescript
+# Digital Signal Processing In Pine
+by [Alex Grover](https://www.tradingview.com/u/alexgrover/#published-scripts)
 
 ## Table of Contents
 
@@ -20,7 +21,7 @@
 ## Introduction
 
 
-Pinescript is a really lightweight scripting language but he still allow for the computation of basics signal processing processes. In this post, basic techniques and tools used in signal processing are showcased alongside their implementation in pinescript. It is recommended to know the basics of pine before reading this article, go [here](https://github.com/pinecoders/pinecoders.github.io/tree/master/learning_pine_roadmap) for a start.
+Pine is a really lightweight scripting language but it still allows for the computation of basic signal processing processes. In this guide, basic techniques and tools used in signal processing are showcased alongside their implementation in Pine. It is recommended to know the basics of pine before reading this article, go [here](https://github.com/pinecoders/pinecoders.github.io/tree/master/learning_pine_roadmap) for a start.
 
 ## Digital Signals
 
