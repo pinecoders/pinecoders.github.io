@@ -263,7 +263,7 @@ The gaussian function is calculated using the standard formula:
 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9d128aef1457349d67843e863bf84aaf24f66ecf">
 
 <br>
-with *b* = position of the peak and *c* = curve width. Pine can return an approximation of a gaussian filter using the `alma(input, length, b, c)`  function with `b` = 0.5.
+with *b* = position of the peak and *c* = curve width. Pine can return an approximation of a gaussian filter using the `alma(input, length, b, c)` function with `b` = 0.5.
 
 A Gaussian filter can also be made in Pine via convolution using the following code:   
 
