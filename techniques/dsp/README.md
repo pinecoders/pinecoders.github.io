@@ -109,7 +109,7 @@ plot(saw, color=color.blue)
 
 ## Cross Correlation
 
-Cross correlation measures the similarity between two signals, preferably stationary with mean ≈ 0. The cross correlation between signal `f` and `g` is often denoted with `f★g`. In Pine cross correlation can be calculated as follows: `cum(f*g,length)` and the the running cross correlation of period `length` as `sum(f*g,length)`.
+Cross correlation measures the similarity between two signals, preferably stationary with mean ≈ 0. The cross correlation between signals `f` and `g` is often denoted by `f★g`. In Pine, cross correlation can be calculated as follows: `cum(f*g,length)` and the the running cross correlation of period `length` as `sum(f*g,length)`.
 
 ## Convolution
 
@@ -133,12 +133,12 @@ for i = 0 to length-1
   convolve := convolve + f[i]*g[i]
 ```
 
-It can be seen that convolution is similar to a dot-product. In digital signal processing convolution is what allows to create certain filters.
+It can be seen that convolution is similar to a dot-product. In digital signal processing, convolution is what is used to create certain filters.
 
 
 ## Impulse Function And Impulse Response
 
-An impulse function represents a series of values equal to 0, except at one point in time where the value is equal to 1. In Pine we can make an impulse function by using the following code:
+An impulse function represents a series of values equal to 0, except at one point in time where the value is equal to 1. We can make an impulse function in Pine with the following code:
 
 ```
 //@version=4
@@ -150,7 +150,7 @@ impulse = n == length ? 1 : 0
 //---- Plot
 plot(impulse, color=color.blue)
 ```
-Where the impulse is equal to 1 when `n` is equal to `length`.
+where the impulse is equal to 1 when `n` is equal to `length`.
 
 The impulse response of a system is a system using an impulse function as its input. The impulse response of a filter is the filter output using an impulse function as its input.
 
@@ -176,7 +176,7 @@ The step response of a system is a system using a step function as input. The st
 
 ## FIR Filter Design In Pine
 
-Because Pine allow for convolution it is possible to design a wide variety of FIR filters. A filter `filter(input)` is equal to `input * filter(impulse)` where `*` denote convolution, or more simply a filter output using a certain input is the convolution between the input and the filter impulse response.
+Because Pine allows for convolution it is possible to design a wide variety of FIR filters. A filter `filter(input)` is equal to `input * filter(impulse)` where `*` denotes convolution, or more simply a filter output using a certain input is the convolution between the input and the filter impulse response.
 
 In Pine you can make filters using:
 
@@ -187,9 +187,9 @@ filter(input) =>
         sum := sum + input[i-1] * w[i-1]
     sum
 ```
-where `w[i-1]` are the filter coefficients *(or filter kernel)*, note that the sum of `w` must add up to 1 *(this is called total unity)*. It is more convenient for `w` to be expressed as a function `w(x)`.
+where `w[i-1]` are the filter coefficients (or *filter kernel*). Note that the sum of `w` must add up to 1 (this is called *total unity*). It is more convenient for `w` to be expressed as a function `w(x)`.
 
-When we can't have total unity *(The sum of the coefficients doesn't add to 1)* we can rescale the convolution, this is done as follows:
+When we can't have total unity (the sum of the coefficients doesn't add up to 1) we can rescale the convolution, which is done as follows:
 
 ```
 filter(input)=>
@@ -202,7 +202,7 @@ filter(input)=>
     a/b
 ```
 
-here `w` does not add to 1, however because we divide the convolution output by the sum of the coefficients *(`b` in the script)* we can get the filter without problems.
+Here `w` does not add to 1, however because we divide the convolution output by the sum of the coefficients *(`b` in the script)* we can get the filter without problems.
 
 You can also look at the following [template](https://www.tradingview.com/script/VttW3bJY-Template-For-Custom-FIR-Filters-Make-Your-Moving-Average/) which allow to design FIR filters.
 
@@ -219,7 +219,7 @@ Sma = sma(close,length)
 //---- Plot
 plot(Sma, color=color.blue)
 ```
-this code plot the simple moving average of the closing price of period `length`.
+This code plots the simple moving average of the closing price of period `length`.
 
 Another way is to use convolution with:
 
