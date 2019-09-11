@@ -266,7 +266,7 @@ The Gaussian function is calculated using the standard formula:
 </p>  
 <br>
 
-with *b* = position of the peak and *c* = curve width. Pine can return an approximation of a gaussian filter using the `alma(input, length, b, c)` function with `b` = 0.5.
+with *b* = position of the peak and *c* = curve width. Pine can return an approximation of a Gaussian filter using the `alma(input, length, b, c)` function with `b` = 0.5.
 
 A Gaussian filter can also be made in Pine via convolution using the following code:   
 
@@ -300,11 +300,11 @@ Low-pass filters posses the following frequency response:
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Butterworth_response.svg/525px-Butterworth_response.svg.png">
 </p>
 
-When the filters coefficients adds up to 1, the filter is a low-pass filter.
+When the filter's coefficients adds up to 1, the filter is a low-pass filter.
 
 ### High-Pass Filters
 
-High-pass filters remove low-frequency components of a signal thus keeping higher-frequency components in the signal. They can be made by subtracting the input with the low-pass filter output: `highpass = input - lowpass(input)`. For example a simple moving average high-pass filter can be made in Pine as follows:
+High-pass filters remove low-frequency components of a signal, thus keeping higher-frequency components in the signal. They can be made by subtracting the input with the low-pass filter output: `highpass = input - lowpass(input)`. For example a simple moving average high-pass filter can be made in Pine as follows:
 
 ```
 //@version=4
@@ -321,11 +321,11 @@ High-pass filters posses the following frequency response:
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Hochpass_1._u._2._Ordnung.svg/600px-Hochpass_1._u._2._Ordnung.svg.png">
 </p>
 
-When the filters coefficients adds up to 0, the filter is an high-pass filter.
+When the filter's coefficients adds up to 0, the filter is a high-pass filter.
 
 ### Band-Pass Filters
 
-Band-pass filters remove low/high-frequency components of a signal thus keeping mid-frequency components in the signal. They can be made by applying a low-pass filter to an high-pass filter output: `bandpass = lowpass(highpass(input))`. For example a simple moving average band-pass filter can be made in Pine as follows:
+Band-pass filters remove low/high-frequency components of a signal, thus keeping mid-frequency components in the signal. They can be made by applying a low-pass filter to an high-pass filter output: `bandpass = lowpass(highpass(input))`. For example a simple moving average band-pass filter can be made in Pine as follows:
 
 ```
 //@version=4
@@ -336,7 +336,7 @@ bp = sma(close - sma(close,length),length)
 //---- Plot
 plot(bp, color=color.blue)
 ```
-High-pass filters posses the following frequency response:
+Band-pass filters posses the following frequency response:
 
 <p align="center">
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Bandwidth_2.svg/450px-Bandwidth_2.svg.png">
@@ -344,7 +344,7 @@ High-pass filters posses the following frequency response:
 
 ### Band-Stop Filters
 
-Band-stop filters remove mid-frequency components of a signal thus keeping low/high-frequency components in the signal. They can be made by subtracting an bandpass filter output to an input: `bandstop = input - bandpass`. For example a simple moving average band-stop filter can be made in Pine as follows:
+Band-stop filters remove mid-frequency components of a signal, thus keeping low/high-frequency components in the signal. They can be made by subtracting a band-pass filter output from an input: `bandstop = input - bandpass`. For example, a simple moving average band-stop filter can be made in Pine as follows:
 
 ```
 //@version=4
@@ -363,11 +363,9 @@ Band-stop filters posses the following frequency response:
 
 ## Exponential Averager
 
-The exponential averager *(also known as exponential moving average, leaky integrator or single exponential smoothing)* is a widely used recursive filter, this filter is similar to the simple moving average but its computation is way more efficient. This filter posses the following form: `output = α*input+(1-α)*output[1]`.
+The exponential averager (also known as *exponential moving average*, *leaky integrator* or *single exponential smoothing*) is a widely used recursive filter. This filter is similar to the simple moving average but its computation is way more efficient. This filter has the following form: `output = α*input+(1-α)*output[1]`.
 
-In Pine we can use the integrated function `ema(input,length)` where `α = 2/(length+1)`
-
-Or as follows:  
+In Pine we can use the integrated function `ema(input,length)` where `α = 2/(length+1)`, or:  
 
 ```
 ea(input,alpha)=>
@@ -379,7 +377,7 @@ with `1 > alpha > 0`.
 
 ## Matched Filter
 
-A matched filter is a system who maximize the signal to noise ratio of the output. The impulse response of those filters are equal to the reversed input. Since Pine can use variables as index we can do such filters using the following code:
+A matched filter is a system that maximizes the signal to noise ratio of the output. The impulse response of those filters are equal to the reversed input. Since Pine allows a variable index, we can build such filters using the following code:
 
 ```
 filter(x,y) =>
@@ -395,13 +393,15 @@ where `x` is the input and `y` the signal of interest.
 
 ## Differentiator
 
-The first difference differentiator is the most simple of all differentiators and consist in subtracting our current input value with its anterior value. In Pine this can be done with `diff = input - input[1]` or `change(input)`.
+The first difference differentiator is the simplest of all differentiators and consists in subtracting the previous input value from the current one. In Pine this can be done with `diff = input - input[1]` or `change(input)`.
 
 ## Integrator
 
-The rectangular integrator is simply a running summation which can be made in Pine with the function: `cum(signal)` or:
+The rectangular integrator is simply a running summation which can be made in Pine with the `cum(signal)` function, or:
 
 ```
 a = 0.
 a := nz(a[1],input) + input
 ```
+
+For examples of DSP techniques used in Pine scripts, see my indicators [here](https://www.tradingview.com/u/alexgrover/#published-scripts).
