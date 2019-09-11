@@ -4,18 +4,18 @@
 
 ## Table of Contents
 
-- [Introduction](#Introduction)
-- [Digital Signals](#Digital-Signals)
-- [Cross Correlation](#Cross-Correlation)
-- [Convolution](#Convolution)
-- [Impulse Function And Impulse Response](#Impulse-Function-And-Impulse-Response)
-- [Step Function And Step Response](#Step-Function-And-Step-Response)
-- [FIR Filter Design In Pine](#FIR-Filter-Design-In-Pine)
-- [Calculating Different Types Of Filters In Pine](#Calculating-Different-Types-Of-Filters-In-Pine)
-- [Exponential Averager](#Exponential-Averager)
-- [Matched Filter](#Matched-Filter)
-- [Differentiator](#Differentiator)
-- [Integrator](#Integrator)
+- [Introduction](#introduction)
+- [Digital Signals](#digital-signals)
+- [Cross Correlation](#cross-correlation)
+- [Convolution](#convolution)
+- [Impulse Function And Impulse Response](#impulse-function-and-impulse-response)
+- [Step Function And Step Response](#step-function-and-step-response)
+- [FIR Filter Design In Pine](#fir-filter-design-in-pine)
+- [Calculating Different Types Of Filters In Pine](#calculating-different-types-of-filters-in-pine)
+- [Exponential Averager](#exponential-averager)
+- [Matched Filter](#matched-filter)
+- [Differentiator](#differentiator)
+- [Integrator](#integrator)
 
 ## Introduction
 
