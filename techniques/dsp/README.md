@@ -36,7 +36,7 @@ A periodic signal is a signal that repeats itself after some time. The image bel
 
 Periodic signals possess characteristics such as **cycles**, **period**, **frequency** and **amplitude**. The **cycles** are the number of times the signal repeat himself, the **period** represents the duration of one cycle, the **frequency** is the number of cycles made by the signal in one second and is calculated as the reciprocal of the **period** or `1/period`, and finally the amplitude is the highest absolute value of the signal.   
 
-### Generate Periodic Signals
+### Generating Periodic Signals
 
 The simplest periodic signal is the **sine wave** and is computed in Pine as follows:
 
