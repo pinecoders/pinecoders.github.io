@@ -87,7 +87,7 @@ square = sign(sin(2*pi*1/period*n))*amplitude
 plot(square, color=color.blue)
 ```
 
-*`sign(x)` is the signum function and yields `1` when `x > 0` and `-1` when `x < 0`*
+> `sign(x)` is the signum function and yields `1` when `x > 0` and `-1` when `x < 0`.
 
 The **sawtooth wave** computed in Pine as follows:
 
@@ -103,9 +103,9 @@ saw = (((n/period)%1 - .5)*2)*amplitude
 plot(saw, color=color.blue)
 ```
 
-*`%` represents the modulo which is the remaining of a division and is not related to percentage here*
+> `%` represents the modulo which is the remaining of a division and is not related to percentage here.
 
-*Note that those are not the only ways to compute those signals.*
+ > Note that those are not the only ways to compute those signals.
 
 ## Cross Correlation
 
