@@ -300,7 +300,7 @@ Low-pass filters posses the following frequency response:
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Butterworth_response.svg/525px-Butterworth_response.svg.png">
 </p>
 
-When the filter's coefficients adds up to 1, the filter is a low-pass filter.
+When the filter's coefficients add up to 1, the filter is a low-pass filter.
 
 ### High-Pass Filters
 
@@ -321,7 +321,7 @@ High-pass filters posses the following frequency response:
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Hochpass_1._u._2._Ordnung.svg/600px-Hochpass_1._u._2._Ordnung.svg.png">
 </p>
 
-When the filter's coefficients adds up to 0, the filter is a high-pass filter.
+When the filter's coefficients add up to 0, the filter is a high-pass filter.
 
 ### Band-Pass Filters
 
