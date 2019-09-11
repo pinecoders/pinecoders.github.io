@@ -57,7 +57,7 @@ plot(sin, color=color.blue)
 
 Other common periodic signals are:
 
-The **triangular wave** computed in Pine as follows:
+The **triangular wave** computed in Pine is as follows:
 
 ```
 //@version=4
@@ -72,7 +72,7 @@ triangle = acos(sin(2*pi*1/period*n)*amplitude)
 plot(triangle, color=color.blue)
 ```
 
-The **square wave** computed in Pine as follows:
+The **square wave** computed in Pine is as follows:
 
 ```
 //@version=4
@@ -89,7 +89,7 @@ plot(square, color=color.blue)
 
 > `sign(x)` is the signum function and yields `1` when `x > 0` and `-1` when `x < 0`.
 
-The **sawtooth wave** computed in Pine as follows:
+The **sawtooth wave** computed in Pine is as follows:
 
 ```
 //@version=4
