@@ -254,9 +254,17 @@ plot(Sma(close,100), color=color.blue)
 
 The Gaussian filter is a filter with an impulse response equal to a Gaussian function:
 
-The gaussian function is calculated using the standard formula:
+<p align="center">
+<img src="https://www.mathworks.com/help/examples/fuzzy/win64/GaussianMembershipFunctionExample_01.png">
+</p>  
 
+The Gaussian function is calculated using the standard formula:
+
+<p align="left">
+<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9d128aef1457349d67843e863bf84aaf24f66ecf">
+</p>  
 <br>
+
 with *b* = position of the peak and *c* = curve width. Pine can return an approximation of a gaussian filter using the `alma(input, length, b, c)` function with `b` = 0.5.
 
 A Gaussian filter can also be made in Pine via convolution using the following code:   
