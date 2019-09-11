@@ -53,7 +53,7 @@ sin = sin(2*pi*1/period*n)*amplitude
 plot(sin, color=color.blue)
 ```
 
-*as a reminder, `bar_index` is defined as the current number of `close` data points and is just a linear series of values equal to 0, 1, 2, 3, ...*
+> As a reminder, `bar_index` is defined as the current number of `close` data points and is just a linear series of values equal to 0, 1, 2, 3, ...
 
 Other common periodic signals are :
 
