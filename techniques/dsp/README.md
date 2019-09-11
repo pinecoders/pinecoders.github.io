@@ -1,7 +1,6 @@
 [<img src="http://pinecoders.com/images/PineCodersLong.png">](http://pinecoders.com)
 
-# Digital Signal Processing In Pine
-by [Alex Grover](https://www.tradingview.com/u/alexgrover/#published-scripts)
+# Digital Signal Processing In Pine, by [Alex Grover](https://www.tradingview.com/u/alexgrover/#published-scripts)
 
 ## Table of Contents
 
