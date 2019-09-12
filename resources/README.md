@@ -98,7 +98,6 @@ Besides the TV Pine Editor chat there are two other forums worth mentioning wher
 ## Work For Hire Pine Programmers
 This list contains the TV name of Pine programmers we know and who have a good reputation of providing quality paid Pine custom coding. While you can inquire to any number of them, it is considered poor etiquette to send bulk inquiries to all.
 
-- [a.tesla2018](https://www.tradingview.com/u/a.tesla2018/)
 - [Daveatt](https://www.tradingview.com/u/Daveatt/)<br>Ex quant trader with 5 years professional experience now developing indicators and bots for retail clients. Specializes in Pine Script, MT4, LUA (FXCM) and ProRealCode.
 - [Duyck](https://www.tradingview.com/u/Duyck/)
 - [everget](https://www.tradingview.com/u/everget/)
