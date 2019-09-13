@@ -34,7 +34,7 @@ A periodic signal is a signal that repeats itself after some time. The image bel
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Waveforms.svg/600px-Waveforms.svg.png">
 </p>
 
-Periodic signals possess characteristics such as **cycles**, **period**, **frequency** and **amplitude**. The **cycles** are the number of times the signal repeat himself, the **period** represents the duration of one cycle, the **frequency** is the number of cycles made by the signal in one second and is calculated as the reciprocal of the **period** or `1/period`, and finally the amplitude is the highest absolute value of the signal.   
+Periodic signals possess characteristics such as **cycles**, **period**, **frequency** and **amplitude**. The **cycles** are the number of times the signal repeat himself, the **period** represents the duration of one cycle, the **frequency** is the number of cycles made by the signal in one unit of time and is calculated as the reciprocal of the **period** or `1/period`, and finally the amplitude is the highest absolute value of the signal.   
 
 ### Generating Periodic Signals
 
