@@ -635,7 +635,7 @@ plot(initOnEachBar2, "initOnEachBar2", color.orange, 3, transp = 0)
 See [here](https://www.tradingview.com/pine-script-docs/en/v4/language/Expressions_declarations_and_statements.html#variable-declaration) for more information. This is another example by vitvlkv: [Holding a state in a variable](https://www.tradingview.com/script/llcoIPKG-Pine-Example-Holding-a-state-in-a-variable/).
 
 ### How do I calculate averages?
-1. If you just want the average between two values, you can use `avg(val1, val2)` or `(val1 + val2)/2`. Note that the [`avg()`](https://www.tradingview.com/pine-script-reference/v4/#fun_avg) accepts up to 6 values.
+1. If you just want the average between two values, you can use `avg(val1, val2)` or `(val1 + val2)/2`. Note that [`avg()`](https://www.tradingview.com/pine-script-reference/v4/#fun_avg) accepts up to 6 values.
 1. To average the last x values in a series, you can use `sma(series, x)`.
 
 ### How can I calculate an average only when a certain condition is true?
@@ -816,6 +816,24 @@ plot(v2, "2. f_verboseButEfficient_TimesInLast", color.orange)
 plot(v3, "3. f_verboseAndINEFFICIENT_TimesInLast")
 // Plot red background on discrepancies between results.
 bgcolor(v1 != v2 or v2 != v3 ? color.red : na, transp = 80)
+```
+
+### How can implement and On/Off switch?
+```js
+//@version=4
+study("On/Off condition", "", true)
+upBar = close > open
+// On/off conditions.
+triggerOn = upBar and upBar[1] and upBar[2]
+triggerOff = not upBar and not upBar[1]
+// Switch state is implicitly saved across bars thanks to initialize-only-once keyword "var".
+var onOffSwitch = false
+// Turn the switch on when triggerOn is true. If it is already on,
+// keep it on unless triggerOff occurs.
+onOffSwitch := triggerOn or (onOffSwitch and not triggerOff)
+bgcolor(onOffSwitch ? color.green : na)
+plotchar(triggerOn, "triggerOn", "▲", location.belowbar, color.lime, 0, size = size.tiny, text = "On")
+plotchar(triggerOff, "triggerOff", "▼", location.abovebar, color.red, 0, size = size.tiny, text = "Off")
 ```
 
 **[Back to top](#table-of-contents)**

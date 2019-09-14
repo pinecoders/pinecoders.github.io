@@ -36,7 +36,7 @@ The Pine compiler is not very strict on exact positioning of specific statements
 
 Here is an example of a complete script:
 
-```
+```js
 //@version=4
 // MACD indicator, a Gerald Appel concept.
 // Author: TradingView, mods by PineCoders, v1.0, 2019.07.31
@@ -59,8 +59,8 @@ macd = fastMa - slowMa
 signal = sma(macd, 9)
 
 // ————— Plots
-plot(macd, color=color.blue)
-plot(signal, color=color.orange)
+plot(macd, color = color.blue)
+plot(signal, color = color.orange)
 ```
 
 **[Back to top](#table-of-contents)**
