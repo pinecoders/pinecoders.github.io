@@ -182,23 +182,21 @@ You need to use the `security()` function. This script also allows you to view n
 //@version=4
 study("Plot underlying OHLC", "", true)
 
-// ————— Determine if normmal candles are plotted on the chart.
+// ————— Allow plotting of underlying candles on chart.
 plotCandles = input(true, "Plot Candles")
 method      = input(1, "Using Method", minval = 1, maxval = 2)
 
-// —————————— Method 1
-// ————— Fetch normal bar OHLC.
+// ————— Method 1
 o1 = security(syminfo.ticker, timeframe.period, open)
 h1 = security(syminfo.ticker, timeframe.period, high)
 l1 = security(syminfo.ticker, timeframe.period, low)
 c1 = security(syminfo.ticker, timeframe.period, close)
-// —————————— Method 2
+// ————— Method 2
 ticker = tickerid(syminfo.prefix, syminfo.ticker)
 o2 = security(ticker, timeframe.period, open)
 h2 = security(ticker, timeframe.period, high)
 l2 = security(ticker, timeframe.period, low)
 c2 = security(ticker, timeframe.period, close)
-
 // ————— Get value corresponding to selected method.
 o = method == 1 ? o1 : o2
 h = method == 1 ? h1 : h2
