@@ -176,8 +176,8 @@ plot(cond ? 10e20 : na, style = plot.style_columns, color = color.silver, transp
 ```
 There is a nice v4 function to plot a vertical line in this indicator: [vline() Function for Pine Script v4.0+](https://www.tradingview.com/script/EmTkvfCM-vline-Function-for-Pine-Script-v4-0/).
 
-### How can I access normal bar OHLC values on a Heikin Ashi chart?
-You need to use the `security()` function. This script also allows you to view normal candles on the chart:
+### How can I access normal bar OHLC values on a non-standard chart?
+You need to use the `security()` function. This script allows you to view normal candles on the chart, although depending on the non-standard chart type you use, this may or may not make much sense:
 ```js
 //@version=4
 study("Plot underlying OHLC", "", true)
