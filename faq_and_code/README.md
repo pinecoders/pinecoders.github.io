@@ -180,22 +180,39 @@ There is a nice v4 function to plot a vertical line in this indicator: [vline() 
 You need to use the `security()` function. This script also allows you to view normal candles on the chart:
 ```js
 //@version=4
-study("Plot real OHLC on HA", "", true)
+study("Plot underlying OHLC", "", true)
+
 // ————— Determine if normmal candles are plotted on the chart.
-plotCandles = input(false, "Plot Candles")
+plotCandles = input(true, "Plot Candles")
+method      = input(1, "Using Method", minval = 1, maxval = 2)
+
+// —————————— Method 1
 // ————— Fetch normal bar OHLC.
-o = security(syminfo.ticker, timeframe.period, open)
-h = security(syminfo.ticker, timeframe.period, high)
-l = security(syminfo.ticker, timeframe.period, low)
-c = security(syminfo.ticker, timeframe.period, close)
-// ————— Plot normal close.
-plot(c, "Real Price", color = color.black, linewidth = 3, trackprice = true)
+o1 = security(syminfo.ticker, timeframe.period, open)
+h1 = security(syminfo.ticker, timeframe.period, high)
+l1 = security(syminfo.ticker, timeframe.period, low)
+c1 = security(syminfo.ticker, timeframe.period, close)
+// —————————— Method 2
+ticker = tickerid(syminfo.prefix, syminfo.ticker)
+o2 = security(ticker, timeframe.period, open)
+h2 = security(ticker, timeframe.period, high)
+l2 = security(ticker, timeframe.period, low)
+c2 = security(ticker, timeframe.period, close)
+
+// ————— Get value corresponding to selected method.
+o = method == 1 ? o1 : o2
+h = method == 1 ? h1 : h2
+l = method == 1 ? l1 : l2
+c = method == 1 ? c1 : c2
+
+// ————— Plot underlying close.
+plot(c, "Underlying close", color = color.gray, linewidth = 3, trackprice = true)
 // ————— Plot candles if required.
 invisibleColor = color.new(color.white, 100)
 plotcandle(plotCandles ? o : na, plotCandles ? h : na, plotCandles ? l : na, plotCandles ? c : na, color = color.orange, wickcolor = color.orange)
 // ————— Plot label.
 f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, c, _txt, xloc.bar_time, yloc.price, size = size.large)
-a = f_print("Real Price = " + tostring(c) + "\nHA Price = " + tostring(close) + "\n Delta = " + tostring(close - c))
+a = f_print("Underlying Close1 = " + tostring(c1) + "\nUnderlying Close2 = " + tostring(c2) + "\nChart's close = " + tostring(close) + "\n Delta = " + tostring(close - c))
 ```
 
 **[Back to top](#table-of-contents)**
