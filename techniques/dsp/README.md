@@ -1,3 +1,13 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147975914-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-147975914-1');
+</script>
+
 [<img src="http://Pinecoders.com/images/PineCodersLong.png">](http://pinecoders.com)
 
 # Digital Signal Processing In Pine, by [Alex Grover](https://www.tradingview.com/u/alexgrover/#published-scripts)
