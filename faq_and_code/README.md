@@ -862,6 +862,39 @@ plotchar(triggerOn, "triggerOn", "▲", location.belowbar, color.lime, 0, size =
 plotchar(triggerOff, "triggerOff", "▼", location.abovebar, color.red, 0, size = size.tiny, text = "Off")
 ```
 
+### How can I rescale an indicator from one scale to another?
+The answer depends on whether you know the minimum/maximum possible values of the signal to be rescaled. If you don't know them, as is the case for volume where the maximum is unknown, then you will need to use a function that uses past history to determine the minimum/maximum values, as in the `normalize()` function here. If you know the minimum/maximum values of the series, then you should use the `rescale()` function:
+```js
+//@version=4
+//@author=LucF, for PineCoders
+study("Normalizer")
+
+// ————— When scale of signal to rescale is unknown.
+// Min/Max of signal to rescale is determined by its historical low/high.
+normalize(_src, _min, _max) => 
+    // Normalizes series with unknown min/max using historical min/max.
+    // _src: series to rescale.
+    // _min: minimum value of rescaled series.
+    // _max: maximum value of rescaled series.
+    var _historicMin = 10e10
+    var _historicMax = -10e10
+    _historicMin := min(nz(_src, _historicMin), _historicMin)
+    _historicMax := max(nz(_src, _historicMax), _historicMax)
+    _min + (_max - _min) * (_src - _historicMin) / max(_historicMax - _historicMin, 10e-10)
+plot(normalize(volume, -100, 100))
+
+// ————— When scale of signal to rescale is known.
+rescale(_src, _oldMin, _oldMax, _newMin, _newMax) =>
+    // Rescales series with known min/max.
+    // _src: series to rescale.
+    // _oldMin: minimum value of series to rescale.
+    // _oldMax: maximum value of series to rescale.
+    // _newMin: minimum value of rescaled series.
+    // _newMax: maximum value of rescaled series.
+    _newMin + (_newMax - _newMin) * (_src - _oldMin) / max(_oldMax - _oldMin, 10e-10)
+plot(rescale(rsi(close, 14), 0, 100, -100, 100), color = color.fuchsia)
+```
+
 **[Back to top](#table-of-contents)**
 
 
