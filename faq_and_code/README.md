@@ -688,19 +688,19 @@ See [here](https://www.tradingview.com/pine-script-docs/en/v4/language/Expressio
 ### How can I calculate an average only when a certain condition is true?
 [This script](https://www.tradingview.com/script/isSfahiX-Averages-PineCoders-FAQ/) shows how to calculate a conditional average using three different methods.
 
-### How to avoid repainting when using the ``security()`` function?
+### How to avoid repainting when using the `security()` function?
 See the discussion published with the PineCoders indicator [How to avoid repainting when using security()](https://www.tradingview.com/script/cyPWY96u-How-to-avoid-repainting-when-using-security-PineCoders-FAQ/).
 
 The easiest way is to use the following syntax for v4:
 ```js
-security(syminfo.tickerid, “D”, close[1], lookahead = barmerge.lookahead_on)
+security(syminfo.tickerid, "D", close[1], lookahead = barmerge.lookahead_on)
 ```
 And this for v3:
 ```js
-security(tickerid, “D”, close[1], lookahead = barmerge.lookahead_on)
+security(tickerid, "D", close[1], lookahead = barmerge.lookahead_on)
 ```
 
-### How to avoid repainting when NOT using the ``security()`` function?
+### How to avoid repainting when NOT using the `security()` function?
 See the discussion published with the PineCoders indicator [How to avoid repainting when NOT using security()]().
 
 The best way is to use the `[1]` history-referencing operator to use confirmed information from the last bar for calculations.
