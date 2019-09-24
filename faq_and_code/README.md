@@ -701,9 +701,9 @@ security(tickerid, "D", close[1], lookahead = barmerge.lookahead_on)
 ```
 
 ### How to avoid repainting when NOT using the `security()` function?
-See the discussion published with the PineCoders indicator [How to avoid repainting when NOT using security()]().
+See the discussion published with the PineCoders indicator [How to avoid repainting when NOT using security()](https://www.tradingview.com/script/s8kWs84i-How-to-avoid-repainting-when-NOT-using-security/).
 
-The best way is to use the `[1]` history-referencing operator to use confirmed information from the last bar for calculations.
+The general idea is to use the confirmed information from the last bar for calculations.
 
 ### How can I trigger a condition only when a number of bars have elapsed since the last condition occurred?
 Use the [``barssince()``](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) function:
