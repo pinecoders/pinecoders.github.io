@@ -294,7 +294,28 @@ EnterLong = GoLong and TradeDateIsAllowed()
 Backtest Rookies has a [blog post](https://backtest-rookies.com/2018/10/26/tradingview-opening-a-window/) on the subject.
 
 ### How can I save the entry price in a strategy?
-See [How to Plot Entry Price](https://www.tradingview.com/script/bHTnipgY-HOWTO-Plot-Entry-Price/) by vitvlkv
+Here are two ways you can go about it:
+```js
+//@version=4
+// Mod of original code at https://www.tradingview.com/script/bHTnipgY-HOWTO-Plot-Entry-Price/
+strategy("Plot Entry Price", "", true)
+
+longCondition = crossover(sma(close, 14), sma(close, 28))
+if (longCondition)
+    strategy.entry("My Long Entry Id", strategy.long)
+shortCondition = crossunder(sma(close, 14), sma(close, 28))
+if (shortCondition)
+    strategy.entry("My Short Entry Id", strategy.short)
+
+// ————— Method 1: wait until bar following order and use its open.
+var float entryPrice = na
+if longCondition[1] or shortCondition[1]
+    entryPrice := open
+plot(entryPrice, "Method 1", color.orange, 3, plot.style_circles)
+
+// ————— Method 2: use built-in variable.
+plot(strategy.position_avg_price, "Method 2", color.gray, 1, plot.style_circles, transp = 0)
+```
 
 ### How do I convert a strategy to a study in order to generate alerts for discretionary trading or a third-party execution app/bot?
 The best way to go about this is to write your strategies in such a way that their behavior depends the least possible on `strategy.*` variables and `strategy.*()` call parameters, because these cannot be converted into an indicator.
