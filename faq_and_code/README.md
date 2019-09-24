@@ -863,7 +863,9 @@ plotchar(triggerOff, "triggerOff", "▼", location.abovebar, color.red, 0, size 
 ```
 
 ### How can I rescale an indicator from one scale to another?
-The answer depends on whether you know the minimum/maximum possible values of the signal to be rescaled. If you don't know them, as is the case for volume where the maximum is unknown, then you will need to use a function that uses past history to determine the minimum/maximum values, as in the `normalize()` function here. If you know the minimum/maximum values of the series, then you should use the `rescale()` function:
+The answer depends on whether you know the minimum/maximum possible values of the signal to be rescaled. If you don't know them, as is the case for volume where the maximum is unknown, then you will need to use a function that uses past history to determine the minimum/maximum values, as in the `normalize()` function here. While this is an imperfect solution since the minimum/maximum need to be discovered as your script progresses left to right through historical bars, it is better than techniques using `lowest()` and `highest()` over a fixed length, because it uses the minimum/maximum values for the complete set of elapsed bars rather than a subset of fixed length. The ideal solution would be to know in advance the minimum/maximum values for the whole series **prior** to beginning the normalization process, but this is currently not possible in Pine.
+
+If you know the minimum/maximum values of the series, then you should use the `rescale()` function:
 ```js
 //@version=4
 //@author=LucF, for PineCoders
