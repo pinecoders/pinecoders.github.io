@@ -774,6 +774,28 @@ plotchar(barsFromUp, "barsFromUp", "", location.top)
 plotchar(barsFromDn, "barsFromDn", "", location.top)
 ```
 
+### How can I track highs/lows for a period of time?
+This code shows how to do that without using `security()` calls, which slow down your script. The source used to calculate the highs/lows can be selected in the script's *Inputs*, as well as the period after which the high/low must be reset.
+```js
+//@version=4
+//@author=LucF, for PineCoders
+study("Periodic hi/lo", "", true)
+showHi = input(true, "Show highs")
+showLo = input(true, "Show lows")
+srcHi = input(high, "Source for Highs")
+srcLo = input(low, "Source for Lows")
+period = input("D", "Period after which hi/lo is reset", input.resolution)
+
+var hi = 10e-10
+var lo = 10e10
+// When a new period begins, reset hi/lo.
+hi := change(time(period)) ? srcHi : max(srcHi, hi)
+lo := change(time(period)) ? srcLo : min(srcLo, lo)
+
+plot(showHi ? hi : na, "Highs", color.blue, 3, plot.style_circles)
+plot(showLo ? lo : na, "Lows", color.fuchsia, 3, plot.style_circles)
+```
+
 ### How can I count the occurrences of a condition in the last x bars?
 The built-in [`sum()`](https://www.tradingview.com/pine-script-reference/v4/#fun_sum) function is the most efficient way to do it, but its length (the number of last bars in your sample) cannot be a series float or int. This script shows three different ways of achieving the count:
 
