@@ -887,7 +887,7 @@ plot(v3, "3. f_verboseAndINEFFICIENT_TimesInLast")
 bgcolor(v1 != v2 or v2 != v3 ? color.red : na, transp = 80)
 ```
 
-### How can implement and On/Off switch?
+### How can I implement and On/Off switch?
 ```js
 //@version=4
 study("On/Off condition", "", true)
