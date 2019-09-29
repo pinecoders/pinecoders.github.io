@@ -223,6 +223,111 @@ f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(tim
 a = f_print("Underlying Close1 = " + tostring(c1) + "\nUnderlying Close2 = " + tostring(c2) + "\nChart's close = " + tostring(close) + "\n Delta = " + tostring(close - c))
 ```
 
+### How can I keep only the last x labels or lines?
+The first thing required is to maintain a series containing the ids of the labels or lines as they are created. This is accomplished by assigning the returning value of the `label.new()` or `line.new()` function to a variable. This creates a series with value `na` if no label or line was created from that bar, and with a value of type *label* or *line* when an element is created.
+
+The next step will be to run a loop going back into the past from the current bar, jumping over a preset number of labels or lines and deleting all those following that, all the while doing nothing when an `na` value is found since this means no label or line was created on that bar.
+
+This first example illustrates the technique using labels:
+```js
+//@version=4
+//@author=LucF, for PineCoders
+maxBarsBack = 2000
+study("Keep last x labels", "", true, max_bars_back = maxBarsBack)
+keepLastLabels = input(5, "Last labels to keep")
+
+// ————— Label-creating condition: when close is above ma.
+ma = sma(close,30)
+var aboveMa = false
+aboveMa := crossover(close, ma) or (aboveMa and not crossunder(close, ma))
+
+// ————— Count number of bars since last crossover to show it on label.
+var barCount = 0
+barCount := aboveMa ? not aboveMa[1] ? 1 : barCount + 1 : 0
+
+// ————— Create labels while keeping a trail of label ids in series "lbl".
+// This is how we will later identify the bars where a label exist.
+label lbl = na
+if aboveMa
+    lbl := label.new(bar_index, high, tostring(barCount), xloc.bar_index, yloc.price, size = size.small)
+
+// ————— Delete all required labels.
+// Loop from previous bar into the past, looking for bars where a label was created.
+// Delete all labels found in last "maxBarsBack" bars after the required count has been left intact.
+lblCount = 0
+for i = 1 to maxBarsBack
+    if not na(lbl[i])
+        // We have identified a bar where a label was created.
+        lblCount := lblCount + 1
+        if lblCount > keepLastLabels
+            // We have saved the required count of labels; delete this one.
+            label.delete(lbl[i])
+
+plot(ma)
+```
+
+The second example illustrates the technique using lines:
+```js
+//@version=4
+//@author=LucF, for PineCoders
+maxBarsBack = 2000
+study("Keep last x lines", "", true, max_bars_back = maxBarsBack)
+
+// On crossovers/crossunders of these MAs we will be recording the hi/lo reched until opposite cross.
+// We will then use these hi/los to draw lines in the past.
+ma1 = sma(close, 20)
+ma2 = sma(close, 100)
+
+// ————— Build lines.
+// Highest/lowest hi/lo during up/dn trend.
+var hi = 10e-10
+var lo = 10e10
+// Bar index of highest/lowest hi/lo.
+var hiBar = 0
+var loBar = 0
+// Crosses.
+crossUp = crossover(ma1, ma2)
+crossDn = crossunder(ma1, ma2)
+upTrend = ma1 > ma2
+
+// Draw line in past when a cross occurs.
+line lin = na
+if crossUp or crossDn
+    lin := line.new(bar_index[bar_index - hiBar], high[bar_index - hiBar], bar_index[bar_index - loBar], low[bar_index - loBar], xloc.bar_index, extend.none, color.black)
+
+// Reset hi/lo and bar index on crosses.
+if crossUp
+    hi := high
+    hiBar := bar_index
+else
+    if crossDn
+        lo := low
+        loBar := bar_index
+
+// Update higher/lower hi/lo during trend.
+if upTrend and high > hi
+    hi := high
+    hiBar := bar_index
+else
+    if not upTrend and low < lo
+        lo := low
+        loBar := bar_index
+
+plot(ma1, "MA1", color.aqua, 1)
+plot(ma2, "MA2", color.orange, 1)
+
+// ————— Delete all required lines.
+// Loop from previous bar into the past, looking for bars where a line was created.
+// Delete all lines found in last "maxBarsBack" bars after the required count has been left intact.
+keepLastLines = input(5)
+lineCount = 0
+for i = 1 to maxBarsBack
+    if not na(lin[i])
+        lineCount := lineCount + 1
+        if lineCount > keepLastLines
+            line.delete(lin[i])
+```
+
 **[Back to top](#table-of-contents)**
 
 
