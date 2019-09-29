@@ -328,6 +328,8 @@ for i = 1 to maxBarsBack
             line.delete(lin[i])
 ```
 
+### Is it possible to draw geometric shapes?
+It's possible, but not trivial. See [this RicardoSantos script](https://www.tradingview.com/script/mHHDfDB8-RS-Function-Days-in-a-Month/).
 **[Back to top](#table-of-contents)**
 
 
@@ -445,6 +447,8 @@ No. The brokers can only be used for manual trading. Currently, the only way to 
 ### How can I get the time of the first bar in the dataset?
 ``time[bar_index]`` will return that [time](https://www.tradingview.com/pine-script-reference/v4/#var_time) in Unix format, i.e., the number of milliseconds that have elapsed since 00:00:00 UTC, 1 January 1970.
 
+### How can I know how many days are in the current month?
+Use [this function](https://www.tradingview.com/script/mHHDfDB8-RS-Function-Days-in-a-Month/) by RicardoSantos.
 **[Back to top](#table-of-contents)**
 
 
