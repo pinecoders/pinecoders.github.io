@@ -337,7 +337,7 @@ for i = 1 to maxBarsBack
 
 
 ### Can I create an indicator that plots like the built-in Volume or Volume Profile indicators?
-No.
+No. A few of the built-in indicators TradingView publishes are written in JavaScript because their behavior cannot be replicated in Pine. The Volume and Volume Profile indicators are among those.
 
 ### How can I use one script's output as an input into another?
 Use the following in your code:
