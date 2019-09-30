@@ -88,7 +88,7 @@ We have also begun publishing guides. See our first: the [Digital Signal Process
 
 
 ## Forums
-Besides the TV Pine Editor chat there are two other forums worth mentioning where you can ask questions:
+Besides the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235) there are two other forums worth mentioning where you can ask questions:
 
 - [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script): In typical StackOverflow fashion, you ask questions and if they are appropriately detailed and clear, you will most often receive high-quality and reliable information as an answer.
 
