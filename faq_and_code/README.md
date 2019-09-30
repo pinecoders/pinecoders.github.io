@@ -856,7 +856,7 @@ plot(lo, trackprice = true)
 ```
 
 ### How can I remember when the last time a condition occurred?
-The `barssince()` built-in function is the simplest way of doing it, as is done in Method 1 in the following script. Method 2 shows an alternate way to achieve the same result as `barssince()`. In Method 2 we watch for the condition as the script is executing on each successive bar, initialize our distance to 0 when we encounter the condition, and until we encounter the condition again, add 1 to the distance at each bar.
+The [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) built-in function is the simplest way of doing it, as is done in Method 1 in the following script. Method 2 shows an alternate way to achieve the same result as `barssince()`. In Method 2 we watch for the condition as the script is executing on each successive bar, initialize our distance to 0 when we encounter the condition, and until we encounter the condition again, add 1 to the distance at each bar.
 
 In either case the resulting value can be used as an index with the`[]` [history-referecing operator](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator).
 ```js
@@ -907,7 +907,7 @@ plot(showHi ? hi : na, "Highs", color.blue, 3, plot.style_circles)
 plot(showLo ? lo : na, "Lows", color.fuchsia, 3, plot.style_circles)
 ```
 
-### How can I count the number of bars since a condition occured?
+### How can I count the number of bars since a condition occurred?
 The usual way to do it uses the [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) function. This script shows how to keep track of the number of bars since the last cross using two methods: one manually and the other using the built-in function:
 ```js
 //@version=4
