@@ -907,6 +907,27 @@ plot(showHi ? hi : na, "Highs", color.blue, 3, plot.style_circles)
 plot(showLo ? lo : na, "Lows", color.fuchsia, 3, plot.style_circles)
 ```
 
+### How can I count the number of bars since a condition occured?
+The usual way to do it uses the [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) function. This script shows how to keep track of the number of bars since the last cross using two methods: one manually and the other using the built-in function:
+```js
+//@version=4
+study("Bars between crosses", "", true)
+
+maS = sma(close,30)
+maF = sma(close,5)
+masCross = cross(maF, maS)
+
+// ————— Count number of bars since last crossover: manually or using built-in function.
+var barCount1 = 0
+barCount1 := masCross ? 0 : barCount1 + 1
+barCount2 = barssince(masCross)
+
+// ————— Plots
+label.new(bar_index, high + tr, "barCount1: " + tostring(barCount1) + "\nbarCOunt2: " + tostring(barCount2), xloc.bar_index, yloc.price, size = size.small)
+plot(maF)
+plot(maS, color = color.fuchsia)
+```
+
 ### How can I count the occurrences of a condition in the last x bars?
 The built-in [`sum()`](https://www.tradingview.com/pine-script-reference/v4/#fun_sum) function is the most efficient way to do it, but its length (the number of last bars in your sample) cannot be a series float or int. This script shows three different ways of achieving the count:
 
