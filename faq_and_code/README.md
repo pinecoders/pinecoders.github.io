@@ -598,7 +598,7 @@ f_tfResInMinutes(_resolution) =>
     // Returns resolution of _resolution period in minutes.
     // _resolution: resolution of other timeframe (in timeframe.period string format).
     _mult = security(syminfo.tickerid, _resolution, timeframe.multiplier)
-    _res = security(syminfo.tickerid, _resolution, timeframe.isseconds ? 1 : timeframe.isintraday ? 2 : timeframe.isdaily ? 3 : timeframe.isweekly ? 4 : timeframe.ismonthly ? 5 : na)
+    _res = security(syminfo.tickerid, _resolution, timeframe.isseconds ? 1 : timeframe.isminutes ? 2 : timeframe.isdaily ? 3 : timeframe.isweekly ? 4 : timeframe.ismonthly ? 5 : na)
     _return = 
       _res == 1 ? _mult / 60 : 
       _res == 2 ? _mult : 
