@@ -453,6 +453,14 @@ No. The brokers can only be used for manual trading. Currently, the only way to 
 ### How can I know how many days are in the current month?
 Use [this function](https://www.tradingview.com/script/mHHDfDB8-RS-Function-Days-in-a-Month/) by RicardoSantos.
 
+### How can I detect the chart's last day?
+To do this, we will use the [`security()`](https://www.tradingview.com/pine-script-reference/v4/#fun_security) function called at the 1D resolution and have it evaluate the [`barstate.islast`](https://www.tradingview.com/pine-script-reference/v4/#var_barstate{dot}islast) variable on that time frame, which returns true when the bar is the last one in the dataset, even if it is not a realtime bar because the market is closed. We also allow the `security()` function to lookahead, otherwise it will only return true on the last bar of the chart's resolution.
+```
+//@version=4
+study("")
+lastDay = security(syminfo.tickerid, "D", barstate.islast, lookahead = barmerge.lookahead_on)
+bgcolor(lastDay ? color.red : na)
+```
 **[Back to top](#table-of-contents)**
 
 
