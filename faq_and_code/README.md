@@ -198,12 +198,12 @@ study("Plot underlying OHLC", "", true)
 plotCandles = input(true, "Plot Candles")
 method      = input(1, "Using Method", minval = 1, maxval = 2)
 
-// ————— Method 1
+// ————— Method 1: Only works when chart is on default exchange for the symbol.
 o1 = security(syminfo.ticker, timeframe.period, open)
 h1 = security(syminfo.ticker, timeframe.period, high)
 l1 = security(syminfo.ticker, timeframe.period, low)
 c1 = security(syminfo.ticker, timeframe.period, close)
-// ————— Method 2
+// ————— Method 2: Works all the time because it use the chart's symbol and exchange information.
 ticker = tickerid(syminfo.prefix, syminfo.ticker)
 o2 = security(ticker, timeframe.period, open)
 h2 = security(ticker, timeframe.period, high)
