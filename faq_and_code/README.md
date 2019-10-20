@@ -16,7 +16,7 @@ This is a compendium of frequently asked questions on Pine. Answers often give c
 
 Do not make the mistake of assuming this is strictly beginner's material; some of the questions and answers explore advanced techniques.
 
-> **Reusing this code**: You are welcome to reuse this code in your open source scripts only. No permission is required from PineCoders.
+> **Reusing this code**: You are welcome to reuse this code in your open source scripts only. No permission is required from PineCoders. Credits are appreciated.
 
 ### Table of Contents
 
