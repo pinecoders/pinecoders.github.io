@@ -333,6 +333,31 @@ for i = 1 to maxBarsBack
 ### Is it possible to draw geometric shapes?
 It's possible, but not trivial. See [this RicardoSantos script](https://www.tradingview.com/script/mHHDfDB8-RS-Function-Days-in-a-Month/).
 
+
+### How can I print a value at the top right of the chart?
+We will use a label to print our value. Labels however, require positioning relative to the symbol's price scale, which is by definition fluid. The technique we use here is to create an indicator running in "No Scale" space, and then create an artificially large internal scale for it by using the `plotchar()` call which doesn't print anything. We then print the label at the top of that large scale, which does not affect the main chart display because the indicator is running in a separate scale.
+
+Also note that we take care to only print the label on the last bar of the chart, which results in much more efficient code than if we deleted and re-created a label on every bar of the chart, as would be the case if the `if barstate.islast` condition didn't restrict calls to our `f_print()` label-creating function.
+```js
+//@version=4
+//@author=LucF, for PineCoders
+// Indicator needs to be on "no scale".
+study("", "Daily ATR", true, scale = scale.none)
+atrLength = input(14)
+barsRight = input(5)
+// Adjust the conversion formatting string to the instrument: e.g., "#.########" for crypto.
+numberFormat = input("#.####")
+// Plot invisible value to give a large upper scale to indie space.
+plotchar(10e10, "", "")
+// Fetch daily ATR.
+dAtr = security(syminfo.tickerid, "D", atr(atrLength), lookahead = barmerge.lookahead_on)
+// Label-creating function puts label at the top of the large scale.
+f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1]) * barsRight, 10e10, _txt, xloc.bar_time, yloc.price, size = size.normal)
+// Print value on last bar only, so code runs faster.
+if barstate.islast
+    f_print(tostring(dAtr, numberFormat))
+```
+
 **[Back to top](#table-of-contents)**
 
 
