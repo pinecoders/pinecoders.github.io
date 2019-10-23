@@ -349,7 +349,7 @@ barsRight = input(5)
 numberFormat = input("#.####")
 // Plot invisible value to give a large upper scale to indie space.
 plotchar(10e10, "", "")
-// Fetch daily ATR.
+// Fetch daily ATR. We want the current daily value so we use a repainting security() call.
 dAtr = security(syminfo.tickerid, "D", atr(atrLength), lookahead = barmerge.lookahead_on)
 // Label-creating function puts label at the top of the large scale.
 f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1]) * barsRight, 10e10, _txt, xloc.bar_time, yloc.price, size = size.normal)
