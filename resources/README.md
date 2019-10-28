@@ -138,9 +138,9 @@ A few other suppliers of such services, unverified by PineCoders:
 
 
 ## Text Editor Highlighters for Pine
-[Notepad++ Pine v4 Highlighter](https://www.tradingview.com/script/pDbCgvx9-4K-Notepad-UDL-Add-on-for-Pine-Script-v4-0/) by [midtownsk8rguy](https://www.tradingview.com/u/midtownsk8rguy/#published-scripts)
+[Notepad++ UDL for Pine v4](https://www.tradingview.com/script/pDbCgvx9-4K-Notepad-UDL-Add-on-for-Pine-Script-v4-0/) by [midtownsk8rguy](https://www.tradingview.com/u/midtownsk8rguy/#published-scripts)
 
-[Notepad++ Highlighter](https://github.com/nidkil/tradingview-pine-script-udl-npp)
+[Notepad++ UDL](https://github.com/nidkil/tradingview-pine-script-udl-npp)
 
 [VSCode Highlighter](https://marketplace.visualstudio.com/items?itemName=leifcr.pine-script-syntax-highlighting)
 
