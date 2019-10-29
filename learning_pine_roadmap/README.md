@@ -32,7 +32,7 @@ There are many resources to learn Pine. These are the most important. While you 
 1. The two primary sources of information on Pine are the [Pine v4 User Manual](https://www.tradingview.com/pine-script-docs/en/v4/index.html) and [Pine v4 Reference Manual](https://www.tradingview.com/pine-script-reference/v4/).<br>
 Follow the instructions in the User Manual's [Quickstart Guide](https://www.tradingview.com/pine-script-docs/en/v4/Quickstart_guide.html) page to put your first script in action on a chart, and follow the links in that page to familiarize yourself with Pine's key concepts.
 1. Once you start working in the Pine Editor, you can bring up the Reference Manual by Ctrl/&#8984;-clicking on any colored language keyword. From the editor, you can also view a list of keyboard shortcuts by selecting *Pine Editor Keyboard Shortcuts* from the *Help* menu. The editor's *Help* menu will link you to v4 and v3 documentation, and to forums where you can ask questions on Pine.
-1. PineCoders maintains a <a href="http://www.pinecoders.com/faq_and_code">FAQ & Code</a> and a [Resources document](http://www.pinecoders.com/resources/) where you will find links to educational material and tools.
+1. PineCoders maintains a [FAQ & Code](http://www.pinecoders.com/faq_and_code) and a [Resources document](http://www.pinecoders.com/resources/) where you will find links to educational material and tools.
 1. [Kodify.net](https://kodify.net/tradingview-programming-articles/) is the largest repository of Pine-related articles out there. In more than 200 articles related to Pine programming, they explore Pine features thoroughly and also present techniques for realizing common tasks in Pine.
 1. YouTube has content by Pine coders. These are a few introductory-level ones:
 [How To Use Tradingview Pine Script - Introduction](https://www.youtube.com/watch?v=Kwlxngw1YBY) and its [Part 2](https://www.youtube.com/watch?v=3wW10q9QDA8). A search for `pine introduction tradingview` will turn up a few others.
@@ -69,6 +69,7 @@ Whether you are new to programming or a veteran, the PineCoders <a href="http://
 ## Code examples
 
 - [TradingView Pine v4 example of a simple script](https://www.tradingview.com/pine-script-docs/en/v4/Quickstart_guide.html).
+- The PineCoders [FAQ & Code](http://www.pinecoders.com/faq_and_code) contains many Pine snippets.
 - The [PineCoders open source repository](https://github.com/pinecoders/pine-utils) contains reusable code snippets and example code.
 - On TradingView, PineCoders publishes [Pine examples and tools](https://www.tradingview.com/u/PineCoders/#published-scripts) and also follows [top Pine coders](https://www.tradingview.com/u/PineCoders/#following-people) who publish mostly open source code. Studying their code is one the best ways to learn.
 - Kodify has an article on [Pine operators](https://kodify.net/tradingview/operators/operators-operands/) that can help you get started.
