@@ -50,7 +50,7 @@ There are 4 supported versions of Pine, from 1 to 4. A compiler directive used i
 
 ## Pine runtime environment
 
-Pine indicator code executes once for each bar of the dataset, starting from the beginning of the chart’s history. When the realtime bar is reached, *indicator* scripts executes every time price changes, while *strategy* scripts may be configured to behave like indicators, or to run only at the close of the realtime bar (the default). See [here](https://www.tradingview.com/pine-script-docs/en/v4/language/Execution_model.html) for more information.
+Pine indicator code executes once for each bar of the dataset, starting from the beginning of the chart’s history. When the realtime bar is reached, *indicator* scripts execute every time price changes, while *strategy* scripts may be configured to behave like indicators, or to run only at the close of the realtime bar (the default). See [here](https://www.tradingview.com/pine-script-docs/en/v4/language/Execution_model.html) for more information.
 
 ## Series
 
