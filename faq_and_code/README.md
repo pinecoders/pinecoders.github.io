@@ -651,7 +651,10 @@ f_print("Higher Resolution = " + tostring(higherResInMinutes))
 ```
 
 ### Is it possible to use `security()` on lower intervals than the chart's current interval?
-Yes, except that seconds resolutions do not work. So you can call `security()` at 1m from a 15m chart, but not 30sec.
+Yes but there are limits to using this technique:
+1. It only works on historical bars.
+1. You cannot reference intrabars at seconds resolutions. So you can call `security()` at 1m from a 15m chart, but not 30sec.
+1. Alerts will currently not work reliably if you use this technique in your script.
 
 If you call `security()` at a lower resolution using a series argument such as `close` or `volume` for its `expression=` parameter, `security()` returns the series' value at the last intrabar, as in the `lastClose` variable in the following script.
 
