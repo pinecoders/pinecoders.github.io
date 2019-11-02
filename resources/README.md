@@ -88,11 +88,7 @@ We have also begun publishing guides. See our first: the [Digital Signal Process
 
 
 ## Forums
-Besides the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235) there are two other forums worth mentioning where you can ask questions:
-
-- [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script): In typical StackOverflow fashion, you ask questions and if they are appropriately detailed and clear, you will most often receive high-quality and reliable information as an answer.
-
-- [Pinescripters Telegram group](https://t.me/pinescripters): A large group with coders of all levels.
+Besides the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235) you can ask questions on [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script).
 
 
 ## Videos
@@ -124,11 +120,11 @@ A few other suppliers of such services, unverified by PineCoders:
 
 
 ## Automated Order Execution
-[Alertatron](https://alertatron.com/): A service that allows you to relay TradingView alerts to Telegram, Discord, Slack, Email or webhooks, with a chart snapshot attached. The developer is well-known in the Pinescripters community.
+[Alertatron](https://alertatron.com/): A service that allows you to relay TradingView alerts to Telegram, Discord, Slack, Email or webhooks, with a chart snapshot attached. The developer is well-known in the PineCoders community.
 
 [3Commas](https://3commas.io/): Can receive TV alerts and connect them to their bots to execute simple orders on crypto exchanges.
 
-[ProfitView](https://wiki.profitview.app/home): Google Chrome extension that receives TV alerts and relays orders to crypto exchanges. Among Pinescripters, has the reputation of being better than AutoView.
+[ProfitView](https://wiki.profitview.app/home): Google Chrome extension that receives TV alerts and relays orders to crypto exchanges. Among PineCoders, has the reputation of being better than AutoView.
 
 [AutoView](https://autoview.with.pink/): Google Chrome extension that receives TV alerts and relays orders to crypto exchanges.
 
