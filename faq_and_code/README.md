@@ -948,7 +948,7 @@ plot(showLo ? lo : na, "Lows", color.fuchsia, 3, plot.style_circles)
 ```
 
 ### How can I track highs/lows between specific hours?
-We use the intrabar inspection technique explained [here]() to inspect intrabars and save the high or low if the intrabar is whithin user-defined begin and end times.
+We use the intrabar inspection technique explained [here](http://www.pinecoders.com/faq_and_code/#is-it-possible-to-use-security-on-lower-intervals-than-the-charts-current-interval) to inspect intrabars and save the high or low if the intrabar is whithin user-defined begin and end times.
 
 ```js
 //@version=4
