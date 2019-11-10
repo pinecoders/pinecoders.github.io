@@ -947,6 +947,65 @@ plot(showHi ? hi : na, "Highs", color.blue, 3, plot.style_circles)
 plot(showLo ? lo : na, "Lows", color.fuchsia, 3, plot.style_circles)
 ```
 
+### How can I track highs/lows between specific hours?
+We use the intrabar inspection technique explained [here]() to inspect intrabars and save the high or low if the intrabar is whithin user-defined begin and end times.
+
+```js
+//@version=4
+//@author=LucF, for PineCoders
+study("Pre-market high/low", "", true)
+// Lower TF we are inspecting. Cannot be in seconds and must be lower that chart's resolution.
+begHour = input(7, "Beginning time (hour)")
+begMinute = input(0, "Beginning time (minute)")
+endHour = input(9, "End time (hour)")
+endMinute = input(25, "End time (minute)")
+insideRes = input("5", "Intrabar resolution used")
+
+startMinute = (begHour * 60) + begMinute
+finishMinute = (endHour * 60) + endMinute
+
+f_highBetweenTime(_start, _finish) =>
+    // Returns low between specific times.
+    var float _return = 0.
+    var _reset = true
+    _minuteNow = (hour * 60) + minute
+    if _minuteNow >= _start and _minuteNow <= _finish
+        // We are inside period.
+        if _reset
+            // We are at first bar inside period.
+            _return := high
+            _reset := false
+        else
+            _return := max(_return, high)
+    else
+        // We are past period; enable reset for when we next enter period.
+        _reset := true
+    _return
+
+f_lowBetweenTime(_start, _finish) =>
+    // Returns low between specific times.
+    var float _return = 10e10
+    var _reset = true
+    _minuteNow = (hour * 60) + minute
+    if _minuteNow >= _start and _minuteNow <= _finish
+        // We are inside period.
+        if _reset
+            // We are at first bar inside period.
+            _return := low
+            _reset := false
+        else
+            _return := min(_return, low)
+    else
+        // We are past period; enable reset for when we next enter period.
+        _reset := true
+    _return
+
+highAtTime = security(syminfo.tickerid, insideRes, f_highBetweenTime(startMinute, finishMinute))
+lowAtTime = security(syminfo.tickerid, insideRes, f_lowBetweenTime(startMinute, finishMinute))
+plot(highAtTime, "High", color.green)
+plot(lowAtTime, "Low", color.red)
+```
+
 ### How can I count the number of bars since a condition occurred?
 The usual way to do it uses the [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) function. This script shows how to keep track of the number of bars since the last cross using two methods: one manually and the other using the built-in function:
 ```js
