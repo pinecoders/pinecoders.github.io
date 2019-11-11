@@ -954,11 +954,11 @@ We use the intrabar inspection technique explained [here](http://www.pinecoders.
 //@version=4
 //@author=LucF, for PineCoders
 study("Pre-market high/low", "", true)
-// Lower TF we are inspecting. Cannot be in seconds and must be lower that chart's resolution.
 begHour = input(7, "Beginning time (hour)")
 begMinute = input(0, "Beginning time (minute)")
 endHour = input(9, "End time (hour)")
 endMinute = input(25, "End time (minute)")
+// Lower TF we are inspecting. Cannot be in seconds and must be lower that chart's resolution.
 insideRes = input("5", "Intrabar resolution used")
 
 startMinute = (begHour * 60) + begMinute
