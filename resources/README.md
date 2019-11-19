@@ -105,11 +105,11 @@ Besides the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO23
 This list contains the TV name of Pine programmers we know and who have a good reputation of providing quality paid Pine custom coding. While you can inquire to any number of them, it is considered poor etiquette to send bulk inquiries to all.
 
 - [Daveatt](https://www.tradingview.com/u/Daveatt/)<br>Ex quant trader with 5 years professional experience now developing indicators and bots for retail clients. Specializes in Pine Script, MT4, LUA (FXCM) and ProRealCode.
-- [Duyck](https://www.tradingview.com/u/Duyck/)
-- [everget](https://www.tradingview.com/u/everget/)
-- [gyromatical](https://www.tradingview.com/u/gyromatical/)
+- [Duyck](https://www.tradingview.com/u/Duyck/)<br>Joris is an experienced and creative Pine coder who prefers to work on indicators rather strategies.He can also convert open source indicators from other platforms, namely MQL4, to Pine.
+- [everget](https://www.tradingview.com/u/everget/)<br>Bachelor of Mathematics (B Math) and skilled full-stack web-developer. 6+ years of prgoramming experience in JavaScript, Node js, Python, Ruby and Lua. In the last 3+ years has also developed custom interfaces, indicators strategies and advisors in Pine and MetaTrader's MQL.
 - [glaz](https://www.tradingview.com/u/glaz/)<br>I work on indicators only (no strategies). Have been coding in Pine for 6 years and do indicator ports from other platforms.
-- [mortdiggiddy](https://www.tradingview.com/u/mortdiggiddy/)
+- [gyromatical](https://www.tradingview.com/u/gyromatical/)<br>
+- [mortdiggiddy](https://www.tradingview.com/u/mortdiggiddy/)<br>10 years experience in software developmentand B.S. in Mechanical and Aerospace Engineering. Forex, Futures, Stocks and Options trader for 8 years. He is experienced in developing autonomous trading strategies in Pine and JavaScript.
 - [paaax](https://www.tradingview.com/u/paaax/)<br>Offering services for study and strategy development, alert automation, custom-made indicators, market screener and other services on top on Tradingview.
 - [QuantNomad](https://www.tradingview.com/u/QuantNomad/#published-scripts)<br>Quant Developer/Analyst with 5+ years of experience. Area of expertise: Pine Script, R, Python, Futures, Options, Crypto.
 
