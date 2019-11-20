@@ -104,6 +104,7 @@ Besides the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO23
 ## Work For Hire Pine Programmers
 This list contains the TV name of Pine programmers we know and who have a good reputation of providing quality paid Pine custom coding. While you can inquire to any number of them, it is considered poor etiquette to send bulk inquiries to all.
 
+- [a.tesla2018](https://www.tradingview.com/u/a.tesla2018/)<br>B.S. Electrical Engineering and Computer Science with 10+ years experience in C, C++, HDL and lately, Pine.
 - [Daveatt](https://www.tradingview.com/u/Daveatt/)<br>Ex quant trader with 5 years professional experience now developing indicators and bots for retail clients. Specializes in Pine Script, MT4, LUA (FXCM) and ProRealCode.
 - [Duyck](https://www.tradingview.com/u/Duyck/)<br>Joris is an experienced and creative Pine coder who prefers to work on indicators rather than strategies. He can also convert open source indicators to Pine from other platforms, namely MQL4.
 - [everget](https://www.tradingview.com/u/everget/)<br>Bachelor of Mathematics (B Math) and skilled full stack Web developer. 6+ years of programming experience in JavaScript, Node js, Python, Ruby and Lua. In the last 3+ years he has also developed custom interfaces, indicators strategies and advisors in Pine and MetaTrader's MQL.
