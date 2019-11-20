@@ -487,12 +487,25 @@ Use [this function](https://www.tradingview.com/script/mHHDfDB8-RS-Function-Days
 
 ### How can I detect the chart's last day?
 To do this, we will use the [`security()`](https://www.tradingview.com/pine-script-reference/v4/#fun_security) function called at the 1D resolution and have it evaluate the [`barstate.islast`](https://www.tradingview.com/pine-script-reference/v4/#var_barstate{dot}islast) variable on that time frame, which returns true when the bar is the last one in the dataset, even if it is not a realtime bar because the market is closed. We also allow the `security()` function to lookahead, otherwise it will only return true on the last bar of the chart's resolution.
-```
+```js
 //@version=4
 study("")
 lastDay = security(syminfo.tickerid, "D", barstate.islast, lookahead = barmerge.lookahead_on)
 bgcolor(lastDay ? color.red : na)
 ```
+
+### How can I detect if a bar's date is today?
+```js
+//@version=4
+//@author=mortdiggiddy, for PineCoders
+study("Detect today", "", true)
+currentYear = year(timenow)
+currentMonth = month(timenow)
+currentDay = dayofmonth(timenow)
+today = year == currentYear and month == currentMonth and dayofmonth == currentDay
+bgcolor(today ? color.gray : na)
+```
+
 **[Back to top](#table-of-contents)**
 
 
