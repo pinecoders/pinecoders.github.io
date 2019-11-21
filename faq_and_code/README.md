@@ -358,6 +358,12 @@ if barstate.islast
     f_print(tostring(dAtr, numberFormat))
 ```
 
+### How can I toggle `hline()` plots on and off?
+```js
+showHline = input(true)
+hline(50, color = showHline ? color.blue : #00000000)
+```
+
 **[Back to top](#table-of-contents)**
 
 
