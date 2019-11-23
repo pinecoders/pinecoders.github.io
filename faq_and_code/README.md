@@ -101,6 +101,24 @@ range = close > open ? close - open : 0.0
 ```
 In the previous example, we could determine the value to assign to the `range` series variable as we were going over each bar in the dataset because the condition used to assign values was known on that bar. Sometimes, you will only obtain enough information to identify the condition after a number of bars have elapsed. In such cases, a `for` loop must be used to go back in time and analyse past bars. This will be the case in situations where you want to identify fractals or pivots. See the [Pivots Points High/Low](https://www.tradingview.com/pine-script-docs/en/v4/essential/Drawings.html#pivot-points-high-low) from the User Manual, for example.
 
+### Why do some logical expressions not evaluate as expected when na values are involved?
+Pine logical expressions have 3 possible values: true, false and na. Whenever a value used in the logical expression has na value, the result of the logical expression will be na. Furthermore, when a logical expression evaluates to na, the false branch of a conditional statement will be executed. This may lead to unexpected behavior and entails that special cases must be accounted for if you want your code to handle all possible logical expression results according to your expectations.
+
+Let's take a case where, while we are debugging code, we want to compare two variables that should always have the same value, but where one of the variables or both can have an na value. When that is the case, neither `a == b` nor `a != b` will return true or false, as they both return na.
+
+When we undestand this, we can see why the first `bgcolor()` line in the following code shows no background. While you could expect the `a != b` logical expression to be true and thus the background to appear lime because the value of variable `a` does not equal the value of `b`, this is not the case. Because the logical expression returns na, the false branch of the ternary is executed and no color is plotted in the background.
+
+The second `bgcolor()` line will produce the behavior we expect. You will see this if you comment out the first one and uncomment this second line. The other lines show different variations of the concept.
+```js
+//@version=4
+study("")
+int a = 1
+int b = na
+bgcolor(a != b ? color.lime : na, transp = 20) // na, so goes to false branch.
+// bgcolor(a == b ? na : color.red, transp = 20) // na, so goes to false branch.
+// bgcolor(na((a != b)) ? color.orange : na, transp = 20) // true, so works.
+// bgcolor(a != b or na(a != b) ? color.fuchsia : na, transp = 20) // true, so works.
+```
 
 **[Back to top](#table-of-contents)**
 
