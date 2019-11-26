@@ -968,6 +968,26 @@ plotchar(barsFromUp, "barsFromUp", "", location.top)
 plotchar(barsFromDn, "barsFromDn", "", location.top)
 ```
 
+This script shows how to keep track of the number of bars since the last cross using the same two methods:
+```js
+//@version=4
+study("Bars between crosses", "", true)
+
+maS = sma(close,30)
+maF = sma(close,5)
+masCross = cross(maF, maS)
+
+// ————— Count number of bars since last crossover: manually or using built-in function.
+var barCount1 = 0
+barCount1 := masCross ? 0 : barCount1 + 1
+barCount2 = barssince(masCross)
+
+// ————— Plots
+label.new(bar_index, high + tr, "barCount1: " + tostring(barCount1) + "\nbarCOunt2: " + tostring(barCount2), xloc.bar_index, yloc.price, size = size.small)
+plot(maF)
+plot(maS, color = color.fuchsia)
+```
+
 ### How can I track highs/lows for a period of time?
 This code shows how to do that without using `security()` calls, which slow down your script. The source used to calculate the highs/lows can be selected in the script's *Inputs*, as well as the period after which the high/low must be reset.
 ```js
@@ -1047,27 +1067,6 @@ highAtTime = security(syminfo.tickerid, insideRes, f_highBetweenTime(startMinute
 lowAtTime = security(syminfo.tickerid, insideRes, f_lowBetweenTime(startMinute, finishMinute))
 plot(highAtTime, "High", color.green)
 plot(lowAtTime, "Low", color.red)
-```
-
-### How can I count the number of bars since a condition occurred?
-The usual way to do it uses the [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) function. This script shows how to keep track of the number of bars since the last cross using two methods: one manually and the other using the built-in function:
-```js
-//@version=4
-study("Bars between crosses", "", true)
-
-maS = sma(close,30)
-maF = sma(close,5)
-masCross = cross(maF, maS)
-
-// ————— Count number of bars since last crossover: manually or using built-in function.
-var barCount1 = 0
-barCount1 := masCross ? 0 : barCount1 + 1
-barCount2 = barssince(masCross)
-
-// ————— Plots
-label.new(bar_index, high + tr, "barCount1: " + tostring(barCount1) + "\nbarCOunt2: " + tostring(barCount2), xloc.bar_index, yloc.price, size = size.small)
-plot(maF)
-plot(maS, color = color.fuchsia)
 ```
 
 ### How can I count the occurrences of a condition in the last x bars?
