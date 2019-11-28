@@ -1213,6 +1213,9 @@ rescale(_src, _oldMin, _oldMax, _newMin, _newMax) =>
 plot(rescale(rsi(close, 14), 0, 100, -100, 100), color = color.fuchsia)
 ```
 
+### How can I monitor script run time?
+Use the code from the PineCoders [Script Stopwatch](https://www.tradingview.com/script/rRmrkRDr-Script-Stopwatch-PineCoders-FAQ/). You will be able to time script execution so you can explore different scenarios when developing code and see for yourself which version performs the best.
+
 **[Back to top](#table-of-contents)**
 
 
