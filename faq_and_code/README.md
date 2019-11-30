@@ -1178,6 +1178,43 @@ plotchar(triggerOn, "triggerOn", "▲", location.belowbar, color.lime, 0, size =
 plotchar(triggerOff, "triggerOff", "▼", location.abovebar, color.red, 0, size = size.tiny, text = "Off")
 ```
 
+### How can I allow transitions from condition A►B or B►A, but not A►A nor B►B
+One way to do it is by using [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince). This way is more flexible and faster:
+```js
+//@version=4
+//@author=LucF, for PineCoders
+study("AB or BA", "", true)
+
+// ————— Trigger conditions.
+upBar = close > open
+condATrigger = upBar and upBar[1]
+condBTrigger = not upBar and not upBar[1]
+// ————— Conditions. These variable will only be true/false on the bar where they occur.
+condA = false
+condB = false
+// ————— State variable set to true when last triggered condition was A, and false when it was condition B.
+// This variable's state is propagated troughout bars (because we use the "var" keyword to declare it).
+var LastCondWasA = false
+
+// ————— State transitions so that we allow A►B or B►A, but not A►A nor B►B.
+if condATrigger and not LastCondWasA
+    // The trigger for condA occurs and the last condition set was condB.
+    condA := true
+    LastCondWasA := true
+else
+    if condBTrigger and LastCondWasA
+        // The trigger for condB occurs and the last condition set was condA.
+        condB := true
+        LastCondWasA := false
+
+bgcolor(LastCondWasA ? color.green : na)
+plotchar(condA, "condA", "▲", location.belowbar, color.lime, 30, size = size.tiny, text = "A")
+plotchar(condB, "condB", "▼", location.abovebar, color.red, 30, size = size.tiny, text = "B")
+// Note that we do not plot the marker for triggers when they are allowed to change states, since we then have our condA/B marker on the chart.
+plotchar(condATrigger and not condA, "condATrigger", "•", location.belowbar, color.green, 0, size = size.tiny, text = "a")
+plotchar(condBTrigger and not condB, "condBTrigger", "•", location.abovebar, color.maroon, 0, size = size.tiny, text = "b")
+```
+
 ### How can I rescale an indicator from one scale to another?
 The answer depends on whether you know the minimum/maximum possible values of the signal to be rescaled. If you don't know them, as is the case for volume where the maximum is unknown, then you will need to use a function that uses past history to determine the minimum/maximum values, as in the `normalize()` function here. While this is an imperfect solution since the minimum/maximum need to be discovered as your script progresses left to right through historical bars, it is better than techniques using `lowest()` and `highest()` over a fixed length, because it uses the minimum/maximum values for the complete set of elapsed bars rather than a subset of fixed length. The ideal solution would be to know in advance the minimum/maximum values for the whole series **prior** to beginning the normalization process, but this is currently not possible in Pine.
 
