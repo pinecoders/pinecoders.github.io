@@ -160,6 +160,7 @@ A few other suppliers of such services, unverified by PineCoders:
 
 [december.com](https://www.december.com/html/spec/)
 
+[color-hex](https://www.color-hex.com/color-wheel/)
 
 ## On GitHub
 [PineCoders Repository](https://github.com/pinecoders/pine-utils) of reusable Pine code on GitHub.
