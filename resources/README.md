@@ -152,6 +152,8 @@ A few other suppliers of such services, unverified by PineCoders:
 
 [ColorHexa](https://www.colorhexa.com/)
 
+[color-hex](https://www.color-hex.com/color-wheel/)
+
 [Paletton](http://paletton.com)
 
 [PerBang](http://www.perbang.dk/rgbgradient/)
@@ -159,8 +161,6 @@ A few other suppliers of such services, unverified by PineCoders:
 [500 Most Popular PNG Image Colors](https://imgbin.com/colors)
 
 [december.com](https://www.december.com/html/spec/)
-
-[color-hex](https://www.color-hex.com/color-wheel/)
 
 ## On GitHub
 [PineCoders Repository](https://github.com/pinecoders/pine-utils) of reusable Pine code on GitHub.
