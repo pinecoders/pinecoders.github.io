@@ -383,6 +383,20 @@ showHline = input(true)
 hline(50, color = showHline ? color.blue : #00000000)
 ```
 
+### How can I lift `plotshape()` text up?
+You will need to use `\n` followed by a special non-printing character that doesn't get stripped out. Here we're using U+206A. While you don't see it in the following code's strings, it is there and can be copy/pasted. The special Unicode character needs to be the last one in the string for text going up, and the first one when you are plotting under the bar and text is going down:
+```js
+//@version=4
+study("Lift text", "", true)
+// Use U+206A (Decimal 8298) as a non-printing space after the last "\n".
+// The line will become difficult to edit in the editor, but the character will be there.
+// You can use https://unicode-table.com/en/tools/generator/ to generate a copy/pastable character.
+plotshape(true, "", shape.arrowup, location.abovebar, color.yellow, text="A")
+plotshape(true, "", shape.arrowup, location.abovebar, color.yellow, text="B\n ⁪")
+plotshape(true, "", shape.arrowup, location.abovebar, color.yellow, text="C\n⁪⁪\n⁪⁪")
+plotshape(true, "", shape.arrowup, location.abovebar, color.yellow, text="D\n\n\n⁪")
+```
+
 **[Back to top](#table-of-contents)**
 
 
