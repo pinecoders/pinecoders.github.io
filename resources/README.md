@@ -156,6 +156,8 @@ A few other suppliers of such services, unverified by PineCoders:
 
 [Paletton](http://paletton.com)
 
+[Colorizer](http://colorizer.org/)
+
 [PerBang](http://www.perbang.dk/rgbgradient/)
 
 [500 Most Popular PNG Image Colors](https://imgbin.com/colors)
