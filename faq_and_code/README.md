@@ -240,8 +240,8 @@ plot(c, "Underlying close", color = color.gray, linewidth = 3, trackprice = true
 invisibleColor = color.new(color.white, 100)
 plotcandle(plotCandles ? o : na, plotCandles ? h : na, plotCandles ? l : na, plotCandles ? c : na, color = color.orange, wickcolor = color.orange)
 // ————— Plot label.
-f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, c, _txt, xloc.bar_time, yloc.price, size = size.large)
-a = f_print("Underlying Close1 = " + tostring(c1) + "\nUnderlying Close2 = " + tostring(c2) + "\nChart's close = " + tostring(close) + "\n Delta = " + tostring(close - c))
+f_print(_txt) => t = time + (time - time[1]) * 3, var _lbl = label.new(t, high, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), label.set_xy(_lbl, t, high + 3 * tr)
+f_print("Underlying Close1 = " + tostring(c1) + "\nUnderlying Close2 = " + tostring(c2) + "\nChart's close = " + tostring(close) + "\n Delta = " + tostring(close - c))
 ```
 
 ### How can I keep only the last x labels or lines?
@@ -371,7 +371,7 @@ plotchar(10e10, "", "")
 // Fetch daily ATR. We want the current daily value so we use a repainting security() call.
 dAtr = security(syminfo.tickerid, "D", atr(atrLength), lookahead = barmerge.lookahead_on)
 // Label-creating function puts label at the top of the large scale.
-f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1]) * barsRight, 10e10, _txt, xloc.bar_time, yloc.price, size = size.normal)
+f_print(_txt) => t = time + (time - time[1]) * 3, var _lbl = label.new(t, high, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), label.set_xy(_lbl, t, high + 3 * tr)
 // Print value on last bar only, so code runs faster.
 if barstate.islast
     f_print(tostring(dAtr, numberFormat))
@@ -675,7 +675,7 @@ f_resFromMinutes(_minutes) =>
       _minutes   <= 43800        ? tostring(round(min(_minutes / 1440, 365))) + "D" :
       tostring(round(min(_minutes / 43800, 12))) + "M"
 
-f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, high, _txt, xloc.bar_time, yloc.price, size = size.large)
+f_print(_txt) => t = time + (time - time[1]) * 3, var _lbl = label.new(t, high, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), label.set_xy(_lbl, t, high + 3 * tr)
 
 resInMinutes = f_resInMinutes()
 resFromMinutes = f_resFromMinutes(resInMinutes)
@@ -703,7 +703,7 @@ f_tfResInMinutes(_resolution) =>
 higherResInMinutes = f_tfResInMinutes(higherRes)
 
 plot(higherResInMinutes, "higherResInMinutes", color.navy, linewidth = 10)
-f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, higherResInMinutes, _txt, xloc.bar_time, yloc.price, size = size.large)
+f_print(_txt) => t = time + (time - time[1]) * 3, var _lbl = label.new(t, high, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), label.set_xy(_lbl, t, high + 3 * tr)
 f_print("Higher Resolution = " + tostring(higherResInMinutes))
 ```
 
@@ -1280,11 +1280,10 @@ This code will show a label containing the current values of the variables you w
 ```js
 //@version=4
 study("f_print()", "", true)
-f_print(_txt) => var _lbl = label(na), label.delete(_lbl), _lbl := label.new(time + (time-time[1])*3, high, _txt, xloc.bar_time, yloc.price, size = size.large)
-f_print("Multiplier = " + tostring(timeframe.multiplier) + "\nPeriod = " + timeframe.period + "\nHigh = " + tostring(high))
-```
+f_print(_txt) => t = time + (time - time[1]) * 3, var _lbl = label.new(t, high, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), label.set_xy(_lbl, t, high + 3 * tr)
+f_print("Multiplier = " + tostring(timeframe.multiplier) + "\nPeriod = " + timeframe.period + "\nHigh = " + tostring(high))```
 
-![.](https://www.tradingview.com/x/kG2OOCIp/ "f_print()")
+![.](https://www.tradingview.com/x/BfsB2BqJ/ "f_print()")
 
 ### How can I plot numeric values so that they do not disrupt the indicator's scale?
 The solution is to use the `plotchar()` function, but without actually printing a character, and using the fact that values plotted with `plotchar()` will appear both:
