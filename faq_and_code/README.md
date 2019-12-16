@@ -391,12 +391,12 @@ study("Lift text", "", true)
 // Use U+200E (Decimal 8206) as a non-printing space after the last "\n".
 // The line will become difficult to edit in the editor, but the character will be there.
 // You can use https://unicode-table.com/en/tools/generator/ to generate a copy/pastable character.
-plotshape(true, "", shape.arrowup, location.abovebar, color.purple, text="A")
-plotshape(true, "", shape.arrowup, location.abovebar, color.orange, text="B\n‎")
-plotshape(true, "", shape.arrowup, location.abovebar, color.maroon, text="C\n\n‎")
-plotshape(true, "", shape.arrowup, location.abovebar, color.teal,   text="D\n\n\n‎")
+plotshape(true, "", shape.arrowup,      location.abovebar, color.green,     text="A")
+plotshape(true, "", shape.arrowup,      location.abovebar, color.lime,      text="B\n‎")
+plotshape(true, "", shape.arrowdown,    location.belowbar, color.red,       text="C")
+plotshape(true, "", shape.arrowdown,    location.belowbar, color.maroon,    text="‎\nD")
 ```
-![.](https://www.tradingview.com/x/ihnBF0Sg/ "Lift text up with plotshape()")
+![.](https://www.tradingview.com/x/MMMFiRZI/ "Lift text up with plotshape()")
 
 **[Back to top](#table-of-contents)**
 
