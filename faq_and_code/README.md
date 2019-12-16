@@ -396,6 +396,7 @@ plotshape(true, "", shape.arrowup, location.abovebar, color.orange, text="B\n‎
 plotshape(true, "", shape.arrowup, location.abovebar, color.maroon, text="C\n\n‎")
 plotshape(true, "", shape.arrowup, location.abovebar, color.teal,   text="D\n\n\n‎")
 ```
+![.](https://www.tradingview.com/x/ihnBF0Sg/ "Lift text up with plotshape()")
 
 **[Back to top](#table-of-contents)**
 
