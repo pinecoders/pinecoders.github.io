@@ -472,9 +472,6 @@ Because non-standard chart types use non-standard prices which produce non-stand
 
 The TradingView Help Center also has a [good article](https://www.tradingview.com/house-rules/?solution=43000481029) on the subject.
 
-### How do I write code for a signal with 2 conditions that occur at different times?
-Backtest Rookies has a [blog post](https://backtest-rookies.com/2018/10/26/tradingview-opening-a-window/) on the subject.
-
 ### How can I save the entry price in a strategy?
 Here are two ways you can go about it:
 ```js
