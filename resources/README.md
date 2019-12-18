@@ -111,6 +111,7 @@ This list contains the TV name of Pine programmers we know and who have a good r
 - [everget](https://www.tradingview.com/u/everget/)<br>Bachelor of Mathematics (B Math) and skilled full stack Web developer. 6+ years of programming experience in JavaScript, Node js, Python, Ruby and Lua. In the last 3+ years he has also developed custom interfaces, indicators strategies and advisors in Pine and MetaTrader's MQL.
 - [glaz](https://www.tradingview.com/u/glaz/)<br>Works on indicators only (no strategies). Has been coding in Pine for 6 years and does indicator ports from other platforms.
 - [mortdiggiddy](https://www.tradingview.com/u/mortdiggiddy/)<br>10 years experience in software developmentand. B.S. in Mechanical and Aerospace Engineering. Forex, futures, stocks and options trader for 8 years. He is experienced in developing autonomous trading strategies in Pine and JavaScript.
+- [MVPMC](https://www.tradingview.com/u/MVPMC/)<br>Ambitious junior Web developer offering conversions and development of indicators and strategies.
 - [paaax](https://www.tradingview.com/u/paaax/)<br>Offering services for study and strategy development, alert automation, custom-made indicators, market screener and other services on Tradingview.
 - [QuantNomad](https://www.tradingview.com/u/QuantNomad/#published-scripts)<br>Quant Developer/Analyst with 5+ years of experience. Area of expertise: Pine Script, R, Python, Futures, Options, Crypto.
 
