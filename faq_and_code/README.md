@@ -119,6 +119,75 @@ bgcolor(a != b ? color.lime : na, transp = 20) // na, so goes to false branch.
 // bgcolor(na((a != b)) ? color.orange : na, transp = 20) // true, so works.
 // bgcolor(a != b or na(a != b) ? color.fuchsia : na, transp = 20) // true, so works.
 ```
+This code shows a more practical example using a test for pivots.
+
+```js
+//@version=4
+study("Logical expressions evaluate to true, false or na", "", precision=10)
+// Truncated Stoch RSI built-in
+smoothK = input(3, minval=1)
+lengthRSI = input(14, minval=1)
+lengthStoch = input(14, minval=1)
+src = input(close, title="RSI Source")
+capMin = input(false)
+showEquals = input(true)
+rsi1 = rsi(src, lengthRSI)
+kCapped = max(10e-10, sma(stoch(rsi1, rsi1, rsi1, lengthStoch), smoothK))
+kNormal = sma(stoch(rsi1, rsi1, rsi1, lengthStoch), smoothK)
+k = capMin ? kCapped : kNormal
+plot(k, color=color.blue)
+hline(0, "", color.gray)
+pLo = pivotlow(k, 1, 1)
+
+// Usual way which doesn't work when a pivot occurs at value 0.
+var usualSignal = 0.
+if pLo
+    usualSignal := 85
+else
+    // Note that this else clause catches all non-true values, so both 0 (false) AND na values.
+    usualSignal := 15
+plot(usualSignal, "Usual Signal", color.teal, 10, transp = 10)
+
+// Bad way because we're comparing the pivot's value to 1 (true) and 0 (false), 
+// so the logical expressions will only be true if a pivot occurs at those values, which is almost never.
+var badSignal = 0.
+if pLo == true
+    // This conditions only catches pivots when they occur at value == 1, so almost never happens.
+    badSignal := 85
+else
+    // This conditions only catches pivots when they occur at value == 0, so almost never happens.
+    if pLo == false
+        badSignal := 15
+    else
+        // This catches all the rest of conditions, which is almost always.
+        badSignal := 50
+plot(badSignal, "Bad Signal", color.purple, 10, transp = 60)
+
+// Proper way to test so that we do not miss any pivots.
+var goodSignal = 0.
+if not na(pLo)
+    // This identifies all pivot occurrences (including at value == 0) because it tests for values that are not na.
+    goodSignal := 85
+else
+    goodSignal := 15
+plot(goodSignal, "Good Signal", color.orange, 2, transp = 0)
+    
+// Our background color also missed pivot when they occur at value == 0.
+bgcolor(pLo ? color.red : na, transp = 70)
+
+// This line identifies pivots which occur at value == 0.
+plotchar(not na(pLo) and pLo == 0., "", "•", location.top, color.fuchsia, 0, text = "Missed\nlow pivot", textcolor = color.new(color.red, 0), size = size.small)
+
+// Debugging plots for Data Window.
+plotchar(pLo, "pLo", "", location.top)
+plotchar(pLo == true, "pLo == true", "", location.top)
+plotchar(pLo == false, "pLo == false", "", location.top)
+plotchar(na(pLo), "na(pLo)", "", location.top)
+plotchar(true, "true", "", location.top)
+plotchar(false, "false", "", location.top)
+```
+![.](https://www.tradingview.com/x/zk9ZOrd2/ "Logical expressions")
+
 
 **[Back to top](#table-of-contents)**
 
