@@ -1265,6 +1265,29 @@ plot(rescale(rsi(close, 14), 0, 100, -100, 100), color = color.fuchsia)
 ### How can I monitor script run time?
 Use the code from the PineCoders [Script Stopwatch](https://www.tradingview.com/script/rRmrkRDr-Script-Stopwatch-PineCoders-FAQ/). You will be able to time script execution so you can explore different scenarios when developing code and see for yourself which version performs the best.
 
+### How can I save a value when an event occurs?
+The key to this technique is declaring a variable using the `var` keyword. While there are other ways to accomplish our task in Pine, this is the simplest. When you declare a variable using the `var` keyword, the variable is initialized only once at bar_index zero, rather than on each bar. This has the effect of preserving the variable's value without the explicit assignement that was required in earlier versions of pine where you wold see code like this:
+```js
+priceAtCross = 0.
+priceAtCross := nz(priceAtCross[1])
+```
+This was required because the variable was reassigne the value `0.` at the beginning of each bar, so to remember its last value, it had to be *manually* reset to its last bar's value on each bar. This is now unnecessary with the `var` keyword and makes for cleaner code:
+```
+//@version=4
+study("Save a value when an event occurs", "", true)
+hiHi = highest(high, 5)[1]
+var float priceAtCross = na
+if crossover(close, hiHi)
+    // When a cross occurs, save price. Since variable was declared with "var" keyword,
+    // it will then preserve its value until the next reassignment occurs at the next cross.
+    // Very important to use the ":=" operator here, otherwise we would be creating a second,
+    // instance of the priceAtCross" variable local to the "if" block, which would disappear
+    // once the "if" block was exited, and the global variable "priceAtCross"'s value would then not have changed.
+    priceAtCross := close
+plot(hiHi)
+plot(priceAtCross, "Price At Cross", color.orange, 3, plot.style_circles)
+```
+
 **[Back to top](#table-of-contents)**
 
 
