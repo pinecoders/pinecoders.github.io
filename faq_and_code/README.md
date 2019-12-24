@@ -172,7 +172,7 @@ else
     goodSignal := 15
 plot(goodSignal, "Good Signal", color.orange, 2, transp = 0)
     
-// Our background color also missed pivot when they occur at value == 0.
+// Our background color also misses pivots when they occur at value == 0.
 bgcolor(pLo ? color.red : na, transp = 70)
 
 // This line identifies pivots which occur at value == 0.
