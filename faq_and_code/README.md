@@ -1357,6 +1357,61 @@ plot(hiHi)
 plot(priceAtCross, "Price At Cross", color.orange, 3, plot.style_circles)
 ```
 
+### How can I count touches of a specific level?
+This technique shows one way to count touches of a level that is known in advance (the median in this case). We keep a separate tally of up and down bar touches, and account for gaps across the median. Every time a touch occurs, we simply save a 1 value in a series. We can then use the [`sum()`](https://www.tradingview.com/pine-script-reference/v4/#fun_sum) function to count the number of ones in that series in the last `lookBackTouches` bars.
+
+Note that the script can be used in overlay mode to show the median and touches on the chart, or in pane mode to show the counts. Change the setting of the `overlay` variable accordingly and re-add the indicator to the chart to implement the change.
+
+```js
+//@version=4
+//@author=LucF, for PineCoders
+
+// Median Touches
+//  v1.0, 2020.01.02 13:01 — LucF
+
+// Can work in overlay or pane mode and plots differently for each case.
+overlay = true
+study("Median Touches", "", overlay)
+lookBackMedian = input(100)
+lookBackTouches = input(50)
+median = percentile_nearest_rank(close, lookBackMedian, 50)
+// Don't count neutral touches when price doesn't move.
+barUp = close > open
+barDn = close < open
+// Bar touches median.
+medianTouch     = high    > median and low  < median
+gapOverMedian   = high[1] < median and low  > median
+gapUnderMedian  = low[1]  > median and high < median
+// Record touches.
+medianTouchUp = (medianTouch and barUp) or gapOverMedian  ? 1 : 0
+medianTouchDn = (medianTouch and barDn) or gapUnderMedian ? 1 : 0
+// Count touches.
+touchesUp = sum(medianTouchUp, lookBackTouches)
+touchesDn = sum(medianTouchDn, lookBackTouches)
+// —————————— Plots
+// ————— Both modes
+// Markers
+plotchar(medianTouchUp, "medianTouchUp", "▲", overlay ? location.belowbar : location.bottom, color.lime)
+plotchar(medianTouchDn, "medianTouchDn", "▼", overlay ? location.abovebar : location.top, color.red)
+// ————— Overlay mode
+// Median for overlay mode.
+plot(overlay ? median : na, "Median", color.orange)
+// ————— Pane mode
+// Base areas.
+lineStyle = overlay ? plot.style_line : plot.style_columns
+plot(not overlay ? touchesUp : na, "Touches Up", color.green, style = lineStyle)
+plot(not overlay ? - touchesDn : na, "Touches Dn", color.maroon, style = lineStyle)
+// Exceeding area.
+minTouches = min(touchesUp, touchesDn)
+minTouchesIsUp = touchesUp < touchesDn
+p_basePlus = plot(not overlay ? minTouches : na, "Base Plus", #00000000)
+p_hiPlus = plot(not overlay and not minTouchesIsUp ? touchesUp : na, "High Plus", #00000000)
+fill(p_basePlus, p_hiPlus, color.lime, transp = 0)
+p_baseMinus = plot(not overlay ? - minTouches : na, "Base Plus", #00000000)
+p_loMinus = plot(not overlay and minTouchesIsUp ? - touchesDn : na, "Low Minus", #00000000)
+fill(p_baseMinus, p_loMinus, color.red, transp = 0)
+```
+
 **[Back to top](#table-of-contents)**
 
 
