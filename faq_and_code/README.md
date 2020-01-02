@@ -1412,6 +1412,9 @@ p_loMinus = plot(not overlay and minTouchesIsUp ? - touchesDn : na, "Low Minus",
 fill(p_baseMinus, p_loMinus, color.red, transp = 0)
 ```
 
+![.](https://www.tradingview.com/x/SJZzmMfN/ "Median touches")
+
+
 **[Back to top](#table-of-contents)**
 
 
