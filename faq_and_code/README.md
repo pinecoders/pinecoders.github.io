@@ -1069,7 +1069,7 @@ plot(maF)
 plot(maS, color = color.fuchsia)
 ```
 
-### How can I track highs/lows for a period of time?
+### How can I track highs/lows for a specific timeframe?
 This code shows how to do that without using `security()` calls, which slow down your script. The source used to calculate the highs/lows can be selected in the script's *Inputs*, as well as the period after which the high/low must be reset.
 ```js
 //@version=4
@@ -1086,6 +1086,36 @@ var lo = 10e10
 // When a new period begins, reset hi/lo.
 hi := change(time(period)) ? srcHi : max(srcHi, hi)
 lo := change(time(period)) ? srcLo : min(srcLo, lo)
+
+plot(showHi ? hi : na, "Highs", color.blue, 3, plot.style_circles)
+plot(showLo ? lo : na, "Lows", color.fuchsia, 3, plot.style_circles)
+```
+
+### How can I track highs/lows for a specific period of time?
+We use session information in the 2-parameter version of the [`time`](https://www.tradingview.com/pine-script-reference/v4/#fun_time) function to test if we are in the user-defined hours during which we must keep track of the highs/lows.
+```js
+//@version=4
+//@author=LucF, for PineCoders
+study("Session hi/lo", "", true)
+showHi = input(true, "Show highs")
+showLo = input(true, "Show lows")
+srcHi = input(high, "Source for Highs")
+srcLo = input(low, "Source for Lows")
+timeAllowed = input("1200-1500", "Allowed hours", input.session)
+
+// Check to see if we are in allowed hours.
+timeIsAllowed = time(timeframe.period, timeAllowed)
+var hi = 10e-10
+var lo = 10e10
+if timeIsAllowed
+    // We are entering allowed hours; reset hi/lo.
+    if not timeIsAllowed[1]
+        hi := srcHi
+        lo := srcLo
+    else
+        // We are in allowed hours; track hi/lo.
+        hi := max(srcHi, hi)
+        lo := min(srcLo, lo)
 
 plot(showHi ? hi : na, "Highs", color.blue, 3, plot.style_circles)
 plot(showLo ? lo : na, "Lows", color.fuchsia, 3, plot.style_circles)
