@@ -69,6 +69,9 @@ downCandle = close < open
 ### Why do I get an error message when using `highest()` or `lowest()`?
 Most probably because you are trying to use a series integer instead of a simple integer as the second parameter (the length). Either use a [simple integer](https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html#simple) or use the [RicardoSantos](https://www.tradingview.com/u/RicardoSantos/#published-scripts) replacements [here](https://www.tradingview.com/script/32ohT5SQ-Function-Highest-Lowest/). If you don't know Ricardo, take the time to look at his indicators while you're there. Ricardo is among the most prolific and ingenious Pine coders out there.
 
+### How can I work with arrays in Pine?
+There is currently no array data type in Pine. RicardoSantos has some pseudo-array code [here](https://www.tradingview.com/script/sQxpiBL8-RS-Function-Pseudo-Array-Example/).
+
 **[Back to top](#table-of-contents)**
 
 
