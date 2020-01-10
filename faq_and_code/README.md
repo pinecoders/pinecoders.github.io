@@ -1444,9 +1444,20 @@ p_baseMinus = plot(not overlay ? - minTouches : na, "Base Plus", #00000000)
 p_loMinus = plot(not overlay and minTouchesIsUp ? - touchesDn : na, "Low Minus", #00000000)
 fill(p_baseMinus, p_loMinus, color.red, transp = 0)
 ```
-
 ![.](https://www.tradingview.com/x/SJZzmMfN/ "Median touches")
 
+### How can I round a fraction in 0.5 increments?
+```js
+//@version=4
+study("Round fraction")
+f_roundfraction(_n) =>
+    _whole = floor(abs(_n))
+    _fraction = abs(_n) - _whole
+    sign(_n) * (_whole + (_fraction >=  0.75 ? 1. : _fraction >=  0.25 ? 0.5 : 0.))
+    
+val = input(0.75, step = 0.01)
+plot(f_roundfraction(val))
+```
 
 **[Back to top](#table-of-contents)**
 
