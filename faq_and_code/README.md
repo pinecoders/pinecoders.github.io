@@ -1130,11 +1130,12 @@ plot(showLo ? lo : na, "Lows", color.fuchsia, 3, plot.style_circles)
 ```
 
 ### How can I track highs/lows for a specific period of time?
-We use session information in the 2-parameter version of the [`time`](https://www.tradingview.com/pine-script-reference/v4/#fun_time) function to test if we are in the user-defined hours during which we must keep track of the highs/lows.
+We use session information in the 2-parameter version of the [`time`](https://www.tradingview.com/pine-script-reference/v4/#fun_time) function to test if we are in the user-defined hours during which we must keep track of the highs/lows. A setting allows the user to choose if he wants levels not to plot outside houts. It's the default.
 ```js
 //@version=4
 //@author=LucF, for PineCoders
 study("Session hi/lo", "", true)
+noPlotOutside = input(true, "Don't plot outside of hours")
 showHi = input(true, "Show highs")
 showLo = input(true, "Show lows")
 srcHi = input(high, "Source for Highs")
@@ -1155,9 +1156,10 @@ if timeIsAllowed
         hi := max(srcHi, hi)
         lo := min(srcLo, lo)
 
-plot(showHi ? hi : na, "Highs", color.blue, 3, plot.style_circles)
-plot(showLo ? lo : na, "Lows", color.fuchsia, 3, plot.style_circles)
+plot(showHi and not(noPlotOutside and not timeIsAllowed)? hi : na, "Highs", color.blue, 3, plot.style_circles)
+plot(showLo and not(noPlotOutside and not timeIsAllowed)? lo : na, "Lows", color.fuchsia, 3, plot.style_circles)
 ```
+![.](https://www.tradingview.com/x/nxoCwdMs/ "Session Hi/Lo")
 
 ### How can I track highs/lows between specific intrabar hours?
 We use the intrabar inspection technique explained [here](http://www.pinecoders.com/faq_and_code/#is-it-possible-to-use-security-on-lower-intervals-than-the-charts-current-interval) to inspect intrabars and save the high or low if the intrabar is whithin user-defined begin and end times.
