@@ -217,6 +217,23 @@ plot(f_roundFraction(val))
 ### How can I calculate an average only when a certain condition is true?
 [This script](https://www.tradingview.com/script/isSfahiX-Averages-PineCoders-FAQ/) shows how to calculate a conditional average using three different methods.
 
+### How can I generate a random number?
+Because Pine scripts do not have direct access to the hardware timer it is impossible to create a real random number generator. This function gives authors the closest thing. It will generate a different seed every time the script is first run in *uncached* mode on a symbol/timeframe, which occurs when it runs the first time after a broweser refresh or because the script is saved from the Editor.
+
+The function uses the fact that the [`timenow`](https://www.tradingview.com/pine-script-reference/v4/#var_timenow) built-in, which returns the current time, will be different on the first bar of a script for each *first execution* of the script. Because of the caching mechanism in the Pine runtime, this value will not change if you run the script once on a symbol/TF, change TF and return to the original TF.
+
+The function allows a range to be specified. Credits to RicardoSantos for the [original code](https://www.tradingview.com/script/EgKBHFnb-RS-Function-Functions-to-generate-Random-values/).
+
+```js
+//@version=4
+study("Seeded Randomizer")
+f_random_number(_range)=>
+    var _return = 1.0 + timenow
+    _return := (3.14159 * _return % (bar_index + 1)) % _range
+
+r = f_random_number(100)
+plot(r, style = plot.style_circles)
+```
 
 **[Back to top](#table-of-contents)**
 
