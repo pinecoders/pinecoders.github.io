@@ -23,6 +23,7 @@ Do not make the mistake of assuming this is strictly beginner's material; some o
 - [Built-in variables](#built-in-variables)
 - [Built-in functions](#built-in-functions)
 - [Operators](#operators)
+- [Math](#math)
 - [Plotting](#plotting)
 - [Indicators (a.k.a. studies)](#indicators)
 - [Strategies](#strategies)
@@ -194,6 +195,30 @@ plotchar(false, "false", "", location.top)
 
 **[Back to top](#table-of-contents)**
 
+## MATHS
+
+### How can I round a fraction in 0.5 increments?
+```js
+//@version=4
+study("Round fraction")
+f_roundFraction(_n) =>
+    _whole = floor(abs(_n))
+    _fraction = abs(_n) - _whole
+    sign(_n) * (_whole + (_fraction >=  0.75 ? 1. : _fraction >=  0.25 ? 0.5 : 0.))
+    
+val = input(0.75, step = 0.01)
+plot(f_roundFraction(val))
+```
+
+### How do I calculate averages?
+1. If you just want the average between two values, you can use `avg(val1, val2)` or `(val1 + val2)/2`. Note that [`avg()`](https://www.tradingview.com/pine-script-reference/v4/#fun_avg) accepts up to 6 values.
+1. To average the last x values in a series, you can use `sma(series, x)`.
+
+### How can I calculate an average only when a certain condition is true?
+[This script](https://www.tradingview.com/script/isSfahiX-Averages-PineCoders-FAQ/) shows how to calculate a conditional average using three different methods.
+
+
+**[Back to top](#table-of-contents)**
 
 
 <br><br>
@@ -959,13 +984,6 @@ plot(initOnEachBar2, "initOnEachBar2", color.orange, 3, transp = 0)
 
 See [here](https://www.tradingview.com/pine-script-docs/en/v4/language/Expressions_declarations_and_statements.html#variable-declaration) for more information. This is another example by vitvlkv: [Holding a state in a variable](https://www.tradingview.com/script/llcoIPKG-Pine-Example-Holding-a-state-in-a-variable/).
 
-### How do I calculate averages?
-1. If you just want the average between two values, you can use `avg(val1, val2)` or `(val1 + val2)/2`. Note that [`avg()`](https://www.tradingview.com/pine-script-reference/v4/#fun_avg) accepts up to 6 values.
-1. To average the last x values in a series, you can use `sma(series, x)`.
-
-### How can I calculate an average only when a certain condition is true?
-[This script](https://www.tradingview.com/script/isSfahiX-Averages-PineCoders-FAQ/) shows how to calculate a conditional average using three different methods.
-
 ### How to avoid repainting when using the `security()` function?
 See the discussion published with the PineCoders indicator [How to avoid repainting when using security()](https://www.tradingview.com/script/cyPWY96u-How-to-avoid-repainting-when-using-security-PineCoders-FAQ/).
 
@@ -1445,19 +1463,6 @@ p_loMinus = plot(not overlay and minTouchesIsUp ? - touchesDn : na, "Low Minus",
 fill(p_baseMinus, p_loMinus, color.red, transp = 0)
 ```
 ![.](https://www.tradingview.com/x/SJZzmMfN/ "Median touches")
-
-### How can I round a fraction in 0.5 increments?
-```js
-//@version=4
-study("Round fraction")
-f_roundFraction(_n) =>
-    _whole = floor(abs(_n))
-    _fraction = abs(_n) - _whole
-    sign(_n) * (_whole + (_fraction >=  0.75 ? 1. : _fraction >=  0.25 ? 0.5 : 0.))
-    
-val = input(0.75, step = 0.01)
-plot(f_roundFraction(val))
-```
 
 **[Back to top](#table-of-contents)**
 
