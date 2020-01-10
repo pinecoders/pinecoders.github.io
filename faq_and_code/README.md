@@ -1450,13 +1450,13 @@ fill(p_baseMinus, p_loMinus, color.red, transp = 0)
 ```js
 //@version=4
 study("Round fraction")
-f_roundfraction(_n) =>
+f_roundFraction(_n) =>
     _whole = floor(abs(_n))
     _fraction = abs(_n) - _whole
     sign(_n) * (_whole + (_fraction >=  0.75 ? 1. : _fraction >=  0.25 ? 0.5 : 0.))
     
 val = input(0.75, step = 0.01)
-plot(f_roundfraction(val))
+plot(f_roundFraction(val))
 ```
 
 **[Back to top](#table-of-contents)**
