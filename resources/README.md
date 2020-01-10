@@ -1,12 +1,24 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147975914-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-147975914-1');
+</script>
+
 [<img src="http://pinecoders.com/images/PineCodersLong.png">](http://pinecoders.com)
 
 # Pine Resources
 
 This document provides a list of Pine-related resources and tools.
 
-**Disclaimer**: While we select the tools and resources mentioned here, we do not endorse any of them and their inclusion here does not imply any guarantee of their worthiness. So please, before you decide to purchase anything, show due diligence and do your own research. PineCoders does not benefit from the adoption of these tools and no links to them contain explicit referral information. 
+**Disclaimer**: While we select the tools and resources mentioned here, we do not endorse any of them and their inclusion here does not imply any guarantee of their worthiness. So please, before you decide to purchase anything, show due diligence and do your own research.
 
-> The original version of this list was written by [chrysopoetics](https://www.tradingview.com/u/chrysopoetics/), a TradingView member.<br>We are grateful to him for allowing us to maintain it. **Thanks Hermes!**
+PineCoders does not benefit from the adoption of these tools. **This document contains no affiliate links.**
+
+> The original version of this document was written by [chrysopoetics](https://www.tradingview.com/u/chrysopoetics/), a TradingView member.<br>We are grateful to him for allowing us to maintain it. **Thanks Hermes!**
 
 ### Table of Contents
 
@@ -16,7 +28,7 @@ This document provides a list of Pine-related resources and tools.
 - [Forums](#forums)
 - [Videos](#videos)
 - [Work For Hire Pine Programmers](#work-for-hire-pine-programmers)
-- [Automation](#automation)
+- [Automated Order Execution](#automated-order-execution)
 - [Text Editor Highlighters for Pine](#text-editor-highlighters-for-pine)
 - [Color Pickers](#color-pickers-or-palettes)
 - [On GitHub](#on-github)
@@ -60,6 +72,8 @@ Our managed [PineCoders Repository](https://github.com/pinecoders/pine-utils) on
 - Tricks and techniques to help you accomplish frequently needed tasks,
 - [Other open source projects](https://github.com/pinecoders) related to Pine.
 
+We have also begun publishing guides. See our first: the [Digital Signal Processing In Pine](http://www.pinecoders.com/techniques/dsp) written by [Alex Grover](https://www.tradingview.com/u/alexgrover/#published-scripts).
+
 
 ## Educational Content
 [Kodify](https://kodify.net/tradingview-programming-articles/): The indispensable and largest, most complete and well-written set of in-depth articles on Pine. Articles discuss many finer points of Pine not covered elsewhere. More than 200 articles to help you master Pine.
@@ -74,11 +88,7 @@ Our managed [PineCoders Repository](https://github.com/pinecoders/pine-utils) on
 
 
 ## Forums
-Besides the TV Pine Editor chat there are two other forums worth mentioning where you can ask questions:
-
-- [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script): In typical StackOverflow fashion, you ask questions and if they are appropriately detailed and clear, you will most often receive high-quality and reliable information as an answer.
-
-- [Pinescripters Telegram group](https://t.me/pinescripters): A large group with coders of all levels.
+Besides the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235) you can ask questions on [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script).
 
 
 ## Videos
@@ -94,14 +104,17 @@ Besides the TV Pine Editor chat there are two other forums worth mentioning wher
 ## Work For Hire Pine Programmers
 This list contains the TV name of Pine programmers we know and who have a good reputation of providing quality paid Pine custom coding. While you can inquire to any number of them, it is considered poor etiquette to send bulk inquiries to all.
 
-- [a.tesla2018](https://www.tradingview.com/u/a.tesla2018/)
+- [a.tesla2018](https://www.tradingview.com/u/a.tesla2018/)<br>B.S. Electrical Engineering and Computer Science with 10+ years experience in C, C++, HDL and lately, Pine.
+- [BacktestRookies](https://www.tradingview.com/u/BacktestRookies/#published-scripts)<br>Fumble through backtesting one step at a time with [backtest-rookies.com](https://backtest-rookies.com). A site dedicated to providing free step by step tutorials aimed at those with a passion for the market but no formal programming background. For the rest of you who have the passion but no desire to spend hours pecking at the keyboard, Backtest Rookies also provide custom programming services to develop algorithms and tools in Pine and/or Python.
 - [Daveatt](https://www.tradingview.com/u/Daveatt/)<br>Ex quant trader with 5 years professional experience now developing indicators and bots for retail clients. Specializes in Pine Script, MT4, LUA (FXCM) and ProRealCode.
-- [Duyck](https://www.tradingview.com/u/Duyck/)
-- [everget](https://www.tradingview.com/u/everget/)
-- [gyromatical](https://www.tradingview.com/u/gyromatical/)
-- [glaz](https://www.tradingview.com/u/glaz/)<br>I work on indicators only (no strategies). Have been coding in Pine for 6 years and do indicator ports from other platforms.
-- [mortdiggiddy](https://www.tradingview.com/u/mortdiggiddy/)
-- [paaax](https://www.tradingview.com/u/paaax/)<br>Offering services for study and strategy development, alert automation, custom-made indicators, market screener and other services on top on Tradingview.
+- [DonovanWall](https://www.tradingview.com/u/DonovanWall)<br>Former math instructor with a background in audio engineering and signal processing. Offers custom indicator and strategy development, as well as conversions to Pine from other platforms.
+- [Duyck](https://www.tradingview.com/u/Duyck/)<br>Joris is an experienced and creative Pine coder who prefers to work on indicators rather than strategies. He can also convert open source indicators to Pine from other platforms, namely MQL4.
+- [everget](https://www.tradingview.com/u/everget/)<br>Bachelor of Mathematics (B Math) and skilled full stack Web developer. 6+ years of programming experience in JavaScript, Node js, Python, Ruby and Lua. In the last 3+ years he has also developed custom interfaces, indicators strategies and advisors in Pine and MetaTrader's MQL.
+- [glaz](https://www.tradingview.com/u/glaz/)<br>Works on indicators only (no strategies). Has been coding in Pine for 6 years and does indicator ports from other platforms.
+- [mortdiggiddy](https://www.tradingview.com/u/mortdiggiddy/)<br>10 years experience in software developmentand. B.S. in Mechanical and Aerospace Engineering. Forex, futures, stocks and options trader for 8 years. He is experienced in developing autonomous trading strategies in Pine and JavaScript.
+- [MVPMC](https://www.tradingview.com/u/MVPMC/)<br>Ambitious junior Web developer offering conversions and development of indicators and strategies.
+- [paaax](https://www.tradingview.com/u/paaax/)<br>Offering services for study and strategy development, alert automation, custom-made indicators, market screener and other services on Tradingview.
+- [QuantNomad](https://www.tradingview.com/u/QuantNomad/#published-scripts)<br>Quant Developer/Analyst with 5+ years of experience. Area of expertise: Pine Script, R, Python, Futures, Options, Crypto.
 
 A few other suppliers of such services, unverified by PineCoders:
 - [Backtest Rookies](https://backtest-rookies.com/professional-services/): Backtest Rookies provide a slew of services related to Pine and trading.
@@ -110,20 +123,24 @@ A few other suppliers of such services, unverified by PineCoders:
 - [Kick studios](http://kickstudios.com/retail-trading-dev-services/) offers custom Pine script development.
 
 
-## Automation
-[Alertatron](https://alertatron.com/): A service that allows you to relay TradingView alerts to Telegram, Discord, Slack, Email or webhooks, with a chart snapshot attached. The developer is well-known in the Pinescripters community.
+## Automated Order Execution
+[Alertatron](https://alertatron.com/): A service that allows you to relay TradingView alerts to Telegram, Discord, Slack, Email or webhooks, with a chart snapshot attached. The developer is well-known in the PineCoders community.
 
 [3Commas](https://3commas.io/): Can receive TV alerts and connect them to their bots to execute simple orders on crypto exchanges.
 
-[ProfitView](https://wiki.profitview.app/home): Google Chrome extension that receives TV alerts and relays orders to crypto exchanges. Among Pinescripters, has the reputation of being better than AutoView.
+[ProfitView](https://wiki.profitview.app/home): Google Chrome extension that receives TV alerts and relays orders to crypto exchanges. Among PineCoders, has the reputation of being better than AutoView.
 
 [AutoView](https://autoview.with.pink/): Google Chrome extension that receives TV alerts and relays orders to crypto exchanges.
 
 [Instabot](https://instabot42.github.io/): An open source execution engine that relays orders received from HTTP requests to Bitfinex, Deribit and Coinbase Pro, with support for Bitmex and Binance planned.
 
+[TradingView alerts to MT4](https://www.tradingconnector.com/) receives TV alerts and converts them into instant orders on MT4 (and MT5 soon) in forex, indices and commodities markets. Latency is below 1 second.
+
 
 ## Text Editor Highlighters for Pine
-[Notepad++ Highlighter](https://github.com/nidkil/tradingview-pine-script-udl-npp)
+[Notepad++ UDL for Pine v4](https://www.tradingview.com/script/pDbCgvx9-4K-Notepad-UDL-Add-on-for-Pine-Script-v4-0/) by [midtownsk8rguy](https://www.tradingview.com/u/midtownsk8rguy/#published-scripts)
+
+[Notepad++ UDL](https://github.com/nidkil/tradingview-pine-script-udl-npp)
 
 [VSCode Highlighter](https://marketplace.visualstudio.com/items?itemName=leifcr.pine-script-syntax-highlighting)
 
@@ -137,14 +154,17 @@ A few other suppliers of such services, unverified by PineCoders:
 
 [ColorHexa](https://www.colorhexa.com/)
 
+[color-hex](https://www.color-hex.com/color-wheel/)
+
 [Paletton](http://paletton.com)
+
+[Colorizer](http://colorizer.org/)
 
 [PerBang](http://www.perbang.dk/rgbgradient/)
 
 [500 Most Popular PNG Image Colors](https://imgbin.com/colors)
 
 [december.com](https://www.december.com/html/spec/)
-
 
 ## On GitHub
 [PineCoders Repository](https://github.com/pinecoders/pine-utils) of reusable Pine code on GitHub.

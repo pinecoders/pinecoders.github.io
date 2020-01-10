@@ -1,3 +1,13 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147975914-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-147975914-1');
+</script>
+
 [<img src="http://pinecoders.com/images/PineCodersLong.png">](http://pinecoders.com)
 
 # Learning Pine Roadmap
@@ -22,8 +32,8 @@ There are many resources to learn Pine. These are the most important. While you 
 1. The two primary sources of information on Pine are the [Pine v4 User Manual](https://www.tradingview.com/pine-script-docs/en/v4/index.html) and [Pine v4 Reference Manual](https://www.tradingview.com/pine-script-reference/v4/).<br>
 Follow the instructions in the User Manual's [Quickstart Guide](https://www.tradingview.com/pine-script-docs/en/v4/Quickstart_guide.html) page to put your first script in action on a chart, and follow the links in that page to familiarize yourself with Pine's key concepts.
 1. Once you start working in the Pine Editor, you can bring up the Reference Manual by Ctrl/&#8984;-clicking on any colored language keyword. From the editor, you can also view a list of keyboard shortcuts by selecting *Pine Editor Keyboard Shortcuts* from the *Help* menu. The editor's *Help* menu will link you to v4 and v3 documentation, and to forums where you can ask questions on Pine.
+1. PineCoders maintains a [FAQ & Code](http://www.pinecoders.com/faq_and_code) and a [Resources document](http://www.pinecoders.com/resources/) where you will find links to educational material and tools.
 1. [Kodify.net](https://kodify.net/tradingview-programming-articles/) is the largest repository of Pine-related articles out there. In more than 200 articles related to Pine programming, they explore Pine features thoroughly and also present techniques for realizing common tasks in Pine.
-1. PineCoders maintains a <a href="http://www.pinecoders.com/faq_and_code">FAQ & Code</a>.
 1. YouTube has content by Pine coders. These are a few introductory-level ones:
 [How To Use Tradingview Pine Script - Introduction](https://www.youtube.com/watch?v=Kwlxngw1YBY) and its [Part 2](https://www.youtube.com/watch?v=3wW10q9QDA8). A search for `pine introduction tradingview` will turn up a few others.
 1. [Backtest Rookies](https://backtest-rookies.com/category/tradingview/) also has some articles on Pine. They produce quality material illustrating many of the typical things Pine coders want to do or explore.
@@ -40,7 +50,7 @@ There are 4 supported versions of Pine, from 1 to 4. A compiler directive used i
 
 ## Pine runtime environment
 
-Pine indicator code executes once for each bar of the dataset, starting from the beginning of the chart’s history. When the realtime bar is reached, *indicator* scripts executes every time price changes, while *strategy* scripts may be configured to behave like indicators, or to run only at the close of the realtime bar (the default). See [here](https://www.tradingview.com/pine-script-docs/en/v4/language/Execution_model.html) for more information.
+Pine indicator code executes once for each bar of the dataset, starting from the beginning of the chart’s history. When the realtime bar is reached, *indicator* scripts execute every time price changes, while *strategy* scripts may be configured to behave like indicators, or to run only at the close of the realtime bar (the default). See [here](https://www.tradingview.com/pine-script-docs/en/v4/language/Execution_model.html) for more information.
 
 ## Series
 
@@ -59,6 +69,7 @@ Whether you are new to programming or a veteran, the PineCoders <a href="http://
 ## Code examples
 
 - [TradingView Pine v4 example of a simple script](https://www.tradingview.com/pine-script-docs/en/v4/Quickstart_guide.html).
+- The PineCoders [FAQ & Code](http://www.pinecoders.com/faq_and_code) contains many Pine snippets.
 - The [PineCoders open source repository](https://github.com/pinecoders/pine-utils) contains reusable code snippets and example code.
 - On TradingView, PineCoders publishes [Pine examples and tools](https://www.tradingview.com/u/PineCoders/#published-scripts) and also follows [top Pine coders](https://www.tradingview.com/u/PineCoders/#following-people) who publish mostly open source code. Studying their code is one the best ways to learn.
 - Kodify has an article on [Pine operators](https://kodify.net/tradingview/operators/operators-operands/) that can help you get started.
@@ -74,10 +85,9 @@ Here are a few methods for troubleshooting pine-related issues:
 ![search](search_for_scripts.png "Search for scripts")
 
 - Use Google. You'll often end up on either kodify.net, backtestrookies.com, stackoverflow.com, getsatisfaction.com or the TV wiki. If you are searching for indicators on TradingView, you can use Google with: `site:tradingview.com intitle:indicatorname` for better results.
-- Search [Pastebin](https://pastebin.com/) using the proper keywords and `version=X`, replacing `X` with the version of Pine you are working on.
-- Plot your way out of the problem. Try simple temporary plots of data, just to see where you're at. It’s a good way to get a feel for what's going on inside the runtime loop. Use a simple `plot(var)`, or `plotchar(var, "var description", "")` to show the value in the indicator values and in the Data Window (look it up; it's real useful) without plotting anything in your indicator's space.
+- Plot your way out of the problem. Try simple temporary plots of data, just to see where you're at. It’s a good way to get a feel for what's going on inside the runtime loop. Use a simple `plot(var)`, or `plotchar(var, "var description", "")` to show the value in the indicator values and in the Data Window (look it up; it's real useful) without plotting anything in your indicator's space. PineCoders has a [section on debugging techniques](http://www.pinecoders.com/faq_and_code/#debugging).
 - Backtest Rookies has an [article on debugging techniques](https://backtest-rookies.com/2018/02/09/tradingview-pinescript-debugging-plotting-tips-tricks/).
-- Ask questions in either the TradingView [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235), on [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script) or in the [Pinescripters Telegram group](https://t.me/pinescripters). When you ask questions, take the time to state your problem concisely and clearly. The better you explain it, the more chances you have of getting an answer. The people answering questions in the different groups will not teach you Pine; you need to learn on your own as we’ve all done, but they can help you out when you are stuck.
+- Ask questions in either the TradingView [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235) or on [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script). When you ask questions, take the time to state your problem concisely and clearly. The better you explain it, the more chances you have of getting an answer. The people answering questions in the different groups will not teach you Pine; you need to learn on your own as we’ve all done, but they can help you out when you are stuck.
 
 ## Conversion from other platforms
 
