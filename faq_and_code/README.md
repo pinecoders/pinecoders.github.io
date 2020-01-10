@@ -195,7 +195,7 @@ plotchar(false, "false", "", location.top)
 
 **[Back to top](#table-of-contents)**
 
-## MATHS
+## MATH
 
 ### How can I round a fraction in 0.5 increments?
 ```js
