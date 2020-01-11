@@ -1447,6 +1447,32 @@ fill(p_baseMinus, p_loMinus, color.red, transp = 0)
 
 ![.](https://www.tradingview.com/x/SJZzmMfN/ "Median touches")
 
+### How to use series as length argument in certain functions ?
+
+The `sma`, `variance`, `stdev`, `correlation` functions don't allow a **series** as their length argument which must be a **constant integer**. The following equivalent functions allow you to use a series as the length argument :
+
+```
+Sum(src,p) => a = cum(src), a - a[p]
+
+Sma(src,p) => a = cum(src), (a - a[p])/p
+
+Variance(src,p) => p == 1 ? 0 : Sma(src*src,p) - pow(Sma(src,p),2)
+
+Stdev(src,p) => p == 1 ? 0 : sqrt(Sma(src*src,p) - pow(Sma(src,p),2))
+
+Covariance(x,y,p) => Sma(x*y,p) - Sma(x,p)*Sma(y,p)
+
+Correlation(x,y,p) => Covariance(x,y,p)/(Stdev(x,p)*Stdev(y,p))
+```
+
+If `p` is a decimal number then `p` is automatically rounded to the nearest integer. Most of the functions in the script are dependent on the `Sma` function except `Sum`, therefore if you want to use a function don't forget to include the `Sma` function in your script. The rolling correlation `Cor` make use of the `Cov` and `Stdev` function, so you must include them if you plan to use `Cor`.
+
+Make sure the series you use as length argument is greater than 0, else the functions will return `na`. When using a series as length argument the following error might appear : *Pine cannot determine the referencing length of a series. Try using max_bars_back in the study or strategy function*, this can be frequent if you plan to use `barssince(condition)` where `condition` is a relatively rare event, you can fix it by making use of `max_bars_back` as follows :
+
+`study("Title",overlay=true,max_bars_back=5000)`
+
+*Note that the rolling variance/standard deviation/covariance are computed using the naïve algorithm.*
+
 
 **[Back to top](#table-of-contents)**
 
