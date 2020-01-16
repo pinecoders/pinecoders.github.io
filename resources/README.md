@@ -117,7 +117,6 @@ This list contains the TV name of Pine programmers we know and who have a good r
 - [QuantNomad](https://www.tradingview.com/u/QuantNomad/#published-scripts)<br>Quant Developer/Analyst with 5+ years of experience. Area of expertise: Pine Script, R, Python, Futures, Options, Crypto.
 
 A few other suppliers of such services, unverified by PineCoders:
-- [Backtest Rookies](https://backtest-rookies.com/professional-services/): Backtest Rookies provide a slew of services related to Pine and trading.
 - [7G Trading Tools](http://7gtradingtools.com/): Provides bespoke programming for trading strategies in multiple languages. Run by a guy called Mark Cottons. 
 - [Codementor](https://www.codementor.io/pine-script-experts): This is simply a search for Pine script developers through the codementor platform.
 - [Kick studios](http://kickstudios.com/retail-trading-dev-services/) offers custom Pine script development.
