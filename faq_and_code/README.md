@@ -489,7 +489,7 @@ for i = 1 to maxBarsBack
 ```
 
 ### Is it possible to draw geometric shapes?
-It's possible, but not trivial. See [this RicardoSantos script](https://www.tradingview.com/script/mHHDfDB8-RS-Function-Days-in-a-Month/).
+It's possible, but not trivial. See [this RicardoSantos script](https://www.tradingview.com/script/KhKqjR0J-RS-Function-Geometric-Line-Drawings/).
 
 
 ### How can I print a value at the top right of the chart?
