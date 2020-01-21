@@ -115,6 +115,7 @@ This list contains the TV name of Pine programmers we know and who have a good r
 - [MVPMC](https://www.tradingview.com/u/MVPMC/)<br>Ambitious junior Web developer offering conversions and development of indicators and strategies.
 - [paaax](https://www.tradingview.com/u/paaax/)<br>Offering services for study and strategy development, alert automation, custom-made indicators, market screener and other services on Tradingview.
 - [QuantNomad](https://www.tradingview.com/u/QuantNomad/#published-scripts)<br>Quant Developer/Analyst with 5+ years of experience. Area of expertise: Pine Script, R, Python, Futures, Options, Crypto.
+- [theheirophant](https://www.tradingview.com/u/theheirophant/#published-scripts)<br>Heiro has 2 years experience programming automated trading solutions. Fluent in javascript, google apps script, html/css; learning python. Emphasis on outside the box thinking, with strengths in quantitative principles, filtration/signal processing, triggers, and automation.
 
 A few other suppliers of such services, unverified by PineCoders:
 - [7G Trading Tools](http://7gtradingtools.com/): Provides bespoke programming for trading strategies in multiple languages. Run by a guy called Mark Cottons. 
