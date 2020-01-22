@@ -57,15 +57,13 @@ Visit the *Scripts* page of good scripters publishing open source by using the [
 
 
 ## PineCoders
-Our <a href="http://www.pinecoders.com/learning_pine_roadmap">Learning Pine Roadmap</a> for newcomers also has tips on what to do when you get stuck.
+From our <a href="http://www.pinecoders.com">home page</a> you can access the following:
 
-<a href="http://www.pinecoders.com/faq_and_code">FAQ & Code</a>: Common questions asked by Pine coders, with answers or links to answers.
-
-Our <a href="http://www.pinecoders.com/coding_conventions">Coding Conventions</a> provide standard guidelines for writing Pine.
-
-[Tools and educational Pine code on TradingView](https://www.tradingview.com/u/PineCoders/#published-scripts): We use our TradingView account to publish useful or fun code snippets, as well as full-blown tools like our [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/).
-
-We co-manage with TradingView's Pine team the [Suggestions for Improvement to Pine](https://trello.com/b/Jmv6c8Cx/tradingview-rfcs).
+- Our <a href="http://www.pinecoders.com/learning_pine_roadmap">Learning Pine Roadmap</a> for newcomers also has tips on what to do when you get stuck.
+- <a href="http://www.pinecoders.com/faq_and_code">FAQ & Code</a>: Common questions asked by Pine coders, with answers or links to answers.
+- Our <a href="http://www.pinecoders.com/coding_conventions">Coding Conventions</a> provide standard guidelines for writing Pine.
+- [Tools and educational Pine code on TradingView](https://www.tradingview.com/u/PineCoders/#published-scripts): We use our TradingView account to publish useful or fun code snippets, as well as full-blown tools like our [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/).
+- We co-manage with TradingView's Pine team the [Suggestions for Improvement to Pine](https://trello.com/b/Jmv6c8Cx/tradingview-rfcs).
 
 Our managed [PineCoders Repository](https://github.com/pinecoders/pine-utils) on GitHub contains:
 - [Snippets](https://github.com/pinecoders/pine-utils/tree/master/snippets) of reusable code,
