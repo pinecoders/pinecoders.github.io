@@ -100,7 +100,7 @@ Besides the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO23
 
 
 ## Work For Hire Pine Programmers
-These are Pine programmers we know and endorse, who have a good reputation of providing quality paid Pine custom coding services. While you can inquire to any number of them, it is considered very poor etiquette to send bulk inquiries to all. These programmers are all very good, and they are also very busy. Finding one who is free and willing to work with you will sometimes be a challenge.
+These are Pine programmers we know and endorse, who have a good reputation of providing quality, paid Pine custom-coding services. While you can inquire to any number of them, it is considered very poor etiquette to send bulk inquiries to all. These programmers are all very good, and they are also very busy. Finding one who is free and willing to work with you will sometimes be a challenge.
 
 Business transactions are to be carried between you and them. Neither PineCoders nor TradingView will be involved in your relationship with the programmers, and we do not benefit from your business with them.
 
@@ -111,9 +111,9 @@ If you have a project to code:
 - PM them and send your description with other requirements.
 - They will tell you if they are free, if they require more information, and often provide suggestions or alternatives.
 - If they want to work with you, they will provide an estimate of the costs so you will be able to decide if you want to pursue the project.
+
 > Tip: As we mentioned, these are busy people. Trying to negociate unreasonable prices with them will not be to your advantage, as programmers will simply choose other customers to work with.
 
-Note that your agreement 
 - [a.tesla2018](https://www.tradingview.com/u/a.tesla2018/)<br>B.S. Electrical Engineering and Computer Science with 10+ years experience in C, C++, HDL and lately, Pine.
 - [BacktestRookies](https://www.tradingview.com/u/BacktestRookies/#published-scripts)<br>Fumble through backtesting one step at a time with [backtest-rookies.com](https://backtest-rookies.com). A site dedicated to providing free step by step tutorials aimed at those with a passion for the market but no formal programming background. For the rest of you who have the passion but no desire to spend hours pecking at the keyboard, Backtest Rookies also provide custom programming services to develop algorithms and tools in Pine and/or Python.
 - [Daveatt](https://www.tradingview.com/u/Daveatt/)<br>Ex quant trader with 5 years professional experience now developing indicators and bots for retail clients. Specializes in Pine Script, MT4, LUA (FXCM) and ProRealCode.
