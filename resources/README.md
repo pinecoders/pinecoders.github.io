@@ -78,7 +78,7 @@ We have also begun publishing guides. See our first: the [Digital Signal Process
 
 [Backtest Rookies](https://backtest-rookies.com/category/tradingview/): They produce quality material illustrating many of the typical tasks or subjects Pine coders want to do or explore.
 
-[PuppyTherapy (Medium)](https://medium.com/@PuppyTherapy): This is the Medium account of a user on TradingView and a Pinescripter by the same name. You may have used or seen his APEX indicators.
+[PuppyTherapy (Medium)](https://medium.com/@PuppyTherapy): This is the Medium account of a TradingView user by the same name. You may have used or seen his APEX indicators.
 
 [CryptoNTez (Medium)](https://medium.com/@CryptoNTez): Has a few Pine-related articles.
 
