@@ -31,6 +31,7 @@ PineCoders does not benefit from the adoption of these tools. **This document co
 - [Automated Order Execution](#automated-order-execution)
 - [Text Editor Highlighters for Pine](#text-editor-highlighters-for-pine)
 - [Color Pickers](#color-pickers-or-palettes)
+- [Unicode characters](#unicode-characters)
 - [On GitHub](#on-github)
 
 <br><br>
