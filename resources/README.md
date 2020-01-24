@@ -86,7 +86,7 @@ We have also begun publishing guides. See our first: the [Digital Signal Process
 
 
 ## Forums
-Besides the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235) you can ask questions on [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script).
+Besides the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235) on TradingView, you can ask questions on [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script).
 
 
 ## Videos
