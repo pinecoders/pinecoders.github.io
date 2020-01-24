@@ -176,6 +176,25 @@ A few other suppliers of such services, unverified by PineCoders:
 
 [december.com](https://www.december.com/html/spec/)
 
+
+## Unicode characters
+[What Unicode character is this?](https://www.babelstone.co.uk/Unicode/whatisit.html)
+
+[Unicode Arrows → ⇒ ⇄ ↻](http://xahlee.info/comp/unicode_arrows.html)
+
+[Unicode: Arrows, all of them (⇪ ↹ ⬈ ↘ ⟾ ↶) for HTML charset UTF-8](https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows/)
+
+[Unicode spaces](http://jkorpela.fi/chars/spaces.html)
+
+[Unicode Lookup: convert special characters](https://unicodelookup.com/)
+
+[Unicode character table generator - Tools - Unicode® Character Table](https://unicode-table.com/en/tools/generator/)
+
+[Unicode Characters in the Geometric Shapes Block](https://www.fileformat.info/info/unicode/block/geometric_shapes/list.htm)
+
+[Unicode/List of useful symbols - Wikibooks, open books for an open world](https://en.wikibooks.org/wiki/Unicode/List_of_useful_symbols)
+
+
 ## On GitHub
 [PineCoders Repository](https://github.com/pinecoders/pine-utils) of reusable Pine code on GitHub.
 
