@@ -14,7 +14,7 @@
 
 This document provides a list of Pine-related resources and tools.
 
-**Disclaimer**: While we select the tools and resources mentioned here, we do not endorse any of them and their inclusion here does not imply any guarantee of their worthiness. So please, before you decide to purchase anything, show due diligence and do your own research.
+**Disclaimer**: Except the work for hire Pine programmers, we do not endorse the third-party tools and resources mentioned here, and their inclusion here does not imply any guarantee of their worthiness. So please, before you decide to purchase anything, show due diligence and do your own research.
 
 PineCoders does not benefit from the adoption of these tools. **This document contains no affiliate links.**
 
@@ -63,7 +63,7 @@ From our <a href="http://www.pinecoders.com">home page</a> you can access the fo
 - Our <a href="http://www.pinecoders.com/faq_and_code">FAQ & Code</a> which answers common—and not so common—questions asked by Pine coders, with answers or links to answers.
 - Our <a href="http://www.pinecoders.com/coding_conventions">Coding Conventions</a> provide standard guidelines for writing Pine.
 - [Tools and educational Pine code on TradingView](https://www.tradingview.com/u/PineCoders/#published-scripts). We use our TradingView account to publish useful or fun code snippets, as well as full-blown tools like our [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/).
-- We co-manage with TradingView's Pine team the [Suggestions for Improvement to Pine](https://trello.com/b/Jmv6c8Cx/tradingview-rfcs).
+- We co-manage with TradingView's Pine team the [Suggestions for Improvement to Pine](https://trello.com/b/Jmv6c8Cx/tradingview-rfcs) Trello board.
 
 Our managed [PineCoders Repository](https://github.com/pinecoders/pine-utils) on GitHub contains:
 - [Snippets](https://github.com/pinecoders/pine-utils/tree/master/snippets) of reusable code,
