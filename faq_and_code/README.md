@@ -689,7 +689,7 @@ bgcolor(today ? color.gray : na)
 
 <br><br>
 ## OTHER INTERVALS (MTF)
-
+See the PineCoders [MTF Selection Framework](https://www.tradingview.com/script/90mqACUV-MTF-Selection-Framework-PineCoders-FAQ/) for a complete implementation of a higher timeframe RSI in a script.
 
 ### How do I define a higher interval that is a multiple of the current one?
 Use the PineCoders ``f_MultipleOfRes()`` function.
