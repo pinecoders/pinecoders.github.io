@@ -1187,6 +1187,28 @@ plot(showLo and not(noPlotOutside and not timeIsAllowed)? lo : na, "Lows", color
 ```
 ![.](https://www.tradingview.com/x/nxoCwdMs/ "Session Hi/Lo")
 
+### How can I plot the previous and current day's open ?
+We define a period through the script's *Settings/Inputs*, in this case 1 day. Then we use the `time()` function to detect changes in the period, and when it changes, save the running `open` in the the previous day's variable, and get the current `open.
+
+Note the plots using a choice of lines or circles. When using the lines, rather than use `plot.style_linebr` and plot `na` on changes so we don't get a diagonal plot between the levels, we simply don't use a color on changes, which leaves a void of one bar rahter the void of 2 bars used when we plot an `na` value.
+```js
+//@version=4
+study("Previous and current day open", "", true)
+period  = input("D", "Period after which hi/lo is reset", input.resolution)
+lines   = input(true)
+
+var float oYesterday = na
+var float oToday = na
+if change(time(period))
+    oYesterday  := oToday
+    oToday      := open
+
+stylePlots = lines ? plot.style_line : plot.style_circles
+plot(oYesterday, "oYesterday",  lines and change(time(period)) ? na : color.gray,   2, stylePlots)
+plot(oToday,     "oToday",      lines and change(time(period)) ? na : color.silver, 2, stylePlots)
+```
+![.](https://www.tradingview.com/x/ah9iREmg/ "Previous and current day open")
+
 ### How can I track highs/lows between specific intrabar hours?
 We use the intrabar inspection technique explained [here](http://www.pinecoders.com/faq_and_code/#is-it-possible-to-use-security-on-lower-intervals-than-the-charts-current-interval) to inspect intrabars and save the high or low if the intrabar is whithin user-defined begin and end times.
 
