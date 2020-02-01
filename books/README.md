@@ -1,3 +1,17 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147975914-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-147975914-1');
+</script>
+
+[<img src="http://pinecoders.com/images/PineCodersLong.png">](http://pinecoders.com)
+
+# Books on Building Trading Systems
+
 **Trading Systems and Methods, 6th Edition**, Perry J. Kaufman  
 The Bible of system traders. A classic that's been around since 1978 and is still being updated. A general survey of all aspects of systems trading.
 
