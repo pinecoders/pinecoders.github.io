@@ -961,19 +961,20 @@ alertcondition(true, title="Id appearing in Create Alert db", message = goodMsgA
 ```
 
 ### How can I include values that change in my alerts?
-Values plotted by an indicator can be inserted in alert text using placeholders such as ``{{rsiLine}}`` where ``rsiLine`` is the argument used as a plotting function's `title=` parameter. If you use:
+Numeric values plotted by an indicator can be inserted in alert text using placeholders such as ``{{rsiLine}}`` where ``rsiLine`` is the argument used as a plotting function's `title=` parameter. If you use:
 ```js
 plot(myRsi, "rsiLine")
 ```
 in your script, then you can include that plot's value in an alert message by using:
 ```js
-alertcondition(close>open, message="RSI value is:{{rsiLine}}")
+alertcondition(close > open, message="RSI value is: {{rsiLine}}")
 ```
 If you are not already plotting a value which you must include in an alert message, you can plot it using this method so that plotting the value will not affect the price scale unless you use:
 ```js
 plotchar(myRsi, "myRsi", "", location.top)
 ```
 You can use other pre-defined placeholders to include variable information in alert messages. See this [TV blog post on variable alerts](https://www.tradingview.com/blog/en/introducing-variables-in-alerts-14880/) for more information.
+> Note that there is still no way to include **variable text** in an alert message.
 
 **[Back to top](#table-of-contents)**
 
