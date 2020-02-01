@@ -324,9 +324,9 @@ These are other examples:
 - We do not know of a limit to the number of lines in a script. There is, however a limit of 50K compiled tokens, but they don't correspond to code lines.
 
 ### How can I use colors in my indicator plots?
-See [Working with colours](https://kodify.net/tradingview/colours/) by Kodify.
-Our Resources document has a list of [color pickers](http://www.pinecoders.com/resources/#color-pickers-or-palettes) to help you choose colors.
-[midtownsk8rguy](https://www.tradingview.com/u/midtownsk8rguy/#published-scripts) has a complete set of custom colors in [Pine Color Magic and Chart Theme Simulator](https://www.tradingview.com/script/yyDYIrRQ-Pine-Color-Magic-and-Chart-Theme-Simulator/).
+- See [Working with colours](https://kodify.net/tradingview/colours/) by Kodify.
+- Our Resources document has a list of [color pickers](http://www.pinecoders.com/resources/#color-pickers-or-palettes) to help you choose colors.
+- [midtownsk8rguy](https://www.tradingview.com/u/midtownsk8rguy/#published-scripts) has a complete set of custom colors in [Pine Color Magic and Chart Theme Simulator](https://www.tradingview.com/script/yyDYIrRQ-Pine-Color-Magic-and-Chart-Theme-Simulator/).
 
 ### How do I make my indicator plot over the chart?
 Use `overlay=true` in `strategy()` or `study()` declaration statement, e.g.,:
