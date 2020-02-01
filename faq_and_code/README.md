@@ -1515,6 +1515,33 @@ fill(p_baseMinus, p_loMinus, color.red, transp = 0)
 ```
 ![.](https://www.tradingview.com/x/SJZzmMfN/ "Median touches")
 
+### What does the ``Return type of 'then' block (series[label]) is not compatible with return type of 'else' block (series[integer])`` compilation error mean?
+In Pine, an [``if``](https://www.tradingview.com/pine-script-docs/en/v4/language/Expressions_declarations_and_statements.html#if-statement) statement returns a value that can be assigned to a variable, so the compiler expects both branches of the statement to return the same type of value which corresponds, as it does in functions, to the type returned by the last statement in the block.
+
+When the two types do not match, as is the case here, we get the compiler error above:
+```js
+//@version=4
+study('"If" block type mismatch')
+var int a = 0
+if close > open
+    label.new(bar_index, high, "X")
+else
+    a := a + 1
+plot(a)
+```
+The solution is to trick the compiler by adding a line using a type-casting function to convert the ``na`` value to the required type. In this case, the first block is returning a *label* id and the second block returns an *int*, so we add ``int(na)`` to the first block and the code compiles (to resolve our conundrum we could have, instead, added a ``label(na)`` line to the first block):
+```js
+//@version=4
+study('"If" block type mismatch')
+var int a = 0
+if close > open
+    label.new(bar_index, high, "X")
+    int(na)
+else
+    a := a + 1
+plot(a)
+```
+
 **[Back to top](#table-of-contents)**
 
 
