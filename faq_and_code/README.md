@@ -28,7 +28,7 @@ Do not make the mistake of assuming this is strictly beginner's material; some o
 - [Indicators (a.k.a. studies)](#indicators)
 - [Strategies](#strategies)
 - [Time and dates](#time-and-dates)
-- [Other intervals (MTF)](#other-intervals-mtf)
+- [Other Timeframes (MTF)](#other-timeframes-mtf)
 - [Alerts](#alerts)
 - [Editor](#editor)
 - [Techniques](#techniques)
@@ -688,8 +688,36 @@ bgcolor(today ? color.gray : na)
 
 
 <br><br>
-## OTHER INTERVALS (MTF)
-See the PineCoders [MTF Selection Framework](https://www.tradingview.com/script/90mqACUV-MTF-Selection-Framework-PineCoders-FAQ/) for a complete implementation of a higher timeframe RSI in a script.
+## OTHER TIMEFRAMES (MTF)
+If you work with data from other timeframes you will be using the [``security function``](https://www.tradingview.com/pine-script-reference/v4/#fun_security) and will typically require your script to provide a way to select the higher timeframe it will fetch data from. The PineCoders [MTF Selection Framework](https://www.tradingview.com/script/90mqACUV-MTF-Selection-Framework-PineCoders-FAQ/) provides a set of functions to do that.
+
+It provides a way to work with the chart or a target resolution in float format so it can be manipulated, and then be converted back to a string in [``timeframe.period``](https://www.tradingview.com/pine-script-reference/v4/#var_timeframe{dot}period) format for use with ``security()``. The following examples provide examples of common tasks.
+
+### How can I get the current resolution in a uniform numeric format?
+Use the PineCoders `f_resInMinutes()` function to convert the chart's current resolution in minutes of type float.
+
+```js
+//@version=4
+study("Current res in float minutes", "", true)
+
+// ————— Converts current "timeframe.multiplier" plus the TF into minutes of type float.
+f_resInMinutes() => 
+    _resInMinutes = timeframe.multiplier * (
+      timeframe.isseconds   ? 1. / 60.  :
+      timeframe.isminutes   ? 1.        :
+      timeframe.isdaily     ? 1440.     :
+      timeframe.isweekly    ? 10080.    :
+      timeframe.ismonthly   ? 43800.    : na)
+
+f_htfLabel(_txt, _y, _color, _offsetLabels) => 
+    _t = int(time + (f_resInMinutes() * _offsetLabels * 60000)), var _lbl = label.new(_t, _y, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), if barstate.islast
+        label.set_xy(_lbl, _t, _y), label.set_text(_lbl, _txt), label.set_textcolor(_lbl, _color)
+
+// ————— Get current res in float minutes.
+resInMinutes = f_resInMinutes()
+// ————— Plot label.
+f_htfLabel(tostring(resInMinutes, "Current res in minutes (float): #.0000"), sma(high + 3 * tr, 10)[1], color.gray, 3)
+```
 
 ### How do I define a higher interval that is a multiple of the current one?
 Use the PineCoders ``f_MultipleOfRes()`` function.
@@ -785,39 +813,6 @@ plot(myRsiHtf, "Target TF no repainting RSI", color = green)
 plot(myRsiHtf2, "Target TF repainting RSI", color = red)
 hline(0)
 hline(100)
-```
-
-### How can I get the current resolution in a uniform numeric format?
-Use the PineCoders `f_resInMinutes()` function to get the current resolution expressed in minutes of type float.
-You can then manipulate it and use the `f_resFromMinutes(_minutes)` function to obtain a string usable in `security()`.
-
-```js
-//@version=4
-study("Resolution in minutes", "", true)
-f_resInMinutes() => 
-    // Converts current timeframe into minutes of type float.
-    _resInMinutes = timeframe.multiplier * (
-      timeframe.isseconds   ? 1. / 60. :
-      timeframe.isminutes   ? 1. :
-      timeframe.isdaily     ? 1440. :
-      timeframe.isweekly    ? 10080. :
-      timeframe.ismonthly   ? 43800. : na)
-
-f_resFromMinutes(_minutes) =>
-    // Converts a resolution expressed in minutes into a string usable by "security()"
-    _minutes     <= 0.0417       ? "1S"  :
-      _minutes   <= 0.167        ? "5S"  :
-      _minutes   <= 0.376        ? "15S" :
-      _minutes   <= 0.751        ? "30S" :
-      _minutes   <= 1440         ? tostring(round(_minutes)) :
-      _minutes   <= 43800        ? tostring(round(min(_minutes / 1440, 365))) + "D" :
-      tostring(round(min(_minutes / 43800, 12))) + "M"
-
-f_print(_txt) => t = time + (time - time[1]) * 3, var _lbl = label.new(t, high, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), label.set_xy(_lbl, t, high + 3 * tr)
-
-resInMinutes = f_resInMinutes()
-resFromMinutes = f_resFromMinutes(resInMinutes)
-f_print("f_resInMinutes() = " + tostring(resInMinutes) +"\nf_resFromMinutes(_minutes) = " + resFromMinutes)
 ```
 
 ### How can I get the resolution in minutes from a string in the `input.resolution` and `timeframe.period` format?
