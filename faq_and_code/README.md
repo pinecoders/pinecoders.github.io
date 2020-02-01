@@ -969,7 +969,7 @@ in your script, then you can include that plot's value in an alert message by us
 
 {% raw %}
 ```js
-alertcondition(close > open, message='RSI value is1: {{plot("rsiLine")}}')
+alertcondition(close > open, message='RSI value is: {{plot("rsiLine")}}')
 ```
 {% endraw %}
 
