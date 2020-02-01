@@ -883,9 +883,9 @@ plot(qtyIntrabars,"qtyIntrabars")
 ## ALERTS
 
 
-### How do I make an alert available from my indicator?
+### How do I make an alert available from my script?
 Two steps are required:
-1. Insert an `alertcondition()` call in an indicator script.
+1. Insert an `alertcondition()` call in a script.
 2. Create an alert from the TV Web user interface (ALT-A) and choose the script's alert condition.
 
 See the User Manual page on [`alertcondition()`](https://www.tradingview.com/pine-script-docs/en/v4/annotations/Alert_conditions.html). Code to create an alert condition looks like:
@@ -959,6 +959,21 @@ goodMsgArg2 = "AAA " + "BBB"
 
 alertcondition(true, title="Id appearing in Create Alert db", message = goodMsgArg1)
 ```
+
+### How can I include values that change in my alerts?
+Values plotted by an indicator can be inserted in alert text using placeholders such as ``{{rsiLine}}` where ``rsiLine`` is the argument used as a plotting function's `title=` parameter. If you use:
+```js
+plot(myRsi, "rsiLine")
+```
+in your script, then you can include that plot's value in an alert message by unsing:
+```js
+alertcondition(close>open, message="RSI value is:{{rsiLine}}")
+```
+If you are not already plotting a value which you must include in an alert message, you can plot it using `na` for the color. Note that plotting the value will  affect the price scale unless you use:
+```js
+plotchar(myRsi, "myRsi", "", location.top)
+```
+You can use other pre-defined placeholders to include variable information in alert messages. See this [TV blog post on variable alerts](https://www.tradingview.com/blog/en/introducing-variables-in-alerts-14880/) for more information.
 
 **[Back to top](#table-of-contents)**
 
