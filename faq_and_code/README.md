@@ -967,7 +967,7 @@ plot(myRsi, "rsiLine")
 ```
 in your script, then you can include that plot's value in an alert message by using:
 ```js
-alertcondition(close > open, message="RSI value is: {{rsiLine}}")
+alertcondition(close > open, message='RSI value is: plot("rsiLine")}}')
 ```
 If you are not already plotting a value which you must include in an alert message, you can plot it using this method so that plotting the value will not affect the price scale unless you use:
 ```js
