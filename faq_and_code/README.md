@@ -309,12 +309,12 @@ plotchar(endEvent, "endEvent", "◄", color = color.red, size=size.tiny, locatio
 To plot a continuous line in Pine, you need to either:
 1. Look back into elapsed bars to find an occurrence that will return the same value over consecutive bars so you can plot it, or
 1. Find levels and save them so that you can plot them. In this case your saving mechanism will determine how many levels you can save.
-1. You may also use the [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function available in v4.
-These are examples of three different techniques used to determine and draw support lines:
+1. You may also use the [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function available in v4. See [Trendlines - JD by Duyck](https://www.tradingview.com/script/mpeEgn5J-Trendlines-JD/) or [Pivots MTF](https://www.tradingview.com/script/VYzEUnYB-Pivots-MTF-LucF/).
+
+These are other examples:
 - [Backtest Rookies](https://backtest-rookies.com/2018/10/05/tradingview-support-and-resistance-indicator/)
 - [Auto-Support v 0.2 by jamc](https://www.tradingview.com/script/hBrQx1tG-Auto-Support-v-0-2/)
 - [S/R Barry by likebike](https://www.tradingview.com/script/EHqtQi2g-S-R-Barry/)
-- [Trendlines - JD by Duyck](https://www.tradingview.com/script/mpeEgn5J-Trendlines-JD/) is a v4 example.
 
 ### How many plots, security() calls, variables or lines of code can I use?
 - The limit for plots is 64. Note than one plot statement can use up more than one allowed plot, depending on how it is structured. If you use series (conditional) color on the plot or text, each one will add a plot count. Starting with Pine v4, `alertcondition()` calls also count for one plot.
@@ -325,6 +325,8 @@ These are examples of three different techniques used to determine and draw supp
 
 ### How can I use colors in my indicator plots?
 See [Working with colours](https://kodify.net/tradingview/colours/) by Kodify.
+Our Resources document has a list of [color pickers](http://www.pinecoders.com/resources/#color-pickers-or-palettes) to help you choose colors.
+[midtownsk8rguy](https://www.tradingview.com/u/midtownsk8rguy/#published-scripts) has a complete set of custom colors in [Pine Color Magic and Chart Theme Simulator](https://www.tradingview.com/script/yyDYIrRQ-Pine-Color-Magic-and-Chart-Theme-Simulator/).
 
 ### How do I make my indicator plot over the chart?
 Use `overlay=true` in `strategy()` or `study()` declaration statement, e.g.,:
