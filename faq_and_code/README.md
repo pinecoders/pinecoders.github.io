@@ -772,57 +772,59 @@ f_htfLabel(
 ```
   
 ### How do I define a higher interval that is a multiple of the current one?
-Use the PineCoders ``f_MultipleOfRes()`` function.
+Use the PineCoders ``f_multipleOfRes()`` function.
 ```js
 //@version=4
 //@author=LucF, for PineCoders
-study("Multiple of current TF v4", precision = 8)
+study("Multiple of current TF")
 
-// Get multiple.
-resMult = input(2, minval = 1)
+resMult = input(4, minval = 1)
 
 // Returns a multiple of current TF as a string usable with "security()".
-f_multipleOfRes(_mult) => 
-    // Convert target timeframe in minutes.
-    _targetResInMin = timeframe.multiplier * _mult * (
-      timeframe.isseconds   ? 1. / 60. :
-      timeframe.isminutes   ? 1. :
-      timeframe.isdaily     ? 1440. :
-      timeframe.isweekly    ? 10080. :
-      timeframe.ismonthly   ? 43800. : na)
-      // Find best way to express the TF.
-    _targetResInMin     <= 0.0417       ? "1S"  :
-      _targetResInMin   <= 0.167        ? "5S"  :
-      _targetResInMin   <= 0.376        ? "15S" :
-      _targetResInMin   <= 0.751        ? "30S" :
-      _targetResInMin   <= 1440         ? tostring(round(_targetResInMin)) :
-      _targetResInMin   <= 43800        ? tostring(round(min(_targetResInMin / 1440, 365))) + "D" :
+f_multipleOfRes(_res, _mult) => 
+    // _res:  current resolution in minutes, in the fractional format supplied by f_resInMinutes() companion function.
+    // _mult: Multiple of current TF to be calculated.
+    // Convert current float TF in minutes to target string TF in "timeframe.period" format.
+    _targetResInMin = _res * max(_mult, 1)
+    // Find best string to express the resolution.
+    _targetResInMin   <= 0.083 ? "5S"  :
+      _targetResInMin <= 0.251 ? "15S" :
+      _targetResInMin <= 0.501 ? "30S" :
+      _targetResInMin <= 1440  ? tostring(round(_targetResInMin)) :
+      _targetResInMin <= 43800 ? tostring(round(min(_targetResInMin / 1440, 365))) + "D" :
       tostring(round(min(_targetResInMin / 43800, 12))) + "M"
 
-// ————— Get string corresponding to current and target resolution.
-curResString = f_multipleOfRes(1)
-resString = f_multipleOfRes(resMult)
-// ————— Calculate current and target resolution RSI.
-// Current TF rsi.
-myRsi = rsi(close, 14)
-// No repainting target resolution TF rsi.
-myRsiHtf = security(syminfo.tickerid, resString, myRsi[1], lookahead = barmerge.lookahead_on)
-// Repainting target resolution TF rsi.
-myRsiHtf2 = security(syminfo.tickerid, resString, myRsi)
+// ————— Converts current "timeframe.multiplier" plus the TF into minutes of type float.
+f_resInMinutes() => 
+    _resInMinutes = timeframe.multiplier * (
+      timeframe.isseconds   ? 1. / 60.  :
+      timeframe.isminutes   ? 1.        :
+      timeframe.isdaily     ? 1440.     :
+      timeframe.isweekly    ? 10080.    :
+      timeframe.ismonthly   ? 43800.    : na)
 
-// ————— Plots
-plot(myRsi, "Current TF RSI", color = color.silver)
-plot(myRsiHtf, "Target TF no repainting RSI", color = color.green)
-plot(myRsiHtf2, "Target TF repainting RSI", color = color.red)
-hline(0)
-hline(100)
-// Show resolution information label.
-var lbl = label(na)
-if barstate.islast
-    label.delete(lbl)
-    lbl := label.new(bar_index, max(max(myRsiHtf, myRsi), myRsiHtf2) * 1.1,
-      "Current Res = " + curResString + "\nMultiple = " + tostring(resMult) + "\n Target Res = " + resString,
-      xloc = xloc.bar_index, yloc =  yloc.price)
+f_htfLabel(_txt, _y, _color, _offsetLabels) => 
+    _t = int(time + (f_resInMinutes() * _offsetLabels * 60000)), var _lbl = label.new(_t, _y, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), if barstate.islast
+        label.set_xy(_lbl, _t, _y), label.set_text(_lbl, _txt), label.set_textcolor(_lbl, _color)
+
+// Get multiple of current resolution.
+resInMinutes = f_resInMinutes()
+targetRes = f_multipleOfRes(resInMinutes, resMult)
+// Create local rsi.
+myRsi = rsi(close, 14)
+plot(myRsi, color = color.silver)
+// No repainting HTF rsi.
+myRsiHtf1 = security(syminfo.tickerid, targetRes, myRsi[1], lookahead = barmerge.lookahead_on)
+plot(myRsiHtf1, color = color.green)
+// Repainting HTF rsi
+myRsiHtf2 = security(syminfo.tickerid, targetRes, myRsi)
+plot(myRsiHtf2, color = color.red)
+
+// ————— Plot label.
+f_htfLabel(
+  '\nTarget res (string): "' + targetRes + '"',
+  sma(myRsiHtf1, 10)[1],
+  color.gray, 3)
 ```
 
 ### Is it possible to use `security()` on lower intervals than the chart's current interval?
