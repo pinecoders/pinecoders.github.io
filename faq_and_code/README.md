@@ -966,11 +966,13 @@ Numeric values plotted by an indicator can be inserted in alert text using place
 plot(myRsi, "rsiLine")
 ```
 in your script, then you can include that plot's value in an alert message by using:
+
 {% raw %}
 ```js
-alertcondition(close > open, message='RSI value is: {{plot("rsiLine")}}')
+alertcondition(close > open, message='RSI value is1: {{plot("rsiLine")}}')
 ```
-{% raw %}
+{% endraw %}
+
 If you are not already plotting a value which you must include in an alert message, you can plot it using this method so that plotting the value will not affect the price scale unless you use:
 ```js
 plotchar(myRsi, "myRsi", "", location.top)
