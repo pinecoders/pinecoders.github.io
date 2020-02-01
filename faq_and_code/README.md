@@ -695,8 +695,8 @@ It provides a way to work with the chart or a target resolution in float format 
 
 The following examples provide examples of common tasks.
 
-### How can I get the current resolution in a uniform numeric format?
-Use the PineCoders `f_resInMinutes()` function to convert the chart's current resolution in minutes of type float.
+### How can I convert the current resolution in a numeric format?
+Use the PineCoders ``f_resInMinutes()`` function to convert the chart's current resolution in minutes of type float. From there you will be able to manipulate it using the other PineCoders MTF functions.
 
 ```js
 //@version=4
@@ -721,6 +721,56 @@ resInMinutes = f_resInMinutes()
 f_htfLabel(tostring(resInMinutes, "Current res in minutes (float): #.0000"), sma(high + 3 * tr, 10)[1], color.gray, 3)
 ```
 
+### How can I convert a resolution in float minutes into a string usable with ``security()``?
+Use the PineCoders ``f_resFromMinutes()`` function.
+
+```js
+//@version=4
+study("Target res in string from float minutes", "", true)
+res     = input(1440., "Minutes in target resolution (<= 0.0167 [1 sec.])", minval = 0.0167)
+repaint = input(false, "Repainting")
+
+// ————— Converts current "timeframe.multiplier" plus the TF into minutes of type float.
+f_resInMinutes() => 
+    _resInMinutes = timeframe.multiplier * (
+      timeframe.isseconds   ? 1. / 60.  :
+      timeframe.isminutes   ? 1.        :
+      timeframe.isdaily     ? 1440.     :
+      timeframe.isweekly    ? 10080.    :
+      timeframe.ismonthly   ? 43800.    : na)
+
+// Converts a resolution expressed in minutes into a string usable by "security()"
+f_resFromMinutes(_minutes) =>
+    _minutes     <= 0.0167       ? "1S"  :
+      _minutes   <= 0.0834       ? "5S"  :
+      _minutes   <= 0.2500       ? "15S" :
+      _minutes   <= 0.5000       ? "30S" :
+      _minutes   <= 1440         ? tostring(round(_minutes)) :
+      _minutes   <= 43800        ? tostring(round(min(_minutes / 1440, 365))) + "D" :
+      tostring(round(min(_minutes / 43800, 12))) + "M"
+
+f_htfLabel(_txt, _y, _color, _offsetLabels) => 
+    _t = int(time + (f_resInMinutes() * _offsetLabels * 60000)), var _lbl = label.new(_t, _y, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), if barstate.islast
+        label.set_xy(_lbl, _t, _y), label.set_text(_lbl, _txt), label.set_textcolor(_lbl, _color)
+
+// ————— Convert target res in minutes from input into string.
+targetResInString = f_resFromMinutes(res)
+// ————— Fetch target resolution's open in repainting/no-repainting mode.
+// This technique has the advantage of using only one "security()" to achieve a repainting/no-repainting choice.
+idx = repaint ? 1 : 0
+indexHighTf = barstate.isrealtime ? 1 - idx : 0
+indexCurrTf = barstate.isrealtime ? 0       : 1 - idx
+targetResOpen = security(syminfo.tickerid, targetResInString, open[indexHighTf])[indexCurrTf]
+
+// ————— Plot target res open.
+plot(targetResOpen)
+// ————— Plot label.
+f_htfLabel(
+  '\nTarget res (string): "' + targetResInString + '"',
+  sma(high + 3 * tr, 10)[1],
+  color.gray, 3)
+```
+  
 ### How do I define a higher interval that is a multiple of the current one?
 Use the PineCoders ``f_MultipleOfRes()`` function.
 ```js
@@ -773,73 +823,6 @@ if barstate.islast
     lbl := label.new(bar_index, max(max(myRsiHtf, myRsi), myRsiHtf2) * 1.1,
       "Current Res = " + curResString + "\nMultiple = " + tostring(resMult) + "\n Target Res = " + resString,
       xloc = xloc.bar_index, yloc =  yloc.price)
-```
-For v3, use:
-```js
-//@version=3
-//@author=LucF, for PineCoders
-study("Multiple of current TF v3")
-
-// Get multiple.
-resMult = input(2, minval = 1)
-
-// Returns a multiple of current TF as a string usable with "security()".
-f_multipleOfRes(_mult) => 
-    // Convert target timeframe in minutes.
-    _targetResInMin = interval * _mult * (
-      isseconds   ? 1. / 60. :
-      isminutes   ? 1. :
-      isdaily     ? 1440. :
-      isweekly    ? 10080. :
-      ismonthly  ? 43800. : na)
-      // Find best way to express the TF.
-    _targetResInMin     <= 0.0417       ? "1S"  :
-      _targetResInMin   <= 0.167        ? "5S"  :
-      _targetResInMin   <= 0.376        ? "15S" :
-      _targetResInMin   <= 0.751        ? "30S" :
-      _targetResInMin   <= 1440         ? tostring(round(_targetResInMin)) :
-      _targetResInMin   <= 43800        ? tostring(round(min(_targetResInMin / 1440, 365))) + "D" :
-      tostring(round(min(_targetResInMin / 43800, 12))) + "M"
-
-// ————— Calculate current and target resolution RSI.
-// Current TF rsi.
-myRsi = rsi(close, 14)
-// No repainting target resolution TF rsi.
-myRsiHtf = security(tickerid, f_multipleOfRes(resMult), myRsi[1], lookahead = barmerge.lookahead_on)
-// Repainting target resolution TF rsi.
-myRsiHtf2 = security(tickerid, f_multipleOfRes(resMult), myRsi)
-
-// ————— Plots
-plot(myRsi, "Current TF RSI", color = silver)
-plot(myRsiHtf, "Target TF no repainting RSI", color = green)
-plot(myRsiHtf2, "Target TF repainting RSI", color = red)
-hline(0)
-hline(100)
-```
-
-### How can I get the resolution in minutes from a string in the `input.resolution` and `timeframe.period` format?
-```
-//@version=4
-study("Resolution in minutes", "")
-higherRes = input("1D", "Interval used for security() calls", type = input.resolution)
-
-f_tfResInMinutes(_resolution) =>
-    // Returns resolution of _resolution period in minutes.
-    // _resolution: resolution of other timeframe (in timeframe.period string format).
-    _mult = security(syminfo.tickerid, _resolution, timeframe.multiplier)
-    _res = security(syminfo.tickerid, _resolution, timeframe.isseconds ? 1 : timeframe.isminutes ? 2 : timeframe.isdaily ? 3 : timeframe.isweekly ? 4 : timeframe.ismonthly ? 5 : na)
-    _return = 
-      _res == 1 ? _mult / 60 : 
-      _res == 2 ? _mult : 
-      _res == 3 ? _mult * 1440 : 
-      _res == 4 ? _mult * 10080 : 
-      _res == 5 ? _mult * 43800 : na
-
-higherResInMinutes = f_tfResInMinutes(higherRes)
-
-plot(higherResInMinutes, "higherResInMinutes", color.navy, linewidth = 10)
-f_print(_txt) => t = time + (time - time[1]) * 3, var _lbl = label.new(t, high, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), label.set_xy(_lbl, t, high + 3 * tr)
-f_print("Higher Resolution = " + tostring(higherResInMinutes))
 ```
 
 ### Is it possible to use `security()` on lower intervals than the chart's current interval?
