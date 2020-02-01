@@ -1648,7 +1648,7 @@ plotchar(cond6[1], "cond6", "⮟", location.abovebar, color.red, 0, size = size.
 
 ![.](https://www.tradingview.com/x/BUkdl478/ "Plotting markers with plotshape()")
 
-You will find lists of Unicode arrows [here](https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows/) and [here](http://xahlee.info/comp/unicode_arrows.html). Because they are not all mapped in the MS Trebuchet font TV uses, not all characters will work with `plotchar()`. Some work as arguments to the `text=` parameter, but not as arguments to `char=`.
+You will find links to lists of Unicode characters in our [Resources](http://www.pinecoders.com/resources/#unicode-characters) document. Because they are not all mapped in the MS Trebuchet font TV uses, not all characters will work with `plotchar()`.
 
 
 **[Back to top](#table-of-contents)**
