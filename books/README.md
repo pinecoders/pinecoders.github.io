@@ -21,6 +21,8 @@ His personal methodology for developing systems. Takes us through the complete p
 **Advances in Financial Machine Learning**, Marcos Lopez de Prado  
 Whereas Davey's approach is small-scale, Prado writes about building larger-scale systems using bid data, for example. But he covers essential areas of systems trading with a fresh and realistic perspective that will be useful, even to traders building smaller-scale systems. Includes a section on how to avoid pitfalls in backtesting.
 
-**Professional Automated Trading: Theory and Practice**, Eugene A. Durenard  
-Durenard explains how he develops large-scale adaptive systems using LISP. Plenty examples of code. Good concepts by a real practicioner.
+**Quantitative Trading**, Ernest P. Chan  
+This book is similar to the Kevin Davey book, but written by a quant. Chan paints broad strokes in discussing many of the facets of running a small-scale automated operation.
 
+**Professional Automated Trading: Theory and Practice**, Eugene A. Durenard  
+Durenard explains how he develops medium-scale adaptive systems using LISP. Plenty examples of code. Good concepts by a real practicioner.
