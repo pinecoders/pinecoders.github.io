@@ -881,7 +881,7 @@ plot(qtyIntrabars,"qtyIntrabars")
 
 <br><br>
 ## ALERTS
-
+See the [PineCoders Alert Creation Framework](https://www.tradingview.com/script/JpDlXzdD-Alert-Creation-Framework-PineCoders-FAQ/) script for alert-creating code.
 
 ### How do I make an alert available from my script?
 Two steps are required:
