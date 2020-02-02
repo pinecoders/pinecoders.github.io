@@ -19,7 +19,7 @@ The Bible of system traders. A classic that's been around since 1978 and is stil
 His personal methodology for developing systems. Takes us through the complete process and covers all the critical parts of developing systems, which includes much more than the trading strategy. Has good advice on backtesting.
 
 **Advances in Financial Machine Learning**, Marcos Lopez de Prado  
-Whereas Davey's approach is small-scale, Prado writes about building larger-scale systems using bid data, for example. But he covers essential areas of systems trading with a fresh and realistic perspective that will be useful, even to traders building smaller-scale systems. Includes a section on how to avoid pitfalls in backtesting.
+Whereas Davey's approach is small-scale, Prado writes about building larger-scale systems using big data, for example. But he covers essential areas of systems trading with a fresh and realistic perspective that will be useful, even to traders building smaller-scale systems. Includes a section on how to avoid pitfalls in backtesting.
 
 **Quantitative Trading**, Ernest P. Chan  
 This book is similar to the Kevin Davey book, but written by a quant. Chan paints broad strokes in discussing many of the facets of running a small-scale automated operation.
