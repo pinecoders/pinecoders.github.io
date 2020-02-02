@@ -26,3 +26,7 @@ This book is similar to the Kevin Davey book, but written by a quant. Chan paint
 
 **Professional Automated Trading: Theory and Practice**, Eugene A. Durenard  
 Durenard explains how he develops medium-scale adaptive systems using LISP. Plenty examples of code. Good concepts by a real practicioner.
+
+**Trend Following, 5th Edition: How to Make a Fortune in Bull, Bear and Black Swan Markets**, Michael Covel  
+This book is essentially 3 books in one, it has interviews with many of the greatest traders, evidence based arguments for using trend following, and the facets of system trading. Spoiler alert: If you are looking for the holy grail the author does not include it.
+
