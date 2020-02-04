@@ -834,6 +834,8 @@ f_htfLabel(
 
 ### Is it possible to use `security()` on lower intervals than the chart's current interval?
 Yes but there are limits to using this technique:
+1. It's not supported by TV.
+1. It doesn't always return reliable data. Intrabar volume information on stocks, for example, is often incorrect.
 1. It only works on historical bars.
 1. You cannot reference intrabars at seconds resolutions. So you can call `security()` at 1m from a 15m chart, but not 30sec.
 1. Alerts will currently not work reliably if you use this technique in your script.
