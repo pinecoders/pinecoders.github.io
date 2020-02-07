@@ -34,7 +34,11 @@ This book is essentially 3 books in one, it has interviews with many of the grea
 
 
 
-## Trading techniques and indicators lending themselves to automated trading
+## Trading techniques and indicators usable in automated trading
 
-**Trading Systems and Methods, 6th Edition**, Perry J. Kaufman  
-The Bible of system traders. A classic that's been around since 1978 and is still being updated. A general survey of all aspects of systems trading.
+**Volume Price Analysis Across The Markets: 4 Books Box Set**, [Anna Coulling](https://www.annacoulling.com)  
+Contains great information on how to interpret and use volume for an edge in price action trading. Explains how to spot and utilize the actions of Market Makers.
+
+**YTC Price Action Trader**, [Lance Beggs](http://www.ytcpriceactiontrader.com)  
+All around book describing how to read market moves. Apart from other popular techniques like SR, etc, Beggs explains the concepts of strength & weakness and candle sentiment analysis. Laid out in a way, which can be coded into trading system. As an example, this is a [script covering candle sentiment](https://www.tradingview.com/script/5fSgjYoM-YTC-Candlestick-Sentiment/).
+
