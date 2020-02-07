@@ -49,5 +49,8 @@ All around book describing how to read market moves. Apart from other popular te
 ## Leasurely but useful
 
 **Incerto Series**, Nassim Nicholas Taleb  
-An illuminating journey into opacity and randomness. A humbling study of our shortcomings in appraising reality, past, present and future. The stimulating and funny work of an unashamedly radical thinker who decided to take some time off from trading to walk slowly and rethink large parts of what we consider to be knowledge—and what can be considered knowable.
+An illuminating journey into opacity, uncertainty, randomness, and our general ignorance or misconceptions surrounding them. A humbling study of our shortcomings in appraising the past, present and future. The stimulating and funny work of an unashamedly radical thinker who, after making piles of "fuck you money", decided to take some time off from trading to walk slowly and rethink large parts of what we consider to be knowledge—and what can be considered knowable.
+
+**Thinking in Bets: Making Smarter Decisions When You Don't Have All the Facts**, Annie Duke  
+An ex-poker player and psychologist has a look at how to improve our thinking in situations where we don't have perfect information but still need to make decisions. She explores our learning process and how we can better distinguish between the quality of outcomes and the quality of our decisions, which because of randomness often cannot be linked.
 
