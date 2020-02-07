@@ -12,6 +12,7 @@
 
 # Books
 
+  
 ## Building Trading Systems
 
 **Trading Systems and Methods, 6th Edition**, Perry J. Kaufman  
@@ -32,8 +33,7 @@ Durenard explains how he develops medium-scale adaptive systems using LISP. Plen
 **Trend Following, 5th Edition: How to Make a Fortune in Bull, Bear and Black Swan Markets**, Michael Covel  
 This book is essentially 3 books in one, it has interviews with many of the greatest traders, evidence based arguments for using trend following, and the facets of system trading. Spoiler alert: If you are looking for the holy grail the author does not include it.
 
-
-
+  
 ## Trading techniques and indicators usable in automated trading
 
 **New Concepts in Technical Trading Systems**, J. Welles Wilder Jr.  
@@ -46,7 +46,8 @@ Contains great information on how to interpret and use volume for an edge in pri
 All around book describing how to read market moves. Apart from other popular techniques like SR, etc, Beggs explains the concepts of strength & weakness and candle sentiment analysis. Laid out in a way, which can be coded into trading system. As an example, this is a [script covering candle sentiment](https://www.tradingview.com/script/5fSgjYoM-YTC-Candlestick-Sentiment/).
 
 
-## About the rest
+  
+## Explorations
 
 **Incerto Series**, Nassim Nicholas Taleb  
 An illuminating journey into opacity, uncertainty, randomness, and our general ignorance or misconceptions surrounding them. A humbling study of our shortcomings in appraising the past, present and future. The stimulating and funny work of an unashamedly radical thinker who, after making piles of "fuck you money", decided to take some time off from trading to walk slowly and rethink large parts of what we consider to be knowledge—and what is knowable.
