@@ -46,7 +46,7 @@ Contains great information on how to interpret and use volume for an edge in pri
 All around book describing how to read market moves. Apart from other popular techniques like SR, etc, Beggs explains the concepts of strength & weakness and candle sentiment analysis. Laid out in a way, which can be coded into trading system. As an example, this is a [script covering candle sentiment](https://www.tradingview.com/script/5fSgjYoM-YTC-Candlestick-Sentiment/).
 
 
-## Books without formulae
+## About the rest
 
 **Incerto Series**, Nassim Nicholas Taleb  
 An illuminating journey into opacity, uncertainty, randomness, and our general ignorance or misconceptions surrounding them. A humbling study of our shortcomings in appraising the past, present and future. The stimulating and funny work of an unashamedly radical thinker who, after making piles of "fuck you money", decided to take some time off from trading to walk slowly and rethink large parts of what we consider to be knowledge—and what is knowable.
