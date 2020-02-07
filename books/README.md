@@ -10,7 +10,9 @@
 
 [<img src="http://pinecoders.com/images/PineCodersLong.png">](http://pinecoders.com)
 
-# Books on Trading Systems
+# Books
+
+## Building Trading Systems
 
 **Trading Systems and Methods, 6th Edition**, Perry J. Kaufman  
 The Bible of system traders. A classic that's been around since 1978 and is still being updated. A general survey of all aspects of systems trading.
@@ -30,3 +32,9 @@ Durenard explains how he develops medium-scale adaptive systems using LISP. Plen
 **Trend Following, 5th Edition: How to Make a Fortune in Bull, Bear and Black Swan Markets**, Michael Covel  
 This book is essentially 3 books in one, it has interviews with many of the greatest traders, evidence based arguments for using trend following, and the facets of system trading. Spoiler alert: If you are looking for the holy grail the author does not include it.
 
+
+
+## Trading techniques and indicators lending themselves to automated trading
+
+**Trading Systems and Methods, 6th Edition**, Perry J. Kaufman  
+The Bible of system traders. A classic that's been around since 1978 and is still being updated. A general survey of all aspects of systems trading.
