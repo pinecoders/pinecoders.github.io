@@ -37,7 +37,7 @@ This book is essentially 3 books in one, it has interviews with many of the grea
 ## Trading techniques and indicators usable in automated trading
 
 **New Concepts in Technical Trading Systems**, J. Welles Wilder Jr.  
-Curiously published in 1978, the same year as Kaufman's *Trading Systems and Methods*, this seminal piece has also become a classic, with many of the indicators presented in here for the first time becoming household names like ATR, DI, ADX and Parabolic SAR.
+Curiously published in 1978, the same year as Kaufman's *Trading Systems and Methods*, this seminal piece has also become a classic, with many of the indicators presented in here for the first time becoming household names: RSI, ATR, DI, ADX and Parabolic SAR. A brilliant book and an intimate journey into Wilder's original thinking process. He has a knack for keeping calculations simple, yet aiming at the jugular, masterfully capturing the essence of whatever he sets his sights on measuring.
 
 **Volume Price Analysis Across The Markets: 4 Books Box Set**, [Anna Coulling](https://www.annacoulling.com)  
 Contains great information on how to interpret and use volume for an edge in price action trading. Explains how to spot and utilize the actions of Market Makers.
