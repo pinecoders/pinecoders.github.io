@@ -98,10 +98,11 @@ Besides the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO23
 
 [Squiggly Lion (YouTube)](https://www.youtube.com/channel/UC4O-W0DfsAfPYPbxws2dIOw): Good quality tutorials.
 
-[m1xolyd1an (YouTube)](https://www.youtube.com/user/m1xolyd1an/featured): This guy doesn’t seem that many videos on Pine but he produces quite a lot of other content.
+[m1xolyd1an (YouTube)](https://www.youtube.com/user/m1xolyd1an/featured): This guy doesn’t have that many videos on Pine but he produces quite a lot of other content.
 
 [Market Calls (YouTube)](https://www.youtube.com/user/marketcalls/featured): Has many videos on trading concepts and a handful about TradingView and Pine.
 
+[BigBits (YouTube)](https://www.youtube.com/user/dpjohnson2009) has a few good-quality Pine tutorials.
 
 ## Work For Hire Pine Programmers
 These are Pine programmers we know and endorse, who have a good reputation of providing quality, paid Pine custom-coding services. While you can inquire to any number of them, it is considered very poor etiquette to send bulk inquiries to all. These programmers are all very good, and they are also very busy. Finding one who is free and willing to work with you will sometimes be a challenge.
