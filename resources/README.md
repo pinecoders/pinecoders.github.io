@@ -154,6 +154,10 @@ A few other suppliers of such services, unverified by PineCoders:
 
 [TradingView alerts to MT4](https://www.tradingconnector.com/) receives TV alerts and converts them into instant orders on MT4 (and MT5 soon) in forex, indices and commodities markets. Latency is below 1 second.
 
+### For developers
+
+Backtest Rookies has developed [tv2bt](https://backtest-rookies.com/2019/11/22/tv2bt-tradingview-to-backtrader-module/): *a data feed for Backtrader which will allow you to receive trade signals and/or OHLCV data from Tradingview. It aims to open access to the plethora of open source strategies and indicators on the Tradingview and allow you to use them to influence your own live strategies. In addition, it can also be used to find some good, reliable intra-day data.*
+
 
 ## Text Editor Highlighters for Pine
 [Notepad++ UDL for Pine v4](https://www.tradingview.com/script/pDbCgvx9-4K-Notepad-UDL-Add-on-for-Pine-Script-v4-0/) by [midtownsk8rguy](https://www.tradingview.com/u/midtownsk8rguy/#published-scripts)
