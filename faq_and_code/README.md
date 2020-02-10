@@ -1567,6 +1567,17 @@ else
 plot(a)
 ```
 
+### How can I write the fastest possible Pine code?
+1. Use built-ins whenever you can to calculate.
+1. Structure your code to do things on the fly, taking advantage of the bar-by-bar progression to avoid having to look back whenever you can. This requires a good understanding of the [runtime environment](https://www.tradingview.com/pine-script-docs/en/v4/language/Execution_model.html) and [series](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-referencing-operator).
+1. Minimize `security()` calls.
+1. Use `label/line.set_*()` functions to modify drawings instead of deleting/recreating them.
+1. Use techniques like [this one](http://www.pinecoders.com/faq_and_code/#how-do-i-save-a-value-or-state-for-later-use) whenever you can, to avoid using `valuewhen()`.
+1. And techniques like [this one](http://www.pinecoders.com/faq_and_code/#how-can-i-remember-when-the-last-time-a-condition-occurred) to avoid `barssince()`.
+1. Isolating sections of large code bases in functions will also often improve performance, but need a good understanding of global/local scope constraints.
+1. Minor impact but still there: use `var` keyword to init vars that don't require to be reinited on each bar.
+1. Structure `if` statements so the most probable evaluation outcomes come first.
+
 **[Back to top](#table-of-contents)**
 
 
