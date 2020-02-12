@@ -120,10 +120,9 @@ If you have a project to code:
 > Tip: As we mentioned, these are busy people. Trying to negociate unreasonable prices with them will not be to your advantage, as programmers will simply choose other customers to work with.
 
 - <a href="https://www.tradingview.com/u/a.tesla2018/"><img src="https://s3.tradingview.com/userpics/1622138-uwgx.png" alt="a.tesla2018" height="25" width="25" style="vertical-align: text-top;"> a.tesla2018</a>  
-B.S. Electrical Engineering and Computer Science with 10+ years experience in C, C++, HDL and lately, Pine.  
-
+B.S. Electrical Engineering and Computer Science with 10+ years experience in C, C++, HDL and lately, Pine.<br><br>
 - <a href="https://www.tradingview.com/u/BacktestRookies/#published-scripts"><img src="https://s3.tradingview.com/userpics/1041044-i8Nm.png" alt="BacktestRookies" height="25" width="25" style="vertical-align: text-top;"> BacktestRookies</a>  
-Fumble through backtesting one step at a time with [backtest-rookies.com](https://backtest-rookies.com). A site dedicated to providing free step by step tutorials aimed at those with a passion for the market but no formal programming background. For the rest of you who have the passion but no desire to spend hours pecking at the keyboard, Backtest Rookies also provide custom programming services to develop algorithms and tools in Pine and/or Python.
+Fumble through backtesting one step at a time with [backtest-rookies.com](https://backtest-rookies.com). A site dedicated to providing free step by step tutorials aimed at those with a passion for the market but no formal programming background. For the rest of you who have the passion but no desire to spend hours pecking at the keyboard, Backtest Rookies also provide custom programming services to develop algorithms and tools in Pine and/or Python.<br><br>
 - <a href="https://www.tradingview.com/u/Daveatt/"><img src="https://s3.tradingview.com/userpics/1019763-MiAm.png" alt="Daveatt" height="25" width="25" style="vertical-align: text-top;"> Daveatt</a>  
 Ex quant trader with 5 years professional experience now developing indicators and bots for retail clients. Specializes in Pine Script, MT4, LUA (FXCM) and ProRealCode.
 - <a href="https://www.tradingview.com/u/DonovanWall"><img src="https://s3.tradingview.com/userpics/853710-ucMB.png" alt="DonovanWall" height="25" width="25" style="vertical-align: text-top;"> DonovanWall</a>  
