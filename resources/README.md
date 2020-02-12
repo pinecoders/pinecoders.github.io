@@ -135,7 +135,7 @@ Bachelor of Mathematics (B Math) and skilled full stack Web developer. 6+ years 
 - [glaz](https://www.tradingview.com/u/glaz/)  
 Works on indicators only (no strategies). Has been coding in Pine for 6 years and does indicator ports from other platforms.
 - [midtownsk8rguy](https://www.tradingview.com/u/midtownsk8rguy/#published-scripts)  
-Quant-minded, self-propelled, double analytical Pine Script consultant. Innovative design of next-generation algorithmic technologies. study() oriented quality developer of eye candy indicators. Porting proficient, having fluency with EasyLanguage, PRC, EFS, LUA & MQL.
+Quant-minded, self-propelled, double analytical Pine Script consultant. Innovative design of next-generation algorithmic technologies. study() oriented quality developer of eye candy indicators. Porting proficient, having fluency with EasyLanguage, PRC, EFS, LUA & MQL
 - [mortdiggiddy](https://www.tradingview.com/u/mortdiggiddy/)  
 10 years experience in software developmentand. B.S. in Mechanical and Aerospace Engineering. Forex, futures, stocks and options trader for 8 years. He is experienced in developing autonomous trading strategies in Pine and JavaScript.
 - [MVPMC](https://www.tradingview.com/u/MVPMC/)  
