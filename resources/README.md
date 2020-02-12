@@ -134,7 +134,7 @@ Architect, Data Scientist, Trader. Develops custom indicators, screeners & data 
 Bachelor of Mathematics (B Math) and skilled full stack Web developer. 6+ years of programming experience in JavaScript, Node js, Python, Ruby and Lua. In the last 3+ years he has also developed custom interfaces, indicators strategies and advisors in Pine and MetaTrader's MQL.
 - [glaz](https://www.tradingview.com/u/glaz/#published-scripts)  
 Works on indicators only (no strategies). Has been coding in Pine for 6 years and does indicator ports from other platforms.
-- [midtownsk8rguy](https://www.tradingview.com/u/midtownsk8rguy/#published-scripts)  
+- <a href="https://www.tradingview.com/u/midtownsk8rguy/#published-scripts"><img src="https://s3.tradingview.com/userpics/3510454-qjOs.png" alt="midtownsk8rguy" height="25" width="25" style="vertical-align: text-top;"> midtownsk8rguy</a>  
 Quant-minded, self-propelled, double analytical Pine Script consultant. Innovative design of next-generation algorithmic technologies. study() oriented quality developer of eye candy indicators. Porting proficient, having fluency with EasyLanguage, PRC, EFS, LUA & MQL
 - [mortdiggiddy](https://www.tradingview.com/u/mortdiggiddy/#published-scripts)  
 10 years experience in software developmentand. B.S. in Mechanical and Aerospace Engineering. Forex, futures, stocks and options trader for 8 years. He is experienced in developing autonomous trading strategies in Pine and JavaScript.
@@ -146,8 +146,6 @@ Offering services for study and strategy development, alert automation, custom-m
 Quant Developer/Analyst with 5+ years of experience. Area of expertise: Pine Script, R, Python, Futures, Options, Crypto.
 - [theheirophant](https://www.tradingview.com/u/theheirophant/#published-scripts)  
 Heiro has 2 years experience programming automated trading solutions. Fluent in javascript, google apps script, html/css; learning python. Emphasis on outside the box thinking, with strengths in quantitative principles, filtration/signal processing, triggers, and automation.
-- <a href="https://www.tradingview.com/u/midtownsk8rguy/#published-scripts">
-	<img src="https://s3.tradingview.com/userpics/3510454-qjOs.png" alt="midtownsk8rguy" height="25" width="25" style="vertical-align: text-top;"> midtownsk8rguy</a>Text.
 
 A few other suppliers of such services, unverified by PineCoders:
 - [7G Trading Tools](http://7gtradingtools.com/): Provides bespoke programming for trading strategies in multiple languages. Run by a guy called Mark Cottons. 
