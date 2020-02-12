@@ -119,7 +119,8 @@ If you have a project to code:
 
 > Tip: As we mentioned, these are busy people. Trying to negociate unreasonable prices with them will not be to your advantage, as programmers will simply choose other customers to work with.
 
-- [a.tesla2018](https://www.tradingview.com/u/a.tesla2018/#published-scripts)  
+- <a href="https://www.tradingview.com/u/a.tesla2018/">
+	<img src="https://s3.tradingview.com/userpics/1622138-uwgx.png" alt="a.tesla2018" height="25" width="25" style="vertical-align: text-top;"> a.tesla2018</a>  
 B.S. Electrical Engineering and Computer Science with 10+ years experience in C, C++, HDL and lately, Pine.
 - [BacktestRookies](https://www.tradingview.com/u/BacktestRookies/#published-scripts)  
 Fumble through backtesting one step at a time with [backtest-rookies.com](https://backtest-rookies.com). A site dedicated to providing free step by step tutorials aimed at those with a passion for the market but no formal programming background. For the rest of you who have the passion but no desire to spend hours pecking at the keyboard, Backtest Rookies also provide custom programming services to develop algorithms and tools in Pine and/or Python.
