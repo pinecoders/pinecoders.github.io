@@ -164,7 +164,6 @@ Heiro has 2 years experience programming automated trading solutions. Fluent in 
 
 A few other suppliers of such services, unverified by PineCoders:
 - [7G Trading Tools](http://7gtradingtools.com/): Provides bespoke programming for trading strategies in multiple languages. Run by a guy called Mark Cottons. 
-- [Codementor](https://www.codementor.io/pine-script-experts): This is simply a search for Pine script developers through the codementor platform.
 - [Kick studios](http://kickstudios.com/retail-trading-dev-services/) offers custom Pine script development.
 
 
