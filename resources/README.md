@@ -121,32 +121,45 @@ If you have a project to code:
 
 - <a href="https://www.tradingview.com/u/a.tesla2018/"><img src="https://s3.tradingview.com/userpics/1622138-uwgx.png" alt="a.tesla2018" height="25" width="25" style="vertical-align: text-top;"> a.tesla2018</a>  
 B.S. Electrical Engineering and Computer Science with 10+ years experience in C, C++, HDL and lately, Pine.<br><br>
+
 - <a href="https://www.tradingview.com/u/BacktestRookies/#published-scripts"><img src="https://s3.tradingview.com/userpics/1041044-i8Nm.png" alt="BacktestRookies" height="25" width="25" style="vertical-align: text-top;"> BacktestRookies</a>  
 Fumble through backtesting one step at a time with [backtest-rookies.com](https://backtest-rookies.com). A site dedicated to providing free step by step tutorials aimed at those with a passion for the market but no formal programming background. For the rest of you who have the passion but no desire to spend hours pecking at the keyboard, Backtest Rookies also provide custom programming services to develop algorithms and tools in Pine and/or Python.<br><br>
+
 - <a href="https://www.tradingview.com/u/Daveatt/"><img src="https://s3.tradingview.com/userpics/1019763-MiAm.png" alt="Daveatt" height="25" width="25" style="vertical-align: text-top;"> Daveatt</a>  
-Ex quant trader with 5 years professional experience now developing indicators and bots for retail clients. Specializes in Pine Script, MT4, LUA (FXCM) and ProRealCode.
+Ex quant trader with 5 years professional experience now developing indicators and bots for retail clients. Specializes in Pine Script, MT4, LUA (FXCM) and ProRealCode.<br><br>
+
 - <a href="https://www.tradingview.com/u/DonovanWall"><img src="https://s3.tradingview.com/userpics/853710-ucMB.png" alt="DonovanWall" height="25" width="25" style="vertical-align: text-top;"> DonovanWall</a>  
-  Former math instructor with a background in audio engineering and signal processing. Offers custom indicator and strategy development, as well as conversions to Pine from other platforms.
+  Former math instructor with a background in audio engineering and signal processing. Offers custom indicator and strategy development, as well as conversions to Pine from other platforms.<br><br>
+
 - <a href="https://www.tradingview.com/u/Duyck"><img src="https://s3.tradingview.com/userpics/1828453-Ui5J.png" alt="Duyck" height="25" width="25" style="vertical-align: text-top;"> Duyck</a>  
-Joris is an experienced and creative Pine coder who prefers to work on indicators rather than strategies. He can also convert open source indicators to Pine from other platforms, namely MQL4.
+Joris is an experienced and creative Pine coder who prefers to work on indicators rather than strategies. He can also convert open source indicators to Pine from other platforms, namely MQL4.<br><br>
+
 - <a href="https://www.tradingview.com/u/e2e4mfck"><img src="https://s3.tradingview.com/userpics/927153-D5Bf.png" alt="e2e4mfck" height="25" width="25" style="vertical-align: text-top;"> e2e4mfck</a>  
-Architect, Data Scientist, Trader. Develops custom indicators, screeners & data visualizations in C#, Pine Script, ThinkScript, Lua.
+Architect, Data Scientist, Trader. Develops custom indicators, screeners & data visualizations in C#, Pine Script, ThinkScript, Lua.<br><br>
+
 - <a href="https://www.tradingview.com/u/everget/"><img src="https://s3.tradingview.com/userpics/875112-sevS.png" alt="everget" height="25" width="25" style="vertical-align: text-top;"> everget</a>  
-Bachelor of Mathematics (B Math) and skilled full stack Web developer. 6+ years of programming experience in JavaScript, Node js, Python, Ruby and Lua. In the last 3+ years he has also developed custom interfaces, indicators strategies and advisors in Pine and MetaTrader's MQL.
+Bachelor of Mathematics (B Math) and skilled full stack Web developer. 6+ years of programming experience in JavaScript, Node js, Python, Ruby and Lua. In the last 3+ years he has also developed custom interfaces, indicators strategies and advisors in Pine and MetaTrader's MQL.<br><br>
+
 -  <a href="https://www.tradingview.com/u/glaz/"><img src="https://s3.tradingview.com/userpics/25545.png" alt="glaz" height="25" width="25" style="vertical-align: text-top;"> glaz</a>  
-Works on indicators only (no strategies). Has been coding in Pine for 6 years and does indicator ports from other platforms.
+Works on indicators only (no strategies). Has been coding in Pine for 6 years and does indicator ports from other platforms.<br><br>
+
 - <a href="https://www.tradingview.com/u/midtownsk8rguy/#published-scripts"><img src="https://s3.tradingview.com/userpics/3510454-qjOs.png" alt="midtownsk8rguy" height="25" width="25" style="vertical-align: text-top;"> midtownsk8rguy</a>  
-Quant-minded, self-propelled, double analytical Pine Script consultant. Innovative design of next-generation algorithmic technologies. study() oriented quality developer of eye candy indicators. Porting proficient, having fluency with EasyLanguage, PRC, EFS, LUA & MQL
+Quant-minded, self-propelled, double analytical Pine Script consultant. Innovative design of next-generation algorithmic technologies. study() oriented quality developer of eye candy indicators. Porting proficient, having fluency with EasyLanguage, PRC, EFS, LUA & MQL<br><br>
+
 - <a href="https://www.tradingview.com/u/mortdiggiddy/"><img src="https://s3.tradingview.com/userpics/625941-VZkU.png" alt="mortdiggiddy" height="25" width="25" style="vertical-align: text-top;"> mortdiggiddy</a>  
-10 years experience in software developmentand. B.S. in Mechanical and Aerospace Engineering. Forex, futures, stocks and options trader for 8 years. He is experienced in developing autonomous trading strategies in Pine and JavaScript.
+10 years experience in software developmentand. B.S. in Mechanical and Aerospace Engineering. Forex, futures, stocks and options trader for 8 years. He is experienced in developing autonomous trading strategies in Pine and JavaScript.<br><br>
+
 - <a href="https://www.tradingview.com/u/MVPMC/"><img src="https://s3.tradingview.com/userpics/1778326-viRH.png" alt="MVPMC" height="25" width="25" style="vertical-align: text-top;"> MVPMC</a>  
-Ambitious junior Web developer offering conversions and development of indicators and strategies.
+Ambitious junior Web developer offering conversions and development of indicators and strategies.<br><br>
+
 - <a href="https://www.tradingview.com/u/paaax/"><img src="https://s3.tradingview.com/userpics/953360-EB35.png" alt="paaax" height="25" width="25" style="vertical-align: text-top;"> paaax</a>  
-Offering services for study and strategy development, alert automation, custom-made indicators, market screener and other services on Tradingview.
+Offering services for study and strategy development, alert automation, custom-made indicators, market screener and other services on Tradingview.<br><br>
+
 - <a href="https://www.tradingview.com/u/QuantNomad/#published-scripts"><img src="https://s3.tradingview.com/userpics/351999-6orT.png" alt="QuantNomad" height="25" width="25" style="vertical-align: text-top;"> QuantNomad</a>  
-Quant Developer/Analyst with 5+ years of experience. Area of expertise: Pine Script, R, Python, Futures, Options, Crypto.
+Quant Developer/Analyst with 5+ years of experience. Area of expertise: Pine Script, R, Python, Futures, Options, Crypto.<br><br>
+
 - <a href="https://www.tradingview.com/u/theheirophant/#published-scripts"><img src="https://s3.tradingview.com/userpics/2448504-vcxI.png" alt="theheirophant" height="25" width="25" style="vertical-align: text-top;"> theheirophant</a>  
-Heiro has 2 years experience programming automated trading solutions. Fluent in javascript, google apps script, html/css; learning python. Emphasis on outside the box thinking, with strengths in quantitative principles, filtration/signal processing, triggers, and automation.
+Heiro has 2 years experience programming automated trading solutions. Fluent in javascript, google apps script, html/css; learning python. Emphasis on outside the box thinking, with strengths in quantitative principles, filtration/signal processing, triggers, and automation.<br><br>
 
 A few other suppliers of such services, unverified by PineCoders:
 - [7G Trading Tools](http://7gtradingtools.com/): Provides bespoke programming for trading strategies in multiple languages. Run by a guy called Mark Cottons. 
