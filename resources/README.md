@@ -146,6 +146,8 @@ Offering services for study and strategy development, alert automation, custom-m
 Quant Developer/Analyst with 5+ years of experience. Area of expertise: Pine Script, R, Python, Futures, Options, Crypto.
 - [theheirophant](https://www.tradingview.com/u/theheirophant/#published-scripts)  
 Heiro has 2 years experience programming automated trading solutions. Fluent in javascript, google apps script, html/css; learning python. Emphasis on outside the box thinking, with strengths in quantitative principles, filtration/signal processing, triggers, and automation.
+- <a href="https://www.tradingview.com/u/midtownsk8rguy/#published-scripts">
+	<img src="https://s3.tradingview.com/userpics/3510454-qjOs.png" alt="midtownsk8rguy" height="25" width="25" style="vertical-align: text-top;"> midtownsk8rguy</a>Text.
 
 A few other suppliers of such services, unverified by PineCoders:
 - [7G Trading Tools](http://7gtradingtools.com/): Provides bespoke programming for trading strategies in multiple languages. Run by a guy called Mark Cottons. 
