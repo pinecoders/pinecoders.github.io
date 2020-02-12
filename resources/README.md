@@ -119,28 +119,28 @@ If you have a project to code:
 
 > Tip: As we mentioned, these are busy people. Trying to negociate unreasonable prices with them will not be to your advantage, as programmers will simply choose other customers to work with.
 
-- [a.tesla2018](https://www.tradingview.com/u/a.tesla2018/)  
+- [a.tesla2018](https://www.tradingview.com/u/a.tesla2018/#published-scripts)  
 B.S. Electrical Engineering and Computer Science with 10+ years experience in C, C++, HDL and lately, Pine.
 - [BacktestRookies](https://www.tradingview.com/u/BacktestRookies/#published-scripts)  
 Fumble through backtesting one step at a time with [backtest-rookies.com](https://backtest-rookies.com). A site dedicated to providing free step by step tutorials aimed at those with a passion for the market but no formal programming background. For the rest of you who have the passion but no desire to spend hours pecking at the keyboard, Backtest Rookies also provide custom programming services to develop algorithms and tools in Pine and/or Python.
-- [Daveatt](https://www.tradingview.com/u/Daveatt/)  
+- [Daveatt](https://www.tradingview.com/u/Daveatt/#published-scripts)  
 Ex quant trader with 5 years professional experience now developing indicators and bots for retail clients. Specializes in Pine Script, MT4, LUA (FXCM) and ProRealCode.
-- [DonovanWall](https://www.tradingview.com/u/DonovanWall)<br>Former math instructor with a background in audio engineering and signal processing. Offers custom indicator and strategy development, as well as conversions to Pine from other platforms.
-- [Duyck](https://www.tradingview.com/u/Duyck)  
+- [DonovanWall](https://www.tradingview.com/u/DonovanWall/#published-scripts)<br>Former math instructor with a background in audio engineering and signal processing. Offers custom indicator and strategy development, as well as conversions to Pine from other platforms.
+- [Duyck](https://www.tradingview.com/u/Duyck/#published-scripts)  
 Joris is an experienced and creative Pine coder who prefers to work on indicators rather than strategies. He can also convert open source indicators to Pine from other platforms, namely MQL4.
-- [e2e4mfck](https://www.tradingview.com/u/e2e4mfck)  
+- [e2e4mfck](https://www.tradingview.com/u/e2e4mfck/#published-scripts)  
 Architect, Data Scientist, Trader. Develops custom indicators, screeners & data visualizations in C#, Pine Script, ThinkScript, Lua.
-- [everget](https://www.tradingview.com/u/everget/)  
+- [everget](https://www.tradingview.com/u/everget/#published-scripts)  
 Bachelor of Mathematics (B Math) and skilled full stack Web developer. 6+ years of programming experience in JavaScript, Node js, Python, Ruby and Lua. In the last 3+ years he has also developed custom interfaces, indicators strategies and advisors in Pine and MetaTrader's MQL.
-- [glaz](https://www.tradingview.com/u/glaz/)  
+- [glaz](https://www.tradingview.com/u/glaz/#published-scripts)  
 Works on indicators only (no strategies). Has been coding in Pine for 6 years and does indicator ports from other platforms.
 - [midtownsk8rguy](https://www.tradingview.com/u/midtownsk8rguy/#published-scripts)  
 Quant-minded, self-propelled, double analytical Pine Script consultant. Innovative design of next-generation algorithmic technologies. study() oriented quality developer of eye candy indicators. Porting proficient, having fluency with EasyLanguage, PRC, EFS, LUA & MQL
-- [mortdiggiddy](https://www.tradingview.com/u/mortdiggiddy/)  
+- [mortdiggiddy](https://www.tradingview.com/u/mortdiggiddy/#published-scripts)  
 10 years experience in software developmentand. B.S. in Mechanical and Aerospace Engineering. Forex, futures, stocks and options trader for 8 years. He is experienced in developing autonomous trading strategies in Pine and JavaScript.
-- [MVPMC](https://www.tradingview.com/u/MVPMC/)  
+- [MVPMC](https://www.tradingview.com/u/MVPMC/#published-scripts)  
 Ambitious junior Web developer offering conversions and development of indicators and strategies.
-- [paaax](https://www.tradingview.com/u/paaax/)  
+- [paaax](https://www.tradingview.com/u/paaax/#published-scripts)  
 Offering services for study and strategy development, alert automation, custom-made indicators, market screener and other services on Tradingview.
 - [QuantNomad](https://www.tradingview.com/u/QuantNomad/#published-scripts)  
 Quant Developer/Analyst with 5+ years of experience. Area of expertise: Pine Script, R, Python, Futures, Options, Crypto.
