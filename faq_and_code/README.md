@@ -1567,7 +1567,8 @@ else
 plot(a)
 ```
 
-### How can I write the fastest possible Pine code?
+### How can I optimize Pine code?
+The most important factor in writing optimized Pine code is to make sure you are using the combined power of the Pine runtime model with the use of series to its maximum. This requires an intimate understanding of what's going on when your script is executed. These User Manual sections on the [execution model](https://www.tradingview.com/pine-script-docs/en/v4/language/Execution_model.html) and [series](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator) will get you started.
 1. Use built-ins whenever you can to calculate values.
 1. Structure your code to do things on the fly, taking advantage of the bar-by-bar progression to avoid having to look back whenever you can. This requires a good understanding of the [runtime environment](https://www.tradingview.com/pine-script-docs/en/v4/language/Execution_model.html) and [series](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-referencing-operator).
 1. Minimize the use of `for` loops. If you use them, do everything you can to minimize the number of iterations and the number of statements in loops. `for` loops are only necessary when values required to derive calculations are not available when your script is executed bar by bar. In many cases they can be avoided if you understand the Pine runtime model.
