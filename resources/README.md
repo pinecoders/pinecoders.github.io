@@ -128,7 +128,7 @@ If you have a project to code:
 - [everget](https://www.tradingview.com/u/everget/)<br>Bachelor of Mathematics (B Math) and skilled full stack Web developer. 6+ years of programming experience in JavaScript, Node js, Python, Ruby and Lua. In the last 3+ years he has also developed custom interfaces, indicators strategies and advisors in Pine and MetaTrader's MQL.
 - [glaz](https://www.tradingview.com/u/glaz/)<br>Works on indicators only (no strategies). Has been coding in Pine for 6 years and does indicator ports from other platforms.
 - [mortdiggiddy](https://www.tradingview.com/u/mortdiggiddy/)<br>10 years experience in software developmentand. B.S. in Mechanical and Aerospace Engineering. Forex, futures, stocks and options trader for 8 years. He is experienced in developing autonomous trading strategies in Pine and JavaScript.
-- [midtownsk8rguy](https://www.tradingview.com/u/midtownsk8rguy/)  
+- [midtownsk8rguy](https://www.tradingview.com/u/midtownsk8rguy/#published-scripts)  
 Quant minded, self-propelled, double analytical Pine Script consultant. Innovator of next-generation algorithmic technologies.
 study() oriented development of eye candy indicators. Porting proficient, having fluency with EasyLanguage, PRC, LUA, MQL...
 - [MVPMC](https://www.tradingview.com/u/MVPMC/)<br>Ambitious junior Web developer offering conversions and development of indicators and strategies.
