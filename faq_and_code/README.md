@@ -1577,7 +1577,7 @@ plot(a)
 1. And techniques like [this one](http://www.pinecoders.com/faq_and_code/#how-can-i-remember-when-the-last-time-a-condition-occurred) to avoid `barssince()`.
 1. Isolating sections of large code bases in functions will also often improve performance, but you will need a good understanding of [global/local scope constraints](https://www.tradingview.com/pine-script-docs/en/v4/language/Declaring_functions.html#scopes-in-the-script).
 1. Minor impact but still there: use `var` keyword to init vars that don't require to be reinited on each bar.
-1. String concatenations can be slow. Minimize their use. Some evaluations like constant evaluations like `s = "foo" + "bar"` are optimized to `s = "foobar"`, but others aren't.
+1. String concatenations can be slow. Minimize their use. Some constant evaluations like `s = "foo" + "bar"` are optimized to `s = "foobar"`, but others aren't.
 
 **[Back to top](#table-of-contents)**
 
