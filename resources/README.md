@@ -117,7 +117,8 @@ If you have a project to code:
 - They will tell you if they are free, if they require more information, and often provide suggestions or alternatives.
 - If they want to work with you, they will provide an estimate of the costs so you will be able to decide if you want to pursue the project.
 
-> Tip: As we mentioned, these are busy people. Trying to negociate unreasonable prices with them will not be to your advantage, as programmers will simply choose other customers to work with.
+> Tip: As we mentioned, these are busy people. Trying to negociate unreasonable prices with them will not be to your advantage, as programmers will simply choose other customers to work with.<br><br>
+
 
 <a href="https://www.tradingview.com/u/a.tesla2018/"><img src="https://s3.tradingview.com/userpics/1622138-uwgx.png" alt="a.tesla2018" height="25" width="25" style="vertical-align: text-top;"> a.tesla2018</a>  
 B.S. Electrical Engineering and Computer Science with 10+ years experience in C, C++, HDL and lately, Pine.<br><br>
