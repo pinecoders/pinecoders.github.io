@@ -22,7 +22,7 @@
 <div align="center"><font size="+1"><strong>Want to learn proper Pine coding style?<br></strong></font> Read our <a href="http://www.pinecoders.com/coding_conventions">Pine Coding Conventions</a>.</div>
 
 <div align="center"><font size="+1"><strong>Need tools, resources or work for hire Pine Programmers?<br></strong></font>Use our <a href="http://www.pinecoders.com/resources">Pine Resources</a>.<br>
-We also have a <a href="http://www.pinecoders.com/techniques/dsp">Digital Signal Processing In Pine guide</a> guide and a <a href="http://www.pinecoders.com/books">list of books</a>.</div>
+We also have a guide on <a href="http://www.pinecoders.com/techniques/dsp">Digital Signal Processing In Pine</a> and a <a href="http://www.pinecoders.com/books">list of books</a>.</div>
 
 ---
 
