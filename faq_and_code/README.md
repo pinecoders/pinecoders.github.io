@@ -333,7 +333,9 @@ Use `overlay=true` in `strategy()` or `study()` declaration statement, e.g.,:
 ```js
 study("My Script", overlay = true)
 ```
-If your indicator was already in a Pane before applying this change, you will need to use Add to Chart again for the change to become active.
+If your indicator was already in a Pane before applying this change, you will need to use *Add to Chart* again for the change to become active.
+
+If your script only works correctly in overlay mode and you want to prevent users from moving it to a separate pane, you can add `linktoseries = true` to your `strategy()` or `study()` declaration statement.
 
 ### Can I use `plot()` calls in a `for` loop?
 No, but you can use the v4 [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function in `for` loops.
