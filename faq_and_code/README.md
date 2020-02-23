@@ -1569,6 +1569,8 @@ else
 plot(a)
 ```
 
+If you are unsure of the type to use, solve the problem *quick and dirty* by simply ending each block with the same casting like `float(na)`.
+
 ### How can I optimize Pine code?
 The most important factor in writing optimized Pine code is to make sure you are using the combined power of the Pine runtime model with the use of series to its maximum. This requires an intimate understanding of what's going on when your script is executed. These User Manual sections on the [execution model](https://www.tradingview.com/pine-script-docs/en/v4/language/Execution_model.html) and [series](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator) will get you started.
 1. Use built-ins whenever you can to calculate values.
