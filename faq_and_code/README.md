@@ -542,7 +542,7 @@ plotshape(true, "", shape.arrowdown,    location.belowbar, color.maroon,    text
 ![.](https://www.tradingview.com/x/MMMFiRZI/ "Lift text up with plotshape()")
 
 ### How can I plot color gradients?
-There are no built-in functions to generate color gradients in Pine. Use the PineCoders [Color Gradient Framework - PineCoders FAQ](https://www.tradingview.com/script/rFJ5I3Hl-Color-Gradient-Framework-PineCoders-FAQ/).
+There are no built-in functions to generate color gradients in Pine yet. Use the PineCoders [Color Gradient Framework - PineCoders FAQ](https://www.tradingview.com/script/rFJ5I3Hl-Color-Gradient-Framework-PineCoders-FAQ/) or our [Color Gradient (16 colors) Framework - PineCoders FAQ](https://www.tradingview.com/script/EjLGV9qg-Color-Gradient-16-colors-Framework-PineCoders-FAQ/).
 
 **[Back to top](#table-of-contents)**
 
