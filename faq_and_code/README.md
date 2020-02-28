@@ -1095,9 +1095,9 @@ plot(lo, trackprice = true)
 ```
 
 ### How can I remember when the last time a condition occurred?
-The [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) built-in function is the simplest way of doing it, as is done in Method 1 in the following script. Method 2 shows an alternate way to achieve the same result as `barssince()`. In Method 2 we watch for the condition as the script is executing on each successive bar, initialize our distance to 0 when we encounter the condition, and until we encounter the condition again, add 1 to the distance at each bar.
+The [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) built-in function is the simplest way of doing it, as is done in Method 1 in the following script. Method 2 shows an alternate way to achieve the same result as `barssince()`. In Method 2 we watch for the condition as the script is executing on each successive bar, initialize our distance to 0 when we encounter the condition, and until we encounter the condition again, add 1 to the distance at each bar. In method 3 we save the bar's index when the condition occurs, and we then use the difference between the current bar's index and that one to derive the distance between the two.
 
-In either case the resulting value can be used as an index with the`[]` [history-referecing operator](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator).
+In all cases the resulting value can be used as an index with the`[]` [history-referecing operator](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator) because it accepts a series value, i.e., a value that can change on each bar.
 ```js
 //@version=4
 study("Track distance from condition", "", true)
@@ -1110,8 +1110,10 @@ up3Bars = dnBar and upBar[1] and upBar[2] and upBar[3]
 dn3Bars = upBar and dnBar[1] and dnBar[2] and dnBar[3]
 
 // Method 1, using "barssince()".
-plot(high[barssince(up3Bars)], linewidth = 10, transp = 80)
-plot(low[barssince(dn3Bars)], color = color.red, linewidth = 10, transp=80)
+plot(high[barssince(up3Bars)], linewidth = 16, transp = 80)
+plot(low[barssince(dn3Bars)], color = color.red, linewidth = 16, transp=80)
+plotchar(barssince(up3Bars), "1. barssince(up3Bars)", "", location.top)
+plotchar(barssince(dn3Bars), "1. barssince(dn3Bars)", "", location.top)
 
 // Method 2, doing manually the equivalent of "barssince()".
 var barsFromUp = 0
@@ -1120,8 +1122,20 @@ barsFromUp := up3Bars ? 0 : barsFromUp + 1
 barsFromDn := dn3Bars ? 0 : barsFromDn + 1
 plot(high[barsFromUp])
 plot(low[barsFromDn], color = color.red)
-plotchar(barsFromUp, "barsFromUp", "", location.top)
-plotchar(barsFromDn, "barsFromDn", "", location.top)
+plotchar(barsFromUp, "2. barsFromUp", "", location.top)
+plotchar(barsFromDn, "2. barsFromDn", "", location.top)
+
+// Method 3, storing bar_index when condition occurs.
+var int barWhenUp = na
+var int barWhenDn = na
+if up3Bars
+    barWhenUp := bar_index
+if dn3Bars
+    barWhenDn := bar_index
+plot(high[bar_index - barWhenUp], linewidth = 8, transp = 70)
+plot(low[bar_index - barWhenDn], color = color.red, linewidth = 8, transp = 70)
+plotchar(bar_index - barWhenUp, "3. bar_index - barWhenUp", "", location.top)
+plotchar(bar_index - barWhenDn, "3. bar_index - barWhenDn", "", location.top)
 ```
 
 This script shows how to keep track of the number of bars since the last cross using the same two methods:
