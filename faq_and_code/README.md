@@ -1138,7 +1138,7 @@ plotchar(bar_index - barWhenUp, "3. bar_index - barWhenUp", "", location.top)
 plotchar(bar_index - barWhenDn, "3. bar_index - barWhenDn", "", location.top)
 ```
 
-This script shows how to keep track of the number of bars since the last cross using the same two methods:
+This script shows how to keep track of the number of bars since the last cross using methods 1 and 2. Method 3 could be used just as well:
 ```js
 //@version=4
 study("Bars between crosses", "", true)
