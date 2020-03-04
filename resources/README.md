@@ -102,7 +102,7 @@ Besides the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO23
 
 [Market Calls (YouTube)](https://www.youtube.com/user/marketcalls/featured): Has many videos on trading concepts and a handful about TradingView and Pine.
 
-[BigBits (YouTube)](https://www.youtube.com/user/dpjohnson2009) has a few good-quality Pine tutorials. He also publishes some educational scripts from his [BigBitsIO](https://www.tradingview.com/u/BigBitsIO/#published-scripts) TradingView account.
+[BigBits (YouTube)](https://www.youtube.com/user/dpjohnson2009) has good-quality Pine tutorials. He also publishes some educational scripts from his [BigBitsIO](https://www.tradingview.com/u/BigBitsIO/#published-scripts) TradingView account.
 
 ## Work For Hire Pine Programmers
 These are Pine programmers we know and endorse, who have a good reputation of providing quality, paid Pine custom-coding services. While you can inquire to any number of them, it is considered very poor etiquette to send bulk inquiries to all. These programmers are all very good, and they are also very busy. Finding one who is free and willing to work with you will sometimes be a challenge.
