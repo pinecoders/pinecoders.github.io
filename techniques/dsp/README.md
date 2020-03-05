@@ -39,7 +39,7 @@
 ## Introduction
 
 
-[Pinescript](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html) is a really lightweight scripting language but it still allow for the computation of basic signal processing processes. In this guide, basic techniques and tools used in signal processing are showcased alongside their implementation in Pinescript. It is recommended to know the basics of Pinescript before reading this article. Start [here](http://www.pinecoders.com/learning_pine_roadmap/) if you don't.
+[Pinescript](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html) is a really lightweight scripting language but it still allow for the computation of basic signal processing processes. In this guide, basic techniques and tools used in signal processing are showcased alongside their implementation in Pinescript. It is recommended to know the basics of Pinescript before reading this guide. Start [here](http://www.pinecoders.com/learning_pine_roadmap/) if you don't.
 
 > Note that this guide is not intended to be an introduction to digital signal processing, even if some short definitions are shared.
 
@@ -60,7 +60,7 @@ A periodic signal is a signal that repeats itself after some time. The image bel
 <legend>Common Periodic Signals</legend>
 </p>
 
-Periodic signals possess characteristics such as : **frequency**, **period**, **amplitude** and **phase**. The **frequency** is the number of cycles made by the signal per samples, the **period** represents the duration in samples of one cycle and is the reciprocal of the frequency ``1/frequency``, the amplitude is the highest absolute value of the signal and finally the **phase** is related to the position of the signal in the cycle, the phase is commonly expressed in degrees/radians.
+Periodic signals possess characteristics such as : **frequency**, **period**, **amplitude** and **phase**. The **frequency** is the number of cycles made by the signal per unit time (*here samples*), the **period** represents the duration in samples of one cycle and is the reciprocal of the frequency ``1/frequency``, the amplitude is the highest absolute value of the signal and finally the **phase** is related to the position of the signal in the cycle, the phase is commonly expressed in degrees/radians.
 
 <hr>
 
@@ -82,7 +82,7 @@ sinewave(period,amplitude,phase)=>
 
 #### Triangular Wave
 
-A triangular wave function is computed in Pinescript is as follows:
+A triangular wave function is computed in Pinescript as follows:
 
 ```
 triangle(period,amplitude,phase)=>
@@ -95,7 +95,7 @@ triangle(period,amplitude,phase)=>
 
 #### Square Wave
 
-A square wave function is computed in Pinescript is as follows:
+A square wave function is computed in Pinescript as follows:
 
 ```
 square(period,amplitude,phase)=>
@@ -111,7 +111,7 @@ square(period,amplitude,phase)=>
 
 #### Sawtooth Wave
 
-A sawtooth wave function is computed in Pinescript is as follows:
+A sawtooth wave function is computed in Pinescript as follows:
 
 ```
 saw(period,amplitude,phase)=>
@@ -397,7 +397,7 @@ The easier way to design band-pass filters is by simply applying a low-pass filt
 bpsma = sma(input - sma(input,length),length)
 ```
 
-Symmetrical signals in a range of [-1,1] are great choices of kernels for band-pass filters. Another option is to use the 1st difference `change` of a low-pass filter kernel in order to produce a band-pass filter kernel, in order to do so check the formula you are using to generate the coefficients of the low-pass filter, then get the formula derivative, this method mostly work with increasing/decreasing symmetrical kernels.
+Symmetrical signals in a range of [-1,1] are great choices of kernels for band-pass filters. Another option is to use the 1st difference of a low-pass filter kernel in order to produce a band-pass filter kernel, in order to do so check the formula you are using to generate the coefficients of the low-pass filter, then get the formula derivative, this method mostly work with increasing/decreasing symmetrical kernels.
 
 The impulse response of a band-pass filter is equal to the convolution between the low-pass and high-pass impulses responses, that is: ``cum(lowpass(impulse)*highpass(impulse))``, and the step response would be equal to the cumulative sum of the band-pass filter impulse response.
 
@@ -420,9 +420,9 @@ The easiest way to design band-stop filters is by simply subtracting the input s
 bssma = input - sma(input - sma(input,length),length)
 ```
 
-Another way of designing FIR band-pass filters is by modifying the coefficients of a band-pass filter by using spectral inversion, which was used for designing FIR high-pass filters from a FIR low-pass filter kernel. For band-stop filter the process is the same, however we modify the coefficients of a FIR band-pass filter instead of a FIR low-pass filter.
+Another way of designing FIR band-stop filters is by modifying the coefficients of a band-pass filter by using spectral inversion, which was used for designing FIR high-pass filters from the kernel of a FIR low-pass filter. For band-stop filter the process is the same, however we modify the coefficients of a FIR band-pass filter instead of a FIR low-pass filter.
 
-The impulse response of a band-stop filter is equal to `impulse + bandpass(impulse)` where `bandpass` is the band-pass version of the band-stop filter, and its step response is equal to 1 minus the step response of its band-pass version.
+The impulse response of a band-stop filter is equal to `impulse + bandpass(impulse)*-1` where `bandpass` is the band-pass version of the band-stop filter, and its step response is equal to 1 minus the step response of its band-pass version.
 
 <br/>
 
