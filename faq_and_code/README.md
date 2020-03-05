@@ -164,6 +164,9 @@ plot(upVwap2, "upVwap2", color.fuchsia, 8, transp = 80)
 bgcolor(upVwap != upVwap2 ? color.silver : na)
 ```
 
+![.](https://www.tradingview.com/x/Lvn6DdHM/ "When to pre-evaluate functions/built-ins")
+
+
 **[Back to top](#table-of-contents)**
 
 
