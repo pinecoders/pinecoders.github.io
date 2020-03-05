@@ -98,6 +98,70 @@ Make sure the series you use as length argument is greater than 0, else the func
 
 *Note that the rolling variance/standard deviation/covariance are computed using the naïve algorithm.*
 
+### Why do some functions and built-ins evaluate incorreclty in ``if`` or ternary (``?``) blocks?
+
+An important change to the way conditional statement blocks are evaluated was introduced with v4 of Pine. Many coders are not aware of it or do not understand its implications. [This User Manual section](https://www.tradingview.com/pine-script-docs/en/v4/language/Functions_and_annotations.html#execution-of-pine-functions-and-historical-context-inside-function-blocks) explains the change and provides a list of [exceptions](https://www.tradingview.com/pine-script-docs/en/v4/language/Functions_and_annotations.html#exceptions) for functions/built-ins which are NOT affected by the constraints. We'll explain what's happening here, and how to avoid the problems caused by code that does not take the change into account.
+
+This is what's happening:
+1. Starting in Pine v4, both blocks of conditional statements are no longer executed on every bar. By *both blocks*, we mean the part executed when the conditional expression evaluates to true, and the one (if it exists) to be executed when the expression evaluates to false.
+2. Many functions/built-ins need to execute on every bar to return correct results. Think of a rolling average like ``sma()`` or a function like ``highest()``. If they miss values along the way, it's easy to see how they won't calculate properly.
+
+This is the PineCoders "If Law":
+> Whenever an if or ternary's (``?``) conditional expression can be evaluated differently bar to bar, all functions used in the conditional statement's blocks not in the list of exceptions need to be pre-evaluated prior to entry in the if statement, to ensure they are executed on each bar. 
+
+While this can easily be forgotten in the creative excitement of coding your latest idea, you will save yourself lots of pain by understanding and remembering this. This is a major change from previous versions of Pine. It has far-reaching consequences and not structuring code along these lines can have particularly pernicious consequences because the resulting incorrect behavior is sometimes discrete (appearing only here and there) and random.
+
+To avoid problems, you need to be on the lookout for 2 conditions:
+**Condition A**
+A conditional expression that can only be evaluated with incoming, new bar information (i.e., using series variables like close). This excludes expressions using values of literal, const, input or simple forms because they do not change during the script's execution, and so when you use them, the same block in the if statement is guaranteed to execute on every bar. [Read this (https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html) if you are not familiar with Pine forms and types.]
+**Condition B**
+When condition A is met, and the if block(s) contain(s) functions or built-ins NOT in the list of exceptions, i.e., which require evaluation on every bar to return a correct result, then condition B is also met.
+
+This is an example where an apparently inoffensive built-in like vwap is used in a ternary. vwap is not in the list of exceptions, and so when condition A is realized, it will require evaluation prior to entry in the if block. You can flip between 3 modes: #1 where condition A is fulfilled and #2 and #3 where it is not. You will see how the unshielded value ("upVwap2" in the thick line) will produce incorrect results when mode 1 is used.
+
+```js
+//@version=4
+study("When to pre-evaluate functions/built-ins", "", true)
+CN1 = "1. Condition A is true because evaluation varies bar to bar"
+CN2 = "2. Condition A is false because `timeframe.multiplier` does not vary during the script's execution"
+CN3 = "3. Condition A is false because an input does not vary during the script's execution"
+useCond = input(CN1, "Test on conditional expression:", options = [CN1, CN2, CN3])
+p = 10
+
+// ————— Conditional expression 1: CAUTION!
+//       Can lead to execution of either `if` block because:
+//          uses *series* variables, so result changes bar to bar.
+//       (Condition A is fulfilled).
+cond1 = close > open
+// ————— Conditional expression 2: NO WORRIES
+//       Guarantees execution of same `if` block on every bar because:
+//          uses *simple* variable, so result does NOT change bar to bar
+//          because it is known before the script executes and does not change.
+//       (Condition A is NOT fulfilled).
+cond2 = timeframe.multiplier > 0
+// ————— Conditional expression 3: NO WORRIES
+//       Guarantees execution of same `if` block on every bar because:
+//          uses *input* variable, so result does NOT change bar to bar
+//          because it is known before the script execcutes and does not change.
+//       (Condition A is NOT fulfilled).
+cond3 = input(true)
+
+cond = useCond == CN1 ? cond1 : useCond == CN2 ? cond2 : cond3
+
+// Built-in used in 'if' blocks that is not part of the exception list,
+// and so will require forced evaluation on every bar prior to entry in 'if' statement.
+// (Condition B will be true when Condition A is also true)
+v = vwap
+// Shielded against condition B because vwap is pre-evaluted.
+upVwap = sum(cond ? v : 0, p) / sum(cond ? 1 : 0, p)
+// NOT shielded against condition B because vwap is NOT pre-evaluted.
+upVwap2 = sum(cond ? vwap : 0, p) / sum(cond ? 1 : 0, p)
+
+plot(upVwap, "upVwap", color.fuchsia)
+plot(upVwap2, "upVwap2", color.fuchsia, 8, transp = 80)
+bgcolor(upVwap != upVwap2 ? color.silver : na)
+```
+
 **[Back to top](#table-of-contents)**
 
 
