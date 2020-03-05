@@ -759,8 +759,8 @@ today = year == currentYear and month == currentMonth and dayofmonth == currentD
 bgcolor(today ? color.gray : na)
 ```
 
-### How can I plot a value starting *n* months/years back
-The [``timestamp()``](https://www.tradingview.com/pine-script-reference/v4/#fun_timestamp) function allows the use of negative argument values and will convert them into the proper values. Using a negative month value, for example, will subtract the proper number of year from the result. We use this feature here to allow us to look back an arbitrary number of months or years. A choice is given to identify the first of the target month, or to go back from the current date and time.
+### How can I plot a value starting *n* months/years back?
+The [``timestamp()``](https://www.tradingview.com/pine-script-reference/v4/#fun_timestamp) function allows the use of negative argument values and will convert them into the proper date. Using a negative month value, for example, will subtract the proper number of years from the result. We use this feature here to allow us to look back an arbitrary number of months or years. A choice is given to identify the first of the target month, or go back from the current date and time.
 ```js
 //@version=4
 study("Plot value starting n months/years back", "", true)
