@@ -98,7 +98,7 @@ Make sure the series you use as length argument is greater than 0, else the func
 
 *Note that the rolling variance/standard deviation/covariance are computed using the naïve algorithm.*
 
-### Why do some functions and built-ins evaluate incorreclty in ``if`` or ternary (``?``) blocks?
+### Why do some functions and built-ins evaluate incorrectly in ``if`` or ternary (``?``) blocks?
 
 An important change to the way conditional statement blocks are evaluated was introduced with v4 of Pine. Many coders are not aware of it or do not understand its implications. [This User Manual section](https://www.tradingview.com/pine-script-docs/en/v4/language/Functions_and_annotations.html#execution-of-pine-functions-and-historical-context-inside-function-blocks) explains the change and provides a list of [exceptions](https://www.tradingview.com/pine-script-docs/en/v4/language/Functions_and_annotations.html#exceptions) for functions/built-ins which are NOT affected by the constraints. We'll explain what's happening here, and how to avoid the problems caused by code that does not take the change into account.
 
