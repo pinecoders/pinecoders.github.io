@@ -39,7 +39,7 @@
 ## Introduction
 
 
-[Pinescript](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html) is a really lightweight scripting language but it still allow for the computation of basic signal processing processes. In this guide, basic techniques and tools used in signal processing are showcased alongside their implementation in Pinescript. It is recommended to know the basics of Pinescript before reading this article. Start [here](http://www.pinecoders.com/learning_pine_roadmap/) if you don't.
+[Pinescript](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html) is a really lightweight scripting language but it still allow for the computation of basic signal processing processes. In this guide, basic techniques and tools used in signal processing are showcased alongside their implementation in Pinescript. It is recommended to know the basics of Pinescript before reading this guide. Start [here](http://www.pinecoders.com/learning_pine_roadmap/) if you don't.
 
 > Note that this guide is not intended to be an introduction to digital signal processing, even if some short definitions are shared.
 
@@ -60,7 +60,7 @@ A periodic signal is a signal that repeats itself after some time. The image bel
 <legend>Common Periodic Signals</legend>
 </p>
 
-Periodic signals possess characteristics such as : **frequency**, **period**, **amplitude** and **phase**. The **frequency** is the number of cycles made by the signal per samples, the **period** represents the duration in samples of one cycle and is the reciprocal of the frequency ``1/frequency``, the amplitude is the highest absolute value of the signal and finally the **phase** is related to the position of the signal in the cycle, the phase is commonly expressed in degrees/radians.
+Periodic signals possess characteristics such as : **frequency**, **period**, **amplitude** and **phase**. The **frequency** is the number of cycles made by the signal per unit time (*here samples*), the **period** represents the duration in samples of one cycle and is the reciprocal of the frequency ``1/frequency``, the amplitude is the highest absolute value of the signal and finally the **phase** is related to the position of the signal in the cycle, the phase is commonly expressed in degrees/radians.
 
 <hr>
 
@@ -82,7 +82,7 @@ sinewave(period,amplitude,phase)=>
 
 #### Triangular Wave
 
-A triangular wave function is computed in Pinescript is as follows:
+A triangular wave function is computed in Pinescript as follows:
 
 ```
 triangle(period,amplitude,phase)=>
@@ -95,7 +95,7 @@ triangle(period,amplitude,phase)=>
 
 #### Square Wave
 
-A square wave function is computed in Pinescript is as follows:
+A square wave function is computed in Pinescript as follows:
 
 ```
 square(period,amplitude,phase)=>
@@ -111,7 +111,7 @@ square(period,amplitude,phase)=>
 
 #### Sawtooth Wave
 
-A sawtooth wave function is computed in Pinescript is as follows:
+A sawtooth wave function is computed in Pinescript as follows:
 
 ```
 saw(period,amplitude,phase)=>
@@ -345,7 +345,7 @@ It is not possible to design FIR filters precisely with Pinescript, as the neces
 
 * Lag is drastically reduced when the coefficients of the filter include negative values, this is because negative coefficients would amplify frequencies in the filter passband. Input values receiving negative coefficients should be the oldest ones, and the sum of the positive coefficients should be greater than the absolute sum of negative coefficients.
 
-* If a function `f(x)` is equal to 0 when `x = 1`, then using it as filter kernel would leave an unit passband, there would be no need to normalize the convolution.
+* If a function `f(x)` is equal to 0 when `x = 1`, then using its 1st difference as filter kernel would leave an unit passband, there would be no need to normalize the convolution.
 
 We can easily create all the other types of filters by using low-pass filters, they are therefore extremely useful.
 
@@ -397,7 +397,7 @@ The easier way to design band-pass filters is by simply applying a low-pass filt
 bpsma = sma(input - sma(input,length),length)
 ```
 
-Symmetrical signals in a range of [-1,1] are great choices of kernels for band-pass filters. Another option is to use the 1st difference `change` of a low-pass filter kernel in order to produce a band-pass filter kernel, in order to do so check the formula you are using to generate the coefficients of the low-pass filter, then get the formula derivative, this method mostly work with increasing/decreasing symmetrical kernels.
+Symmetrical signals in a range of [-1,1] are great choices of kernels for band-pass filters. Another option is to use the 1st difference of a low-pass filter kernel in order to produce a band-pass filter kernel, in order to do so check the formula you are using to generate the coefficients of the low-pass filter, then get the formula derivative, this method mostly work with increasing/decreasing symmetrical kernels.
 
 The impulse response of a band-pass filter is equal to the convolution between the low-pass and high-pass impulses responses, that is: ``cum(lowpass(impulse)*highpass(impulse))``, and the step response would be equal to the cumulative sum of the band-pass filter impulse response.
 
@@ -420,9 +420,9 @@ The easiest way to design band-stop filters is by simply subtracting the input s
 bssma = input - sma(input - sma(input,length),length)
 ```
 
-Another way of designing FIR band-pass filters is by modifying the coefficients of a band-pass filter by using spectral inversion, which was used for designing FIR high-pass filters from a FIR low-pass filter kernel. For band-stop filter the process is the same, however we modify the coefficients of a FIR band-pass filter instead of a FIR low-pass filter.
+Another way of designing FIR band-stop filters is by modifying the coefficients of a band-pass filter by using spectral inversion, which was used for designing FIR high-pass filters from the kernel of a FIR low-pass filter. For band-stop filter the process is the same, however we modify the coefficients of a FIR band-pass filter instead of a FIR low-pass filter.
 
-The impulse response of a band-stop filter is equal to `impulse + bandpass(impulse)` where `bandpass` is the band-pass version of the band-stop filter, and its step response is equal to 1 minus the step response of its band-pass version.
+The impulse response of a band-stop filter is equal to `impulse + bandpass(impulse)*-1` where `bandpass` is the band-pass version of the band-stop filter, and its step response is equal to 1 minus the step response of its band-pass version.
 
 <br/>
 
@@ -523,7 +523,7 @@ filter = sum/sumw
 
 here all you need to do is to put the calculation generating your filter coefficients in `h`.
 
-</br>
+<br/>
 
 ## Gaussian FIR Filter
 
@@ -597,12 +597,12 @@ filter = sum/sumw
 
 the cut-off multiplier `cm` determine the number of local maxima/minima in the sinc function, more precisely `n = 2*cm - 1` where `n` is the number of local maxima/minima.
 
-</br>
+<br/>
 
 ## IIR Filter Design In Pinescript
 
 <p align="center">
-<img src="http://www.sciweavers.org/upload/Tex2Img_1582825524/eqn.png"/>
+<img src="http://www.sciweavers.org/tex2img.php?eq=y%5Bn%5D%20%3D%20%5Csum_%7Bi%3D0%7D%5E%7BP-1%7D%20b%5Bi%5Dx%5Bn-i%5D%20%2B%20%5Csum_%7Bj%3D1%7D%5E%7BQ%7D%20a%5Bj%5Dy%5Bn-j%5D&bc=Transparent&fc=Black&im=png&fs=30&ff=modern&edit=0" align="center" border="0" alt="y[n] = \sum_{i=0}^{P-1} b[i]x[n-i] + \sum_{j=1}^{Q} a[j]y[n-j]" width="705" height="132" />
 <legend>General Form Of IIR Filters</legend>
 </p>
 
@@ -624,7 +624,7 @@ y := a0*input+a1*input[1]...+nz(b0*y[1]+b1*y[2]...)
 
 It is also common to use the input signal as initializing value.
 
-</br>
+<br/>
 
 ### Simple IIR Design Techniques
 
@@ -663,7 +663,7 @@ Making different types of IIR filters can be done like previously mentioned in t
 
 All you need is the low-pass filter.
 
-</br>
+<br/>
 
 ## Butterworth IIR Filter
 
@@ -694,14 +694,14 @@ out = 0.
 out := nz(c*(src + src[3]) + 3*c*(src[1] + src[2]) + d0*out[1] + d1*out[2] + d2*out[3],src)
 ```
 
-</br>
+<br/>
 
 ## Gaussian IIR Filter
 
 Many recursive implementations of the Gaussian filter exists and are way more efficient than their FIR counterparts. Unfortunately, they rely on forward-backward filtering in order to provide a symmetrical gaussian impulse response, this technique is not possible in Pinescript. Some alternatives exist, the most notable one being the Gaussian filter described by Elhers [3], which is based on the multiple applications of exponential moving averages, this filter is available in the Pinescript repository.
 
 
-</br>
+<br/>
 
 ## Rolling Signal To Noise Ratio
 
@@ -711,7 +711,7 @@ The signal to noise ratio (SNR) is used to measure the level of a signal relativ
 snr(input) => sma(input,length)/stdev(input,length)
 ```
 
-</br>
+<br/>
 
 ## Rolling Noise Factor
 
@@ -724,7 +724,7 @@ snrout = snr(ma)
 nf = snrin/snrout
 ```
 
-</br>
+<br/>
 
 ## Generating White Noise
 
@@ -742,7 +742,7 @@ where `seed` is a user defined number. This generator is the classical linear co
 normal = lcg(1) + lcg(2) + lcg(3) + ...
 ```
 
-</br>
+<br/>
 
 ## Estimating Signals Period
 
@@ -769,7 +769,7 @@ period(input)=>
     round(bar_index*2/cum(k))
 ```
 
-</br>
+<br/>
 
 ## Tips And Tricks
 
@@ -777,7 +777,7 @@ period(input)=>
 
 * Using linear combinations of low-pass filters allow to reduce lag, for example:
 ```
-k*lowpass(input,length/2) - (k-1)*lowpass(input,length)`
+k*lowpass(input,length/2) - (k-1)*lowpass(input,length)
 ```
 with higher values of `k` further minimizing the filter lag.
 
@@ -804,10 +804,10 @@ bandpass = sma(input,length/2) - sma(input,length)
 dev = sqrt(filter(input*input) - pow(filter(input),2))
 ```
 
-A filter having negative coefficients (*or low-lag in general*) can produce `na` values.
+Note that a filter having negative coefficients (*or low-lag in general*) can produce `na` values.
 
 
-</br>
+<br/>
 
 
 ## References
@@ -823,15 +823,15 @@ A filter having negative coefficients (*or low-lag in general*) can produce `na`
 ## About The Author
 
 <p align="left">
-<img src="https://i-cf.pximg.net/c/250x250_80_a2/img-master/img/2020/02/11/00/00/03/79405535_p0_square1200.jpg"">
+<img src="https://s3.tradingview.com/userpics/435966-oREQ_big.png">
 </p>
 
-</br>
+<br/>
 
 *alexgrover is a member of the tradingview community specialized in the creation of technical trading tools using the Pinescript scripting language. As a DSP enthusiast, he try to explain many DSP concepts in an intuitive way to the tradingview community.*
 
 *Thanks for reading ⊂( ・ω・)⊃*
 
-</br>
+<br/>
 
 **[Back to top](#table-of-contents)**
