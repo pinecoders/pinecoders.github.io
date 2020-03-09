@@ -60,13 +60,13 @@ A periodic signal is a signal that repeats itself after some time. The image bel
 <legend>Common Periodic Signals</legend>
 </p>
 
-Periodic signals possess characteristics such as : **frequency**, **period**, **amplitude** and **phase**. The **frequency** is the number of cycles made by the signal per unit time (*here samples*), the **period** represents the duration in samples of one cycle and is the reciprocal of the frequency ``1/frequency``, the amplitude is the highest absolute value of the signal and finally the **phase** is related to the position of the signal in the cycle, the phase is commonly expressed in degrees/radians.
+Periodic signals possess characteristics such as : **frequency**, **period**, **amplitude** and **phase**. The **frequency** is the number of cycles made by the signal per unit of time (*here samples*), the **period** represents the duration in samples of one cycle and is the reciprocal of the frequency ``1/frequency``, the amplitude is the highest absolute value of the signal and finally the **phase** is related to the position of the signal in the cycle, the phase is commonly expressed in degrees/radians.
 
 <hr>
 
 #### Sine Wave
 
-The simplest periodic signal is the sine wave, with function computed in Pine Script as follows:
+The simplest periodic signal is the sine wave. The function is computed in Pine Script as follows:
 
 ```
 sinewave(period,amplitude,phase)=>
@@ -105,7 +105,7 @@ square(period,amplitude,phase)=>
     sign(sin(2*pi*n/period))*amplitude
 ```
 
-> `sign(x)` is the signum function and output `1` when `x > 0` and `-1` when `x < 0`.
+> `sign(x)` is the signum function and outputs `1` when `x > 0` and `-1` when `x < 0`.
 
 <hr>
 
@@ -130,7 +130,7 @@ saw(period,amplitude)=>
     (saw-.5)*2
 ```
 
-This would output a linearly increasing sawtooth, this is why such wave is sometimes called sawtooth-up , a sawtooth-down wave can simply be made by multiplying the sawtooth-up wave by -1, that is `amplitude = -1`.
+This would output a linearly increasing sawtooth, which is why such a wave is sometimes called sawtooth-up. A sawtooth-down wave can simply be made by multiplying the sawtooth-up wave by -1, that is `amplitude = -1`.
 
  > Note that alternatives calculations exist in order to compute those signals. Here trigonometric forms are mostly used as they allow to change the phase of the signal.
 
@@ -138,15 +138,15 @@ This would output a linearly increasing sawtooth, this is why such wave is somet
 
 ### Transient Signals
 
-Transient signals are signals that show a sudden change in their values, they are extremely important and commonly used signals when it comes to study the characteristics of discrete systems.
+Transient signals are signals that show a sudden change in their values, they are extremely important and commonly used when studying the characteristics of discrete systems.
 
-> systems are defined as processes that take an input and return an output.  
+> *Systems* are defined as processes that take an input and return an output.  
 
 <hr>
 
 #### Unit Impulse
 
-The first transient signal presented is the **unit impulse**. An unit impulse is simply a signal equal to 0 except at one point where it is equal to 1. The unit impulse is made from the unit impulse function, also called Dirac delta function denoted *δ(x)* and output 1 when *x* = 0 and 0 otherwise.
+The first transient signal presented is the **unit impulse**. A unit impulse is simply a signal equal to 0 except at one point where it is equal to 1. The unit impulse is made from the unit impulse function, also called Dirac delta function denoted *δ(x)* and outputs 1 when *x* = 0 and 0 otherwise.
 
 <p align="center">
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dirac_distribution_PDF.svg/488px-Dirac_distribution_PDF.svg.png">
@@ -160,7 +160,7 @@ n = bar_index
 impulse = n == 0 ? 1 : 0
 ```
 
-A more convenient alternative would be the Kronecker delta function who can define the position in time of the impulse, that is the Kronecker delta function is just a shifted Dirac delta function. The Kronecker delta is computed as follows:
+A more convenient alternative would be the Kronecker delta function which can define the position in time of the impulse, that is the Kronecker delta function is just a shifted Dirac delta function. The Kronecker delta is computed as follows:
 
 ```
 n = bar_index
@@ -199,7 +199,7 @@ An unit step is simply the cumulative sum of an unit impulse, that is ``step = c
 
 ## Convolution
 
-Convolution is one of the most important concepts in signal processing. Basically, convolution is a combination of two signals that output a third signal. The convolution is mathematically denoted by the symbol `*`, not to be confused with the multiplication symbol in programming.
+Convolution is one of the most important concepts in signal processing. Basically, convolution is a combination of two signals that outputs a third signal. The convolution is mathematically denoted by the `•` symbol, not to be confused with the multiplication symbol in programming.
 
 <p align="center">
 <img src="https://www.songho.ca/dsp/convolution/files/conv_commutative03.png">
