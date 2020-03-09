@@ -818,7 +818,7 @@ Note that a filter having negative coefficients (*or low-lag in general*) can pr
 
 [3] Ehlers, J. F. "Gaussian and Other Low Lag Filters" https://www.mesasoftware.com/papers/GaussianFilters.pdf
 
-</br>
+<br>
 
 ## About The Author
 
@@ -826,7 +826,7 @@ Note that a filter having negative coefficients (*or low-lag in general*) can pr
 <img src="https://s3.tradingview.com/userpics/435966-oREQ_big.png">
 </p>
 
-<br/>
+<br>
 
 *alexgrover is a member of the TradingView community specialized in the creation of technical trading tools using the Pine Script language. As a DSP enthusiast, he tries to explain many DSP concepts in an intuitive way to the TradingView community.*
 
