@@ -828,7 +828,7 @@ Note that a filter having negative coefficients (*or low-lag in general*) can pr
 
 <br>
 
-*alexgrover is a member of the TradingView community specialized in the creation of technical trading tools using the Pine Script language. As a DSP enthusiast, he tries to explain many DSP concepts in an intuitive way to the TradingView community.*
+*[alexgrover](https://www.tradingview.com/u/alexgrover/#published-scripts) is a member of the TradingView community specialized in the creation of technical trading tools using the Pine Script language. As a DSP enthusiast, he tries to explain many DSP concepts in an intuitive way to the TradingView community.*
 
 *Thanks for reading ⊂( ・ω・)⊃*
 
