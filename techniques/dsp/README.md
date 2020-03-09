@@ -274,11 +274,11 @@ This is extremely useful if one wants to use both impulse and step responses in 
 <legend>General Form Of FIR Filters</legend>
 </p>
 
-Filters allow us to modify the frequency content of a signal (*see Fourier transform/decomposition*) by removing/attenuating unwanted frequencies from the input signal, certain filters can also amplify certain frequencies in the signal.
+Filters allow us to modify the frequency content of a signal (*see Fourier transform/decomposition*) by removing/attenuating unwanted frequencies from the input signal. Certain filters can also amplify specific frequencies in the signal.
 
-FIR filters are a class of filters that are calculated by using convolution. "FIR" stand for "finite impulse response", which means that the filter impulse response will go back to *steady-state*, that is to 0 and will remain equal to 0. Because Pine Script can perform convolution it is possible to design a wide variety of FIR filters.
+FIR filters are a class of filters that are calculated by using convolution. "FIR" stand for "finite impulse response", which means that the filter's impulse response will go back to *steady-state*, that is to 0, and will remain equal to 0. Because Pine Script can perform convolution it is possible to design a wide variety of FIR filters.
 
-A FIR filter `filter(input)` is equal to `input * filter(impulse)` where `*` denote convolution, more simply put a filter output using a certain input is the convolution between the input and the filter impulse response.
+A FIR filter `filter(input)` is equal to `input * filter(impulse)` where `*` denotes convolution. Simply put, a filter output using a certain input is the convolution between the input and the filter's impulse response.
 
 In Pine Script you can make FIR filters by using:
 
@@ -289,11 +289,11 @@ filter(input) =>
         sum := sum + input[i] * h[i]
     sum
 ```
-where `length` is the filter length, and will often control the filtering amount. `h[i]` are the filter coefficients (also called *weights*), a term used to describe an entire set of coefficients is "kernel". However in Pine Script `h` will mostly denote an operation or a function of `i`.
+where `length` is the filter length, and will often control the filtering amount. The `h[i]` values are the filter coefficients (also called *weights*), a term used to describe an entire set of coefficients is "kernel". However in Pine Script `h` will mostly denote an operation or a function of `i`.
 
-The coefficients fully describe the time domain properties of the filter, such as smoothness and lag, and can give hints on the filter properties in the frequency domain, however when we want to know how the filter interact with the frequency content of the signal we look at its **frequency response**, which for FIR filters is the Fourier transform of the impulse response.
+The coefficients fully describe the time domain properties of the filter, such as smoothness and lag, and can give hints on the filter properties in the frequency domain. When we want to know how the filter interacts with the frequency content of the signal, however, we look at its **frequency response**, which for FIR filters is the Fourier transform of the impulse response.
 
-There exist several types of filters that modify the frequency content of an input signal in different ways, each one of them will be introduced in this section and we will learn how to create them in Pine Script.
+There exist several types of filters that modify the frequency content of an input signal in different ways, each one of them will be introduced in this section, and we will learn how to create them in Pine Script.
 
 <br/>
 
@@ -305,7 +305,7 @@ There exist several types of filters that modify the frequency content of an inp
 <legend>Low-pass filter frequency response</legend>
 </p>
 
-Low-pass filters are used to remove/attenuate higher frequencies of an input signal, which lead to a smooth output. In technical analysis moving averages are low-pass filters. The simplest low-pass filter is the simple (arithmetic) moving average, which convolve the input signal with a constant, that is the filter coefficients of a simple moving average are all equal to ``1/length`` where ``length`` is the filter length. In Pine Script the most efficient way to compute a simple moving average is by using the built-in `sma` function.
+Low-pass filters are used to remove/attenuate higher frequencies of an input signal, which leads to a smooth output. In technical analysis, moving averages are low-pass filters. The simplest low-pass filter is the simple (arithmetic) moving average, which convolves the input signal with a constant, that is the filter coefficients of a simple moving average are all equal to ``1/length`` where ``length`` is the filter length. In Pine Script the most efficient way to compute a simple moving average is by using the built-in `sma` function.
 
 The simple moving average using convolution is computed as follows:
 
@@ -315,7 +315,7 @@ for i = 0 to length-1
     ma := ma + input[i] * 1/length
 ```
 
-Note however that in a loop, we repeat each operations `n` times where `n` is the number of loops, therefore if a loop is required, it is wiser to instead use :
+Note however that in a loop, we repeat each operation `n` times, where `n` is the number of loop iterations. If a loop is required, it is therefore more efficient to use :
 
 ```
 sum = 0.
@@ -324,7 +324,7 @@ for i = 0 to length-1
 ma = sum/length
 ```
 
-The sum of the coefficients of a low-pass filters must be equal to 1, this allow to have passband unity, if the sum of the coefficients is greater than 1 the filter passband will be superior to 1, which will give an output greater than the input signal, however if the sum of the coefficients is inferior to 1 and superior to 0 then the output will be lower than the input signal. The coefficients of a simple moving average already add-up to 1, but what if we use other coefficients that does not ? In this case we must normalize the convolution with the sum of the coefficients (*sometimes called normalizing constant*). This is done in pine as follows :
+The sum of the coefficients of a low-pass filter must be equal to 1, this allows to have passband unity. If the sum of the coefficients is greater than 1, the filter passband will be superior to 1, which will give an output greater than the input signal. However if the sum of the coefficients is inferior to 1 and superior to 0, then the output will be lower than the input signal. The coefficients of a simple moving average already add up to 1, but what if we use other coefficients that do not? In this case we must normalize the convolution with the sum of the coefficients (sometimes called *normalizing constant*). This is done in pine as follows :
 
 ```
 sum = 0.,sumh = 0.
@@ -335,19 +335,19 @@ for i = 0 to length-1
 lpfilter = sum/sumh
 ```
 
-Here the sum of `h` is not equal to 1, however because we divide the convolution output by the sum of the coefficients (*`sumh` in the script*) we can get the filter with an unit passband.
+Here the sum of `h` is not equal to 1, but because we divide the convolution's output by the sum of the coefficients (`sumh` in the script), we can achieve a filter with a unit passband.
 
 It is not possible to design FIR filters precisely with Pine Script, as the necessary tools are not available, however since the characteristics of a filter are described by its coefficients, we can roughly get an idea on how a FIR filter might process an input signal. Below is a short guide on the relationship between filter characteristics and filter coefficients.
 
-* A filter will be smooth if its impulse response is relatively symmetrical, with mostly positive values, and not to width nor to sharp. Width impulses responses will return an output similar to a simple moving average while sharp impulse responses will return an approximation of an impulse and the filter could just return a shifted version of the input signal.
+* A filter will be smooth if its impulse response is relatively symmetrical, with mostly positive values, and not too wide nor to sharp. Wide impulse responses will return an output similar to a simple moving average, while sharp impulse responses will return an approximation of an impulse and the filter could just return a shifted version of the input signal.
 
-* The lag of a filter depends on the coefficients attributed to the current and past inputs of the signal, a filter attributing the highest coefficients to more recent input values will have a lower lag than a filter attributing the highest coefficients to oldest input values.
+* The lag of a filter depends on the coefficients attributed to the current and past inputs of the signal. A filter attributing the highest coefficients to more recent input values will have a lower lag than a filter attributing the highest coefficients to oldest input values.
 
 * Lag is drastically reduced when the coefficients of the filter include negative values, this is because negative coefficients would amplify frequencies in the filter passband. Input values receiving negative coefficients should be the oldest ones, and the sum of the positive coefficients should be greater than the absolute sum of negative coefficients.
 
-* If a function `f(x)` is equal to 0 when `x = 1`, then using its 1st difference as filter kernel would leave an unit passband, there would be no need to normalize the convolution.
+* If a function `f(x)` is equal to 0 when `x = 1`, then using its 1st difference as the filter's kernel would leave a unit passband and there would be no need to normalize the convolution.
 
-We can easily create all the other types of filters by using low-pass filters, they are therefore extremely useful.
+We can easily create all the other types of filters by using low-pass filters. They are therefore extremely useful.
 
 <br/>
 
