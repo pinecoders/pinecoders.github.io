@@ -315,7 +315,7 @@ for i = 0 to length-1
     ma := ma + input[i] * 1/length
 ```
 
-Note however that in a loop, we repeat each operation `n` times, where `n` is the number of loop iterations. If a loop is required, it is therefore more efficient to use :
+Note however that in a loop, we repeat each operation `n` times, where `n` is the number of loop iterations. If a loop is required, it is therefore more efficient to use:
 
 ```
 sum = 0.
@@ -324,7 +324,7 @@ for i = 0 to length-1
 ma = sum/length
 ```
 
-The sum of the coefficients of a low-pass filter must be equal to 1, this allows to have passband unity. If the sum of the coefficients is greater than 1, the filter passband will be superior to 1, which will give an output greater than the input signal. However if the sum of the coefficients is inferior to 1 and superior to 0, then the output will be lower than the input signal. The coefficients of a simple moving average already add up to 1, but what if we use other coefficients that do not? In this case we must normalize the convolution with the sum of the coefficients (sometimes called *normalizing constant*). This is done in pine as follows :
+The sum of the coefficients of a low-pass filter must be equal to 1, this allows to have passband unity. If the sum of the coefficients is greater than 1, the filter passband will be superior to 1, which will give an output greater than the input signal. However if the sum of the coefficients is inferior to 1 and superior to 0, then the output will be lower than the input signal. The coefficients of a simple moving average already add up to 1, but what if we use other coefficients that do not? In this case we must normalize the convolution with the sum of the coefficients (sometimes called *normalizing constant*). This is done in pine as follows:
 
 ```
 sum = 0.,sumh = 0.
@@ -358,15 +358,15 @@ We can easily create all the other types of filters by using low-pass filters. T
 <legend>High-pass filter frequency response</legend>
 </p>
 
-High-pass filters are used to remove/attenuate lower frequencies of an input signal, they therefore perform the contrary operation of low-pass filters. The sum of the coefficients of an high-pass filter with passband unity is equal to 0 with most of the time a majority of negative coefficients.
+High-pass filters are used to remove/attenuate lower frequencies of an input signal. They perform the contrary operation of low-pass filters. The sum of the coefficients of a high-pass filter with passband unity is equal to 0, with a majority of coeffecients being negative most of the time.
 
-The easiest way to design high-pass filters by simply subtracting the input signal from a low-pass filter, therefore ``highpass = input - lowpass(input)``. For example the high-pass version of a simple moving average would be made as follows :
+The easiest way to design high-pass filters is by simply subtracting a low-pass filter from the input signal: ``highpass = input - lowpass(input)``. For example, the high-pass version of a simple moving average would be made as follows:
 
 ```
 hpsma = input - sma(input,length)
 ```
 
-Another way of designing FIR high-pass filters is by modifying the coefficients of a low-pass filter by using a process called "spectral inversion", which consist in changing the sign of all the filter coefficients (*that is multiplying each coefficients by -1*) and by adding 1 to the first coefficient. For example spectral inversion using a simple moving average is done as follows:
+Another way of designing FIR high-pass filters is by modifying the coefficients of a low-pass filter by using a process called "spectral inversion", which consists in changing the sign of all the filter coefficients (that is multiplying each coefficient by -1) and by adding 1 to the first coefficient. For example, spectral inversion using a simple moving average is done as follows:
 
 ```
 hpma = 0.
@@ -376,9 +376,9 @@ for i = 0 to length-1
     hpma := hpma + input[i] * h
 ```
 
-with `inv` representing the inverted coefficients, and with `h` adding 1 to the first inverted coefficient. Make sure the sum of the non inverted coefficients is equal to 1 in the first place.
+with `inv` representing the inverted coefficients, and with `h` adding 1 to the first inverted coefficient. Make sure the sum of the non-inverted coefficients is equal to 1 in the first place.
 
-The impulse response of an high-pass filter is equal to `impulse - lowpass(impulse)` where `lowpass` is the low-pass version of the high-pass filter, and its step response is equal to 1 minus the step response of its low-pass version.
+The impulse response of a high-pass filter is equal to `impulse - lowpass(impulse)` where `lowpass` is the low-pass version of the high-pass filter, and its step response is equal to 1 minus the step response of its low-pass version.
 
 <br/>
 
@@ -389,17 +389,17 @@ The impulse response of an high-pass filter is equal to `impulse - lowpass(impul
 <legend>Band-pass filter frequency response</legend>
 </p>
 
-Band-pass filters are used to remove/attenuate lower and higher frequencies of an input signal, they therefore perform the operation of a low-pass and high-pass filters simultaneously. The sum of the coefficients of a band-pass filter with passband unity is like an high-pass filter equal to 0, however while most of the coefficients of an high-pass filters are negatives, band-pass filters possesses in general the same number of negative and positive coefficients.
+Band-pass filters are used to remove/attenuate lower and higher frequencies of an input signal. They therefore perform the operation of low-pass and high-pass filters simultaneously. The sum of the coefficients of a band-pass filter with passband unity is like a high-pass filter equal to 0, however while most of the coefficients of a high-pass filters are negative, band-pass filters generally have the same number of negative and positive coefficients.
 
-The easier way to design band-pass filters is by simply applying a low-pass filter to an high-pass filter, therefore ``bandpass = lowpass(highpass(input))``. For example the band-pass version of a simple moving average can be made as follows :
+The easiest way to design band-pass filters is by simply applying a low-pass filter to a high-pass filter, therefore ``bandpass = lowpass(highpass(input))``. The band-pass version of a simple moving average can be made as follows:
 
 ```
 bpsma = sma(input - sma(input,length),length)
 ```
 
-Symmetrical signals in a range of [-1,1] are great choices of kernels for band-pass filters. Another option is to use the 1st difference of a low-pass filter kernel in order to produce a band-pass filter kernel, in order to do so check the formula you are using to generate the coefficients of the low-pass filter, then get the formula derivative, this method mostly work with increasing/decreasing symmetrical kernels.
+Symmetrical signals in a range of [-1,1] are great choices of kernels for band-pass filters. Another option is to use the 1st difference of a low-pass filter kernel in order to produce a band-pass filter kernel. In order to do so, check the formula you are using to generate the coefficients of the low-pass filter, then get the formula's derivative. This method mostly works with increasing/decreasing symmetrical kernels.
 
-The impulse response of a band-pass filter is equal to the convolution between the low-pass and high-pass impulses responses, that is: ``cum(lowpass(impulse)*highpass(impulse))``, and the step response would be equal to the cumulative sum of the band-pass filter impulse response.
+The impulse response of a band-pass filter is equal to the convolution between the low-pass and high-pass impulses responses, that is: ``cum(lowpass(impulse)*highpass(impulse))``, and the step response would be equal to the cumulative sum of the band-pass filter's impulse response.
 
 <br/>
 
@@ -412,9 +412,9 @@ The impulse response of a band-pass filter is equal to the convolution between t
 </p>
 
 
-Band-stop filters, also called band-reject or notch filters are used to remove/attenuate frequencies in a specific range of the input signal while preserving higher/lower frequencies, they therefore perform the contrary operation of band-pass filters. The sum of the coefficients of a band-stop filter with passband unity is equal to 1.
+Band-stop filters, also called band-reject or notch filters, are used to remove/attenuate frequencies in a specific range of the input signal while preserving higher/lower frequencies. They perform the contrary operation of band-pass filters. The sum of the coefficients of a band-stop filter with passband unity is equal to 1.
 
-The easiest way to design band-stop filters is by simply subtracting the input signal with a band-pass filter, therefore ``bandstop = input - bandpass(input)``. For example the band-stop version of a simple moving average can be made as follows :
+The easiest way to design band-stop filters is by simply subtracting  a band-pass filter from the input signal: ``bandstop = input - bandpass(input)``. The band-stop version of a simple moving average can be made as follows:
 
 ```
 bssma = input - sma(input - sma(input,length),length)
@@ -428,9 +428,9 @@ The impulse response of a band-stop filter is equal to `impulse + bandpass(impul
 
 ### Windowing And Window Functions
 
-Windowing (*sometimes called "kernel tapering"*) is a process that allow to enhance the performance of a FIR filter in the frequency domain, for example windowing allow to remove ripples in the pass/stop-band of the filter frequency response, which allow a greater attenuation of frequencies thus creating a smoother output. Windowing can be used when the kernel of a FIR filter is non-periodic and/or has sharp borders (*which is the cause of ripples*), windowing would create a more periodic kernel and would attenuate or eliminate the sharp borders in it.
+Windowing (sometimes called *kernel tapering*) is a process that allows to enhance the performance of a FIR filter in the frequency domain. Windowing allows removing ripples in the pass/stop-band of the filter frequency response which yields a greater attenuation of frequencies, thus creating a smoother output. Windowing can be used when the kernel of a FIR filter is non-periodic and/or has sharp borders (which is the cause of ripples). It will create a more periodic kernel and attenuate or eliminate its sharp borders.
 
-Windowing simply consist in multiplying the filter kernel by a window function. In Pine Script, the general form of windowing would be done as follows :
+Windowing simply consists of multiplying the filter kernel by a window function. In Pine Script, the general form of windowing would be done as follows :
 
 ```
 filter(input) =>
@@ -440,7 +440,7 @@ filter(input) =>
     sum
 ```
 
-where `w(i)` is a windowing function with argument `i`. There exist a wide variety of windowing function, which can also be used as kernels for low-pass filters, the most notable one will be described alongside their computations below.
+where `w(i)` is a windowing function with argument `i`. There exists a wide variety of windowing functions, which can also be used as kernels for low-pass filters. The most notable ones will be described and their calculation shown below.
 
 <hr>
 
@@ -498,7 +498,7 @@ hann(x) =>
 
 ### Windowing Template
 
-In order to easily apply windowing to your FIR filter, you can use the following template who include all the previously seen windows.
+In order to easily apply windowing to your FIR filter, you can use the following template which includes all the previously mentioned windows:
 
 ```
 length = input(100),src = input(close)
@@ -521,7 +521,7 @@ for i = 0 to length-1
 filter = sum/sumw
 ```
 
-here all you need to do is to put the calculation generating your filter coefficients in `h`.
+All you need to do is to put the calculation generating your filter coefficients in `h`.
 
 <br/>
 
@@ -539,7 +539,7 @@ The gaussian function is described by the following formula:
 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/daee44f99786978de5ecd5227c70fb2c1bb7dc03">
 </p>
 
-where σ is the standard deviation parameter and control the width of curve with lower values of σ making a wider curve. However a gaussian function is infinitely long and never reach 0, therefore using it as filter kernel is theoretically impossible, this is why the function is first truncated then used as filter kernel.
+where σ is the standard deviation parameter and controls the width of the curve at lower values. However a gaussian function is infinitely long and never reaches 0. Therefore using it as filter kernel is theoretically impossible, which is why the function is first truncated then used as filter kernel.
 
 The simplest way to implement a gaussian filter is based on multiple applications of a simple moving average, the resulting impulse response would approximate a gaussian function, however this approach can be extremely inefficient. Another way is by using the function `alma(series, length, offset, sigma)` with `offset = 0.5`, however the filter impulse response is nonsymmetric when using an even filter length.
 
@@ -566,11 +566,11 @@ gauss = sum/sumh
 <legend>Windowed sinc filters frequency response using different types of windows</legend>
 </p>
 
-The windowed sinc filter is a filter that try to approximate an ideal frequency response, that is a filter who would only remove or keep frequencies in the signal, but would not attenuate them. A sinc filter use a sinc function as filter kernel, but like the gaussian filter, such function require to be infinite in order for the filter to return an ideal frequency response, since this is impossible with FIR filters the sinc function is truncated.
+The windowed sinc filter is a filter that tries to approximate an ideal frequency response, that is a filter which would only remove or keep frequencies in the signal, but would not attenuate them. A sinc filter uses a sinc function as its filter kernel, but like the gaussian filter, such functions must be infinite in order for the filter to return an ideal frequency response. Because this is impossible with FIR filters, the sinc function is truncated.
 
-In order to minimize the effects of truncation, windowing is applied (*the truncated sinc function is multiplied by a window function*), hence the name windowed sinc filter.
+In order to minimize the effects of truncation, windowing is applied (the truncated sinc function is multiplied by a window function), hence the name *windowed sinc filter*.
 
-A windowed sinc filter with custom window is computed in Pine Script as follows:
+A windowed sinc filter with a custom window is computed in Pine Script as follows:
 
 ```
 length = input(100),src = input(close),cm = input(1,"Cut-Off Multiplier")
@@ -595,7 +595,7 @@ for i = 0 to length-1
 filter = sum/sumw
 ```
 
-the cut-off multiplier `cm` determine the number of local maxima/minima in the sinc function, more precisely `n = 2*cm - 1` where `n` is the number of local maxima/minima.
+The cut-off multiplier `cm` determines the number of local maxima/minima in the sinc function, more precisely `n = 2*cm - 1` where `n` is the number of local maxima/minima.
 
 <br/>
 
@@ -606,7 +606,7 @@ the cut-off multiplier `cm` determine the number of local maxima/minima in the s
 <legend>General Form Of IIR Filters</legend>
 </p>
 
-Unlike FIR filters who have an impulse response returning to steady state, IIR (*infinite impulse response*) filters have an infinitely long impulse response. IIR filters are also based on a weighted sum, however they use recursion, which means they use past outputs values as input. The use of recursion allow for extremely efficient filters, which was one of the downsides of FIR filters who require an high number of operations with larger filtering amounts (*higher `length`*), this is not the case with IIR filters.
+Unlike FIR filters which have an impulse response returning to steady state, IIR (*infinite impulse response*) filters have an infinitely long impulse response. IIR filters are also based on a weighted sum, however they use recursion, which means they use past outputs values as input. The use of recursion allow for extremely efficient filters, which was one of the downsides of FIR filters which require a high number of operations with larger filtering amounts (higher `length`). This is not the case with IIR filters.
 
 In Pine Script an IIR filter can be made as follows:
 
@@ -615,20 +615,20 @@ y = 0.
 y := b0*input+b1*input[1]...+a0*nz(y[1])+a1*nz(y[2])...
 ```
 
-The coefficients that affect the input values (*all `b` in the code*) are called feed-forward coefficients, while the coefficients affecting past outputs values (*all `a` in the code*) are called feedback coefficients. The function `nz` output a user selected value (*0 by default*) when the input is `na`, therefore this function is useful at initializing the IIR filter, in general recursive inputs are initialized with 0, in this case we can rewrite the above code more efficiently with:
+The coefficients that affect the input values (all `b`-prefixed variables in the code) are called feed-forward coefficients, while the coefficients affecting past outputs values (all `a`-prefixed) are called feedback coefficients. The function `nz` outputs a user-selected value (0 by default) when the input is `na`. This function is useful to initialize the IIR filter. Recursive inputs are generally initialized to 0. In this case we can rewrite the above code more efficiently with:
 
 ```
 y = 0.
 y := a0*input+a1*input[1]...+nz(b0*y[1]+b1*y[2]...)
 ```
 
-It is also common to use the input signal as initializing value.
+It is also common to use the input signal as the initializing value.
 
 <br/>
 
 ### Simple IIR Design Techniques
 
-Designing IIR filters is way more complicated than FIR ones, as the feed-forward and feedback coefficients needs to be precisely calculated in order to return a desired output. For an IIR low-pass filter with no overshoots, the sum of coefficients needs to be equal to 1 in order to have passband unity, however unlike FIR filters, if the sum of the IIR filter coefficients are greater than 1, the filter won't be stable. A simple way to make our IIR filter stable is by using a normalizing constant, for example:
+Designing IIR filters is way more complicated than FIR ones, as the feed-forward and feedback coefficients needs to be precisely calculated in order to return a desired output. For an IIR low-pass filter with no overshoots, the sum of coefficients needs to be equal to 1 in order to have passband unity, however unlike FIR filters, if the sum of the IIR filter's coefficients is greater than 1, the filter won't be stable. A simple way to make our IIR filter stable is by using a normalizing constant, for example:
 
 ```
 b0 = 4,b1 = 5
@@ -639,7 +639,7 @@ y = 0.
 y := (b0*input+b1*input[1]+nz(a0*y[1]+a1*y[2]))/norm
 ```
 
-Here the sum of the coefficients (*`norm` in the code*) is greater than 1, however since we divide the weighted sum by the sum of the coefficients we get our filter with passband unity. The simplest IIR low-pass filter is the exponential moving average (*sometimes called exponential filter*) and is equivalent to a simple moving average. In Pine Script an exponential moving average can be computed using the `ema` function, however we can also compute it as follows:
+Here the sum of the coefficients (`norm` in the code) is greater than 1, however since we divide the weighted sum by the sum of the coefficients, we obtain a filter with passband unity. The simplest IIR low-pass filter is the exponential moving average (sometimes called *exponential filter*) and is equivalent to a simple moving average. In Pine Script an exponential moving average can be computed using the `ema` function, however we can also compute it as follows:
 
 ```
 ema = 0.
@@ -647,7 +647,7 @@ alpha = 2/(length+1)
 ema := alpha*input+(1-alpha)*nz(ema[1],src)
 ```
 
-where `length` is greater than 1 and defined by the user. Higher values of `length` give a greater weight to the past output, thus making the filter return a smoother output, therefore feedback coefficients higher than the feed-forward coefficients will return a larger filtering amount. Here no normalizing constant are needed, as `alpha + (1-alpha) = 1`. Another way to compute an exponential moving average is done as follows:
+where `length` is greater than 1 and defined by the user. Higher values of `length` give a greater weight to the past output, thus making the filter return a smoother output, therefore feedback coefficients higher than the feed-forward coefficients will return a larger filtering amount. Here no normalizing constant is needed, as `alpha + (1-alpha) = 1`. Another way to compute an exponential moving average is done as follows:
 
 ```
 ema = 0.
@@ -655,7 +655,7 @@ alpha = 2/(length+1)
 ema := nz(ema[1],src) + alpha*nz(src-ema[1])
 ```
 
-Making different types of IIR filters can be done like previously mentioned in the FIR filter section, that is:
+Different types of IIR filters can be constructed using the same techniques mentioned in the FIR filter section, that is:
 
 * `IIR_highpass = input - IIR_lowpass(input)`
 * `IIR_bandpass = IIR_lowpass(IIR_highpass))`
@@ -672,9 +672,9 @@ All you need is the low-pass filter.
 <legend>Frequency Responses Of Butterworth Filters Using A Different Number Of Poles</legend>
 </p>
 
-The Butterworth filter is extremely popular because of its high frequency domain performances, the filter has no overshoots/undershoots and has a flat magnitude response. Some Butterworth filters with a different number of poles where described by Elhers [1] and are already available in the Pine Script repository.
+The Butterworth filter is extremely popular because of its high-frequency domain performances, the filter has no overshoots/undershoots and has a flat magnitude response. Some Butterworth filters with a different number of poles where described by Elhers [1] and are already available in the Pine Script repository.
 
-Alarcon, Guy and Binnie also proposed a simple 3 poles Butterworth filter [2], their design is computed in Pine Script as follows:
+Alarcon, Guy and Binnie also proposed a simple 3-pole Butterworth filter [2], their design is computed in Pine Script as follows:
 
 ```
 length = input(14),src = input(close)
@@ -698,14 +698,14 @@ out := nz(c*(src + src[3]) + 3*c*(src[1] + src[2]) + d0*out[1] + d1*out[2] + d2*
 
 ## Gaussian IIR Filter
 
-Many recursive implementations of the Gaussian filter exists and are way more efficient than their FIR counterparts. Unfortunately, they rely on forward-backward filtering in order to provide a symmetrical gaussian impulse response, this technique is not possible in Pine Script. Some alternatives exist, the most notable one being the Gaussian filter described by Elhers [3], which is based on the multiple applications of exponential moving averages, this filter is available in the Pine Script repository.
+Many recursive implementations of the Gaussian filter exist and are way more efficient than their FIR counterparts. Unfortunately, they rely on forward-backward filtering in order to provide a symmetrical gaussian impulse response, which cannot be implemented in Pine Script. Some alternatives exist, the most notable one being the Gaussian filter described by Elhers [3], which is based on the multiple applications of exponential moving averages, this filter is available in the Pine Script repository.
 
 
 <br/>
 
 ## Rolling Signal To Noise Ratio
 
-The signal to noise ratio (SNR) is used to measure the level of a signal relative to the level of unwanted noise, with a SNR inferior to 1 indicating more noise than signal. This metric is often expressed as the ratio of the mean and the standard deviation, however a rolling version might result more useful to the user, the signal to noise ratio function can be computed in Pine Script as follows :
+The signal to noise ratio (SNR) is used to measure the level of a signal relative to the level of unwanted noise, with a SNR inferior to 1 indicating more noise than signal. This metric is often expressed as the ratio of the mean and the standard deviation, however a rolling version could be more useful. The signal to noise ratio function can be computed in Pine Script as follows:
 
 ```
 snr(input) => sma(input,length)/stdev(input,length)
@@ -715,7 +715,7 @@ snr(input) => sma(input,length)/stdev(input,length)
 
 ## Rolling Noise Factor
 
-The noise factor is measurement that make use of the previously described signal to noise ratio and is defined as the ratio between the SNR of an input signal and the SNR of a system output. The rolling noise factor of a simple moving average can be computed in Pine Script as follows :
+The noise factor is a measurement that makes use of the previously described signal to noise ratio and is defined as the ratio between the SNR of an input signal and the SNR of a system output. The rolling noise factor of a simple moving average can be computed in Pine Script as follows:
 
 ```
 ma = sma(input,length)
@@ -736,7 +736,7 @@ lcg(seed) =>
     (s/30269 - .5)*2
 ```
 
-where `seed` is a user defined number. This generator is the classical linear congruential generator with no increment. In the case where we want normally distributed white noise we simply need to sum various white noise signal with an uniform distribution, that is:
+where `seed` is a user-defined number. This generator is the classical linear congruential generator with no increment. In the case where we want normally-distributed white noise, we simply need to sum various white noise signals with a uniform distribution, that is:
 
 ```
 normal = lcg(1) + lcg(2) + lcg(3) + ...
@@ -773,21 +773,21 @@ period(input)=>
 
 ## Tips And Tricks
 
-* Using `2*input - input[length/2]` as input for a low-pass filter with length `length` would reduce the filter lag.
+* Using `2*input - input[length/2]` as the input for a low-pass filter with length `length` will reduce the filter's lag.
 
-* Using linear combinations of low-pass filters allow to reduce lag, for example:
+* Using linear combinations of low-pass filters allows to reduce lag, for example:
 ```
 k*lowpass(input,length/2) - (k-1)*lowpass(input,length)
 ```
-with higher values of `k` further minimizing the filter lag.
+with higher values of `k` further minimizing the filter's lag.
 
-* The derivative of sigmoid functions (*S shaped curves*) can be used as filter kernel in order to create really smooth filters.
+* The derivative of sigmoid functions (*S shaped curves*) can be used for the filter's kernel in order to create really smooth filters.
 
-* The derivative of a symmetrical bell shaped curve can be used as filter kernel in order to create band-pass filters.
+* The derivative of a symmetrical bell shaped curve can be used for the filter's kernel in order to create band-pass filters.
 
-* If a script use a lot of simple moving averages, replace them with exponentially weighted ones as they are more efficient to compute.
+* If a script uses a lot of simple moving averages, replace them with exponentially weighted ones as they are more efficient to compute.
 
-* A strategy using IIR filters should start after the filter transient (*the first values of the filter*)
+* A strategy using IIR filters should start after the filter transient (*the first values of the filter*).
 
 * A simple moving average can be computed more efficiently using the following code:
 ```
@@ -804,7 +804,7 @@ bandpass = sma(input,length/2) - sma(input,length)
 dev = sqrt(filter(input*input) - pow(filter(input),2))
 ```
 
-Note that a filter having negative coefficients (*or low-lag in general*) can produce `na` values.
+Note that a filter having negative coefficients (or low-lag in general) can produce `na` values.
 
 
 <br/>
