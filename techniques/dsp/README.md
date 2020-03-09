@@ -812,11 +812,11 @@ Note that a filter having negative coefficients (*or low-lag in general*) can pr
 
 ## References
 
-[1] Ehlers, J. F. "POLES, ZEROS, and HIGHER ORDER FILTERS." http://www.stockspotter.com/Files/polesandzeros.pdf
+[1] Ehlers, J. F. "POLES, ZEROS, and HIGHER ORDER FILTERS." [http://www.stockspotter.com/Files/polesandzeros.pdf](http://www.stockspotter.com/Files/polesandzeros.pdf)
 
 [2] Alarcon, G., C. N. Guy, and C. D. Binnie. "A simple algorithm for a digital three-pole Butterworth filter of arbitrary cut-off frequency: application to digital electroencephalography." Journal of Neuroscience Methods 104.1 (2000): 35-44.
 
-[3] Ehlers, J. F. "Gaussian and Other Low Lag Filters" https://www.mesasoftware.com/papers/GaussianFilters.pdf
+[3] Ehlers, J. F. "Gaussian and Other Low Lag Filters" https://www.mesasoftware.com/papers/GaussianFilters.pdf](https://www.mesasoftware.com/papers/GaussianFilters.pdf)
 
 <br>
 
