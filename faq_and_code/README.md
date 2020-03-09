@@ -1681,7 +1681,7 @@ If you are unsure of the type to use, solve the problem *quick and dirty* by sim
 ### How can I know if something is happening for the first time since the beginning of the day?
 We show 3 techniques to do it. In the first, we use [``barssince()``](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) to check if the number of bars since the last condition, plus one, is greater than the number of bars since the beginning of the new day.
 
-In the second and third methods we track the condition manually, foregoing the need for ``barssince``. Method 2 is more readable. Method 3 is more compact.
+In the second and third methods we track the condition manually, foregoing the need for ``barssince()``. Method 2 is more readable. Method 3 is more compact.
 
 ```js
 //@version=4
