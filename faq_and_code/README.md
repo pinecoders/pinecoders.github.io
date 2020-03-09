@@ -1678,6 +1678,38 @@ plot(a)
 
 If you are unsure of the type to use, solve the problem *quick and dirty* by simply ending each block with the same casting like `float(na)`.
 
+### How can I know if something is happening for the first time since the beginning of the day?
+We show 2 techniques to do it. In the first, we use [``barssince()``](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) to check if the number of bars since the last condition, plus one, is greater than the number of bars since the beginning of the new day.
+
+In the second and third methods we track the condition manually, foregoing the need for ``barssince``. Method 2 is more readable. Method 3 is more compact.
+
+```js
+//@version=4
+study("First time since BOD", "", true)
+cond = close > open
+
+// ————— Method 1.
+first1 = cond and barssince(cond[1])+1 > barssince(change(time("D")))
+plotchar(first1, "first1", "•", location.top)
+
+// ————— Method 2.
+var allowTrigger2 = false
+first2 = false
+if change(time("D"))
+    allowTrigger2 := true
+if cond and allowTrigger2
+    first2 := true
+    allowTrigger2 := false
+plotchar(first2, "first2", "•", location.top, color = color.silver, size = size.normal)
+
+// ————— Method 3.
+var allowTrigger3 = false
+first3 = false
+allowTrigger3 := change(time("D")) or (allowTrigger3 and not first3[1])
+first3 := allowTrigger3 and cond
+plotchar(first3, "first3", "•", location.top, color = color.orange, size = size.large)
+```
+
 ### How can I optimize Pine code?
 The most important factor in writing optimized Pine code is to make sure you are using the combined power of the Pine runtime model with the use of series to its maximum. This requires an intimate understanding of what's going on when your script is executed. These User Manual sections on the [execution model](https://www.tradingview.com/pine-script-docs/en/v4/language/Execution_model.html) and [series](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator) will get you started.
 1. Use built-ins whenever you can to calculate values.
