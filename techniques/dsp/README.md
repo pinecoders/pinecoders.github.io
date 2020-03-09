@@ -227,7 +227,7 @@ The transient response of a system is the output of a system using a transient s
 
 ### Impulse Response
 
-As its name suggest the impulse response of a system is the output of a system using an unit impulse as input. If a system convolve a signal with an unit impulse the impulse response will be equal to the original signal. The impulse response of a system is computed as follows:
+As its name suggests, the impulse response of a system is the output of a system using a unit impulse as input. If a system convolves a signal with a unit impulse, the impulse response will be equal to the original signal. The impulse response of a system is computed as follows:
 
 ```
 n = bar_index
@@ -235,13 +235,13 @@ impulse = n == k ? 1 : 0
 response = f(impulse)
 ```
 
-Where ``f`` denote a system function. For example the impulse response of a simple moving average would be ``sma(impulse,length)``.
+Where ``f`` denotes a system function. For example the impulse response of a simple moving average would be ``sma(impulse,length)``.
 
 <br/>
 
 ### Step Response
 
-The step response of a system is the output of a system using an unit step as input. The step response of a system is computed as follows:
+The step response of a system is the output of a system using a unit step as its input. The step response of a system is computed as follows:
 
 ```
 n = bar_index
@@ -255,7 +255,7 @@ The step response of a simple moving average would be ``sma(step,length)``.
 
 ### Impulse-Step Response Equivalence
 
-As said in the transient signals section, the cumulative sum of an unit impulse give an unit step, this is also true for their response, that is the step response of a system is the cumulative sum of the system impulse response and the impulse response of a system is the 1st difference of the system step response.
+As mentioned in the transient signals section, the cumulative sum of a unit impulse gives a unit step. This is also true for their response, that is the step response of a system is the cumulative sum of the system's impulse response, and the impulse response of a system is the 1st difference of the system's step response.
 
 ```
 ImpulseResponse = change(f(step))
@@ -263,7 +263,7 @@ ImpulseResponse = change(f(step))
 StepResponse = cum(f(impulse))
 ```
 
-This is extremely useful if one want to use both impulse and step response in a same script as it allow to only have an unit impulse instead of an unit impulse + a unit step in the script, and it avoid using a system twice, which can be extremely inefficient. In case one only want to switch from the impulse response to the step response it is easier to just replace ``n == k ? 1 : 0`` with ``n > k ? 1 : 0``.
+This is extremely useful if one wants to use both impulse and step responses in a same script as it allows having only a unit impulse instead of a unit impulse + a unit step in the script. It also avoids using a system twice, which can be extremely inefficient. In case one only wants to switch from the impulse response to the step response, it is easier to just replace ``n == k ? 1 : 0`` with ``n > k ? 1 : 0``.
 
 <br/>
 
