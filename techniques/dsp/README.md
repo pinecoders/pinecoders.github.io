@@ -10,7 +10,7 @@
 
 [<img src="http://pinecoders.com/images/PineCodersLong.png">](http://pinecoders.com)
 
-# Digital Signal Processing In Pinescript, by [Alex Grover](https://www.tradingview.com/u/alexgrover/#published-scripts)
+# Digital Signal Processing in Pine Script, by [Alex Grover](https://www.tradingview.com/u/alexgrover/#published-scripts)
 
 <br/>
 
@@ -20,10 +20,10 @@
 - [Digital Signals](#digital-signals)
 - [Convolution](#convolution)
 - [Transient Responses](#transient-responses)
-- [FIR Filter Design In Pinescript](#fir-filter-design-in-pinescript)
+- [FIR Filter Design In Pine Script](#fir-filter-design-in-pine-script)
 - [Gaussian FIR Filter](#gaussian-fir-filter)
 - [Windowed Sinc FIR Filter](#windowed-sinc-fir-filter)
-- [IIR Filter Design In Pinescript](#iir-filter-design-in-pinescript)
+- [IIR Filter Design In Pine Script](#iir-filter-design-in-pine-script)
 - [Butterworth IIR Filter](#butterworth-iir-filter)
 - [Gaussian IIR Filter](#gaussian-iir-filter)
 - [Rolling Signal To Noise Ratio](#rolling-signal-to-noise-ratio)
@@ -39,7 +39,7 @@
 ## Introduction
 
 
-[Pinescript](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html) is a really lightweight scripting language but it still allow for the computation of basic signal processing processes. In this guide, basic techniques and tools used in signal processing are showcased alongside their implementation in Pinescript. It is recommended to know the basics of Pinescript before reading this guide. Start [here](http://www.pinecoders.com/learning_pine_roadmap/) if you don't.
+[Pine Script](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html) is a really lightweight scripting language but it allows for the computation of basic signal processing processes. In this guide, basic techniques and tools used in signal processing are showcased alongside their implementation in Pine Script. It is recommended to know the basics of Pine Script before reading this guide. Start [here](http://www.pinecoders.com/learning_pine_roadmap/) if you don't.
 
 > Note that this guide is not intended to be an introduction to digital signal processing, even if some short definitions are shared.
 
@@ -47,7 +47,7 @@
 
 ## Digital Signals
 
-A digital signal is simply a sequence of values (*samples*) expressing a quantity that varies with time. When using Pinescript, you'll mostly be processing market prices as your main signal. However it is possible to process/generate a wide variety of digital signals with Pinescript.
+A digital signal is simply a sequence of values (*samples*) expressing a quantity that varies with time. When using Pine Script, you'll mostly be processing market prices as your main signal. However it is possible to process/generate a wide variety of digital signals with Pine Script.
 
 <br/>
 
@@ -66,7 +66,7 @@ Periodic signals possess characteristics such as : **frequency**, **period**, **
 
 #### Sine Wave
 
-The simplest periodic signal is the sine wave, with function computed in Pinescript as follows:
+The simplest periodic signal is the sine wave, with function computed in Pine Script as follows:
 
 ```
 sinewave(period,amplitude,phase)=>
@@ -82,7 +82,7 @@ sinewave(period,amplitude,phase)=>
 
 #### Triangular Wave
 
-A triangular wave function is computed in Pinescript as follows:
+A triangular wave function is computed in Pine Script as follows:
 
 ```
 triangle(period,amplitude,phase)=>
@@ -95,7 +95,7 @@ triangle(period,amplitude,phase)=>
 
 #### Square Wave
 
-A square wave function is computed in Pinescript as follows:
+A square wave function is computed in Pine Script as follows:
 
 ```
 square(period,amplitude,phase)=>
@@ -111,7 +111,7 @@ square(period,amplitude,phase)=>
 
 #### Sawtooth Wave
 
-A sawtooth wave function is computed in Pinescript as follows:
+A sawtooth wave function is computed in Pine Script as follows:
 
 ```
 saw(period,amplitude,phase)=>
@@ -206,7 +206,7 @@ Convolution is one of the most important concepts in signal processing. Basicall
 <legend>Convolution operation</legend>
 </p>
 
-One can think of convolution as a sliding dot-product, or alternatively as a weighted rolling sum. In Pinescript convolution would be computed as follows :
+One can think of convolution as a sliding dot-product, or alternatively as a weighted rolling sum. In Pine Script convolution would be computed as follows :
 
 ```
 sum = 0.
@@ -267,7 +267,7 @@ This is extremely useful if one want to use both impulse and step response in a 
 
 <br/>
 
-## FIR Filter Design In Pinescript
+## FIR Filter Design In Pine Script
 
 <p align="center">
 <img src="http://www.sciweavers.org/tex2img.php?eq=%5Csum_%7Bi%3D0%7D%5E%7BP-1%7D%20x%5Bn-i%5Dh%5Bi%5D&bc=Transparent&fc=Black&im=jpg&fs=36&ff=modern&edit=0" align="center" border="0" alt="\sum_{i=0}^{P-1} x[n-i]h[i]" width="325" height="150" />
@@ -276,11 +276,11 @@ This is extremely useful if one want to use both impulse and step response in a 
 
 Filters allow us to modify the frequency content of a signal (*see Fourier transform/decomposition*) by removing/attenuating unwanted frequencies from the input signal, certain filters can also amplify certain frequencies in the signal.
 
-FIR filters are a class of filters that are calculated by using convolution. "FIR" stand for "finite impulse response", which means that the filter impulse response will go back to *steady-state*, that is to 0 and will remain equal to 0. Because Pinescript can perform convolution it is possible to design a wide variety of FIR filters.
+FIR filters are a class of filters that are calculated by using convolution. "FIR" stand for "finite impulse response", which means that the filter impulse response will go back to *steady-state*, that is to 0 and will remain equal to 0. Because Pine Script can perform convolution it is possible to design a wide variety of FIR filters.
 
 A FIR filter `filter(input)` is equal to `input * filter(impulse)` where `*` denote convolution, more simply put a filter output using a certain input is the convolution between the input and the filter impulse response.
 
-In Pinescript you can make FIR filters by using:
+In Pine Script you can make FIR filters by using:
 
 ```
 filter(input) =>
@@ -289,11 +289,11 @@ filter(input) =>
         sum := sum + input[i] * h[i]
     sum
 ```
-where `length` is the filter length, and will often control the filtering amount. `h[i]` are the filter coefficients (also called *weights*), a term used to describe an entire set of coefficients is "kernel". However in Pinescript `h` will mostly denote an operation or a function of `i`.
+where `length` is the filter length, and will often control the filtering amount. `h[i]` are the filter coefficients (also called *weights*), a term used to describe an entire set of coefficients is "kernel". However in Pine Script `h` will mostly denote an operation or a function of `i`.
 
 The coefficients fully describe the time domain properties of the filter, such as smoothness and lag, and can give hints on the filter properties in the frequency domain, however when we want to know how the filter interact with the frequency content of the signal we look at its **frequency response**, which for FIR filters is the Fourier transform of the impulse response.
 
-There exist several types of filters that modify the frequency content of an input signal in different ways, each one of them will be introduced in this section and we will learn how to create them in Pinescript.
+There exist several types of filters that modify the frequency content of an input signal in different ways, each one of them will be introduced in this section and we will learn how to create them in Pine Script.
 
 <br/>
 
@@ -305,7 +305,7 @@ There exist several types of filters that modify the frequency content of an inp
 <legend>Low-pass filter frequency response</legend>
 </p>
 
-Low-pass filters are used to remove/attenuate higher frequencies of an input signal, which lead to a smooth output. In technical analysis moving averages are low-pass filters. The simplest low-pass filter is the simple (arithmetic) moving average, which convolve the input signal with a constant, that is the filter coefficients of a simple moving average are all equal to ``1/length`` where ``length`` is the filter length. In Pinescript the most efficient way to compute a simple moving average is by using the built-in `sma` function.
+Low-pass filters are used to remove/attenuate higher frequencies of an input signal, which lead to a smooth output. In technical analysis moving averages are low-pass filters. The simplest low-pass filter is the simple (arithmetic) moving average, which convolve the input signal with a constant, that is the filter coefficients of a simple moving average are all equal to ``1/length`` where ``length`` is the filter length. In Pine Script the most efficient way to compute a simple moving average is by using the built-in `sma` function.
 
 The simple moving average using convolution is computed as follows:
 
@@ -337,7 +337,7 @@ lpfilter = sum/sumh
 
 Here the sum of `h` is not equal to 1, however because we divide the convolution output by the sum of the coefficients (*`sumh` in the script*) we can get the filter with an unit passband.
 
-It is not possible to design FIR filters precisely with Pinescript, as the necessary tools are not available, however since the characteristics of a filter are described by its coefficients, we can roughly get an idea on how a FIR filter might process an input signal. Below is a short guide on the relationship between filter characteristics and filter coefficients.
+It is not possible to design FIR filters precisely with Pine Script, as the necessary tools are not available, however since the characteristics of a filter are described by its coefficients, we can roughly get an idea on how a FIR filter might process an input signal. Below is a short guide on the relationship between filter characteristics and filter coefficients.
 
 * A filter will be smooth if its impulse response is relatively symmetrical, with mostly positive values, and not to width nor to sharp. Width impulses responses will return an output similar to a simple moving average while sharp impulse responses will return an approximation of an impulse and the filter could just return a shifted version of the input signal.
 
@@ -430,7 +430,7 @@ The impulse response of a band-stop filter is equal to `impulse + bandpass(impul
 
 Windowing (*sometimes called "kernel tapering"*) is a process that allow to enhance the performance of a FIR filter in the frequency domain, for example windowing allow to remove ripples in the pass/stop-band of the filter frequency response, which allow a greater attenuation of frequencies thus creating a smoother output. Windowing can be used when the kernel of a FIR filter is non-periodic and/or has sharp borders (*which is the cause of ripples*), windowing would create a more periodic kernel and would attenuate or eliminate the sharp borders in it.
 
-Windowing simply consist in multiplying the filter kernel by a window function. In Pinescript, the general form of windowing would be done as follows :
+Windowing simply consist in multiplying the filter kernel by a window function. In Pine Script, the general form of windowing would be done as follows :
 
 ```
 filter(input) =>
@@ -450,7 +450,7 @@ where `w(i)` is a windowing function with argument `i`. There exist a wide varie
 <img src="https://docs.scipy.org/doc/numpy/_images/numpy-blackman-1_00_00.png">
 </p>
 
-The Blackman window is a window with a symmetrical shape consisting on the sum of 2 cosine waves. In Pinescript the function of a Blackman window can be computed follows:
+The Blackman window is a window with a symmetrical shape consisting on the sum of 2 cosine waves. In Pine Script the function of a Blackman window can be computed follows:
 
 ```
 blackman(x) =>
@@ -468,7 +468,7 @@ Where `length` is the filter length.
 <img src="https://docs.scipy.org/doc/numpy/_images/numpy-bartlett-1_00_00.png">
 </p>
 
-The Bartlett window, also called triangular window is a window with a triangular shape. In Pinescript the function of a Bartlett window can be computed follows:
+The Bartlett window, also called triangular window is a window with a triangular shape. In Pine Script the function of a Bartlett window can be computed follows:
 
 ```
 bartlett(x) =>
@@ -486,7 +486,7 @@ The convolution between an input signal and a Bartlett function is the same as a
 <img src="https://docs.scipy.org/doc/numpy/_images/numpy-hanning-1_00_00.png">
 </p>
 
-The Hann window, also called Hanning window is similar to the Blackman window but is wider. In Pinescript the function of an Hann window can be computed follows:
+The Hann window, also called Hanning window is similar to the Blackman window but is wider. In Pine Script the function of an Hann window can be computed follows:
 
 ```
 hann(x) =>
@@ -543,7 +543,7 @@ where σ is the standard deviation parameter and control the width of curve with
 
 The simplest way to implement a gaussian filter is based on multiple applications of a simple moving average, the resulting impulse response would approximate a gaussian function, however this approach can be extremely inefficient. Another way is by using the function `alma(series, length, offset, sigma)` with `offset = 0.5`, however the filter impulse response is nonsymmetric when using an even filter length.
 
-A gaussian filter with symmetrical impulse response can be computed in Pinescript as follows:
+A gaussian filter with symmetrical impulse response can be computed in Pine Script as follows:
 
 ```
 length = input(100),src = input(close),width = input(2)
@@ -570,7 +570,7 @@ The windowed sinc filter is a filter that try to approximate an ideal frequency 
 
 In order to minimize the effects of truncation, windowing is applied (*the truncated sinc function is multiplied by a window function*), hence the name windowed sinc filter.
 
-A windowed sinc filter with custom window is computed in Pinescript as follows:
+A windowed sinc filter with custom window is computed in Pine Script as follows:
 
 ```
 length = input(100),src = input(close),cm = input(1,"Cut-Off Multiplier")
@@ -599,7 +599,7 @@ the cut-off multiplier `cm` determine the number of local maxima/minima in the s
 
 <br/>
 
-## IIR Filter Design In Pinescript
+## IIR Filter Design In Pine Script
 
 <p align="center">
 <img src="http://www.sciweavers.org/tex2img.php?eq=y%5Bn%5D%20%3D%20%5Csum_%7Bi%3D0%7D%5E%7BP-1%7D%20b%5Bi%5Dx%5Bn-i%5D%20%2B%20%5Csum_%7Bj%3D1%7D%5E%7BQ%7D%20a%5Bj%5Dy%5Bn-j%5D&bc=Transparent&fc=Black&im=png&fs=30&ff=modern&edit=0" align="center" border="0" alt="y[n] = \sum_{i=0}^{P-1} b[i]x[n-i] + \sum_{j=1}^{Q} a[j]y[n-j]" width="705" height="132" />
@@ -608,7 +608,7 @@ the cut-off multiplier `cm` determine the number of local maxima/minima in the s
 
 Unlike FIR filters who have an impulse response returning to steady state, IIR (*infinite impulse response*) filters have an infinitely long impulse response. IIR filters are also based on a weighted sum, however they use recursion, which means they use past outputs values as input. The use of recursion allow for extremely efficient filters, which was one of the downsides of FIR filters who require an high number of operations with larger filtering amounts (*higher `length`*), this is not the case with IIR filters.
 
-In Pinescript an IIR filter can be made as follows:
+In Pine Script an IIR filter can be made as follows:
 
 ```
 y = 0.
@@ -639,7 +639,7 @@ y = 0.
 y := (b0*input+b1*input[1]+nz(a0*y[1]+a1*y[2]))/norm
 ```
 
-Here the sum of the coefficients (*`norm` in the code*) is greater than 1, however since we divide the weighted sum by the sum of the coefficients we get our filter with passband unity. The simplest IIR low-pass filter is the exponential moving average (*sometimes called exponential filter*) and is equivalent to a simple moving average. In Pinescript an exponential moving average can be computed using the `ema` function, however we can also compute it as follows:
+Here the sum of the coefficients (*`norm` in the code*) is greater than 1, however since we divide the weighted sum by the sum of the coefficients we get our filter with passband unity. The simplest IIR low-pass filter is the exponential moving average (*sometimes called exponential filter*) and is equivalent to a simple moving average. In Pine Script an exponential moving average can be computed using the `ema` function, however we can also compute it as follows:
 
 ```
 ema = 0.
@@ -672,9 +672,9 @@ All you need is the low-pass filter.
 <legend>Frequency Responses Of Butterworth Filters Using A Different Number Of Poles</legend>
 </p>
 
-The Butterworth filter is extremely popular because of its high frequency domain performances, the filter has no overshoots/undershoots and has a flat magnitude response. Some Butterworth filters with a different number of poles where described by Elhers [1] and are already available in the Pinescript repository.
+The Butterworth filter is extremely popular because of its high frequency domain performances, the filter has no overshoots/undershoots and has a flat magnitude response. Some Butterworth filters with a different number of poles where described by Elhers [1] and are already available in the Pine Script repository.
 
-Alarcon, Guy and Binnie also proposed a simple 3 poles Butterworth filter [2], their design is computed in Pinescript as follows:
+Alarcon, Guy and Binnie also proposed a simple 3 poles Butterworth filter [2], their design is computed in Pine Script as follows:
 
 ```
 length = input(14),src = input(close)
@@ -698,14 +698,14 @@ out := nz(c*(src + src[3]) + 3*c*(src[1] + src[2]) + d0*out[1] + d1*out[2] + d2*
 
 ## Gaussian IIR Filter
 
-Many recursive implementations of the Gaussian filter exists and are way more efficient than their FIR counterparts. Unfortunately, they rely on forward-backward filtering in order to provide a symmetrical gaussian impulse response, this technique is not possible in Pinescript. Some alternatives exist, the most notable one being the Gaussian filter described by Elhers [3], which is based on the multiple applications of exponential moving averages, this filter is available in the Pinescript repository.
+Many recursive implementations of the Gaussian filter exists and are way more efficient than their FIR counterparts. Unfortunately, they rely on forward-backward filtering in order to provide a symmetrical gaussian impulse response, this technique is not possible in Pine Script. Some alternatives exist, the most notable one being the Gaussian filter described by Elhers [3], which is based on the multiple applications of exponential moving averages, this filter is available in the Pine Script repository.
 
 
 <br/>
 
 ## Rolling Signal To Noise Ratio
 
-The signal to noise ratio (SNR) is used to measure the level of a signal relative to the level of unwanted noise, with a SNR inferior to 1 indicating more noise than signal. This metric is often expressed as the ratio of the mean and the standard deviation, however a rolling version might result more useful to the user, the signal to noise ratio function can be computed in Pinescript as follows :
+The signal to noise ratio (SNR) is used to measure the level of a signal relative to the level of unwanted noise, with a SNR inferior to 1 indicating more noise than signal. This metric is often expressed as the ratio of the mean and the standard deviation, however a rolling version might result more useful to the user, the signal to noise ratio function can be computed in Pine Script as follows :
 
 ```
 snr(input) => sma(input,length)/stdev(input,length)
@@ -715,7 +715,7 @@ snr(input) => sma(input,length)/stdev(input,length)
 
 ## Rolling Noise Factor
 
-The noise factor is measurement that make use of the previously described signal to noise ratio and is defined as the ratio between the SNR of an input signal and the SNR of a system output. The rolling noise factor of a simple moving average can be computed in Pinescript as follows :
+The noise factor is measurement that make use of the previously described signal to noise ratio and is defined as the ratio between the SNR of an input signal and the SNR of a system output. The rolling noise factor of a simple moving average can be computed in Pine Script as follows :
 
 ```
 ma = sma(input,length)
@@ -728,7 +728,7 @@ nf = snrin/snrout
 
 ## Generating White Noise
 
-White noise is a type of random signal that has a constant power spectral density with no auto-correlation. Randomness can't be programmed, and therefore we can only use pseudo-random number generators in order to approximate white noise. A white noise generator function with uniform distribution and 0 mean can be computed in Pinescript as follows :
+White noise is a type of random signal that has a constant power spectral density with no auto-correlation. Randomness can't be programmed, and therefore we can only use pseudo-random number generators in order to approximate white noise. A white noise generator function with uniform distribution and 0 mean can be computed in Pine Script as follows :
 
 ```
 lcg(seed) =>
@@ -828,7 +828,7 @@ Note that a filter having negative coefficients (*or low-lag in general*) can pr
 
 <br/>
 
-*alexgrover is a member of the tradingview community specialized in the creation of technical trading tools using the Pinescript scripting language. As a DSP enthusiast, he try to explain many DSP concepts in an intuitive way to the tradingview community.*
+*alexgrover is a member of the TradingView community specialized in the creation of technical trading tools using the Pine Script language. As a DSP enthusiast, he tries to explain many DSP concepts in an intuitive way to the TradingView community.*
 
 *Thanks for reading ⊂( ・ω・)⊃*
 
