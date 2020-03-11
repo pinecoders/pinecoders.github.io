@@ -634,9 +634,6 @@ You can use only one such statement in your script. If you use more than one, th
 
 See how our [Signal for Backtesting-Trading Engine](https://www.tradingview.com/script/y4CvTwRo-Signal-for-Backtesting-Trading-Engine-PineCoders/) can be integrated as an input to our [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/).
 
-### Can I write a script that plots like the built-in Volume Profile or Volume indicators?
-No. TradingView uses special code for these that is not available to standard Pine scripts.
-
 ### Is it possible to export indicator data to a file?
 No. The only way for now is through screen scraping.
 
