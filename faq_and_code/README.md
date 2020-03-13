@@ -1724,7 +1724,7 @@ The [PineCoders Stopwatch](https://www.tradingview.com/script/rRmrkRDr-Script-St
 ### How can I access financials information on stocks from Pine?
 Using the [`security()`](https://www.tradingview.com/pine-script-reference/v4/#fun_security) function, you can access information on earnings, splits and dividends using the technique illustrated in [this script](https://www.tradingview.com/script/XUX5VVN0-Earnings-Splits-Dividends/). Note that this method is not officially supported by TradingView and may not work in the future.
 
-More complete financial information on stocks is available from the [Financials](https://www.tradingview.com/blog/en/fundamental-analysis-is-now-available-on-tradingview-15448/) button on your chart. This information appears on the chart as an indicator. Using [external input](https://www.pinecoders.com/faq_and_code/#how-can-i-use-one-scripts-output-as-an-input-into-another), your script will be able to access information from one of those Finantials indicators at a time. Note that this setup will require the proper chart setup, i.e.,:
+More complete financial information on stocks is available from the [Financials](https://www.tradingview.com/blog/en/fundamental-analysis-is-now-available-on-tradingview-15448/) button on your chart. This information appears on the chart as an indicator. Using an [external input](https://www.pinecoders.com/faq_and_code/#how-can-i-use-one-scripts-output-as-an-input-into-another), your script will be able to access information from one of those Finantials indicators at a time. This will require the following setup:
 
 - Your script will need to allow for an external input.
 - Both your script and the require Financials indicator will need to be loaded on the chart.
