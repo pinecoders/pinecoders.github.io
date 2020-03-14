@@ -27,7 +27,7 @@ Do not make the mistake of assuming this is strictly beginner's material; some o
 - [Plotting](#plotting)
 - [Indicators (a.k.a. studies)](#indicators)
 - [Strategies](#strategies)
-- [Time and dates](#time-and-dates)
+- [Time, dates and Sessions](#time-dates-and-sessions)
 - [Other Timeframes (MTF)](#other-timeframes-mtf)
 - [Alerts](#alerts)
 - [Editor](#editor)
@@ -726,7 +726,7 @@ No. The brokers can only be used for manual trading. Currently, the only way to 
 
 
 <br><br>
-## TIME AND DATES
+## TIME, DATES AND SESSIONS
 
 
 ### How can I get the time of the first bar in the dataset?
@@ -780,6 +780,166 @@ if beginMonth
 plot(valueToPlot)
 bgcolor(beginMonth ? color.green : na)
 ```
+
+### How can I track highs/lows for a specific timeframe?
+This code shows how to do that without using `security()` calls, which slow down your script. The source used to calculate the highs/lows can be selected in the script's *Inputs*, as well as the period after which the high/low must be reset.
+```js
+//@version=4
+//@author=LucF, for PineCoders
+study("Periodic hi/lo", "", true)
+showHi = input(true, "Show highs")
+showLo = input(true, "Show lows")
+srcHi = input(high, "Source for Highs")
+srcLo = input(low, "Source for Lows")
+period = input("D", "Period after which hi/lo is reset", input.resolution)
+
+var hi = 10e-10
+var lo = 10e10
+// When a new period begins, reset hi/lo.
+hi := change(time(period)) ? srcHi : max(srcHi, hi)
+lo := change(time(period)) ? srcLo : min(srcLo, lo)
+
+plot(showHi ? hi : na, "Highs", color.blue, 3, plot.style_circles)
+plot(showLo ? lo : na, "Lows", color.fuchsia, 3, plot.style_circles)
+```
+
+### How can I track highs/lows for a specific period of time?
+We use session information in the 2-parameter version of the [`time`](https://www.tradingview.com/pine-script-reference/v4/#fun_time) function to test if we are in the user-defined hours during which we must keep track of the highs/lows. A setting allows the user to choose if he wants levels not to plot outside houts. It's the default.
+```js
+//@version=4
+//@author=LucF, for PineCoders
+study("Session hi/lo", "", true)
+noPlotOutside = input(true, "Don't plot outside of hours")
+showHi = input(true, "Show highs")
+showLo = input(true, "Show lows")
+srcHi = input(high, "Source for Highs")
+srcLo = input(low, "Source for Lows")
+timeAllowed = input("1200-1500", "Allowed hours", input.session)
+
+// Check to see if we are in allowed hours.
+timeIsAllowed = time(timeframe.period, timeAllowed)
+var hi = 10e-10
+var lo = 10e10
+if timeIsAllowed
+    // We are entering allowed hours; reset hi/lo.
+    if not timeIsAllowed[1]
+        hi := srcHi
+        lo := srcLo
+    else
+        // We are in allowed hours; track hi/lo.
+        hi := max(srcHi, hi)
+        lo := min(srcLo, lo)
+
+plot(showHi and not(noPlotOutside and not timeIsAllowed)? hi : na, "Highs", color.blue, 3, plot.style_circles)
+plot(showLo and not(noPlotOutside and not timeIsAllowed)? lo : na, "Lows", color.fuchsia, 3, plot.style_circles)
+```
+![.](https://www.tradingview.com/x/nxoCwdMs/ "Session Hi/Lo")
+
+### How can I track highs/lows between specific intrabar hours?
+We use the intrabar inspection technique explained [here](http://www.pinecoders.com/faq_and_code/#is-it-possible-to-use-security-on-lower-intervals-than-the-charts-current-interval) to inspect intrabars and save the high or low if the intrabar is whithin user-defined begin and end times.
+
+```js
+//@version=4
+//@author=LucF, for PineCoders
+study("Pre-market high/low", "", true)
+begHour = input(7, "Beginning time (hour)")
+begMinute = input(0, "Beginning time (minute)")
+endHour = input(9, "End time (hour)")
+endMinute = input(25, "End time (minute)")
+// Lower TF we are inspecting. Cannot be in seconds and must be lower that chart's resolution.
+insideRes = input("5", "Intrabar resolution used")
+
+startMinute = (begHour * 60) + begMinute
+finishMinute = (endHour * 60) + endMinute
+
+f_highBetweenTime(_start, _finish) =>
+    // Returns low between specific times.
+    var float _return = 0.
+    var _reset = true
+    _minuteNow = (hour * 60) + minute
+    if _minuteNow >= _start and _minuteNow <= _finish
+        // We are inside period.
+        if _reset
+            // We are at first bar inside period.
+            _return := high
+            _reset := false
+        else
+            _return := max(_return, high)
+    else
+        // We are past period; enable reset for when we next enter period.
+        _reset := true
+    _return
+
+f_lowBetweenTime(_start, _finish) =>
+    // Returns low between specific times.
+    var float _return = 10e10
+    var _reset = true
+    _minuteNow = (hour * 60) + minute
+    if _minuteNow >= _start and _minuteNow <= _finish
+        // We are inside period.
+        if _reset
+            // We are at first bar inside period.
+            _return := low
+            _reset := false
+        else
+            _return := min(_return, low)
+    else
+        // We are past period; enable reset for when we next enter period.
+        _reset := true
+    _return
+
+highAtTime = security(syminfo.tickerid, insideRes, f_highBetweenTime(startMinute, finishMinute))
+lowAtTime = security(syminfo.tickerid, insideRes, f_lowBetweenTime(startMinute, finishMinute))
+plot(highAtTime, "High", color.green)
+plot(lowAtTime, "Low", color.red)
+```
+
+### How can I detect a specific date/time?
+We will be using the `year`, `month`, `dayofmonth`, `hour`, `minute` and `seconds` to achieve this here. All these variables return their namesake's value at the bar the script is running on, and **in the exchange's timezone**. So in order for the target date/time you will enter in the script's *Settings/Inputs* to match the date/time on the chart, you will need to ensure your chart's time is set to display the exchange's timezone, as is showed in step 1 in the chart. Once that is done, step 2 shows how the chart will automatically display the exchange's timezone at the bottom.
+
+In this chart we have set the hour to "12" and the minute to "30" in the script's inputs. The bright green bar shows when our target time is reached, and the lighter green bars show the bars where the condition we are testing is true, i.e., since we haven't entered a specific date, the cycle repeats while our time threshold has been reached each day. You can test for either condition in your script.
+
+```js
+//@version=4
+study("Detecting a specific time (in the exchange's timezone)", "", true)
+targetYear      = input(0,  "Year (use 0 for all)",    minval = 0)
+targetMonth     = input(0,  "Month (use 0 for all)",   minval = 0, maxval = 12)
+targetDay       = input(0,  "Day (use 0 for all)",     minval = 0, maxval = 31)
+targetHour      = input(24, "Hour (use 24 for all)",   minval = 0, maxval = 24)
+targetMinute    = input(60, "Minute (use 60 for all)", minval = 0, maxval = 60)
+targetSecond    = input(60, "Second (use 60 for all)", minval = 0, maxval = 60)
+
+// Detect target date/time or greater, until the next higher generic value (i.e., using its default value in Inputs) changes.
+targetReached =
+  (targetYear   == 0  or year       >= targetYear)   and
+  (targetMonth  == 0  or month      >= targetMonth)  and
+  (targetDay    == 0  or dayofmonth >= targetDay)    and
+  (targetHour   == 24 or hour       >= targetHour)   and
+  (targetMinute == 60 or minute     >= targetMinute) and
+  (targetSecond == 60 or second     >= targetSecond)
+
+// Plot light bg whenever target date/time has been reached and next period hasn't reset the state.
+bgcolor(targetReached ? color.green : na, title = "In allowed time")
+// Plot brighter bg the first time we reach the target date/time.
+bgcolor(not targetReached[1] and targetReached ? color.lime : na, 50, title = "Entry into allowed time")
+
+// Save open at the beginning of each detection of the beginning of the date/time.
+var float savedOpen = na
+if not targetReached[1] and targetReached
+    savedOpen := open
+plot(savedOpen, "Saved open", change(savedOpen) ? na : color.gray, 3)
+
+// Plot current bar's date/time in the Data Window.
+plotchar(year, "year", "", location.top)
+plotchar(month, "month", "", location.top)
+plotchar(dayofmonth, "dayofmonth", "", location.top)
+plotchar(hour, "hour", "", location.top)
+plotchar(minute, "minute", "", location.top)
+plotchar(second, "second", "", location.top)
+```
+![.](Detecting_a_specific_time.png "Detecting a specific time (in the exchange's timezone)")
+
+
 **[Back to top](#table-of-contents)**
 
 
@@ -1248,60 +1408,6 @@ plot(maF)
 plot(maS, color = color.fuchsia)
 ```
 
-### How can I track highs/lows for a specific timeframe?
-This code shows how to do that without using `security()` calls, which slow down your script. The source used to calculate the highs/lows can be selected in the script's *Inputs*, as well as the period after which the high/low must be reset.
-```js
-//@version=4
-//@author=LucF, for PineCoders
-study("Periodic hi/lo", "", true)
-showHi = input(true, "Show highs")
-showLo = input(true, "Show lows")
-srcHi = input(high, "Source for Highs")
-srcLo = input(low, "Source for Lows")
-period = input("D", "Period after which hi/lo is reset", input.resolution)
-
-var hi = 10e-10
-var lo = 10e10
-// When a new period begins, reset hi/lo.
-hi := change(time(period)) ? srcHi : max(srcHi, hi)
-lo := change(time(period)) ? srcLo : min(srcLo, lo)
-
-plot(showHi ? hi : na, "Highs", color.blue, 3, plot.style_circles)
-plot(showLo ? lo : na, "Lows", color.fuchsia, 3, plot.style_circles)
-```
-
-### How can I track highs/lows for a specific period of time?
-We use session information in the 2-parameter version of the [`time`](https://www.tradingview.com/pine-script-reference/v4/#fun_time) function to test if we are in the user-defined hours during which we must keep track of the highs/lows. A setting allows the user to choose if he wants levels not to plot outside houts. It's the default.
-```js
-//@version=4
-//@author=LucF, for PineCoders
-study("Session hi/lo", "", true)
-noPlotOutside = input(true, "Don't plot outside of hours")
-showHi = input(true, "Show highs")
-showLo = input(true, "Show lows")
-srcHi = input(high, "Source for Highs")
-srcLo = input(low, "Source for Lows")
-timeAllowed = input("1200-1500", "Allowed hours", input.session)
-
-// Check to see if we are in allowed hours.
-timeIsAllowed = time(timeframe.period, timeAllowed)
-var hi = 10e-10
-var lo = 10e10
-if timeIsAllowed
-    // We are entering allowed hours; reset hi/lo.
-    if not timeIsAllowed[1]
-        hi := srcHi
-        lo := srcLo
-    else
-        // We are in allowed hours; track hi/lo.
-        hi := max(srcHi, hi)
-        lo := min(srcLo, lo)
-
-plot(showHi and not(noPlotOutside and not timeIsAllowed)? hi : na, "Highs", color.blue, 3, plot.style_circles)
-plot(showLo and not(noPlotOutside and not timeIsAllowed)? lo : na, "Lows", color.fuchsia, 3, plot.style_circles)
-```
-![.](https://www.tradingview.com/x/nxoCwdMs/ "Session Hi/Lo")
-
 ### How can I plot the previous and current day's open ?
 We define a period through the script's *Settings/Inputs*, in this case 1 day. Then we use the `time()` function to detect changes in the period, and when it changes, save the running `open` in the the previous day's variable, and get the current `open.
 
@@ -1323,65 +1429,6 @@ plot(oYesterday, "oYesterday",  lines and change(time(period)) ? na : color.gray
 plot(oToday,     "oToday",      lines and change(time(period)) ? na : color.silver, 2, stylePlots)
 ```
 ![.](https://www.tradingview.com/x/ah9iREmg/ "Previous and current day open")
-
-### How can I track highs/lows between specific intrabar hours?
-We use the intrabar inspection technique explained [here](http://www.pinecoders.com/faq_and_code/#is-it-possible-to-use-security-on-lower-intervals-than-the-charts-current-interval) to inspect intrabars and save the high or low if the intrabar is whithin user-defined begin and end times.
-
-```js
-//@version=4
-//@author=LucF, for PineCoders
-study("Pre-market high/low", "", true)
-begHour = input(7, "Beginning time (hour)")
-begMinute = input(0, "Beginning time (minute)")
-endHour = input(9, "End time (hour)")
-endMinute = input(25, "End time (minute)")
-// Lower TF we are inspecting. Cannot be in seconds and must be lower that chart's resolution.
-insideRes = input("5", "Intrabar resolution used")
-
-startMinute = (begHour * 60) + begMinute
-finishMinute = (endHour * 60) + endMinute
-
-f_highBetweenTime(_start, _finish) =>
-    // Returns low between specific times.
-    var float _return = 0.
-    var _reset = true
-    _minuteNow = (hour * 60) + minute
-    if _minuteNow >= _start and _minuteNow <= _finish
-        // We are inside period.
-        if _reset
-            // We are at first bar inside period.
-            _return := high
-            _reset := false
-        else
-            _return := max(_return, high)
-    else
-        // We are past period; enable reset for when we next enter period.
-        _reset := true
-    _return
-
-f_lowBetweenTime(_start, _finish) =>
-    // Returns low between specific times.
-    var float _return = 10e10
-    var _reset = true
-    _minuteNow = (hour * 60) + minute
-    if _minuteNow >= _start and _minuteNow <= _finish
-        // We are inside period.
-        if _reset
-            // We are at first bar inside period.
-            _return := low
-            _reset := false
-        else
-            _return := min(_return, low)
-    else
-        // We are past period; enable reset for when we next enter period.
-        _reset := true
-    _return
-
-highAtTime = security(syminfo.tickerid, insideRes, f_highBetweenTime(startMinute, finishMinute))
-lowAtTime = security(syminfo.tickerid, insideRes, f_lowBetweenTime(startMinute, finishMinute))
-plot(highAtTime, "High", color.green)
-plot(lowAtTime, "Low", color.red)
-```
 
 ### How can I count the occurrences of a condition in the last x bars?
 The built-in [`sum()`](https://www.tradingview.com/pine-script-reference/v4/#fun_sum) function is the most efficient way to do it, but its length (the number of last bars in your sample) cannot be a series float or int. This script shows three different ways of achieving the count:
