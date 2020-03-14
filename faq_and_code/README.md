@@ -899,7 +899,7 @@ We will be using the `year`, `month`, `dayofmonth`, `hour`, `minute` and `second
 
 In this chart we have set the hour to "12" and the minute to "30" in the script's inputs. The bright green bar shows when our target time is reached, and the lighter green bars show the bars where the condition we are testing is true, i.e., since we haven't entered a specific date, the cycle repeats while our time threshold has been reached each day. You can test for either condition in your script. You can see at point 3 on the chart that the time matches "12:30", which would not be the case if the chart's time had not been set to the exchange's timezone.
 
-Coders often want to save a value on the transition to the target time. We show here how one could save the `open` every time the target date/time is reached:
+Coders often want to save a value on the transition to the target time. We show here how one could save the `open` every time the target date/time is reached. Note how, when plotting the saved value, we test for transitions when applying color to the plot, so that we do not plot any color on transitions. This prevents the inelegant steps from showing on the plot:
 
 ```js
 //@version=4
