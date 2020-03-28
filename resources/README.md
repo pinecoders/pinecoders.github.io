@@ -27,7 +27,7 @@ PineCoders does not benefit from the adoption of these tools. **This document co
 - [Educational Content](#educational-content)
 - [Forums](#forums)
 - [Videos](#videos)
-- [Work For Hire Pine Programmers](#work-for-hire-pine-programmers)
+- [Trusted Pine Programmers for Hire](#trusted-pine-programmers-for-hire)
 - [Automated Order Execution](#automated-order-execution)
 - [Text Editor Highlighters for Pine](#text-editor-highlighters-for-pine)
 - [Color Pickers](#color-pickers-or-palettes)
@@ -103,7 +103,7 @@ Besides the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO23
 
 [BigBits (YouTube)](https://www.youtube.com/user/dpjohnson2009) has good-quality Pine tutorials. He also publishes some educational scripts from his [BigBitsIO](https://www.tradingview.com/u/BigBitsIO/#published-scripts) TradingView account.
 
-## Work For Hire Pine Programmers
+## Trusted Pine Programmers for Hire
 These are Pine programmers we know and endorse, who have a good reputation of providing quality, paid Pine custom-coding services. While you can inquire to any number of them, it is considered very poor etiquette to send bulk inquiries to all. These programmers are all very good, and they are also very busy. Finding one who is free and willing to work with you will sometimes be a challenge.
 
 Business transactions are to be carried between you and them. Neither PineCoders nor TradingView will be involved in your relationship with the programmers, and we do not benefit from your business with them.
