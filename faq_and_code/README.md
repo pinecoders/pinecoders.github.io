@@ -1219,7 +1219,8 @@ goodMsgArg2 = "AAA " + "BBB"
 alertcondition(true, title="Id appearing in Create Alert db", message = goodMsgArg1)
 ```
 
-**The only dynamic text that can be included in an alert messages is the text available using the pre-defined placeholders:**
+**The only dynamic text that can be included in an alert message is the text available using the pre-defined placeholders:**
+
 {% raw %}
 ```js
 {{exchange}}
