@@ -318,7 +318,7 @@ f_round( _val, _decimals) =>
 
 ### How can I round to ticks?
 ```js
-RoundToTick( _price) => round(_price/syminfo.mintick)*syminfo.mintick
+f_roundToTick( _price) => round(_price / syminfo.mintick) * syminfo.mintick
 ```
 
 ### How can I calculate using pips?
