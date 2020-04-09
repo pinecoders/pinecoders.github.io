@@ -304,6 +304,29 @@ val = input(0.75, step = 0.01)
 plot(f_roundFraction(val))
 ```
 
+### How can I control the number of decimals used in displaying my script's values?
+Rounding behavior in displayed values is controlled by the combination of your script's `precision=` and `format=` arguments in its `study()` or `strategy()` declaration statement. See the [Reference](https://www.tradingview.com/pine-script-reference/v4/#fun_study) and [User Manual](https://www.tradingview.com/pine-script-docs/en/v4/annotations/study_annotation.html?highlight=format) on the subject. The default will use the precision of the price scale. To increase it, you will need to specify a `precision=` argument greater than that of the price scale.
+
+### How can I round the decimals displayed with my script's values?
+Using this code you will round the precision, but won't be able to eliminate the display of insignificant decimals, as this is controlled by factors enumerated in the entry above this one:
+```js
+f_round( _val, _decimals) => 
+    // Rounds _val to _decimals places.
+    _p = pow(10,_decimals)
+    round(abs(_val)*_p)/_p*sign(_val)
+```
+
+### How can I round to ticks?
+```js
+RoundToTick( _price) => round(_price/syminfo.mintick)*syminfo.mintick
+```
+
+### How can I calculate using pips?
+Use this function to return the correct pip value for pips on Forex symbols:
+```js
+pip() => syminfo.mintick * (syminfo.type == "forex" ? 10 : 1)
+```
+
 ### How do I calculate averages?
 1. If you just want the average between two values, you can use `avg(val1, val2)` or `(val1 + val2)/2`. Note that [`avg()`](https://www.tradingview.com/pine-script-reference/v4/#fun_avg) accepts up to 10 values.
 1. To average the last x values in a series, you can use `sma(series, x)`.
