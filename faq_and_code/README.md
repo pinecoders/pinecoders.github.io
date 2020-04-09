@@ -312,8 +312,8 @@ Using this code you will round the precision, but won't be able to eliminate the
 ```js
 f_round( _val, _decimals) => 
     // Rounds _val to _decimals places.
-    _p = pow(10,_decimals)
-    round(abs(_val)*_p)/_p*sign(_val)
+    _p = pow(10, _decimals)
+    round(abs(_val) * _p) / _p * sign(_val)
 ```
 
 ### How can I round to ticks?
