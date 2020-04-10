@@ -978,7 +978,7 @@ It provides a way to work with the chart or a target resolution in float format 
 The following examples provide examples of common tasks.
 
 ### How can I convert the current resolution in a numeric format?
-Use the PineCoders ``f_resInMinutes()`` function to convert the chart's current resolution in minutes of type float. From there you will be able to manipulate it using the other PineCoders MTF functions.
+Use the PineCoders ``f_resInMinutes()`` function from the PineCoders [MTF Selection Framework](https://www.tradingview.com/script/90mqACUV-MTF-Selection-Framework-PineCoders-FAQ/) to convert the chart's current resolution in minutes of type float. From there you will be able to manipulate it using the other PineCoders MTF functions.
 
 ```js
 //@version=4
@@ -1004,7 +1004,7 @@ f_htfLabel(tostring(resInMinutes, "Current res in minutes (float): #.0000"), sma
 ```
 
 ### How can I convert a resolution in float minutes into a string usable with ``security()``?
-Use the PineCoders ``f_resFromMinutes()`` function.
+Use the PineCoders ``f_resFromMinutes()`` function from the PineCoders [MTF Selection Framework](https://www.tradingview.com/script/90mqACUV-MTF-Selection-Framework-PineCoders-FAQ/).
 
 ```js
 //@version=4
@@ -1054,7 +1054,7 @@ f_htfLabel(
 ```
   
 ### How do I define a higher interval that is a multiple of the current one?
-Use the PineCoders ``f_multipleOfRes()`` function.
+Use the PineCoders ``f_multipleOfRes()`` function from the PineCoders [MTF Selection Framework](https://www.tradingview.com/script/90mqACUV-MTF-Selection-Framework-PineCoders-FAQ/).
 ```js
 //@version=4
 //@author=LucF, for PineCoders
