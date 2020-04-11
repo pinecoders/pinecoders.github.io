@@ -737,12 +737,22 @@ The best way to go about this is to write your strategies in such a way that the
 
 The PineCoders [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/) is a framework that allows you to easily convert betweeen strategy and indicator modes because it manages trades using custom Pine code that does not depend on an involved setup of `strategy.*()` call parameters.
 
-### Can my strategy generate orders through TV-supported brokers?
-No. The brokers can only be used for manual trading. Currently, the only way to automate trading using TradingView is to:
+### Can my strategy generate orders through exchanges or brokers?
+No, because:
+1. The [brokers with integration to TradingView](https://www.tradingview.com/brokers/) can only be used for manual trading.
+1. The only possible connection between Pine scripts and brokers/exchanges is via alerts, through [third-party execution engines](https://www.pinecoders.com/resources/#automated-order-execution), and only Pine studies can generate alerts.
+
+If you have a Pine strategy and want to automate it to place orders on markets, you will have to:
+- Decide which third-party execution you will be using, as this will impact the design of your solution.
 - Create an indicator (a.k.a. *study*) from your strategy.
 - Insert `alertcondition()` calls in your indicator using your buy/sell conditions.
-- Create separate Buy and Sell alerts from TV Web.
-- Link those alerts to a third-party app/bot which will relay orders to exchanges or brokers. See the [Automation](http://pinecoders.com/resources#automation) section of our Resources document.
+- Create alerts from those `alertcondition()` calls in your study using TV's alert creation feature from charts (ALT-A).
+- Link those alerts to a third-party app/bot which will in turn relay orders to exchanges or brokers.
+
+#### Points to consider
+- If your strategy uses logic depending on Pine's `strategy.*()` calls which is implemented by the broker emulator, that logic will need to be handled in the conversion process, either through custom Pine code in your study or through delegation of the logic to the execution engine, if he supports those features, in which case you will need to use the appropriate syntax in your alert messages so the particular execution engine you are using understands how to execute your orders.
+- Unless you have forward-tested your strategy on the realtime bar, you will be running your strategy in a new, very different environment as a study. Because of the inevitable differences between the simulated world of backtests on historical data and realtime markets, your strategy's behavior may turn out to be vastly different from what it was on historical bars.
+- The number of symbol/timeframe pairs you want your system to run on, multiplied by the number of alerts you need for each pair (one for buy order, one for sell orders, for example) will constitute the total number of alerts you will need. Your type of TV account must allow for that quantity of alerts.
 
 **[Back to top](#table-of-contents)**
 
