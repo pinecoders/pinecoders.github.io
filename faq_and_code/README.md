@@ -636,6 +636,35 @@ plotshape(true, "", shape.arrowdown,    location.belowbar, color.maroon,    text
 ### How can I plot color gradients?
 There are no built-in functions to generate color gradients in Pine yet. Use the PineCoders [Color Gradient Framework - PineCoders FAQ](https://www.tradingview.com/script/rFJ5I3Hl-Color-Gradient-Framework-PineCoders-FAQ/) or our [Color Gradient (16 colors) Framework - PineCoders FAQ](https://www.tradingview.com/script/EjLGV9qg-Color-Gradient-16-colors-Framework-PineCoders-FAQ/).
 
+### How can I color the chart's background on a condition detected on the last bar?
+This code uses a very wide line to do it as this cannot be accomplished with `bgcolor()`. Because of that, the indicator is occupying all the background, so some chart functions like the measuring tool cannot be used with Shift-Click, but it will work if you select its tool explicitly.
+
+The position and width of the background can be modified through the script's *Inputs*.
+
+The background is very light. To change its brightness, you'll need to play with the transparency in the two `color.new()` calls, as it cannot be controlled from an input:
+
+//@version=4
+```js
+//@version=4
+study("", "", true)
+
+period      = input(50,     "MA period", minval = 2)
+offstBg     = input(100,    "Background: Horizontal Offset to its Center", minval = 0, step = 5)
+lineWidth   = input(10000,  "Background: Width", minval = 0, step = 100)
+
+ma          = sma(close, period)
+condUp      = barstate.islast and close[1] > ma[1]
+condDn      = barstate.islast and close[1] < ma[1]
+c_lineColor = condUp ? color.new(color.green, 97) : condDn ? color.new(color.maroon, 97) : na
+
+if barstate.islast
+    var line bg = na
+    line.delete(bg)
+    bg := line.new(bar_index[offstBg], low - tr, bar_index[offstBg], high + tr, color = c_lineColor, extend = extend.both, width = lineWidth)
+
+plot(ma)
+```
+
 **[Back to top](#table-of-contents)**
 
 
