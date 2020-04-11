@@ -750,9 +750,12 @@ If you have a Pine strategy and want to automate it to place orders on markets, 
 - Link those alerts to a third-party app/bot which will in turn relay orders to exchanges or brokers.
 
 #### Points to consider
-- If your strategy uses logic depending on Pine's `strategy.*()` calls which is implemented by the broker emulator, that logic will need to be handled in the conversion process, either through custom Pine code in your study or through delegation of the logic to the execution engine, if he supports those features, in which case you will need to use the appropriate syntax in your alert messages so the particular execution engine you are using understands how to execute your orders.
+- If your strategy uses logic depending on Pine's `strategy.*()` calls which is implemented by the broker emulator used in TV backtesting, that logic will need to be handled in the conversion process, either through custom Pine code in your study or through delegation of the logic to the execution engine, if it supports those features, in which case you will need to use the appropriate syntax in your alert messages so the particular execution engine you are using understands how to execute your orders.
+- Note that if you must convert your trade management logic into explicit Pine code in your study, this may require expertise you do not possess, and may also introduce behavioral deltas between your strategy and your study.
 - Unless you have forward-tested your strategy on the realtime bar, you will be running your strategy in a new, very different environment as a study. Because of the inevitable differences between the simulated world of backtests on historical data and realtime markets, your strategy's behavior may turn out to be vastly different from what it was on historical bars.
 - The number of symbol/timeframe pairs you want your system to run on, multiplied by the number of alerts you need for each pair (one for buy order, one for sell orders, for example) will constitute the total number of alerts you will need. Your type of TV account must allow for that quantity of alerts.
+
+The complexity of the conversion process between strategies and studies is the reason why we have developed our [Backtesting and Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/). Be sure to have a look at it.
 
 **[Back to top](#table-of-contents)**
 
