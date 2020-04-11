@@ -643,7 +643,6 @@ The position and width of the background can be modified through the script's *I
 
 The background is very light. To change its brightness, you'll need to play with the transparency in the two `color.new()` calls, as it cannot be controlled from an input:
 
-//@version=4
 ```js
 //@version=4
 study("", "", true)
