@@ -179,7 +179,7 @@ A few other suppliers of such services, unverified by PineCoders:
 
 [ProfitView](https://wiki.profitview.app/home): Google Chrome extension that receives TV alerts and relays orders to crypto exchanges. Among PineCoders, has the reputation of being better than AutoView.
 
-[TradingView alerts to MT4](https://www.tradingconnector.com/) receives TV alerts and converts them into instant orders on MT4 (and MT5 soon) in forex, indices and commodities markets. Latency is below 1 second.
+[TradingView alerts to MT4/MT5](https://www.tradingconnector.com/) receives TV alerts and converts them into instant orders on MT4/MT5 in forex, indices and commodities markets. Latency is below 1 second.
 
 ### For developers
 
