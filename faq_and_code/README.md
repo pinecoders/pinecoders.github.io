@@ -686,7 +686,11 @@ You can use only one such statement in your script. If you use more than one, th
 See how our [Signal for Backtesting-Trading Engine](https://www.tradingview.com/script/y4CvTwRo-Signal-for-Backtesting-Trading-Engine-PineCoders/) can be integrated as an input to our [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/).
 
 ### Is it possible to export indicator data to a file?
-No. The only way for now is through screen scraping.
+Yes, through the *Export chart data...* item in the burger menu at the top left of your chart. The exported CSV data will include time and OHLC data, plus any plots your script is plotting. It is thus a matter of plotting the information you want to appear in the CSV file. When plotting values outside the scale of your indicator, or if you simply don't want the plots to show, you may find it useful to use the [`plot()`](https://www.tradingview.com/pine-script-reference/v4/#fun_plot)'s function `display =` parameter so that it doesn't disrupt your script's scale. The name of the plot will appear in the CSV column header:
+```js
+plot(close*0.5, "No Display", display = display.none)
+```
+Note that you can export strategy data using the same method.
 
 ### Can my script place something on the chart when it is running from a pane?
 The only thing that can be changed on the chart from within a pane is the color of the bars. See the [`barcolor()`](https://www.tradingview.com/pine-script-docs/en/v4/annotations/Barcoloring_a_series_with_barcolor.html) function.
