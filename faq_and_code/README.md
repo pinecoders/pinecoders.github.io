@@ -352,6 +352,9 @@ r = f_random_number(100)
 plot(r, style = plot.style_circles)
 ```
 
+### How can I evaluate a filter I am planning to use?
+See the [Filter Information Box - PineCoders FAQ](https://www.tradingview.com/script/oTEP9DJF-Filter-Information-Box-PineCoders-FAQ/#tc3370225) script by [alexgrover](https://www.tradingview.com/u/alexgrover/#published-scripts). You can add your filter code to it; the script will then evaluate its impulse response and display your filter's characteristics.
+
 **[Back to top](#table-of-contents)**
 
 
