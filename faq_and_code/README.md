@@ -355,8 +355,35 @@ plot(r, style = plot.style_circles)
 **[Back to top](#table-of-contents)**
 
 
+
+
 <br><br>
 ## PLOTTING
+
+### Why can't I use a plot in an `if` statement?
+Because it's not allowed in Pine. You can use many different conditions to control plotting and the color of plots, but these must be controlled from within the `plot()` call.
+
+If, for example, you want to plot a highlight when 2 MAs are a certain multiple of ATR away from each other, you first need to define your condition, then plot on that condition only:
+```js
+//@version=4
+study("Conditional plot", "", true)
+// ————— Step 1: Define our condition.
+ma1 = sma(close, 10)
+ma2 = sma(close, 50)
+plotCondition = (ma1 - ma2) > atr(14) * 3
+// ————— Step 2: Plot.
+// These 2 plots are plotted all the time.
+plot(ma1, "Fast MA", color.fuchsia)
+plot(ma2, "Slow MA", color.orange)
+
+// Method 2a: This plots all the time as well, but because we make our color conditional,
+// It only shows when our condition is true.
+plot(ma1, "Highlight 2b", plotCondition ? color.fuchsia : na, 6, transp = 70)
+
+// Method 2b: This only plots a value when our condition is true.
+plot(plotCondition ? ma1 : na, "Highlight 2b", color.purple, 3, plot.style_circles)
+```
+![.](https://www.tradingview.com/x/IMgwPa29/ "Conditional plots")
 
 
 ### Can I plot diagonals between two points on the chart?
