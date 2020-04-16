@@ -505,7 +505,7 @@ plot(c, "Underlying close", color = color.gray, linewidth = 3, trackprice = true
 invisibleColor = color.new(color.white, 100)
 plotcandle(plotCandles ? o : na, plotCandles ? h : na, plotCandles ? l : na, plotCandles ? c : na, color = color.orange, wickcolor = color.orange)
 // ————— Plot label.
-f_print(_txt) => t = time + (time - time[1]) * 3, var _lbl = label.new(t, high, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), label.set_xy(_lbl, t, high + 3 * tr)
+f_print(_txt) => var _lbl = label.new(bar_index, highest(10)[1], _txt, xloc.bar_index, yloc.price, #00000000, label.style_none, color.gray, size.large, text.align_left), label.set_xy(_lbl, bar_index, highest(10)[1]), label.set_text(_lbl, _txt)
 f_print("Underlying Close1 = " + tostring(c1) + "\nUnderlying Close2 = " + tostring(c2) + "\nChart's close = " + tostring(close) + "\n Delta = " + tostring(close - c))
 ```
 
@@ -626,20 +626,24 @@ Also note that we take care to only print the label on the last bar of the chart
 //@version=4
 //@author=LucF, for PineCoders
 // Indicator needs to be on "no scale".
-study("", "Daily ATR", true, scale = scale.none)
+study("Daily ATR", "", true, scale = scale.none)
 atrLength = input(14)
 barsRight = input(5)
-// Adjust the conversion formatting string to the instrument: e.g., "#.########" for crypto.
-numberFormat = input("#.####")
+// Produces a string format usable with `tostring()` to restrict precision to ticks.
+f_tickFormat() =>
+    _s = tostring(syminfo.mintick)
+    _s := str.replace_all(_s, "25", "00")
+    _s := str.replace_all(_s, "5",  "0")
+    _s := str.replace_all(_s, "1",  "0")
 // Plot invisible value to give a large upper scale to indie space.
 plotchar(10e10, "", "")
 // Fetch daily ATR. We want the current daily value so we use a repainting security() call.
 dAtr = security(syminfo.tickerid, "D", atr(atrLength), lookahead = barmerge.lookahead_on)
 // Label-creating function puts label at the top of the large scale.
-f_print(_txt) => t = time + (time - time[1]) * 3, var _lbl = label.new(t, high, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), label.set_xy(_lbl, t, high + 3 * tr)
+f_print(_txt) => t = time + (time - time[1]) * 3, var _lbl = label.new(t, high, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), label.set_xy(_lbl, t, high + 3 * tr), label.set_text(_lbl, _txt)
 // Print value on last bar only, so code runs faster.
 if barstate.islast
-    f_print(tostring(dAtr, numberFormat))
+    f_print(tostring(dAtr, f_tickFormat()))
 ```
 
 ### How can I toggle `hline()` plots on and off?
@@ -1923,7 +1927,7 @@ This code will show a label containing the current values of the variables you w
 ```js
 //@version=4
 study("f_print()", "", true)
-f_print(_txt) => t = time + (time - time[1]) * 3, var _lbl = label.new(t, high, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), label.set_xy(_lbl, t, high + 3 * tr)
+f_print(_txt) => var _lbl = label.new(bar_index, highest(10)[1], _txt, xloc.bar_index, yloc.price, #00000000, label.style_none, color.gray, size.large, text.align_left), label.set_xy(_lbl, bar_index, highest(10)[1]), label.set_text(_lbl, _txt)
 f_print("Multiplier = " + tostring(timeframe.multiplier) + "\nPeriod = " + timeframe.period + "\nHigh = " + tostring(high))
 ```
 
