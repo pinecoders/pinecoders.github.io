@@ -1887,6 +1887,29 @@ More complete financial information on stocks is available from the [Financials]
 - Both your script and the require Financials indicator will need to be loaded on the chart.
 - The selection of the Financials indicator's output as an input into your indicator will need to be done manually through your script's *Settings/Inputs*.
 
+### How can I save a value from a signal when a pivot occurs?
+You will need to:
+1. Detect a new pivot, which is done by testing for `not na`, as the pivot built-ins only return a non-na value when they identify a pivot. Keep in mind this always happens *n* bars after the pivot itself, with *n* corresponding to the number of bars you use as right legs to identify your pivots.
+2. Save the value of the signal *n* bars back, because that is when the pivot was found.
+
+```js
+//@version=4
+study("Signal value on pivot")
+r = rsi(close, 14)
+legs = input(12)
+pHi = pivothigh(legs, legs)
+newPHi = not na(pHi)
+var float rHi = na
+if newPHi
+    rHi := r[legs]
+plot(r)
+plot(rHi, "", newPHi ? na : color.fuchsia, offset = - legs)
+plotchar(pHi, "pHi", "▲", location.top, offset = - legs)
+```
+![.](https://www.tradingview.com/x/ikn44Fwy/ "Signal value on pivot")
+
+> Note that this code plots the pivot markers (▲) and the RSI level where the pivot was found by *cheating*, i.e., plotting *legs* bars back. If you publish indicators using such code, this should always be mentioned so that you do not mislead unsuspecting traders.
+
 **[Back to top](#table-of-contents)**
 
 
