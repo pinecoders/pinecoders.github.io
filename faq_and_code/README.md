@@ -698,6 +698,29 @@ if barstate.islast
 plot(ma)
 ```
 
+### How can I format values to tick precision with `tostring()`?
+Use our `f_tickFormat()` function (kudos to [DayTradingOil](https://www.tradingview.com/u/DayTradingOil/#published-scripts) for the original idea). It uses the [`str.replace_all()`](https://www.tradingview.com/pine-script-reference/v4/#fun_str{dot}replace_all) function to replace the non-zero digits in the string representation of `syminfo.mintick` to produce a formatting string usable by [`tostring()`](https://www.tradingview.com/pine-script-reference/v4/#fun_tostring).
+```js
+//@version=4
+study("tostring() formatting to tick precision","",true)
+f_print(_txt) => var _lbl = label.new(bar_index, highest(10)[1], _txt, xloc.bar_index, yloc.price, #00000000, label.style_none, color.gray, size.large, text.align_center), label.set_xy(_lbl, bar_index, highest(10)[1]), label.set_text(_lbl, _txt)
+
+// Produces a string format usable with `tostring()` to restrict precision to ticks.
+//  • Note that `tostring()` will also round the value.
+f_tickFormat() =>
+    _s = tostring(syminfo.mintick)
+    _s := str.replace_all(_s, "25", "00")
+    _s := str.replace_all(_s, "5",  "0")
+    _s := str.replace_all(_s, "1",  "0")
+
+c = close * 0.99
+f_print("tostring(c)\n" + tostring(c) + "\n\n\n")
+f_print("tostring(c, f_tickFormat())\n" + tostring(c, f_tickFormat()))
+plotchar(syminfo.mintick, "syminfo.mintick", "", location.top)
+```
+![.](https://www.tradingview.com/x/EGfhBV3R/ "tostring() formatting to tick precision")
+
+
 **[Back to top](#table-of-contents)**
 
 
