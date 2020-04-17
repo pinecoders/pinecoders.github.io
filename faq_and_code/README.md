@@ -320,6 +320,7 @@ f_round( _val, _decimals) =>
 ```js
 f_roundToTick( _price) => round(_price / syminfo.mintick) * syminfo.mintick
 ```
+If you need to round a string representation of a number converted with `tostring()` to ticks for use in a label, see [this FAQ entry](https://www.pinecoders.com/faq_and_code/#how-can-i-format-values-to-tick-precision-with-tostring).
 
 ### How can I calculate using pips?
 Use this function to return the correct pip value for pips on Forex symbols:
@@ -720,6 +721,7 @@ plotchar(syminfo.mintick, "syminfo.mintick", "", location.top)
 ```
 ![.](https://www.tradingview.com/x/EGfhBV3R/ "tostring() formatting to tick precision")
 
+If you need to round a numeric value to ticks without converting it to a string, see [this FAQ's entry](https://www.pinecoders.com/faq_and_code/#how-can-i-round-to-ticks).
 
 **[Back to top](#table-of-contents)**
 
