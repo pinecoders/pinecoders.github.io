@@ -1913,9 +1913,9 @@ There are three ways:
 2. Using the [`security()`](https://www.tradingview.com/pine-script-reference/v4/#fun_security) function, you can access information on earnings, splits and dividends using the technique illustrated in [this script](https://www.tradingview.com/script/XUX5VVN0-Earnings-Splits-Dividends/). Note that this method is not officially supported by TradingView and may not work in the future.
 3. Fundamental information is available through the [Financials](https://www.tradingview.com/blog/en/fundamental-analysis-is-now-available-on-tradingview-15448/) button on your chart. This information appears on the chart as an indicator. Using an [external input](https://www.pinecoders.com/faq_and_code/#how-can-i-use-one-scripts-output-as-an-input-into-another), your script will be able to access information from one of those Finantials indicators at a time. This will require the following setup:
 
-  - Your script will need to allow for an external input.
-  - Both your script and the require Financials indicator will need to be loaded on the chart.
-  - The selection of the Financials indicator's output as an input into your indicator will need to be done manually through your script's *Settings/Inputs*.
+    - Your script will need to allow for an external input.
+    - Both your script and the require Financials indicator will need to be loaded on the chart.
+    - The selection of the Financials indicator's output as an input into your indicator will need to be done manually through your script's *Settings/Inputs*.
 
 ### How can I save a value from a signal when a pivot occurs?
 You will need to:
