@@ -681,7 +681,7 @@ There are no built-in functions to generate color gradients in Pine yet. Gradien
 To produce gradients progressing in vertical space on the same bar you will need to use a progession of plots, each with a different color. Doing so requires many plot statements and scripts using this technique will run slower than ones producing horizontal gradients. Examples:
 
 - [Trend Following Bar](https://www.tradingview.com/script/UGgNcgNi-Trend-Following-Bar/)
-- [https://www.tradingview.com/script/OGwqa3DI-Angled-Volume-Profile-feeble/](https://www.tradingview.com/script/OGwqa3DI-Angled-Volume-Profile-feeble/)
+- [Angled Volume Profile [feeble]](https://www.tradingview.com/script/OGwqa3DI-Angled-Volume-Profile-feeble/)
 
 ### How can I color the chart's background on a condition detected on the last bar?
 This code uses a very wide line to do it as this cannot be accomplished with `bgcolor()`. Because of that, the indicator is occupying all the background, so some chart functions like the measuring tool cannot be used with Shift-Click, but it will work if you select its tool explicitly.
