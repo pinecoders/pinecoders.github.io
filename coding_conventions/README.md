@@ -14,6 +14,7 @@
 The goal of these Coding Conventions is to present a set of best practices and style guidelines for Pine Script. By making Pine scripts easier to read, these guidelines make open source code more usable, while also providing safeguards that minimize the risk of errors for developers.
 
 ### Table of Contents
+
 - [Script Structure](#script-structure)
 - [Naming Conventions](#naming-conventions)
 - [Spacing](#spacing)
@@ -22,6 +23,7 @@ The goal of these Coding Conventions is to present a set of best practices and s
 
 <br>
 ## Script Structure
+
 The Pine compiler is not very strict on exact positioning of specific statements or compiler directives. While many other arrangements are syntactically correct, these guidelines aim to provide a standard way of ordering elements in scripts:
 
 1. The first line of a script should be the `//@version=X` compiler directive, where `X` is replaced by the version of Pine the script is written for. While the compiler defaults to Pine version 1 when no directive is used, scripts written using version 1 of Pine should nonetheless contain the `//@version=1` directive on their first line.
@@ -69,13 +71,12 @@ plot(macd, color = color.blue)
 plot(signal, color = color.orange)
 ```
 
-**[Back to top](#table-of-contents)**
-
 
 <br>
 ## Naming Conventions
 
 ### Variable Names
+
 We recommend using camelCase for variable names. Example: `emaLength`, `obLevel`, `showSignal2`, `aLongVariableName`.
 
 For large projects, you may find it useful to use prefixes for a few types of variables, to make them more readily identifiable. The following prefixes can then be used:
@@ -87,15 +88,18 @@ For large projects, you may find it useful to use prefixes for a few types of va
 
 
 ### Function Names
+
 For function names, we recommend using a Hungarian-style `f_` prefix in combination with the usual camelCase. The `f_` prefix guarantees disambiguation between user-defined and built-in functions. Example: `f_sinh`, `f_daysInMonth`.
 
 ### Function Parameter Names
+
 Function parameters should be prefixed with the underscore in order to differentiate them from global scope variables. Example:
 ```js
 daysInMonth(_year, _month) =>
 ```
 
 ### Function Dependencies
+
 When a function requires global scope variables to perform its calculations, these dependencies should be documented in comments. Dependencies are to be avoided whenever possible, as they jeopardize function portability and make code more difficult to read.
 ```js
 lenMultiplier = input(2, "Length Multiplier")
@@ -116,7 +120,9 @@ f_getSlowLength(_len, _mult) =>
         _tempLen := 25
     _tempLen
 ```
+
 ### Local Scope Variable Names
+
 The same underscore prefix used for function parameters should also be used for all local variables. Example:
 ```js
 f_getSlowLength(_len) =>
@@ -134,14 +140,11 @@ for _i = 0 to 100
     _myLocalVar = something[_i]
 ```
 
-**[Back to top](#table-of-contents)**
-
 
 <br>
 ## Spacing
 
 A space should be used on both sides of all operators, whether they be assignment, arithmetic (binary or unary) or logical. A space should also be used after commas. Example:
-
 ```js
 a = close > open ? 1 : -1
 var newLen = 2
