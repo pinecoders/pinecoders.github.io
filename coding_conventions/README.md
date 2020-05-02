@@ -193,4 +193,6 @@ Some authors use the Coding Conventions systematically:
 - [Color Gradient (16 colors) Framework - PineCoders FAQ](https://www.tradingview.com/script/EjLGV9qg-Color-Gradient-16-colors-Framework-PineCoders-FAQ/)
 
 
+<br>
+
 **[Back to top](#table-of-contents)**
