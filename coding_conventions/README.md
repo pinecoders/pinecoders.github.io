@@ -21,7 +21,8 @@ The goal of these Coding Conventions is to present a set of best practices and s
 - [Line Wrapping](#line-wrapping)
 
 
-  
+<br>
+
 ## Script Structure
 
 The Pine compiler is not very strict on exact positioning of specific statements or compiler directives. While many other arrangements are syntactically correct, these guidelines aim to provide a standard way of ordering elements in scripts:
