@@ -83,6 +83,14 @@ plot(signal, color = color.orange)
 
 We recommend using camelCase for variable names. Example: `emaLength`, `obLevel`, `showSignal2`, `aLongVariableName`.
 
+For large projects, you may find it useful to use prefixes for a few types of variables, to make them more readily identifiable. The following prefixes can then be used:
+
+- `i_` for variables initialized through `input()` calls.
+- `c_` for variables containing colors.
+- `p_` for variables used as `plot` or `hline` identifiers for use in `fill()` calls.
+- All caps for constants, i.e., variables often initialized at the beginning of scripts whose value will not change during execution.
+
+
 ### Function Names
 
 For function names, we recommend using a Hungarian-style `f_` prefix in combination with the usual camelCase. The `f_` prefix guarantees disambiguation between user-defined and built-in functions. Example: `f_sinh`, `f_daysInMonth`.
