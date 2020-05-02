@@ -11,17 +11,13 @@
 [<img src="http://pinecoders.com/images/PineCodersLong.png">](http://pinecoders.com)
 
 # Pine Script Coding Conventions
-
 The goal of these Coding Conventions is to present a set of best practices and style guidelines for Pine Script. By making Pine scripts easier to read, these guidelines make open source code more usable, while also providing safeguards that minimize the risk of errors for developers.
 
 ### Table of Contents
-
 - [Script Structure](#script-structure)
 - [Naming Conventions](#naming-conventions)
 - [Spacing](#spacing)
 - [Line Wrapping](#line-wrapping)
-
-
 <br>
 
 ## Script Structure
