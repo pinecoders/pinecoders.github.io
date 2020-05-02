@@ -74,6 +74,7 @@ plot(signal, color = color.orange)
 
 
 <br>
+
 ## Naming Conventions
 
 ### Variable Names
@@ -143,6 +144,7 @@ for _i = 0 to 100
 
 
 <br>
+
 ## Spacing
 
 A space should be used on both sides of all operators, whether they be assignment, arithmetic (binary or unary) or logical. A space should also be used after commas. Example:
@@ -158,6 +160,7 @@ plot(series, color = color.red)
 
 
 <br>
+
 ## Line Wrapping
 
 When lines need to be continued on the next, use two spaces to indent each continuation line. Example:
@@ -181,6 +184,7 @@ plot(
 ```
 
 <br>
+
 ## Example Scripts
 
 Some authors use the Coding Conventions systematically:
