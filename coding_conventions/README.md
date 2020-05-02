@@ -19,6 +19,7 @@ The goal of these Coding Conventions is to present a set of best practices and s
 - [Naming Conventions](#naming-conventions)
 - [Spacing](#spacing)
 - [Line Wrapping](#line-wrapping)
+- [Example Scripts](#example-scripts)
 
 
 <br>
