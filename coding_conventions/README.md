@@ -191,4 +191,12 @@ plot(
   )
 ```
 
+## Example Scripts
+
+Some authors use the Coding Conventions systematically:
+- [Bar Balance [LucF]](https://www.tradingview.com/script/lcgCwWwI-Bar-Balance-LucF/)
+- [[e2] Absolute Retracement](https://www.tradingview.com/script/X87V5IBs-e2-Absolute-Retracement/)
+- [Color Gradient (16 colors) Framework - PineCoders FAQ](https://www.tradingview.com/script/EjLGV9qg-Color-Gradient-16-colors-Framework-PineCoders-FAQ/)
+
+
 **[Back to top](#table-of-contents)**
