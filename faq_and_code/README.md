@@ -364,7 +364,7 @@ See the [Filter Information Box - PineCoders FAQ](https://www.tradingview.com/sc
 <br><br>
 ## PLOTTING
 
-### Why can't I use a plot in an `if` statement?
+### Why can't I use a plot in an `if` or `for` statement?
 Because it's not allowed in Pine. You can use many different conditions to control plotting and the color of plots, but these must be controlled from within the `plot()` call.
 
 If, for example, you want to plot a highlight when 2 MAs are a certain multiple of ATR away from each other, you first need to define your condition, then plot on that condition only:
