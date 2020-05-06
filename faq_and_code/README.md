@@ -1081,6 +1081,21 @@ plotchar(second, "second", "", location.top)
 ```
 ![.](Detecting_a_specific_time.png "Detecting a specific time (in the exchange's timezone)")
 
+### How can I know the date when a highest value was found?
+Both [`highest()`](https://www.tradingview.com/pine-script-reference/v4/#fun_highest) and [`lowest()`](https://www.tradingview.com/pine-script-reference/v4/#fun_lowest) have a corresponding function that can be used to get the offset to the bar where the highest/lowest value was found. Those [`highestbars()`](https://www.tradingview.com/pine-script-reference/v4/#fun_highestbars) and [`lowestbars()`](https://www.tradingview.com/pine-script-reference/v4/#fun_lowestbars) functions return a negative offset, so we need to change its sign before using it as a value with the `[]` history-referencing operator.
+
+Once we have the offset, we can use it with the overloaded version of the `dayofthemonth` built-in which allows it to be used with a specific time, and the time value we use is simply the time at the offset returned by the `highestbars()` call, with its sign changed from negative to positive:
+```js
+//@version=4
+study("Day of High", "", true)
+len = input(100)
+hi = highest(len)
+hiOffset = - highestbars(len)
+hiDay = dayofmonth(time[hiOffset])
+plotchar(hiDay, "hiDay", "", location.top)
+plotchar(dayofmonth, "dayofmonth", "", location.top)
+plot(hi)
+```
 
 **[Back to top](#table-of-contents)**
 
