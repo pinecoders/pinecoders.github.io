@@ -1968,7 +1968,7 @@ plotchar(pHi, "pHi", "▲", location.top, offset = - legs)
 
 > Note that this code plots the pivot markers (▲) and the RSI level where the pivot was found by *cheating*, i.e., plotting *legs* bars back. If you publish indicators using such code, this should always be mentioned so that you do not mislead unsuspecting traders.
 
-### How can I fing the maximum value among the last pivots?
+### How can I find the maximum value among the last pivots?
 We will be finding the highest value of the last 3 high pivots here, but the technique can be extended to any number of pivots. We will be using [`valuewhen()`](https://www.tradingview.com/pine-script-reference/v4/#fun_valuewhen) to fetch the value from the nth occurrence of a high pivot, remembering to offset the value we are retrieving with number of right legs used to detect the pivot, as a pivot is only detected after than number of bars has elapsed from the actual pivot bar.
 ```js
 //@version=4
