@@ -121,8 +121,7 @@ If you have a project to code:
 <br><br>
 <a href="https://www.tradingview.com/u/a.tesla2018/"><img src="https://s3.tradingview.com/userpics/1622138-uwgx.png" alt="a.tesla2018" height="25" width="25" style="vertical-align: text-top;"> a.tesla2018</a>  
 B.S. Electrical Engineering and Computer Science with 10+ years experience in C, C++, and HDL.
-I specialize in Digital Signal Processing (DSP) and developing custom study/strategy indicators/MAs in Pine, 1+ year heavy experience.
-References available upon request. I strive to give my clients a better version of what they were thinking.<br><br>
+I specialize in Digital Signal Processing (DSP) and developing custom study/strategy indicators/MAs in Pine, with more than one year of  intense experience. References available upon request. I strive to give my clients a better version of what they were thinking.<br><br>
 
 <a href="https://www.tradingview.com/u/BacktestRookies/#published-scripts"><img src="https://s3.tradingview.com/userpics/1041044-i8Nm.png" alt="BacktestRookies" height="25" width="25" style="vertical-align: text-top;"> BacktestRookies</a>  
 Fumble through backtesting one step at a time with [backtest-rookies.com](https://backtest-rookies.com). A site dedicated to providing free step by step tutorials aimed at those with a passion for the market but no formal programming background. For the rest of you who have the passion but no desire to spend hours pecking at the keyboard, Backtest Rookies also provide custom programming services to develop algorithms and tools in Pine and/or Python.<br><br>
