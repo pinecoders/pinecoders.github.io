@@ -1968,6 +1968,24 @@ plotchar(pHi, "pHi", "▲", location.top, offset = - legs)
 
 > Note that this code plots the pivot markers (▲) and the RSI level where the pivot was found by *cheating*, i.e., plotting *legs* bars back. If you publish indicators using such code, this should always be mentioned so that you do not mislead unsuspecting traders.
 
+### How can I fing the maximum value in the last pivots?
+We will be finding the highest value of the last 3 high pivots here, but the technique can be extended to any number of pivots. We will be using [`valuewhen()`](https://www.tradingview.com/pine-script-reference/v4/#fun_valuewhen) to fetch the value from the nth occurrence of a high pivot, remembering to offset the value we are retrieving with number of right legs used to detect the pivot, as a pivot is only detected after than number of bars has elapsed from the actual pivot bar.
+```js
+//@version=4
+study("", "", true)
+legs = input(4)
+pH = pivothigh(legs, legs)
+newPH = not na(pH)
+p00 = valuewhen(newPH, high[legs], 00)
+p01 = valuewhen(newPH, high[legs], 01)
+p02 = valuewhen(newPH, high[legs], 02)
+maxPH = max(p00, p01, p02)
+plot(maxPH)
+plotchar(newPH, "newPH", "•", location.abovebar, offset = - legs)
+plotchar(newPH, "newPH", "▲", location.top)
+```
+> Note that we use `not na(pH)` to detect a new pivot, rather than the more common way of simply relying on the fact that `pH` will be different from zero or `na`—so true—when a pivot is found. While the common technique will work most of the time, it will not work when a pivot is found at a value of zero, because zero is evaluated as false in a conditional expression. Our method is thus more robust, and the recommended way to test for a pivot.
+
 **[Back to top](#table-of-contents)**
 
 
