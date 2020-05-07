@@ -2031,10 +2031,10 @@ t1 = "Multiplier = " + tostring(timeframe.multiplier) + "\n\n"
 t2 = "Period = " + timeframe.period + "\n"
 t3 = "High = " + tostring(high)
 f_print(t1, y, color.teal, 3)
-f_print(t2, y, color.orange, 3)
-f_print(t3, y, color.fuchsia, 3)
+f_print(t2, y, color.orange, 9)
+f_print(t3, y, color.fuchsia, 15)
 ```
-![.](https://www.tradingview.com/x/rYwmH34C/ "f_print() (Multi-line version)")
+![.](https://www.tradingview.com/x/GQUVMzHi/ "f_print() (Multi-line version)")
 
 ### How can I plot numeric values so that they do not disrupt the indicator's scale?
 The solution is to use the `plotchar()` function, but without actually printing a character, and using the fact that values plotted with `plotchar()` will appear both:
