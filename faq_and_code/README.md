@@ -2004,7 +2004,7 @@ f_print("Multiplier = " + tostring(timeframe.multiplier) + "\nPeriod = " + timef
 ```
 ![.](https://www.tradingview.com/x/LeHp5kUg/ "f_print()")
 
-This multi-line version of the function allows for more flexibility. It can 
+This multi-line version of the function allows for more flexibility. The example shows how it can be used multiple times to print lines using a different color for each:
 ```js
 //@version=4
 study("f_print() (Multi-line version)", "", true)
@@ -2029,7 +2029,7 @@ y = highest(10)[1]
 // The newlines at the end of the strings allow us to overprint different labels to make different lines distinct colors.
 t1 = "Multiplier = " + tostring(timeframe.multiplier) + "\n\n"
 t2 = "Period = " + timeframe.period + "\n"
-t3 = "\n\nHigh = " + tostring(high)
+t3 = "High = " + tostring(high)
 f_print(t1, y, color.teal, 3)
 f_print(t2, y, color.orange, 3)
 f_print(t3, y, color.fuchsia, 3)
