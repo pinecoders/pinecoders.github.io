@@ -1995,15 +1995,46 @@ plotchar(newPH, "newPH", "▲", location.top)
 ## DEBUGGING
 
 ### How can I examine the value of a string in my script?
-This code will show a label containing the current values of the variables you wish to see. Non-string variables need to be converted to strings using `tostring()`. The label will show when price changes in the realtime bar, so the code needs to run on a live chart.
+This code will show a label containing the current values of the variables you wish to see. Non-string variables need to be converted to strings using `tostring()`.
 ```js
 //@version=4
 study("f_print()", "", true)
 f_print(_txt) => var _lbl = label.new(bar_index, highest(10)[1], _txt, xloc.bar_index, yloc.price, #00000000, label.style_none, color.gray, size.large, text.align_left), label.set_xy(_lbl, bar_index, highest(10)[1]), label.set_text(_lbl, _txt)
 f_print("Multiplier = " + tostring(timeframe.multiplier) + "\nPeriod = " + timeframe.period + "\nHigh = " + tostring(high))
 ```
+![.](https://www.tradingview.com/x/LeHp5kUg/ "f_print()")
 
-![.](https://www.tradingview.com/x/BfsB2BqJ/ "f_print()")
+This multi-line version of the function allows for more flexibility. It can 
+```js
+//@version=4
+study("f_print() (Multi-line version)", "", true)
+f_print(_txt, _y, _color, _offsetLabels) => 
+    var label _lbl = na
+    _t = int(time + (time - time[1]) * _offsetLabels)
+    if barstate.islast
+        if na(_lbl)
+            // Only create label once.
+            _lbl := label.new(_t, _y, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, _color, size.large)
+            // Fudge return type of `if` block so compiler doesn't complain (thx midtownsk8rguy for the trick).
+            int(na)
+        else
+            // Rather than delete and recreate the label on every realtime bar update, update the label's information; it's more efficient.
+            label.set_xy(_lbl, _t, _y)
+            label.set_text(_lbl, _txt)
+            label.set_textcolor(_lbl, _color)
+            int(na)
+
+// We exclude the current candle's value in the calculation so the y position is more stable.
+y = highest(10)[1]
+// The newlines at the end of the strings allow us to overprint different labels to make different lines distinct colors.
+t1 = "Multiplier = " + tostring(timeframe.multiplier) + "\n\n"
+t2 = "Period = " + timeframe.period + "\n"
+t3 = "\n\nHigh = " + tostring(high)
+f_print(t1, y, color.teal, 3)
+f_print(t2, y, color.orange, 3)
+f_print(t3, y, color.fuchsia, 3)
+```
+![.](https://www.tradingview.com/x/rYwmH34C/ "f_print() (Multi-line version)")
 
 ### How can I plot numeric values so that they do not disrupt the indicator's scale?
 The solution is to use the `plotchar()` function, but without actually printing a character, and using the fact that values plotted with `plotchar()` will appear both:
