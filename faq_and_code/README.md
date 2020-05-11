@@ -1994,7 +1994,7 @@ The technique used doesn't require large quantities of individual variables like
 //@version=4
 study("Initialize External Data")
 
-f_i(_y, _m, _d, _p, _i) => 
+f_i( _p, _y, _m, _d, _i) => 
     if _y == year and _m == month and _d == dayofmonth
         // On specified date, return value to set series with.
         _i
@@ -2003,11 +2003,11 @@ f_i(_y, _m, _d, _p, _i) =>
         _p
 
 float d = na
-d := f_i(2020, 04, 30, d, 1234.5)
-d := f_i(2020, 05, 01, d, 2345.6)
-d := f_i(2020, 05, 02, d, 3456.7)
-d := f_i(2020, 05, 03, d, 4567.8)
-d := f_i(2020, 05, 04, d, 5678.9)
+d := f_i(d, 2020, 04, 30, 1234.5)
+d := f_i(d, 2020, 05, 01, 2345.6)
+d := f_i(d, 2020, 05, 02, 3456.7)
+d := f_i(d, 2020, 05, 03, 4567.8)
+d := f_i(d, 2020, 05, 04, 5678.9)
 
 plot(d, "d", color.fuchsia, 2, plot.style_circles)
 ```
