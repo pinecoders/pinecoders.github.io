@@ -1986,6 +1986,30 @@ plotchar(newPH, "newPH", "▲", location.top)
 ```
 > Note that we use `not na(pH)` to detect a new pivot, rather than the more common way of simply relying on the fact that `pH` will be different from zero or `na`—so true—when a pivot is found. While the common technique will work most of the time, it will not work when a pivot is found at a value of zero, because zero is evaluated as false in a conditional expression. Our method is thus more robust, and the recommended way to test for a pivot.
 
+### How can I initialize a series using external data?
+This techniqe doesn't require large quantities of individual variables likely to exceed the compiler's limit of 1000 per scope, nor the limit of 500 ternary statement blocks. It uses easy to generate and compact Pine code:
+```js
+//@version=4
+study("Initialize External Data")
+
+f_i(_y, _m, _d, _p, _i) => 
+    if _y == year and _m == month and _d == dayofmonth
+        // On specified date, return value to set series with.
+        _i
+    else
+        // On other dates, return the series' previous value.
+        _p
+
+float d = na
+d := f_i(2020, 04, 30, d, 1234.5)
+d := f_i(2020, 05, 01, d, 2345.6)
+d := f_i(2020, 05, 02, d, 3456.7)
+d := f_i(2020, 05, 03, d, 4567.8)
+d := f_i(2020, 05, 04, d, 5678.9)
+
+plot(d, "d", color.fuchsia, 2, plot.style_circles)
+```
+
 **[Back to top](#table-of-contents)**
 
 
