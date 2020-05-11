@@ -1987,7 +1987,9 @@ plotchar(newPH, "newPH", "▲", location.top)
 > Note that we use `not na(pH)` to detect a new pivot, rather than the more common way of simply relying on the fact that `pH` will be different from zero or `na`—so true—when a pivot is found. While the common technique will work most of the time, it will not work when a pivot is found at a value of zero, because zero is evaluated as false in a conditional expression. Our method is thus more robust, and the recommended way to test for a pivot.
 
 ### How can I initialize a series using external data?
-This techniqe doesn't require large quantities of individual variables likely to exceed the compiler's limit of 1000 per scope, nor the limit of 500 ternary statement blocks. It uses easy to generate and compact Pine code:
+Pine cannot yet use external data sources outside of the TradingView datafeeds. Until it can, external data must be inserted into machine-generated Pine code. This provides an efficient code template.
+
+The technique used doesn't require large quantities of individual variables likely to exceed the compiler's limit of 1000 per scope, nor the limit of 500 ternary statement blocks. The code is easy to generate and compact:
 ```js
 //@version=4
 study("Initialize External Data")
