@@ -639,7 +639,7 @@ f_tickFormat() =>
 // Plot invisible value to give a large upper scale to indie space.
 plotchar(10e10, "", "")
 // Fetch daily ATR. We want the current daily value so we use a repainting security() call.
-dAtr = security(syminfo.tickerid, "D", atr(atrLength), lookahead = barmerge.lookahead_on)
+dAtr = security(syminfo.tickerid, "D", atr(atrLength))
 // Label-creating function puts label at the top of the large scale.
 f_print(_txt) => t = time + (time - time[1]) * 3, var _lbl = label.new(t, high, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), label.set_xy(_lbl, t, high + 3 * tr), label.set_text(_lbl, _txt)
 // Print value on last bar only, so code runs faster.
