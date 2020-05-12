@@ -216,6 +216,8 @@ Backtest Rookies has developed [tv2bt](https://backtest-rookies.com/2019/11/22/t
 
 [december.com](https://www.december.com/html/spec/)
 
+[Kodify has a long list of Hex colors](https://kodify.net/tradingview/colours/hexadecimal-colours/#lists-of-hexadecimal-colour-values-for-tradingview)
+
 
 ## Unicode characters
 [What Unicode character is this?](https://www.babelstone.co.uk/Unicode/whatisit.html)
