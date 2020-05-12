@@ -1986,28 +1986,23 @@ plotchar(newPH, "newPH", "▲", location.top)
 ```
 > Note that we use `not na(pH)` to detect a new pivot, rather than the more common way of simply relying on the fact that `pH` will be different from zero or `na`—so true—when a pivot is found. While the common technique will work most of the time, it will not work when a pivot is found at a value of zero, because zero is evaluated as false in a conditional expression. Our method is thus more robust, and the recommended way to test for a pivot.
 
-### How can I initialize a series using external data?
-Pine cannot yet use external data sources outside of the TradingView datafeeds. Until it can, external data must be inserted into machine-generated Pine code. This provides an efficient code template.
+### How can I initialize a series on specific dates using external data?
+Pine cannot yet use external data sources outside of the TradingView datafeeds. Until it can, external data must be inserted into machine-generated Pine code. This provides a template.
 
-The technique used doesn't require large quantities of individual variables likely to exceed the compiler's limit of 1000 per scope, nor the limit of 500 ternary statement blocks. The code is easy to generate and compact:
+The technique will allow for the initialization of approximately 900 values before running into compiler limitations. The technique doesn't require an ``if`` structure likely to exceed the compiler's limit of 500 local blocks, but every mutable instance of `d` uses a variable count, which will decrease the amount of variables available for the code following the initializations (maximum is 1000 in the global scope). The code is easy to generate and compact:
 ```js
 //@version=4
 study("Initialize External Data")
 
-f_i( _p, _y, _m, _d, _i) => 
-    if _y == year and _m == month and _d == dayofmonth
-        // On specified date, return value to set series with.
-        _i
-    else
-        // On other dates, return the series' previous value.
-        _p
-
+// Dates must appear in chronological order and match chart dates.
+// The limit of lines is ~900. Variables used in your calcs will decrease this amount.
 float d = na
-d := f_i(d, 2020, 04, 30, 1234.5)
-d := f_i(d, 2020, 05, 01, 2345.6)
-d := f_i(d, 2020, 05, 02, 3456.7)
-d := f_i(d, 2020, 05, 03, 4567.8)
-d := f_i(d, 2020, 05, 04, 5678.9)
+t = timestamp(year, month, dayofmonth, 0, 0, 0)
+d := t == timestamp(2010, 01, 01, 0, 0, 0) ? 2010010.1 : d
+d := t == timestamp(2010, 01, 02, 0, 0, 0) ? 2010010.2 : d
+d := t == timestamp(2010, 01, 03, 0, 0, 0) ? 2010010.3 : d
+d := t == timestamp(2010, 01, 04, 0, 0, 0) ? 2010010.4 : d
+d := t == timestamp(2010, 01, 05, 0, 0, 0) ? 2010010.5 : d
 
 plot(d, "d", color.fuchsia, 2, plot.style_circles)
 ```
