@@ -58,7 +58,11 @@ threeUpBars = sum(upBar ? 1 : 0, 3) == 3
 which produces a value of `1` every time the `upBar` boolean variable is true, and adds the number of those values for the last 3 bars. When that rolling sum equals `3`, `threeUpBars` is true.
 > Note that the variable name `3UpBars` would have caused a compilation error. It is not legal in Pine as it begins with a digit.
 
-If you need to define up and down bars, then make sure one of those definitions allows for the case where the `open` and `close` are equal:
+If you wanted to have a condition true when there were 7 or more up bars in the last 10, you could use:
+```js
+sevenUpBarsInLastTen = sum(upBar ? 1 : 0, 10) >= 7
+```
+If you need to define up and down bars and want to account for all possibilities, make sure one of those definitions allows for the case where `open` and `close` are equal:
 ```js
 upBar = close > open
 dnBar = not upBar
