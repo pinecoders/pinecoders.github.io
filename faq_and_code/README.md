@@ -43,21 +43,27 @@ The `close` variable holds both the price at the close of historical bars and th
 
 To access the close of the previous bar's close in Pine, use `close[1]`. In Pine, brackets are used as the [history-referencing operator](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator).
 
-### What is the code for a green candle?
+### What is the code for a green bar?
 ```js
-greenCandle = close > open
+greenBar = close > open
 ```
 Once you have defined the `greenCandle` variable, if you wanted a boolean variable to be `true` when the last three candles were green ones, you could write:
 ```js
-threeGreenCandles = greenCandle and greenCandle[1] and greenCandle[2]
+threeGreenBars = greenBar and greenBar[1] and greenBar[2]
 ```
-> Note that the variable name `3GreenCandles` would have caused a compilation error. It is not legal in Pine as it begins with a digit.
-
-If you need to define up and down candles, then make sure one of those definitions allows for the case where the `open` and `close` are equal:
+You could also achieve the same using:
 ```js
-upCandle = close >= open
-downCandle = close < open
+threeGreenBars = sum(greenBar ? 1 : 0, 3) == 3
 ```
+which produces a value of `1` every time the `greenBar` boolean variable is true, and adds the number of those values for the last 3 bars. When that sum equals `3`, `threeGreenBars` is true.
+> Note that the variable name `3GreenBars` would have caused a compilation error. It is not legal in Pine as it begins with a digit.
+
+If you need to define up and down bars, then make sure one of those definitions allows for the case where the `open` and `close` are equal:
+```js
+upBar = close > open
+dnBar = not upBar
+```
+In this case, when `close == open`, `upBar` will be false and `dnBar` true.
 
 **[Back to top](#table-of-contents)**
 
