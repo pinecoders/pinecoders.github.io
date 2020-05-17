@@ -43,20 +43,20 @@ The `close` variable holds both the price at the close of historical bars and th
 
 To access the close of the previous bar's close in Pine, use `close[1]`. In Pine, brackets are used as the [history-referencing operator](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator).
 
-### What is the code for a green bar?
+### What is the code for a up bar?
 ```js
-greenBar = close > open
+upBar = close > open
 ```
-Once you have defined the `greenBar` variable, if you wanted a boolean variable to be `true` when the last three bars were green ones, you could write:
+Once you have defined the `upBar` variable, if you wanted a boolean variable to be `true` when the last three bars were green ones, you could write:
 ```js
-threeGreenBars = greenBar and greenBar[1] and greenBar[2]
+threeUpBars = upBar and upBar[1] and upBar[2]
 ```
 You could also achieve the same using:
 ```js
-threeGreenBars = sum(greenBar ? 1 : 0, 3) == 3
+threeUpBars = sum(upBar ? 1 : 0, 3) == 3
 ```
-which produces a value of `1` every time the `greenBar` boolean variable is true, and adds the number of those values for the last 3 bars. When that rolling sum equals `3`, `threeGreenBars` is true.
-> Note that the variable name `3GreenBars` would have caused a compilation error. It is not legal in Pine as it begins with a digit.
+which produces a value of `1` every time the `upBar` boolean variable is true, and adds the number of those values for the last 3 bars. When that rolling sum equals `3`, `threeUpBars` is true.
+> Note that the variable name `3UpBars` would have caused a compilation error. It is not legal in Pine as it begins with a digit.
 
 If you need to define up and down bars, then make sure one of those definitions allows for the case where the `open` and `close` are equal:
 ```js
