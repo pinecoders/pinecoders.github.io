@@ -442,7 +442,7 @@ These are other examples:
 ### How many plots, security() calls, variables or lines of code can I use?
 - The limit for plots is 64. Note than one plot statement can use up more than one allowed plot, depending on how it is structured. If you use series (conditional) color on the plot or text, each one will add a plot count. Starting with Pine v4, `alertcondition()` calls also count for one plot.
 - When using labels or lines created with `label.new()` and `line.new()` a garbage collector will preserve only the last ~50 objects of each type.
-- The limit for `security()` calls is 40.
+- The limit for `security()` calls is 40, but by using functions returning tuples with `security()`, you can fetch many more values than 40.
 - The limit for variables is 1000.
 - We do not know of a limit to the number of lines in a script. There is, however a limit of 50K compiled tokens, but they don't correspond to code lines.
 
