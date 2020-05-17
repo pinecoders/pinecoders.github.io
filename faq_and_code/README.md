@@ -47,7 +47,7 @@ To access the close of the previous bar's close in Pine, use `close[1]`. In Pine
 ```js
 upBar = close > open
 ```
-Once you have defined the `upBar` variable, if you wanted a boolean variable to be `true` when the last three bars were green ones, you could write:
+Once you have defined the `upBar` variable, if you wanted a boolean variable to be `true` when the last three bars were up bars, you could write:
 ```js
 threeUpBars = upBar and upBar[1] and upBar[2]
 ```
