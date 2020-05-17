@@ -47,7 +47,7 @@ To access the close of the previous bar's close in Pine, use `close[1]`. In Pine
 ```js
 greenBar = close > open
 ```
-Once you have defined the `greenCandle` variable, if you wanted a boolean variable to be `true` when the last three candles were green ones, you could write:
+Once you have defined the `greenBar` variable, if you wanted a boolean variable to be `true` when the last three bars were green ones, you could write:
 ```js
 threeGreenBars = greenBar and greenBar[1] and greenBar[2]
 ```
@@ -55,7 +55,7 @@ You could also achieve the same using:
 ```js
 threeGreenBars = sum(greenBar ? 1 : 0, 3) == 3
 ```
-which produces a value of `1` every time the `greenBar` boolean variable is true, and adds the number of those values for the last 3 bars. When that sum equals `3`, `threeGreenBars` is true.
+which produces a value of `1` every time the `greenBar` boolean variable is true, and adds the number of those values for the last 3 bars. When that rolling sum equals `3`, `threeGreenBars` is true.
 > Note that the variable name `3GreenBars` would have caused a compilation error. It is not legal in Pine as it begins with a digit.
 
 If you need to define up and down bars, then make sure one of those definitions allows for the case where the `open` and `close` are equal:
