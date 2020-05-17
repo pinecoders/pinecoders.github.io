@@ -43,7 +43,7 @@ The `close` variable holds both the price at the close of historical bars and th
 
 To access the close of the previous bar's close in Pine, use `close[1]`. In Pine, brackets are used as the [history-referencing operator](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator).
 
-### What is the code for a up bar?
+### What is the code for an up bar?
 ```js
 upBar = close > open
 ```
