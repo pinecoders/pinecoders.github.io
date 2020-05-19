@@ -846,11 +846,6 @@ plot(entryPrice, "Method 1", color.orange, 3, plot.style_circles)
 plot(strategy.position_avg_price, "Method 2", color.gray, 1, plot.style_circles, transp = 0)
 ```
 
-### How do I convert a strategy to a study in order to generate alerts for discretionary trading or a third-party execution app/bot?
-The best way to go about this is to write your strategies in such a way that their behavior depends the least possible on `strategy.*` variables and `strategy.*()` call parameters, because these cannot be converted into an indicator.
-
-The PineCoders [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/) is a framework that allows you to easily convert betweeen strategy and indicator modes because it manages trades using custom Pine code that does not depend on an involved setup of `strategy.*()` call parameters.
-
 ### Can my strategy generate orders through exchanges or brokers?
 No, because:
 1. The [brokers with integration to TradingView](https://www.tradingview.com/brokers/) can only be used for manual trading.
