@@ -308,6 +308,7 @@ study("Round fraction")
 i_val = input(0.75, step = 0.01)
 
 f_roundTo(_val, _to) =>
+    // Kudos to @veryevilone for the idea.
     round(_val / _to) * _to
 
 plot(f_roundTo(i_val, 0.5))
