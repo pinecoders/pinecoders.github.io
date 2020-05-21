@@ -1252,10 +1252,10 @@ f_htfLabel(
 ### Is it possible to use `security()` on lower intervals than the chart's current interval?
 Yes but there are limits to using this technique:
 1. It's not supported by TV.
-1. It doesn't always return reliable data. Intrabar volume information on stocks, for example, is often incorrect.
-1. It only works on historical bars.
+1. It doesn't always return reliable data. Intrabar volume information on stocks, for example, will not match >1D volume, as data for both is reported differently by exchanges.
+1. It only works on historical bars, which means your script will not return correct values in the realtime bar.
 1. You cannot reference intrabars at seconds resolutions. So you can call `security()` at 1m from a 15m chart, but not 30sec.
-1. Alerts will currently not work reliably if you use this technique in your script.
+1. Alerts will not work trigger correctly.
 
 If you call `security()` at a lower resolution using a series argument such as `close` or `volume` for its `expression=` parameter, `security()` returns the series' value at the last intrabar, as in the `lastClose` variable in the following script.
 
@@ -1294,7 +1294,7 @@ plotchar(lastClose,"lastClose", "", location = location.top)
 plotchar(valueAtIntrabar,"valueAtIntrabar", "", location = location.top)
 plot(qtyIntrabars,"qtyIntrabars")
 ```
-[This](https://www.tradingview.com/script/YFBNr8I6-Delta-Volume-Columns-LucF/) is an example of a script that uses the technique illustrated in the functions to calculate delta volume.
+[This](https://www.tradingview.com/script/F2ylEYOO-Delta-Volume-Columns-Pro-LucF/) is an example of a script that uses the technique illustrated in the functions to calculate delta volume. Note the *Warning* and *Limitations* sections in the description, warning traders of the indicator's shortcomings.
 
 
 **[Back to top](#table-of-contents)**
