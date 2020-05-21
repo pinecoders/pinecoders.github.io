@@ -44,4 +44,4 @@ PineCoders works daily with TradingView's Pine team to identify and validate ano
 
 If you want to make a suggestion for improvement to Pine, use our [Trello board](https://trello.com/c/QA6bcL7l).
 
-We hope our [PineCoders Repository](https://github.com/pinecoders/pine-utils) on GitHub becomes the go-to location to search for Pine [Snippets](https://github.com/pinecoders/pine-utils/tree/master/snippets).
+We hope our [PineCoders Repository](https://github.com/pinecoders/pine-utils) on GitHub becomes the go-to place to find [Pine Snippets](https://github.com/pinecoders/pine-utils/tree/master/snippets).
