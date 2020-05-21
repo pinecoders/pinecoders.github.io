@@ -21,7 +21,10 @@
 
 <div align="center"><font size="+1"><strong>Want to learn proper Pine coding style?<br></strong></font> Read our <a href="http://www.pinecoders.com/coding_conventions">Pine Coding Conventions</a>.</div>
 
-<div align="center"><font size="+1"><strong>Want to stay abreast of Pine news?<br></strong></font> Subscribe to our <a href="https://t.me/PineCodersSquawkBox">PineCoders Squawk Box on Telegram</a>.</div>
+<div align="center"><font size="+1"><strong>Want to stay abreast of Pine news?</strong></font><br>
+Subscribe to our <a href="https://t.me/PineCodersSquawkBox">PineCoders Squawk Box on Telegram</a>.<br>
+Follow the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script chat room</a> on TradingView.<br>
+Follow our <a href="https://twitter.com/PineCoders">Twitter account</a>.</div>
 
 <div align="center"><font size="+1"><strong>Need tools, resources or work for hire Pine Programmers?<br></strong></font>Use our <a href="http://www.pinecoders.com/resources">Pine Resources</a>.<br>
 We also have a guide on <a href="http://www.pinecoders.com/techniques/dsp">Digital Signal Processing In Pine</a> and a <a href="http://www.pinecoders.com/books">list of books</a>.</div>
