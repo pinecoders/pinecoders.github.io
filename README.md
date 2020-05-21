@@ -13,9 +13,8 @@
 ![logo](images/PineCoders.png "PineCoders")
 
 
-<div align="center"><font size="+1"><strong>New to Pine?</strong></font>
-Begin your journey with our <a href="http://www.pinecoders.com/learning_pine_roadmap">Learning Pine Roadmap</a>.
-</div>
+<div align="center"><font size="+1"><strong>New to Pine?</strong></font><br>
+Begin your journey with our <a href="http://www.pinecoders.com/learning_pine_roadmap">Learning Pine Roadmap</a>.</div>
 
 <div align="center"><font size="+1"><strong>Have a question?</strong></font><br>
 See if you can find it in our <a href="http://www.pinecoders.com/faq_and_code">Pine FAQ & Code</a>.<br>
@@ -30,7 +29,7 @@ Subscribe to our <a href="https://t.me/PineCodersSquawkBox">PineCoders Squawk Bo
 Follow our <a href="https://twitter.com/PineCoders">Twitter account</a>.</div>
 
 <div align="center"><font size="+1"><strong>Need tools, resources or work for hire Pine Programmers?</strong></font><br>
-Use our <a href="http://www.pinecoders.com/resources">Pine Resources</a>.<br>
+Use our <a href="http://www.pinecoders.com/resources">Pine Resources</a>.<br><br>
 
 We also have a guide on <a href="http://www.pinecoders.com/techniques/dsp">Digital Signal Processing In Pine</a> and a <a href="http://www.pinecoders.com/books">list of books</a>.</div>
 
