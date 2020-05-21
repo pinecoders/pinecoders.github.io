@@ -35,12 +35,8 @@ We also have a guide on <a href="http://www.pinecoders.com/techniques/dsp">Digit
 
 ---
 
-PineCoders is a [TradingView](https://www.tradingview.com/)-supported group of programmers using TradingView's [Pine Script](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html) programming language. We help TV members learn Pine, provide tools and resources for beginning as well as pro coders, and collaborate with TradingView to make using Pine indicators and strategies easier for both coders and the at-large TV community.
+PineCoders is a [TradingView](https://www.tradingview.com/)-supported group of programmers using TradingView's [Pine Script](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html) programming language, which is used to write trading indicators or strategies. We help TradingView users learn Pine, provide tools and resources for beginning as well as pro coders. We also collaborate with TradingView to steer the future of Pine and make Pine indicators and strategies easier to use for the at-large TV community.
 
-We also pilot the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-charts) TV moderator account, from which we moderate script publications, answer questions in the [Pine Script TV chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235), publish [open source tools and examples in Pine](https://www.tradingview.com/u/PineCoders/#published-scripts), and follow [leading publishers](https://www.tradingview.com/u/PineCoders/#following-people) of open source scripts on TV, who's code you can learn a great deal from. We also answer questions on Pine at [Stack Overflow](https://stackoverflow.com/questions/tagged/pine-script?sort=Newest).
-
-PineCoders works daily with TradingView's Pine team to identify and validate anomalies, and test upcoming new features.
+We pilot the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-charts) TV moderator account, from which we moderate script publications, answer questions in the [Pine Script TV chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235), publish [open source tools and examples in Pine](https://www.tradingview.com/u/PineCoders/#published-scripts), and follow [leading publishers](https://www.tradingview.com/u/PineCoders/#following-people) of open source scripts on TV.
 
 If you want to make a suggestion for improvement to Pine, use our [Trello board](https://trello.com/c/QA6bcL7l).
-
-We hope our [PineCoders Repository](https://github.com/pinecoders/pine-utils) on GitHub becomes the go-to place to find [Pine Snippets](https://github.com/pinecoders/pine-utils/tree/master/snippets).
