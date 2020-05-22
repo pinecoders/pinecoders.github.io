@@ -24,8 +24,7 @@ If not, ask in the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">
 Read our <a href="http://www.pinecoders.com/coding_conventions">Pine Coding Conventions</a>.</div>
 
 <div align="center"><font size="+1"><strong>Want to stay abreast of Pine news?</strong></font><br>
-Subscribe to our <a href="https://t.me/PineCodersSquawkBox">PineCoders Squawk Box on Telegram</a>.<br>
-Follow our <a href="https://twitter.com/PineCoders">Twitter account</a>.</div>
+Subscribe to our <a href="https://t.me/PineCodersSquawkBox">PineCoders Squawk Box on Telegram</a>, or follow our <a href="https://twitter.com/PineCoders">Twitter account</a>.</div>
 
 <div align="center"><font size="+1"><strong>Need tools, resources or work for hire Pine Programmers?</strong></font><br>
 Use our <a href="http://www.pinecoders.com/resources">Pine Resources</a>.<br><br>
