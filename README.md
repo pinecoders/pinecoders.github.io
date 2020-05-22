@@ -18,8 +18,7 @@ Begin your journey with our <a href="http://www.pinecoders.com/learning_pine_roa
 
 <div align="center"><font size="+1"><strong>Have a question on Pine?</strong></font><br>
 Your answer is probably already in our <a href="http://www.pinecoders.com/faq_and_code">Pine FAQ & Code</a>.<br>
-Ask in the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script chat room</a> on TradingView,<br>
-or on <a href="https://stackoverflow.com/questions/tagged/pine-script?tab=Newest">Stack Overflow</a>.</div>
+If not, ask in the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script chat room</a> on TradingView, or on <a href="https://stackoverflow.com/questions/tagged/pine-script?tab=Newest">Stack Overflow</a>.</div>
 
 <div align="center"><font size="+1"><strong>Want to learn proper Pine coding style?</strong></font><br>
 Read our <a href="http://www.pinecoders.com/coding_conventions">Pine Coding Conventions</a>.</div>
