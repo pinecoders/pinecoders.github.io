@@ -41,6 +41,6 @@ We pilot the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-ch
 
 If you want to make a suggestion for improvement to Pine, use our [Trello board](https://trello.com/c/QA6bcL7l).
 
-[Pine v4 Reference Manual](https://www.tradingview.com/pine-script-reference/v4/)
+[Pine v4 Reference Manual](https://www.tradingview.com/pine-script-reference/v4/)  
 [Pine v4 User Manual](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html)
 
