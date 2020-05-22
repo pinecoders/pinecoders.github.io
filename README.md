@@ -13,27 +13,28 @@
 ![logo](images/PineCoders.png "PineCoders")
 
 
-<div align="center"><font size="+1"><strong>New to Pine?</strong></font><br>
-Begin your journey with our <a href="http://www.pinecoders.com/learning_pine_roadmap">Learning Pine Roadmap</a>.</div>
-
 <div align="center">
+<font size="+1"><strong>New to Pine?</strong></font><br>
+Begin your journey with our <a href="http://www.pinecoders.com/learning_pine_roadmap">Learning Pine Roadmap</a>.<br><br>
+
 <font size="+1"><strong>Have a question on Pine?</strong></font><br>
 Your answer is probably already in our <a href="http://www.pinecoders.com/faq_and_code">Pine FAQ & Code</a>.<br>
-If not, ask in the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script chat room</a> on TradingView, or on <a href="https://stackoverflow.com/questions/tagged/pine-script?tab=Newest">Stack Overflow</a>.</div>
+If not, ask in the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script chat room</a> on TradingView, or on <a href="https://stackoverflow.com/questions/tagged/pine-script?tab=Newest">Stack Overflow</a>.<br><br>
 
-<div align="center"><font size="+1"><strong>Want to learn proper Pine coding style?</strong></font><br>
-Read our <a href="http://www.pinecoders.com/coding_conventions">Pine Coding Conventions</a>.</div>
+<font size="+1"><strong>Want to learn proper Pine coding style?</strong></font><br>
+Read our <a href="http://www.pinecoders.com/coding_conventions">Pine Coding Conventions</a>.<br><br>
 
-<div align="center"><font size="+1"><strong>Want to stay abreast of Pine news?</strong></font><br>
-Subscribe to our <a href="https://t.me/PineCodersSquawkBox">PineCoders Squawk Box on Telegram</a>, or follow our <a href="https://twitter.com/PineCoders">Twitter account</a>.</div>
+<font size="+1"><strong>Want to stay abreast of Pine news?</strong></font><br>
+Subscribe to our <a href="https://t.me/PineCodersSquawkBox">PineCoders Squawk Box on Telegram</a>, or follow our <a href="https://twitter.com/PineCoders">Twitter account</a>.<br><br>
 
-<div align="center"><font size="+1"><strong>Looking for a professional Pine programmer?</strong></font><br>
+<font size="+1"><strong>Looking for a professional Pine programmer?</strong></font><br>
 See our list of <a href="https://www.pinecoders.com/resources/#trusted-pine-programmers-for-hire">Trusted Pine Programmers for Hire</a>.<br><br>
 
 <font size="+1"><strong>Looking for more resources on Pine?</strong></font><br>
 Use our <a href="http://www.pinecoders.com/resources">Pine Resources</a>.<br><br>
 
-We also have a guide on <a href="http://www.pinecoders.com/techniques/dsp">Digital Signal Processing In Pine</a> and a <a href="http://www.pinecoders.com/books">list of books</a>.</div>
+We also have a guide on <a href="http://www.pinecoders.com/techniques/dsp">Digital Signal Processing In Pine</a> and a <a href="http://www.pinecoders.com/books">list of books</a>.
+</div>
 
 
 ---
