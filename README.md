@@ -39,6 +39,6 @@ PineCoders is a [TradingView](https://www.tradingview.com/)-supported group of p
 
 We collaborate with TradingView's Pine team to steer the future of the language and make Pine indicators and strategies easier to use for the at-large TV community of traders.
 
-We pilot the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-charts) TV moderator account, from which we moderate script publications, answer questions in the [Pine Script TV chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235), publish [open source tools and examples in Pine](https://www.tradingview.com/u/PineCoders/#published-scripts), and follow [leading publishers](https://www.tradingview.com/u/PineCoders/#following-people) of open-source scripts on TV.
+We pilot the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-charts) TV moderator account, from which we moderate script publications to TradingView's [Public Library or scripts](https://www.tradingview.com/scripts/), answer questions in the [Pine Script TV chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235), publish [open source tools and examples in Pine](https://www.tradingview.com/u/PineCoders/#published-scripts), and follow [leading publishers](https://www.tradingview.com/u/PineCoders/#following-people) of open-source scripts on TV.
 
 If you want to make a suggestion for improvement to Pine, use our [Trello board](https://trello.com/c/QA6bcL7l).
