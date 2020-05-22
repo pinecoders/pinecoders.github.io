@@ -20,7 +20,7 @@ Begin your journey with our <a href="http://www.pinecoders.com/learning_pine_roa
 <font size="+1"><strong>Have a question on Pine?</strong></font><br>
 Your answer is probably already in our <a href="http://www.pinecoders.com/faq_and_code">FAQ & Code</a>.<br>
 If not, look up the [Pine v4 Reference Manual](https://www.tradingview.com/pine-script-reference/v4/) and 
-[Pine v4 User Manual](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html) or search the Web.<br>
+[Pine v4 User Manual](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html), or search the Web.<br>
 As a last resort, ask in the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script chat room</a> on TradingView, or on <a href="https://stackoverflow.com/questions/tagged/pine-script?tab=Newest">Stack Overflow</a>.<br><br>
 
 <font size="+1"><strong>Want to learn proper Pine coding style?</strong></font><br>
