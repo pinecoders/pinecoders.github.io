@@ -2015,6 +2015,20 @@ d := t == timestamp(2010, 01, 05, 0, 0, 0) ? 2010010.5 : d
 plot(d, "d", color.fuchsia, 2, plot.style_circles)
 ```
 
+### How can I display plot values in the chart's scale?
+![.](https://www.tradingview.com/x/cFJ7oV60/ "SMA Script")
+To achieve this effect with your indicator, you need to check 2 checkboxes in the chart's *Settings/Scales* tab: *Indicator Name Label* and *Indicator Last Value Label*. You reach the *Chart Settings* menu by right-clicking on the chart or by using the cog wheel in the chart's upper-right icons.
+
+If you display the indicator's name, the `shorttitle` will be used if there is one. If not, as is the case here, the `title` will be used. The plot's name will also appear in the label:
+```js
+//@version=4
+study("SMA Script", "", true)
+maOne = sma(close, 20)
+maTwo = sma(close, 50)
+plot(maOne, "MA1")
+plot(maTwo, "MA2", color.fuchsia)
+```
+
 **[Back to top](#table-of-contents)**
 
 
