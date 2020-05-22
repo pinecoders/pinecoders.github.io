@@ -26,7 +26,10 @@ Read our <a href="http://www.pinecoders.com/coding_conventions">Pine Coding Conv
 <div align="center"><font size="+1"><strong>Want to stay abreast of Pine news?</strong></font><br>
 Subscribe to our <a href="https://t.me/PineCodersSquawkBox">PineCoders Squawk Box on Telegram</a>, or follow our <a href="https://twitter.com/PineCoders">Twitter account</a>.</div>
 
-<div align="center"><font size="+1"><strong>Need tools, resources or work for hire Pine Programmers?</strong></font><br>
+<div align="center"><font size="+1"><strong>Looking for a professional Pine programmer?</strong></font><br>
+See our list of <a href="https://www.pinecoders.com/resources/#trusted-pine-programmers-for-hire">Trusted Pine Programmers for Hire</a>.<br><br>
+
+<div align="center"><font size="+1"><strong>Looking for more resources on Pine?</strong></font><br>
 Use our <a href="http://www.pinecoders.com/resources">Pine Resources</a>.<br><br>
 
 We also have a guide on <a href="http://www.pinecoders.com/techniques/dsp">Digital Signal Processing In Pine</a> and a <a href="http://www.pinecoders.com/books">list of books</a>.</div>
