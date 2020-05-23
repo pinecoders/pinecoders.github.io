@@ -44,7 +44,7 @@ We also have a guide on <a href="http://www.pinecoders.com/techniques/dsp">Digit
 ---
 
 
-PineCoders is a [TradingView](https://www.tradingview.com/)-supported group of programmers who code in [Pine Script](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html). Pine is used to write trading indicators or strategies.
+PineCoders is a [TradingView](https://www.tradingview.com/)-supported group of programmers who code in [Pine Script](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html), which is used to write trading indicators or strategies for the TradingView financial charting platform.
 
 We collaborate with TradingView's Pine team to steer the future of the language and make Pine indicators and strategies easier to use for the at-large TV community of traders.
 
