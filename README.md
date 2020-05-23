@@ -37,7 +37,7 @@ Use our <a href="http://www.pinecoders.com/resources">Pine Resources</a>.<br><br
 <font size="+1"><strong>Want to make a suggestion to improve Pine?</strong></font><br>
 Send it by email to our <a href="https://trello.com/c/QA6bcL7l">Trello board</a>.<br><br>
 
-<font size="+1"><strong>Want to broaden your vistas?</strong></font><br>
+<font size="+1"><strong>Interested in broadening your vistas?</strong></font><br>
 We have a guide on <a href="http://www.pinecoders.com/techniques/dsp">Digital Signal Processing In Pine</a> and a <a href="http://www.pinecoders.com/books">list of books</a>.
 </div>
 
