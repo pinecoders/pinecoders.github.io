@@ -34,6 +34,9 @@ See our list of <a href="https://www.pinecoders.com/resources/#trusted-pine-prog
 <font size="+1"><strong>Looking for more resources on Pine?</strong></font><br>
 Use our <a href="http://www.pinecoders.com/resources">Pine Resources</a>.<br><br>
 
+<font size="+1"><strong>Want to make a suggestion for improvement to Pine?</strong></font><br>
+Send it by email to our <a href="https://trello.com/c/QA6bcL7l">Trello board</a>.<br><br>
+
 We also have a guide on <a href="http://www.pinecoders.com/techniques/dsp">Digital Signal Processing In Pine</a> and a <a href="http://www.pinecoders.com/books">list of books</a>.
 </div>
 
@@ -46,8 +49,6 @@ PineCoders is a [TradingView](https://www.tradingview.com/)-supported group of p
 We collaborate with TradingView's Pine team to steer the future of the language and make Pine indicators and strategies easier to use for the at-large TV community of traders.
 
 We pilot the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-charts) TV moderator account, from which we moderate script publications to TradingView's [Public Library of scripts](https://www.tradingview.com/scripts/), answer questions in the [Pine Script TV chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235), publish [open source tools and examples in Pine](https://www.tradingview.com/u/PineCoders/#published-scripts), and follow [leading publishers](https://www.tradingview.com/u/PineCoders/#following-people) of open-source scripts on TV.
-
-If you want to make a suggestion for improvement to Pine, use our [Trello board](https://trello.com/c/QA6bcL7l).
 
 [Pine v4 Reference Manual](https://www.tradingview.com/pine-script-reference/v4/)  
 [Pine v4 User Manual](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html)
