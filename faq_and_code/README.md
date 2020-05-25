@@ -1357,7 +1357,7 @@ The diagram shows you where the *const string* type is situated in the casting r
 This code shows examples that work and don't work:
 ```js
 //@version=4
-study("alertcondition arguments")
+study("alertcondition() arguments")
 
 // ————— These strings will not work.
 // The rsi() value can only be known at runtime time and it is a "series",
@@ -1380,7 +1380,15 @@ goodMsgArg1 = false ? "Long Entry" : "Short Entry"
 goodMsgArg2 = "AAA " + "BBB"
 
 alertcondition(true, title="Id appearing in Create Alert db", message = goodMsgArg1)
+
+// ————— Workaround
+cond1 = rising(close, 5)
+cond2 = falling(close, 5)
+alertcondition(cond1, title="cond1", message = "cond1 Text")
+alertcondition(cond2, title="cond2", message = "cond2 Text")
 ```
+
+The only workaround, which is admittedly not ideal, is to use two different alerts, as is shown in the last part of the script. This will also require setting up 2 different alerts in TV web.
 
 **The only dynamic text that can be included in an alert message is the text available using the pre-defined placeholders:**
 
