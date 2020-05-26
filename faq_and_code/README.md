@@ -1330,6 +1330,8 @@ When TradingView creates an alert, it saves a snapshot of the environment that w
 ### I have a custom script that generates alerts. How do I run it on many symbols?
 You need to create a separate alert for each symbol. There is currently no way to create an alert for all the symbols in a watchlist or for the Screener.
 
+By using a [`security()`](https://www.tradingview.com/pine-script-reference/v4/#fun_security) call for each symbol (maximum 40), you can monitor more than one symbol with the same script, and generate alerts containing the symbol's name using placeholders in your alert's text. See this [TV blog post on variable alerts](https://www.tradingview.com/blog/en/introducing-variables-in-alerts-14880/) for more information.
+
 If one of the generic indicators supplied with the Screener suits your needs and your symbols are tagged with a color label, you can create an alert on those markets from within the Screener.
 
 ### Is it possible to use a string that varies as an argument to the `alertcondition()` function's `message=` parameter?
