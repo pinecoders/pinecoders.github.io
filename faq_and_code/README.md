@@ -1767,7 +1767,7 @@ The answer depends on whether you know the minimum/maximum possible values of th
 If you know the minimum/maximum values of the series, then you should use the `rescale()` function:
 ```js
 //@version=4
-//@author=LucF, for PineCoders
+//@author=glaz + LucF, for PineCoders
 study("Normalizer")
 
 // ————— When scale of signal to rescale is unknown.
