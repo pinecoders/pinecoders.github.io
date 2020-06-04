@@ -801,24 +801,27 @@ TradingView backtesting evaluates conditions at the close of historical bars. Wh
 In the real-time bar, orders may be executed on the *tick* (price change) following detection of a condition. While this may seem appealing, it is important to realize that if you use `calc_on_every_tick=true` in the `strategy()` declaration statement to make your strategy work this way, you are going to be running a different strategy than the one you tested on historical bars. See the [Strategies](https://www.tradingview.com/pine-script-docs/en/v4/essential/Strategies.html) page of the User Manual for more information.
 
 ### How do I implement date range filtering in strategies?
-This piece of code does from/to dates. If you need to also filter on specific times, use [How To Set Backtest Time Ranges](https://www.tradingview.com/script/xAEG4ZJG-How-To-Set-Backtest-Time-Ranges/) by [allanster](https://www.tradingview.com/u/allanster/#published-scripts).
+This code allows coders to restrict specific calculations in a script to user-selected from/to dates. If you need to also filter on specific times, use [How To Set Backtest Time Ranges](https://www.tradingview.com/script/xAEG4ZJG-How-To-Set-Backtest-Time-Ranges/) by [allanster](https://www.tradingview.com/u/allanster/#published-scripts).
 ```js
-DateFilter = input(false, "═════════════ Date Range Filtering")
-FromYear = input(1900, "From Year", minval = 1900)
-FromMonth = input(1, "From Month", minval = 1, maxval = 12)
-FromDay = input(1, "From Day", minval = 1, maxval = 31)
-ToYear = input(2999, "To Year", minval = 1900)
-ToMonth = input(1, "To Month", minval = 1, maxval = 12)
-ToDay = input(1, "To Day", minval = 1, maxval = 31)
-FromDate = timestamp(FromYear, FromMonth, FromDay, 00, 00)
-ToDate = timestamp(ToYear, ToMonth, ToDay, 23, 59)
-TradeDateIsAllowed() => DateFilter ? (time >= FromDate and time <= ToDate) : true
+//@version=4
+study("Date Filtering", "", true)
+i_dateFilter    = input(false,  "═════ Date Range Filtering ═════")
+i_fromYear      = input(1900,   "From Year",    minval = 1900)
+i_fromMonth     = input(1,      "From Month",   minval = 1, maxval = 12)
+i_fromDay       = input(1,      "From Day",     minval = 1, maxval = 31)
+i_toYear        = input(2999,   "To Year",      minval = 1900)
+i_toMonth       = input(1,      "To Month",     minval = 1, maxval = 12)
+i_toDay         = input(1,      "To Day",       minval = 1, maxval = 31)
+
+fromDate        = timestamp(i_fromYear, i_fromMonth, i_fromDay, 00, 00)
+toDate          = timestamp(i_toYear, i_toMonth, i_toDay, 23, 59)
+f_tradeDateIsAllowed() => not i_dateFilter or (time >= fromDate and time <= toDate)
+
+enterLong       = f_tradeDateIsAllowed() and crossover(rsi(close, 14), 50)
+
+plotchar(enterLong, "enterLong", "▲", location.belowbar, color.lime, size = size.tiny)
 ```
-You can then use the result of `TradeDateIsAllowed()` to confirm your entries using something like this:
-```js
-EnterLong = GoLong and TradeDateIsAllowed()
-```
-> Note that with this code snippet, date filtering can be enabled/disabled using a checkbox. This way you don't have to reset dates when filtering is no longer needed; just uncheck the box.
+> Note that with this code snippet, date filtering can quickly be enabled/disabled using a checkbox. This way, traders don't have to reset dates when filtering is no longer needed; they can simply uncheck the box.
 
 ### Why is backtesting on Heikin Ashi and other non-standard charts not recommended?
 Because non-standard chart types use non-standard prices which produce non-standard results. See our [Backtesting on Non-Standard Charts: Caution! - PineCoders FAQ](https://www.tradingview.com/script/q9laJNG9-Backtesting-on-Non-Standard-Charts-Caution-PineCoders-FAQ/) indicator and its description for a more complete explanation.
