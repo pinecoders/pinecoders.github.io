@@ -1947,14 +1947,14 @@ The most important factor in writing fast Pine code is to structure your code so
 1. Use built-ins whenever you can to calculate values.
 1. Structure your code to do things on the fly, taking advantage of the bar-by-bar progression to avoid having to look back whenever you can.
 1. Minimize the use of `for` loops. If you use them, do everything you can to minimize the number of iterations and the number of statements in loops. `for` loops are only necessary when values required to derive calculations are not available when your script is executed bar by bar. In many cases they can be avoided if you understand the Pine runtime model.
-1. Minimize `security()` calls.
+1. Minimize `security()` calls. If you are using multiple calls to fetch different values from the same symbol/TF, use tuples to return multiple values with one call.
 1. Use `label/line.set_*()` functions to modify drawings instead of deleting/recreating them.
 1. Use techniques like [this one](http://www.pinecoders.com/faq_and_code/#how-do-i-save-a-value-or-state-for-later-use) whenever you can, to avoid using `valuewhen()`.
 1. And techniques like [this one](http://www.pinecoders.com/faq_and_code/#how-can-i-remember-when-the-last-time-a-condition-occurred) to avoid `barssince()`.
 1. Isolating sections of large code bases in functions will also often improve performance, but you will need a good understanding of [global/local scope constraints](https://www.tradingview.com/pine-script-docs/en/v4/language/Declaring_functions.html#scopes-in-the-script).
 1. Minor impact but still there: use `var` keyword to init vars that don't require to be reinited on each bar.
 1. String concatenations can be slow. Minimize their use. Some constant evaluations like `s = "foo" + "bar"` are optimized to `s = "foobar"`, but others aren't.
-The [PineCoders Stopwatch](https://www.tradingview.com/script/rRmrkRDr-Script-Stopwatch-PineCoders-FAQ/) can help you time your script so you can test the performance of different coding techniques.
+1. If your script does not use `security()`, consider using the [PineCoders Script Stopwatch](https://www.tradingview.com/script/rRmrkRDr-Script-Stopwatch-PineCoders-FAQ/) to measure your script's execution time.
 
 ### How can I access financials information on stocks from Pine?
 There are three ways:
