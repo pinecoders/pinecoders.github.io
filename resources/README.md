@@ -236,6 +236,8 @@ Backtest Rookies has developed [tv2bt](https://backtest-rookies.com/2019/11/22/t
 
 [Unicode/List of useful symbols - Wikibooks, open books for an open world](https://en.wikibooks.org/wiki/Unicode/List_of_useful_symbols)
 
+[The Beauty of Unicode: Zero-Width Characters](https://www.ptiglobal.com/2018/04/26/the-beauty-of-unicode-zero-width-characters/)
+
 
 ## On GitHub
 [PineCoders Repository](https://github.com/pinecoders/pine-utils) of reusable Pine code on GitHub.
