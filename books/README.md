@@ -55,3 +55,5 @@ An illuminating journey into opacity, uncertainty, randomness, and our general i
 **Thinking in Bets: Making Smarter Decisions When You Don't Have All the Facts**, Annie Duke  
 An ex-poker player and psychologist has a look at how to improve our thinking in situations where we don't have perfect information but still need to make decisions. She explores our learning process and how we can better distinguish between the quality of outcomes and the quality of our decisions, which because of randomness often cannot be linked.
 
+**The Disciplined Trader: Developing Winning Attitudes**, Mark Douglas  
+An oft-vehiculated myth about automated trading is that it takes emotions out of the picture. Reality is different. Unchecked emotions and counter-productive thoughts can prevent you from modeling or adequately managing trading systems. This book focuses on the mental processes that can impact your trading. Douglas doesn't mention automated trading at all, and goes whole chapters at a time without even mentioning trading, but his book takes you on an introspective journey that has good probabilities of changing you for the best.
