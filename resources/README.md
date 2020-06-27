@@ -261,7 +261,6 @@ Well-known TV Pine coder [everget](https://www.tradingview.com/u/everget/) has a
 
 <br>
 
-**[Back to top](#pine-resources)**
 
 ## Technical Information on Indicators
 [Concept Index](https://user42.tuxfamily.org/chart/manual/Concept-Index.html#Concept-Index).
