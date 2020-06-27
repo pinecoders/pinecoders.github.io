@@ -202,7 +202,7 @@ Backtest Rookies has developed [tv2bt](https://backtest-rookies.com/2019/11/22/t
 [GNU Emacs major-mode](https://github.com/EricCrosson/pine-script-mode)
 
 
-## Color Pickers or Palettes
+## Color Pickers or Tools
 [w3schools.com](https://www.w3schools.com/colors/default.asp)
 
 [ColorHexa](https://www.colorhexa.com/)
@@ -220,6 +220,8 @@ Backtest Rookies has developed [tv2bt](https://backtest-rookies.com/2019/11/22/t
 [december.com](https://www.december.com/html/spec/)
 
 [Kodify has a long list of Hex colors](https://kodify.net/tradingview/colours/hexadecimal-colours/#lists-of-hexadecimal-colour-values-for-tradingview)
+
+[Color Ramp](http://www.zonums.com/online/color_ramp/)
 
 
 ## Unicode characters
