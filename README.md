@@ -34,7 +34,7 @@ See our <a href="https://www.pinecoders.com/resources/#trusted-pine-programmers-
 <font size="+1"><strong>Looking for more resources on Pine?</strong></font><br>
 Use our <a href="http://www.pinecoders.com/resources">Pine Resources</a>.<br><br>
 
-<font size="+1"><strong>Want to make a suggestion to improve Pine?</strong></font><br>
+<font size="+1"><strong>Want to make a suggestion to improve Pine, or report a bug?</strong></font><br>
 Send it by email to our <a href="https://trello.com/c/QA6bcL7l">Trello board</a>.<br><br>
 
 <font size="+1"><strong>Interested in broadening your vistas?</strong></font><br>
