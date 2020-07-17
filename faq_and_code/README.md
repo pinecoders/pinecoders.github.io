@@ -2065,20 +2065,16 @@ This multi-line version of the function allows for more flexibility. The example
 //@version=4
 study("f_print() (Multi-line version)", "", true)
 f_print(_txt, _y, _color, _offsetLabels) => 
-    var label _lbl = na
-    _t = int(time + (time - time[1]) * _offsetLabels)
+    // Calculate time offset into the future.
+    var _timeDelta = 10e15
+    _timeDelta := min(time - nz(time[1]), _timeDelta)
+    _t = int(time + _timeDelta * _offsetLabels)
+    // We create the label on the first bar and then only update it when on the dataset's last bar; it's more efficient.
+    var label _lbl = label.new(_t, _y, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, _color, size.large)
     if barstate.islast
-        if na(_lbl)
-            // Only create label once.
-            _lbl := label.new(_t, _y, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, _color, size.large)
-            // Fudge return type of `if` block so compiler doesn't complain (thx midtownsk8rguy for the trick).
-            int(na)
-        else
-            // Rather than delete and recreate the label on every realtime bar update, update the label's information; it's more efficient.
-            label.set_xy(_lbl, _t, _y)
-            label.set_text(_lbl, _txt)
-            label.set_textcolor(_lbl, _color)
-            int(na)
+        label.set_xy(_lbl, _t, _y)
+        label.set_text(_lbl, _txt)
+        label.set_textcolor(_lbl, _color)
 
 // We exclude the current candle's value in the calculation so the y position is more stable.
 y = highest(10)[1]
