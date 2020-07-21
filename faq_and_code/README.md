@@ -878,6 +878,7 @@ You can use this:
 var initialCapital = strategy.equity
 ```
 which remembers the strategy's equity on the first bar, which is equal to initial capital.
+> Note that the value will account for cases where the value is changed by users in the script's *Settings/Properties* "Initial Capital" field.
 
 **[Back to top](#table-of-contents)**
 
