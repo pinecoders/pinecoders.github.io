@@ -872,6 +872,13 @@ If you have a Pine strategy and want to automate it to place orders on markets, 
 
 The complexity of the conversion process between strategies and studies is the reason why we have developed our [Backtesting and Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/). Be sure to have a look at it.
 
+### How can my script know the strategy's initial capital?
+You can use this:
+```js
+var initialCapital = strategy.equity
+```
+which remembers the strategy's equity on the first bar, which is equal to initial capital.
+
 **[Back to top](#table-of-contents)**
 
 
