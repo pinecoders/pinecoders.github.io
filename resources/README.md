@@ -153,7 +153,7 @@ Joris is an experienced and creative Pine coder who prefers to work on indicator
 <a href="https://www.tradingview.com/u/DonovanWall"><img src="https://s3.tradingview.com/userpics/853710-ucMB.png" alt="DonovanWall" height="25" width="25" style="vertical-align: text-top;"> DonovanWall</a>  
 Former math instructor with a background in audio engineering and signal processing. Offers custom indicator and strategy development, as well as conversions to Pine from other platforms.<br><br>
 
-<<a href="https://www.tradingview.com/u/DayTradingOil/"><img src="https://s3.tradingview.com/userpics/2787322-h7Al.png" alt="DayTradingOil" height="25" width="25" style="vertical-align: text-top;" /> DayTradingOil</a>
+<a href="https://www.tradingview.com/u/DayTradingOil/"><img src="https://s3.tradingview.com/userpics/2787322-h7Al.png" alt="DayTradingOil" height="25" width="25" style="vertical-align: text-top;"> DayTradingOil</a>
 With experience in Pine Script, Python, HTML, CSS, and EasyLanguage since 2014, I am a creative, outside-the-box thinking developer who looks forward to working with you to bring your ideas to life in TradingView. Services include script/alert creation, script modifications, automated trading systems, custom indicators, etc.<br><br>
 
 <a href="https://www.tradingview.com/u/Daveatt/"><img src="https://s3.tradingview.com/userpics/1019763-MiAm.png" alt="Daveatt" height="25" width="25" style="vertical-align: text-top;"> Daveatt</a>  
