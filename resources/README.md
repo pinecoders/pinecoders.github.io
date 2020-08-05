@@ -127,7 +127,7 @@ Heiro has 2 years experience programming automated trading solutions. Fluent in 
 Quant Developer/Analyst with 5+ years of experience. Area of expertise: Pine Script, R, Python, Futures, Options, Crypto.<br><br>
 
 <a href="https://www.tradingview.com/u/paaax/"><img src="https://s3.tradingview.com/userpics/953360-EB35.png" alt="paaax" height="25" width="25" style="vertical-align: text-top;"> paaax</a>  
-Offering services for study and strategy development, alert automation, custom-made indicators, market screener and other services on Tradingview.<br><br>
+Pascal holds a Bachelor of Science degree in Business Informatics and is a full-stack software developer with 10+ years of experience. He is proficient in Pine Script, JavaScript, Python and builds web and trading applications. Furthermore, he contributes open-source scripts to the Public Library on a regular basis.<br><br>
 
 <a href="https://www.tradingview.com/u/MVPMC/"><img src="https://s3.tradingview.com/userpics/1778326-viRH.png" alt="MVPMC" height="25" width="25" style="vertical-align: text-top;"> MVPMC</a>  
 Ambitious junior Web developer offering conversions and development of indicators and strategies.<br><br>
