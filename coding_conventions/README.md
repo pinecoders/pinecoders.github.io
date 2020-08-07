@@ -53,17 +53,17 @@ Here is an example of a complete script:
 study("MACD")
 
 // ————— Inputs
-fast = input(12, "Fast Length")
+i_fast = input(12, "Fast Length")
 // Calculates slow length from fast length and normalizes it if needed.
 f_getSlowLength(_len) =>
     _tempLen = _len * 2
     if _tempLen < 20 or _tempLen > 30
         _tempLen := 25
     _tempLen
-slow = f_getSlowLength(fast)
+slow = f_getSlowLength(i_fast)
 
 // ————— Calculations
-fastMa = ema(close, fast)
+fastMa = ema(close, i_fast)
 slowMa = ema(close, slow)
 macd = fastMa - slowMa
 signal = sma(macd, 9)
@@ -105,11 +105,11 @@ daysInMonth(_year, _month) =>
 
 When a function requires global scope variables to perform its calculations, these dependencies should be documented in comments. Dependencies are to be avoided whenever possible, as they jeopardize function portability and make code more difficult to read.
 ```js
-lenMultiplier = input(2, "Length Multiplier")
+i_lenMultiplier = input(2, "Length Multiplier")
 
 f_getSlowLength(_len) =>
-    // Dependencies: lenMultiplier (initialized in inputs). 
-    _tempLen = _len * lenMultiplier
+    // Dependencies: i_lenMultiplier (initialized in inputs). 
+    _tempLen = _len * i_lenMultiplier
     if _tempLen < 20 or _tempLen > 30
         _tempLen := 25
     _tempLen
