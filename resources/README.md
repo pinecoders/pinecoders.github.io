@@ -226,6 +226,8 @@ Backtest Rookies has developed [tv2bt](https://backtest-rookies.com/2019/11/22/t
 
 
 ## Unicode characters
+[Amp What](http://www.amp-what.com/unicode/search/arrow) allows you to search characters by keyword.
+
 [What Unicode character is this?](https://www.babelstone.co.uk/Unicode/whatisit.html)
 
 [Unicode Arrows → ⇒ ⇄ ↻](http://xahlee.info/comp/unicode_arrows.html)
