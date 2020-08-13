@@ -138,6 +138,9 @@ Ambitious junior Web developer offering conversions and development of indicator
 <a href="https://www.tradingview.com/u/midtownsk8rguy/#published-scripts"><img src="https://s3.tradingview.com/userpics/3510454-qjOs.png" alt="midtownsk8rguy" height="25" width="25" style="vertical-align: text-top;"> midtownsk8rguy</a>  
 Quant-minded, self-propelled, double analytical Pine Script consultant. Innovative design of next-generation algorithmic technologies. study() oriented quality developer of eye candy indicators. Porting proficient, having fluency with EasyLanguage, PRC, EFS, LUA & MQL<br><br>
 
+<a href="https://www.tradingview.com/u/glaz/"><img src="https://s3.tradingview.com/userpics/25545.png" alt="Jos" height="25" width="25" style="vertical-align: text-top;"> Jos</a>  
+Jos from Kodify has written over 250 articles on all things Pine Script. He has over 5 years of experience coding TradingView indicators and strategies. He also has extensive experience with MultiCharts and MultiCharts.NET, a good understanding of TradeStation, and a working knowledge of MetaTrader.<br><br>
+
 <a href="https://www.tradingview.com/u/glaz/"><img src="https://s3.tradingview.com/userpics/25545.png" alt="glaz" height="25" width="25" style="vertical-align: text-top;"> glaz</a>  
 Works on indicators only (no strategies). Has been coding in Pine for 6 years and does indicator ports from other platforms.<br><br>
 
