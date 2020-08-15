@@ -889,7 +889,7 @@ which remembers the strategy's equity on the first bar, which is equal to initia
 
 
 ### How can I get the time of the first bar in the dataset?
-The following code will save the time of the dataset's first bar. We use the fact that when we declare a variable using the [``var``](https://www.tradingview.com/pine-script-docs/en/v4/language/Expressions_declarations_and_statements.html#variable-declaration) keyword, it is only initialized on the first bar. We use that here to save the value of the [time](https://www.tradingview.com/pine-script-reference/v4/#var_time), which returns the time in Unix format, i.e., the number of milliseconds that have elapsed since 00:00:00 UTC, 1 January 1970:
+The following code will save the time of the dataset's first bar. We use the fact that when we declare a variable using the [``var``](https://www.tradingview.com/pine-script-docs/en/v4/language/Expressions_declarations_and_statements.html#variable-declaration) keyword, it is only initialized on the first bar. We use that here to save the value of [time](https://www.tradingview.com/pine-script-reference/v4/#var_time), which returns the time in Unix format, i.e., the number of milliseconds that have elapsed since 00:00:00 UTC, 1 January 1970:
 
 ```js
 //@version=4
