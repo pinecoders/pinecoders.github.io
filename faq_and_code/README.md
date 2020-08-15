@@ -889,7 +889,38 @@ which remembers the strategy's equity on the first bar, which is equal to initia
 
 
 ### How can I get the time of the first bar in the dataset?
-``time[bar_index]`` will return that [time](https://www.tradingview.com/pine-script-reference/v4/#var_time) in Unix format, i.e., the number of milliseconds that have elapsed since 00:00:00 UTC, 1 January 1970.
+The following code will save the time of the dataset's first bar. We use the fact that when we declare a variable using the [``var``](https://www.tradingview.com/pine-script-docs/en/v4/language/Expressions_declarations_and_statements.html#variable-declaration) keyword, it is only initialized on the first bar. We use that here to save the value of the [time](https://www.tradingview.com/pine-script-reference/v4/#var_time), which returns the time in Unix format, i.e., the number of milliseconds that have elapsed since 00:00:00 UTC, 1 January 1970:
+
+```js
+//@version=4
+study("Time at first bar")
+
+// Get time at beginning of the dataset.
+var t = time
+
+plot(t)
+```
+
+### How can I convert a time to a date-time string?
+Use our `f_timeToString()` function, which accepts any timestamp in Unix format and returns the corresponding date-time in string format: 
+
+```js
+//@version=4
+study("`f_timeToString()`")
+
+// Get time at beginning of the dataset.
+var t = time
+
+f_timeToString(_t) =>
+  tostring(year(_t), "0000") + "." + tostring(month(_t), "00") + "." + tostring(dayofmonth(_t), "00") + " " +
+  tostring(hour(_t), "00") + ":" + tostring(minute(_t), "00") + ":" + tostring(second(_t), "00")
+
+f_print(_txt) => var _lbl = label.new(bar_index, highest(10)[1], _txt, xloc.bar_index, yloc.price, #00000000, label.style_none, color.gray, size.large, text.align_left), label.set_xy(_lbl, bar_index, highest(10)[1]), label.set_text(_lbl, _txt)
+
+f_print(f_timeToString(t))
+```
+![.](https://www.tradingview.com/x/660wFdZd/ "f_timeToString()")
+
 
 ### How can I know how many days are in the current month?
 Use [this function](https://www.tradingview.com/script/mHHDfDB8-RS-Function-Days-in-a-Month/) by RicardoSantos.
