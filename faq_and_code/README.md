@@ -917,12 +917,13 @@ f_timeToString(_t) =>
 
 f_print(_txt) => var _lbl = label.new(bar_index, highest(10)[1], _txt, xloc.bar_index, yloc.price, #00000000, label.style_none, color.gray, size.large, text.align_center), label.set_xy(_lbl, bar_index, highest(10)[1]), label.set_text(_lbl, _txt)
 
-f_print("Date-time at bar_index = 0: " + f_timeToString(t) + "\n\n\n")
-f_print("Current Date-time: " + f_timeToString(timenow) + "\n\n")
-f_print("Date-time 4 days from current time: " + f_timeToString(timestamp(year(timenow), month(timenow), dayofmonth(timenow) + 4, hour(timenow), minute(timenow), second(timenow))) + "\n")
-f_print("Date-time in 4 days at midnight from last bar's time: " + f_timeToString(timestamp(year, month, dayofmonth + 4, 00, 00, 00)))
+f_print("Date-time at bar_index = 0: " + f_timeToString(t) + "\n\n\n\n\n\n")
+f_print("Current Date-time: " + f_timeToString(timenow) + "\n\n\n\n")
+f_print("Date-time 4 days from current time: " + f_timeToString(timestamp(year(timenow), month(timenow), dayofmonth(timenow) + 4, hour(timenow), minute(timenow), second(timenow))) + "\n\n\n")
+f_print("Date-time at beginning of last bar: " + f_timeToString(time) + "\n")
+f_print("Date-time at the start of the day, 4 days past the last bar's time: " + f_timeToString(timestamp(year, month, dayofmonth + 4, 00, 00, 00)))
 ```
-![.](https://www.tradingview.com/x/uLbfd9h3/ "f_timeToString()")
+![.](https://www.tradingview.com/x/cIO56toK/ "f_timeToString()")
 
 
 ### How can I know how many days are in the current month?
