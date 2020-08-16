@@ -902,7 +902,7 @@ plot(t)
 ```
 
 ### How can I convert a time to a date-time string?
-Use our `f_timeToString()` function, which accepts any timestamp in Unix format and returns the corresponding date-time in string format: 
+Use our `f_timeToString()` function, which accepts any timestamp in Unix format and returns the corresponding date-time in string format. This code shows four different ways of using it to get the date-time from various starting points and using a 4-day offset in the future for the last two uses demonstrated: 
 
 ```js
 //@version=4
@@ -915,11 +915,14 @@ f_timeToString(_t) =>
   tostring(year(_t), "0000") + "." + tostring(month(_t), "00") + "." + tostring(dayofmonth(_t), "00") + " " +
   tostring(hour(_t), "00") + ":" + tostring(minute(_t), "00") + ":" + tostring(second(_t), "00")
 
-f_print(_txt) => var _lbl = label.new(bar_index, highest(10)[1], _txt, xloc.bar_index, yloc.price, #00000000, label.style_none, color.gray, size.large, text.align_left), label.set_xy(_lbl, bar_index, highest(10)[1]), label.set_text(_lbl, _txt)
+f_print(_txt) => var _lbl = label.new(bar_index, highest(10)[1], _txt, xloc.bar_index, yloc.price, #00000000, label.style_none, color.gray, size.large, text.align_center), label.set_xy(_lbl, bar_index, highest(10)[1]), label.set_text(_lbl, _txt)
 
-f_print(f_timeToString(t))
+f_print("Date-time at bar_index = 0: " + f_timeToString(t) + "\n\n\n")
+f_print("Current Date-time: " + f_timeToString(timenow) + "\n\n")
+f_print("Date-time 4 days from current time: " + f_timeToString(timestamp(year(timenow), month(timenow), dayofmonth(timenow) + 4, hour(timenow), minute(timenow), second(timenow))) + "\n")
+f_print("Date-time in 4 days at midnight from last bar's time: " + f_timeToString(timestamp(year, month, dayofmonth + 4, 00, 00, 00)))
 ```
-![.](https://www.tradingview.com/x/660wFdZd/ "f_timeToString()")
+![.](https://www.tradingview.com/x/uLbfd9h3/ "f_timeToString()")
 
 
 ### How can I know how many days are in the current month?
