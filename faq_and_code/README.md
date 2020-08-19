@@ -84,7 +84,7 @@ Most probably because you are trying to use a series integer instead of a simple
 There is currently no array data type in Pine. RicardoSantos has some pseudo-array code [here](https://www.tradingview.com/script/sQxpiBL8-RS-Function-Pseudo-Array-Example/).
 
 ### How can I use a variable length argument in certain functions ?
-The `sma`, `variance`, `stdev`, `correlation` functions don't allow a **series** as their length argument which must be a **simple int**. The following equivalent functions allow you to use a series as the length argument :
+The `sma`, `variance`, `stdev`, `correlation` functions don't allow a **series** as their length argument which must be a **simple int**. The following equivalent functions by [alexgrover](https://www.tradingview.com/u/alexgrover/) allow you to use a series as the length argument (see the complete code in his [Functions Allowing Series As Length](https://www.tradingview.com/script/kY5hhjA7-Functions-Allowing-Series-As-Length-PineCoders-FAQ/) script):
 
 ```
 Sum(src,p) => a = cum(src), a - a[p]
