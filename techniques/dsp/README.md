@@ -619,10 +619,10 @@ The coefficients that affect the input values (all `b`-prefixed variables in the
 
 ```
 y = 0.
-y := a0*input+a1*input[1]...+nz(b0*y[1]+b1*y[2]...)
+y := b0*input+b1*input[1]...+nz(a0*y[1]+a1*y[2]...)
 ```
 
-It is also common to use the input signal as the initializing value.
+It is also common to use the input signal or a moving average to initialize an IIR filter.
 
 <br/>
 
@@ -708,7 +708,7 @@ Many recursive implementations of the Gaussian filter exist and are way more eff
 The signal to noise ratio (SNR) is used to measure the level of a signal relative to the level of unwanted noise, with a SNR inferior to 1 indicating more noise than signal. This metric is often expressed as the ratio of the mean and the standard deviation, however a rolling version could be more useful. The signal to noise ratio function can be computed in Pine Script as follows:
 
 ```
-snr(input) => sma(input,length)/stdev(input,length)
+snr(input,length) => sma(input,length)/stdev(input,length)
 ```
 
 <br/>
@@ -732,7 +732,7 @@ White noise is a type of random signal that has a constant power spectral densit
 
 ```
 lcg(seed) =>
-    s = n < 10000 ? na : (171 * nz(s[1],seed))%30269
+    s = (171 * nz(s[1],seed))%30269
     (s/30269 - .5)*2
 ```
 
@@ -823,7 +823,7 @@ Note that a filter having negative coefficients (or low-lag in general) can prod
 ## About The Author
 
 <p align="left">
-<img src="https://s3.tradingview.com/userpics/435966-oREQ_big.png">
+<img src="https://s3.tradingview.com/userpics/435966-3Ucu_big.png">
 </p>
 
 <br>
