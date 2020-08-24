@@ -87,7 +87,7 @@ plotchar(c, "c", "", location.top, size = size.tiny)
 plotchar(open, "open", "", location.top, size = size.tiny)
 plotchar(close, "close", "", location.top, size = size.tiny)
 ```
-![.](https://www.tradingview.com/x/Lvn6DdHM/ "Built-ins - Chart vs built-in discrepancies")
+![.](Built-ins_Chart_vs_built-in_discrepancies.png "Built-ins - Chart vs built-in discrepancies")
 
 **[Back to top](#table-of-contents)**
 
