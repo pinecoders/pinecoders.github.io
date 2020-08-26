@@ -324,7 +324,6 @@ plotchar(false, "false", "", location.top)
 ### How can I round a number to *x* increments?
 ```js
 //@version=4
-//@version=4
 study("Round fraction")
 i_val = input(0.75, "Value to round", step = 0.01)
 i_to  = input(0.75, "Increment", step = 0.01)
