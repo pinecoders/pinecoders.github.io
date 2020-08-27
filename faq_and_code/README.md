@@ -2104,6 +2104,21 @@ plot(maOne, "MA1")
 plot(maTwo, "MA2", color.fuchsia)
 ```
 
+### How can I reset a sum on a condition?
+We first need a variable whose value is preserved bar to bar, so we will use the [`var`](https://www.tradingview.com/pine-script-reference/v4/#op_var) keyword to initialize our `vol` variable on the first bar only. We then need to define the resetting condition, in this case a MACD cross. We then add the volume to our `vol` variable, except when a cross occurs, in which case we reset our sum to zero. We also plot a dot on crosses for debugging purposes:
+```js
+//@version=4
+study("Reset sum on condition")
+[macdLine, signalLine, _] = macd(close, 12, 26, 9)
+var float vol = na
+cond = cross(macdLine, signalLine)
+vol := cond ? 0. : vol + volume
+plot(vol)
+plotchar(cond, "cond", "•", location.top, size = size.tiny)
+```
+Note that we do not use the third tuple value in the [`macd()`](https://www.tradingview.com/pine-script-reference/v4/#fun_macd) call, so we replace it with an underscore.
+
+
 **[Back to top](#table-of-contents)**
 
 
