@@ -1362,7 +1362,7 @@ plot(qtyIntrabars,"qtyIntrabars")
 [This](https://www.tradingview.com/script/F2ylEYOO-Delta-Volume-Columns-Pro-LucF/) is an example of a script that uses the technique illustrated in the functions to calculate delta volume. Note the *Warning* and *Limitations* sections in the description, warning traders of the indicator's shortcomings.
 
 ### Why do HTF plots appear smoothed when using the `resolution` parameter with [`study()`](https://www.tradingview.com/pine-script-reference/v4/#fun_study)?
-Because gaps are used. See [this comment](https://www.tradingview.com/chart/TLT/gfhcvho3-How-to-Use-Multi-Timeframe-Analysis-and-What-It-Means/#tc4114362) on TradingView's [How to Use Multi-Timeframe Analysis and What It Means](How to Use Multi-Timeframe Analysis and What It Means) publication for more details.
+Because gaps are used. See [this answer](https://www.tradingview.com/chart/TLT/gfhcvho3-How-to-Use-Multi-Timeframe-Analysis-and-What-It-Means/#tc4114362) to a question on TradingView's [How to Use Multi-Timeframe Analysis and What It Means](https://www.tradingview.com/chart/TLT/gfhcvho3-How-to-Use-Multi-Timeframe-Analysis-and-What-It-Means/) publication for more details.
 
 **[Back to top](#table-of-contents)**
 
