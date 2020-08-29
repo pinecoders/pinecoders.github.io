@@ -139,7 +139,7 @@ Ambitious junior Web developer offering conversions and development of indicator
 Quant-minded, self-propelled, double analytical Pine Script consultant. Innovative design of next-generation algorithmic technologies. study() oriented quality developer of eye candy indicators. Porting proficient, having fluency with EasyLanguage, PRC, EFS, LUA & MQL.<br><br>
 
 <a href="https://www.tradingview.com/u/makit0/#published-scripts"><img src="https://s3.tradingview.com/userpics/3680780-XTVc.png" alt="makit0" height="25" width="25" style="vertical-align: text-top;"> makit0</a>  
-Full stack Java developer, sysadmin & DBA since 2008, trading and learning from the markets since 2018, Pine coder since 2019. If you have an idea, I can code it, if you have some coding skill I can teach you how to.<br><br>
+Full stack Java developer, sysadmin & DBA since 2008, trading and learning from the markets since 2018, Pine coder since 2019. If you have an idea, I can code it. If you have some coding skills, I can help you code it.<br><br>
 
 <img src="https://s3.tradingview.com/userpics/141457-2UEo.png" alt="Jos Kodify" style="vertical-align: text-top;" width="25" height="25"> [Jos from Kodify](https://kodify.net/programming-services/) has written over 250 articles on all things Pine Script. He has over 5 years of experience coding TradingView indicators and strategies. He also has extensive experience with MultiCharts and MultiCharts.NET, a good understanding of TradeStation, and a working knowledge of MetaTrader.<br><br>
 
