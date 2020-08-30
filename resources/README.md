@@ -8,7 +8,7 @@
   gtag('config', 'UA-147975914-1');
 </script>
 
-[<img src="http://pinecoders.com/images/PineCodersLong.png">](http://pinecoders.com)
+[<img src="https://pinecoders.com/images/PineCodersLong.png">](https://pinecoders.com)
 
 # Pine Resources
 
@@ -59,11 +59,11 @@ Visit the *Scripts* page of good scripters publishing open source by using the [
 
 
 ## PineCoders
-From our <a href="http://www.pinecoders.com">home page</a> you can access the following:
+From our <a href="https://www.pinecoders.com">home page</a> you can access the following:
 
-- Our <a href="http://www.pinecoders.com/learning_pine_roadmap">Learning Pine Roadmap</a> for newcomers which also has tips on what to do when you get stuck.
-- Our <a href="http://www.pinecoders.com/faq_and_code">FAQ & Code</a> which answers common—and not so common—questions asked by Pine coders, with answers or links to answers.
-- Our <a href="http://www.pinecoders.com/coding_conventions">Coding Conventions</a> provide standard guidelines for writing Pine.
+- Our <a href="https://www.pinecoders.com/learning_pine_roadmap">Learning Pine Roadmap</a> for newcomers which also has tips on what to do when you get stuck.
+- Our <a href="https://www.pinecoders.com/faq_and_code">FAQ & Code</a> which answers common—and not so common—questions asked by Pine coders, with answers or links to answers.
+- Our <a href="https://www.pinecoders.com/coding_conventions">Coding Conventions</a> provide standard guidelines for writing Pine.
 - [Tools and educational Pine code on TradingView](https://www.tradingview.com/u/PineCoders/#published-scripts). We use our TradingView account to publish useful or fun code snippets, as well as full-blown tools like our [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/).
 
 Our managed [PineCoders Repository](https://github.com/pinecoders/pine-utils) on GitHub contains:
@@ -71,7 +71,7 @@ Our managed [PineCoders Repository](https://github.com/pinecoders/pine-utils) on
 - Tricks and techniques to help you accomplish frequently needed tasks,
 - [Other open source projects](https://github.com/pinecoders) related to Pine.
 
-We have also begun publishing guides. See our first: the [Digital Signal Processing In Pine](http://www.pinecoders.com/techniques/dsp) written by [Alex Grover](https://www.tradingview.com/u/alexgrover/#published-scripts).
+We have also begun publishing guides. See our first: the [Digital Signal Processing In Pine](https://www.pinecoders.com/techniques/dsp) written by [Alex Grover](https://www.tradingview.com/u/alexgrover/#published-scripts).
 
 
 ## Educational Content
