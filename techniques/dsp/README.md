@@ -8,7 +8,7 @@
   gtag('config', 'UA-147975914-1');
 </script>
 
-[<img src="http://pinecoders.com/images/PineCodersLong.png">](http://pinecoders.com)
+[<img src="https://pinecoders.com/images/PineCodersLong.png">](https://pinecoders.com)
 
 # Digital Signal Processing in Pine Script, by [Alex Grover](https://www.tradingview.com/u/alexgrover/#published-scripts)
 
@@ -39,7 +39,7 @@
 ## Introduction
 
 
-[Pine Script](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html) is a really lightweight scripting language but it allows for the computation of basic signal processing processes. In this guide, basic techniques and tools used in signal processing are showcased alongside their implementation in Pine Script. It is recommended to know the basics of Pine Script before reading this guide. Start [here](http://www.pinecoders.com/learning_pine_roadmap/) if you don't.
+[Pine Script](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html) is a really lightweight scripting language but it allows for the computation of basic signal processing processes. In this guide, basic techniques and tools used in signal processing are showcased alongside their implementation in Pine Script. It is recommended to know the basics of Pine Script before reading this guide. Start [here](https://www.pinecoders.com/learning_pine_roadmap/) if you don't.
 
 > Note that this guide is not intended to be an introduction to digital signal processing, even if some short definitions are shared.
 
