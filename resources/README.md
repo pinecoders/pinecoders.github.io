@@ -135,8 +135,10 @@ Ambitious junior Web developer offering conversions and development of indicator
 <a href="https://www.tradingview.com/u/mortdiggiddy/"><img src="https://s3.tradingview.com/userpics/625941-VZkU.png" alt="mortdiggiddy" height="25" width="25" style="vertical-align: text-top;"> mortdiggiddy</a>  
 10 years experience in software developmentand. B.S. in Mechanical and Aerospace Engineering. Forex, futures, stocks and options trader for 8 years. He is experienced in developing autonomous trading strategies in Pine and JavaScript.<br><br>
 
+<!--
 <a href="https://www.tradingview.com/u/midtownsk8rguy/#published-scripts"><img src="https://s3.tradingview.com/userpics/3510454-qjOs.png" alt="midtownsk8rguy" height="25" width="25" style="vertical-align: text-top;"> midtownsk8rguy</a>  
 Quant-minded, self-propelled, double analytical Pine Script consultant. Innovative design of next-generation algorithmic technologies. study() oriented quality developer of eye candy indicators. Porting proficient, having fluency with EasyLanguage, PRC, EFS, LUA & MQL.<br><br>
+-->
 
 <a href="https://www.tradingview.com/u/makit0/#published-scripts"><img src="https://s3.tradingview.com/userpics/3680780-XTVc.png" alt="makit0" height="25" width="25" style="vertical-align: text-top;"> makit0</a>  
 Full stack Java developer, sysadmin & DBA since 2008, trading and learning from the markets since 2018, Pine coder since 2019. If you have an idea, I can code it. If you have some coding skills, I can help you code it.<br><br>
