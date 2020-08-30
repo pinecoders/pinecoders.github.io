@@ -8,7 +8,7 @@
   gtag('config', 'UA-147975914-1');
 </script>
 
-[<img src="http://pinecoders.com/images/PineCodersLong.png">](http://pinecoders.com)
+[<img src="https://pinecoders.com/images/PineCodersLong.png">](https://pinecoders.com)
 
 # Books
 
