@@ -8,7 +8,7 @@
   gtag('config', 'UA-147975914-1');
 </script>
 
-[<img src="https://pinecoders.com/images/PineCodersLong.png">](https://pinecoders.com)
+[<img src="https://www.pinecoders.com/images/PineCodersLong.png">](Pinecoders)
 
 # Pine Script Coding Conventions
 The goal of these Coding Conventions is to present a set of best practices and style guidelines for Pine Script. By making Pine scripts easier to read, these guidelines make open source code more usable, while also providing safeguards that minimize the risk of errors for developers.
