@@ -699,18 +699,18 @@ If you need to round a numeric value to ticks without converting it to a string,
 ## LABELS AND LINES
 
 ### How can I position text on either side of a single bar?
-By choosing label styles like `style = label.style_label_left` we can determine on which side of the bar the label is positioned. The text's alignment in the label can be controlled using `textalign = text.align_right`, and finally, we can make the label's background color transparent so we display only the text:
+By choosing label styles like `style = label.style_label_left` we can determine on which side of the bar the label is positioned. Note that since the "left"/"right" in there specifies the pointer's position, "left" has the side effect of positioning the label on the **right** side of the bar. The text's alignment in the label can be controlled using `textalign = text.align_right`, and finally, we can make the label's background color transparent so we display only the text:
 ```js
 //@version=4
 study("", "", true)
 f_print(_txt, _pos, _align) => var _lbl = label.new(bar_index, highest(10)[1], _txt, xloc.bar_index, yloc.price, #00000000, _pos, color.gray, size.huge, _align), label.set_xy(_lbl, bar_index, highest(10)[1]), label.set_text(_lbl, _txt)
-f_print("123\nLR", label.style_label_left,   text.align_right)
-f_print("123\nRL", label.style_label_right,  text.align_left)
+f_print("123\nRL", label.style_label_left,   text.align_left)
+f_print("123\nLR", label.style_label_right,  text.align_right)
 f_print("123\nC",  label.style_label_center, text.align_center)
 ```
 The following three labels are all positioned on the chart's last bar:  
 
-![.](https://www.tradingview.com/x/uFI5Rfn1/ "label text positioning")
+![.](https://www.tradingview.com/x/LitxmLuO/ "label text positioning")
 
 ### How can I print a value at the top right of the chart?
 We will use a label to print our value. Labels however, require positioning relative to the symbol's price scale, which is by definition fluid. The technique we use here is to create an indicator running in "No Scale" space, and then create an artificially large internal scale for it by using the `plotchar()` call which doesn't print anything. We then print the label at the top of that large scale, which does not affect the main chart display because the indicator is running in a separate scale.
