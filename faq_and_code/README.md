@@ -2138,7 +2138,7 @@ This script shows how to organize your inputs using the following tricks:
 - Indent sub-sections using Unicode white space characters. Choose one that shows up in the Editor as a visible character. We like to use the Em space (` `): 8195 (0x2003).
 
 Notes:
-- We cannot indent checkboxes, so your sections will look cleaner if you use `input()`'s `options` parameter to provide selections rather than checkboxes.
+- We cannot indent checkboxes, so your sections will look cleaner if you use `input()`'s `options` parameter to provide selections via dropdowns rather than checkboxes.
 - For separators to align neatly at the end of the dialog box, start by creating the longest input `title` you will be using, as it determines the width of db. This way you will avoid the tedious task or re-balancing the line characters on each side of your separator's name because of changes in the db's width when you add an input with a `title` longer than previous ones.
 - If your longest input title turns out to be shorter than you had first planned and you want to avoid re-balancing separators, you can use Unicode white space to artificially make it longer, as we demonstrate for input `i_4` in our code example.
 - Use ASCII characters 205 or 196 for continuous separator lines. The dash (ASCII 45) or Em dash (ASCII 151) do not join properly; they are thus less visually appealing.
