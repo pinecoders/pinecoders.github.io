@@ -2159,7 +2159,7 @@ i_4 = input(65., "Widest Legend            ")
 plot(close)
 ```
 
-This code will look this way in the Editor:
+The code will look this way in the Editor:
 
 ![.](inputs_code.png "Inputs Code")
 
