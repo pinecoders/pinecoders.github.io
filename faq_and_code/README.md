@@ -709,6 +709,7 @@ f_print("123\nRL", label.style_label_right,  text.align_left)
 f_print("123\nC",  label.style_label_center, text.align_center)
 ```
 The following three labels are all positioned on the chart's last bar:  
+
 ![.](https://www.tradingview.com/x/uFI5Rfn1/ "label text positioning")
 
 ### How can I print a value at the top right of the chart?
