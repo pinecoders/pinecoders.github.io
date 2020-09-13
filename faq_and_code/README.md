@@ -88,7 +88,7 @@ plotchar(c, "c", "", location.top, size = size.tiny)
 plotchar(open, "open", "", location.top, size = size.tiny)
 plotchar(close, "close", "", location.top, size = size.tiny)
 ```
-![.](Built-ins_Chart_vs_built-in_discrepancies.png "Built-ins - Chart vs built-in discrepancies")
+![.](built-ins_Chart_vs_built-in_discrepancies.png "Built-ins - Chart vs built-in discrepancies")
 
 **[Back to top](#table-of-contents)**
 
@@ -1127,7 +1127,7 @@ plotchar(hour, "hour", "", location.top)
 plotchar(minute, "minute", "", location.top)
 plotchar(second, "second", "", location.top)
 ```
-![.](Detecting_a_specific_time.png "Detecting a specific time (in the exchange's timezone)")
+![.](detecting_a_specific_time.png "Detecting a specific time (in the exchange's timezone)")
 
 ### How can I know the date when a highest value was found?
 Both [`highest()`](https://www.tradingview.com/pine-script-reference/v4/#fun_highest) and [`lowest()`](https://www.tradingview.com/pine-script-reference/v4/#fun_lowest) have a corresponding function that can be used to get the offset to the bar where the highest/lowest value was found. Those [`highestbars()`](https://www.tradingview.com/pine-script-reference/v4/#fun_highestbars) and [`lowestbars()`](https://www.tradingview.com/pine-script-reference/v4/#fun_lowestbars) functions return a negative offset, so we need to change its sign before using it as a value with the `[]` history-referencing operator.
@@ -1386,13 +1386,13 @@ This requirement entails that neither the condition used to build the string nor
 
 The first step when you are in doubt as to what can be used as an argument to a built-in function such as [`alertcondition()`](https://www.tradingview.com/pine-script-reference/v4/#fun_alertcondition) is to look up the Reference Manual:
 
-![.](Refman_alertcondition.png "alertcondition()")
+![.](refman_alertcondition.png "alertcondition()")
 
 You now know that a *const string* is required as an argument.
 
 The next step is to consult the automatic type casting rules diagram in the User Manual's [*Type system* page](https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html#type-casting):
 
-![.](TypeCasting_ConstString.png "Type Casting")
+![.](typeCasting_ConstString.png "Type Casting")
 
 The diagram shows you where the *const string* type is situated in the casting rules, which allows you to determine:
 - The types that will be allowed because they are above *const string*, meaning they can be cast to a *const string*.
