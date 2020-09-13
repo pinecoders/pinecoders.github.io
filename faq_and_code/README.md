@@ -2134,7 +2134,7 @@ Note that we do not use the third tuple value in the [`macd()`](https://www.trad
 
 ### How can I organize my script's inputs in the *Settings/Inputs* tab?
 This script shows how to organize your inputs using the following tricks:
-- Create separators using boolean checkboxes. Make their default value `true` so users are less prone to check them to see what they do, as they will most often do nothing. If your separators actually do something, make this clear in their wording.
+- Create separators using boolean checkboxes. Make their default value `true` so users are less prone to trying them out to see what they do, as they will most often do nothing. If your separators actually do something, make this clear in their wording.
 - Indent sub-sections using Unicode white space characters. Choose one that shows up in the Editor as a visible character. We like to use the Em space (` `): 8195 (0x2003).
 
 Notes:
@@ -2151,7 +2151,7 @@ EQ1 = "On", EQ2 = "Off" // Do not use ampersand ("&") in `options` arguments.
 _50 = input(true,   "══════════════ Settings ═══════════════")  // ASCII 205
 _60 = input(true,   "────────────── Settings ───────────────")  // ASCII 196
 _70 = input(true,   "————————————— Settings ———————————————")   // ASCII 151 (Em dash)
-_80 = input(true,   "-------------------------- Settings ------------------------------")   // ASCII 145 (dash)
+_80 = input(true,   "-------------------------- Settings ------------------------------")   // ASCII 45 (dash)
 i_1 = input(65., "First level")
 i_2 = input(65., "  Second Level")
 i_3 = input(EQ1, "    Checkbox equivalent", options = [EQ1, EQ2])
