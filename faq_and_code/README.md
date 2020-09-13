@@ -24,9 +24,10 @@ Do not make the mistake of assuming this is strictly beginner's material; some o
 - [Built-in functions](#built-in-functions)
 - [Operators](#operators)
 - [Math](#math)
-- [Plotting](#plotting)
 - [Indicators (a.k.a. studies)](#indicators)
 - [Strategies](#strategies)
+- [Plotting](#plotting)
+- [Labels and Lines](#labels-and-lines)
 - [Time, dates and Sessions](#time-dates-and-sessions)
 - [Other Timeframes (MTF)](#other-timeframes-mtf)
 - [Alerts](#alerts)
@@ -394,384 +395,6 @@ See the [Filter Information Box - PineCoders FAQ](https://www.tradingview.com/sc
 
 
 <br><br>
-## PLOTTING
-
-### Why can't I use a plot in an `if` or `for` statement?
-Because it's not allowed in Pine. You can use many different conditions to control plotting and the color of plots, but these must be controlled from within the `plot()` call.
-
-If, for example, you want to plot a highlight when 2 MAs are a certain multiple of ATR away from each other, you first need to define your condition, then plot on that condition only:
-```js
-//@version=4
-study("Conditional plot", "", true)
-// ————— Step 1: Define our condition.
-ma1 = sma(close, 10)
-ma2 = sma(close, 50)
-plotCondition = (ma1 - ma2) > atr(14) * 3
-// ————— Step 2: Plot.
-// These 2 plots are plotted all the time.
-plot(ma1, "Fast MA", color.fuchsia)
-plot(ma2, "Slow MA", color.orange)
-
-// Method 2a: This plots all the time as well, but because we make our color conditional,
-// It only shows when our condition is true.
-plot(ma1, "Highlight 2b", plotCondition ? color.fuchsia : na, 6, transp = 70)
-
-// Method 2b: This only plots a value when our condition is true.
-plot(plotCondition ? ma1 : na, "Highlight 2b", color.purple, 3, plot.style_circles)
-```
-![.](https://www.tradingview.com/x/IMgwPa29/ "Conditional plots")
-
-
-### Can I plot diagonals between two points on the chart?
-Yes, using the [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function available in v4. See the [Trendlines - JD](https://www.tradingview.com/script/mpeEgn5J-Trendlines-JD/) indicator by Duyck.
-
-### How do I plot a line using start/stop criteria?
-You'll need to define your start and stop conditions and use logic to remember states and the level you want to plot.
-
-Note the `plot()` call using a combination of plotting `na` and the `style = plot.style_linebr` parameter to avoid plotting a continuous line, which would produce inelegant joins between different levels.
-
-Also note how `plotchar()` is used to plot debugging information revealing the states of the boolean building blocks we use in our logic. These plots are not necessary in the final product; they are used to ensure your code is doing what you expect and can save you a lot of time when you are writing your code.
-```js
-//@version=4
-study("Plot line from start to end condition", overlay=true)
-lineExpiryBars = input(300, "Maximum bars line will plot", minval = 0)
-// Stores "close" level when start condition occurs.
-var savedLevel = float(na)
-// True when the line needs to be plotted.
-var plotLine = false
-// This is where you enter your start and end conditions.
-startCondition = pivothigh(close, 5, 2)
-endCondition = cross(close, savedLevel)
-// Determine if a line start/stop condition has occurred.
-startEvent = not plotLine and startCondition
-// If you do not need a limit on the length of the line, use this line instead: endEvent = plotLine and endCondition
-endEvent = plotLine and (endCondition or barssince(startEvent) > lineExpiryBars)
-// Start plotting or keep plotting until stop condition.
-plotLine := startEvent or (plotLine and not endEvent)
-if plotLine and not plotLine[1]
-    // We are starting to plot; save close level.
-    savedLevel := close
-// Plot line conditionally.
-plot(plotLine ? savedLevel : na, color = color.orange, style = plot.style_linebr)
-// State plots revealing states of conditions.
-plotchar(startCondition, "startCondition", "•", color = color.green, size=size.tiny, transp = 0)
-plotchar(endCondition, "endCondition", "•", color = color.red, size=size.tiny, location = location.belowbar, transp = 0)
-plotchar(startEvent, "startEvent", "►", color = color.green, size=size.tiny)
-plotchar(endEvent, "endEvent", "◄", color = color.red, size=size.tiny, location = location.belowbar)
-```
-
-### How do I plot a support or a trend line?
-To plot a continuous line in Pine, you need to either:
-1. Look back into elapsed bars to find an occurrence that will return the same value over consecutive bars so you can plot it, or
-1. Find levels and save them so that you can plot them. In this case your saving mechanism will determine how many levels you can save.
-1. You may also use the [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function available in v4. See [Trendlines - JD by Duyck](https://www.tradingview.com/script/mpeEgn5J-Trendlines-JD/) or [Pivots MTF](https://www.tradingview.com/script/VYzEUnYB-Pivots-MTF-LucF/).
-
-These are other examples:
-- [Backtest Rookies](https://backtest-rookies.com/2018/10/05/tradingview-support-and-resistance-indicator/)
-- [Auto-Support v 0.2 by jamc](https://www.tradingview.com/script/hBrQx1tG-Auto-Support-v-0-2/)
-- [S/R Barry by likebike](https://www.tradingview.com/script/EHqtQi2g-S-R-Barry/)
-
-### How many plots, security() calls, variables or lines of code can I use?
-- The limit for plots is 64. Note than one plot statement can use up more than one allowed plot, depending on how it is structured. If you use series (conditional) color on the plot or text, each one will add a plot count. Starting with Pine v4, `alertcondition()` calls also count for one plot. All plotting functions count for at least one plot, except `hline()` calls which do not count as a plot. Some plotting functions such as `plotcandle()` count as 4 plots, 5 if you use series color on the body. You can see plot counts in the Data Window if you don't use the `title` argument in your calls.
-- When using labels or lines created with `label.new()` and `line.new()` a garbage collector will preserve only the last ~50 objects of each type.
-- The limit for `security()` calls is 40, but by using functions returning tuples with `security()`, you can fetch many more values than 40.
-- The limit for variables is 1000.
-- We do not know of a limit to the number of lines in a script. There is, however a limit of 50K compiled tokens, but they don't correspond to code lines.
-
-### How can I use colors in my indicator plots?
-- See [Working with colours](https://kodify.net/tradingview/colours/) by Kodify.
-- Our Resources document has a list of [color pickers](https://www.pinecoders.com/resources/#color-pickers-or-palettes) to help you choose colors.
-- [midtownsk8rguy](https://www.tradingview.com/u/midtownsk8rguy/#published-scripts) has a complete set of custom colors in [Pine Color Magic and Chart Theme Simulator](https://www.tradingview.com/script/yyDYIrRQ-Pine-Color-Magic-and-Chart-Theme-Simulator/).
-
-### How do I make my indicator plot over the chart?
-Use `overlay=true` in `strategy()` or `study()` declaration statement, e.g.,:
-```js
-study("My Script", overlay = true)
-```
-If your indicator was already in a Pane before applying this change, you will need to use *Add to Chart* again for the change to become active.
-
-If your script only works correctly in overlay mode and you want to prevent users from moving it to a separate pane, you can add `linktoseries = true` to your `strategy()` or `study()` declaration statement.
-
-### Can I use `plot()` calls in a `for` loop?
-No, but you can use the v4 [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function in `for` loops.
-
-### How can I plot vertical lines on a chart?
-You can use the `plot.style_columns` style to plot them:
-```js
-//@version=4
-study("", "", true, scale = scale.none)
-cond = close > open
-plot(cond ? 10e20 : na, style = plot.style_columns, color = color.silver, transp=85)
-```
-There is a nice v4 function to plot a vertical line in this indicator: [vline() Function for Pine Script v4.0+](https://www.tradingview.com/script/EmTkvfCM-vline-Function-for-Pine-Script-v4-0/).
-
-### How can I access normal bar OHLC values on a non-standard chart?
-You need to use the `security()` function. This script allows you to view normal candles on the chart, although depending on the non-standard chart type you use, this may or may not make much sense:
-```js
-//@version=4
-study("Plot underlying OHLC", "", true)
-
-// ————— Allow plotting of underlying candles on chart.
-plotCandles = input(true, "Plot Candles")
-method      = input(1, "Using Method", minval = 1, maxval = 2)
-
-// ————— Method 1: Only works when chart is on default exchange for the symbol.
-o1 = security(syminfo.ticker, timeframe.period, open)
-h1 = security(syminfo.ticker, timeframe.period, high)
-l1 = security(syminfo.ticker, timeframe.period, low)
-c1 = security(syminfo.ticker, timeframe.period, close)
-// ————— Method 2: Works all the time because it use the chart's symbol and exchange information.
-ticker = tickerid(syminfo.prefix, syminfo.ticker)
-o2 = security(ticker, timeframe.period, open)
-h2 = security(ticker, timeframe.period, high)
-l2 = security(ticker, timeframe.period, low)
-c2 = security(ticker, timeframe.period, close)
-// ————— Get value corresponding to selected method.
-o = method == 1 ? o1 : o2
-h = method == 1 ? h1 : h2
-l = method == 1 ? l1 : l2
-c = method == 1 ? c1 : c2
-
-// ————— Plot underlying close.
-plot(c, "Underlying close", color = color.gray, linewidth = 3, trackprice = true)
-// ————— Plot candles if required.
-invisibleColor = color.new(color.white, 100)
-plotcandle(plotCandles ? o : na, plotCandles ? h : na, plotCandles ? l : na, plotCandles ? c : na, color = color.orange, wickcolor = color.orange)
-// ————— Plot label.
-f_print(_txt) => var _lbl = label.new(bar_index, highest(10)[1], _txt, xloc.bar_index, yloc.price, #00000000, label.style_none, color.gray, size.large, text.align_left), label.set_xy(_lbl, bar_index, highest(10)[1]), label.set_text(_lbl, _txt)
-f_print("Underlying Close1 = " + tostring(c1) + "\nUnderlying Close2 = " + tostring(c2) + "\nChart's close = " + tostring(close) + "\n Delta = " + tostring(close - c))
-```
-
-### How can I keep only the last x labels or lines?
-The first thing required is to maintain a series containing the ids of the labels or lines as they are created. This is accomplished by assigning the returning value of the `label.new()` or `line.new()` function to a variable. This creates a series with value `na` if no label or line was created from that bar, and with a value of type *label* or *line* when an element is created.
-
-The next step will be to run a loop going back into the past from the current bar, jumping over a preset number of labels or lines and deleting all those following that, all the while doing nothing when an `na` value is found since this means no label or line was created on that bar.
-
-This first example illustrates the technique using labels:
-```js
-//@version=4
-//@author=LucF, for PineCoders
-maxBarsBack = 2000
-study("Keep last x labels", "", true, max_bars_back = maxBarsBack)
-keepLastLabels = input(5, "Last labels to keep")
-
-// ————— Label-creating condition: when close is above ma.
-ma = sma(close,30)
-var aboveMa = false
-aboveMa := crossover(close, ma) or (aboveMa and not crossunder(close, ma))
-
-// ————— Count number of bars since last crossover to show it on label.
-var barCount = 0
-barCount := aboveMa ? not aboveMa[1] ? 1 : barCount + 1 : 0
-
-// ————— Create labels while keeping a trail of label ids in series "lbl".
-// This is how we will later identify the bars where a label exist.
-label lbl = na
-if aboveMa
-    lbl := label.new(bar_index, high, tostring(barCount), xloc.bar_index, yloc.price, size = size.small)
-
-// ————— Delete all required labels.
-// Loop from previous bar into the past, looking for bars where a label was created.
-// Delete all labels found in last "maxBarsBack" bars after the required count has been left intact.
-lblCount = 0
-for i = 1 to maxBarsBack
-    if not na(lbl[i])
-        // We have identified a bar where a label was created.
-        lblCount := lblCount + 1
-        if lblCount > keepLastLabels
-            // We have saved the required count of labels; delete this one.
-            label.delete(lbl[i])
-
-plot(ma)
-```
-
-The second example illustrates the technique using lines:
-```js
-//@version=4
-//@author=LucF, for PineCoders
-maxBarsBack = 2000
-study("Keep last x lines", "", true, max_bars_back = maxBarsBack)
-
-// On crossovers/crossunders of these MAs we will be recording the hi/lo reched until opposite cross.
-// We will then use these hi/los to draw lines in the past.
-ma1 = sma(close, 20)
-ma2 = sma(close, 100)
-
-// ————— Build lines.
-// Highest/lowest hi/lo during up/dn trend.
-var hi = 10e-10
-var lo = 10e10
-// Bar index of highest/lowest hi/lo.
-var hiBar = 0
-var loBar = 0
-// Crosses.
-crossUp = crossover(ma1, ma2)
-crossDn = crossunder(ma1, ma2)
-upTrend = ma1 > ma2
-
-// Draw line in past when a cross occurs.
-line lin = na
-if crossUp or crossDn
-    lin := line.new(bar_index[bar_index - hiBar], high[bar_index - hiBar], bar_index[bar_index - loBar], low[bar_index - loBar], xloc.bar_index, extend.none, color.black)
-
-// Reset hi/lo and bar index on crosses.
-if crossUp
-    hi := high
-    hiBar := bar_index
-else
-    if crossDn
-        lo := low
-        loBar := bar_index
-
-// Update higher/lower hi/lo during trend.
-if upTrend and high > hi
-    hi := high
-    hiBar := bar_index
-else
-    if not upTrend and low < lo
-        lo := low
-        loBar := bar_index
-
-plot(ma1, "MA1", color.aqua, 1)
-plot(ma2, "MA2", color.orange, 1)
-
-// ————— Delete all required lines.
-// Loop from previous bar into the past, looking for bars where a line was created.
-// Delete all lines found in last "maxBarsBack" bars after the required count has been left intact.
-keepLastLines = input(5)
-lineCount = 0
-for i = 1 to maxBarsBack
-    if not na(lin[i])
-        lineCount := lineCount + 1
-        if lineCount > keepLastLines
-            line.delete(lin[i])
-```
-
-### Is it possible to draw geometric shapes?
-It's possible, but not trivial. See [this RicardoSantos script](https://www.tradingview.com/script/KhKqjR0J-RS-Function-Geometric-Line-Drawings/).
-
-
-### How can I print a value at the top right of the chart?
-We will use a label to print our value. Labels however, require positioning relative to the symbol's price scale, which is by definition fluid. The technique we use here is to create an indicator running in "No Scale" space, and then create an artificially large internal scale for it by using the `plotchar()` call which doesn't print anything. We then print the label at the top of that large scale, which does not affect the main chart display because the indicator is running in a separate scale.
-
-Also note that we take care to only print the label on the last bar of the chart, which results in much more efficient code than if we deleted and re-created a label on every bar of the chart, as would be the case if the `if barstate.islast` condition didn't restrict calls to our `f_print()` label-creating function.
-```js
-//@version=4
-//@author=LucF, for PineCoders
-// Indicator needs to be on "no scale".
-study("Daily ATR", "", true, scale = scale.none)
-atrLength = input(14)
-barsRight = input(5)
-// Produces a string format usable with `tostring()` to restrict precision to ticks.
-f_tickFormat() =>
-    _s = tostring(syminfo.mintick)
-    _s := str.replace_all(_s, "25", "00")
-    _s := str.replace_all(_s, "5",  "0")
-    _s := str.replace_all(_s, "1",  "0")
-// Plot invisible value to give a large upper scale to indie space.
-plotchar(10e10, "", "")
-// Fetch daily ATR. We want the current daily value so we use a repainting security() call.
-dAtr = security(syminfo.tickerid, "D", atr(atrLength))
-// Label-creating function puts label at the top of the large scale.
-f_print(_txt) => t = time + (time - time[1]) * 3, var _lbl = label.new(t, high, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), label.set_xy(_lbl, t, high + 3 * tr), label.set_text(_lbl, _txt)
-// Print value on last bar only, so code runs faster.
-if barstate.islast
-    f_print(tostring(dAtr, f_tickFormat()))
-```
-
-### How can I toggle `hline()` plots on and off?
-```js
-showHline = input(true)
-hline(50, color = showHline ? color.blue : #00000000)
-```
-
-### How can I lift `plotshape()` text up?
-You will need to use `\n` followed by a special non-printing character that doesn't get stripped out. Here we're using U+200E. While you don't see it in the following code's strings, it is there and can be copy/pasted. The special Unicode character needs to be the last one in the string for text going up, and the first one when you are plotting under the bar and text is going down:
-```
-//@version=4
-study("Lift text", "", true)
-// Use U+200E (Decimal 8206) as a non-printing space after the last "\n".
-// The line will become difficult to edit in the editor, but the character will be there.
-// You can use https://unicode-table.com/en/tools/generator/ to generate a copy/pastable character.
-plotshape(true, "", shape.arrowup,      location.abovebar, color.green,     text="A")
-plotshape(true, "", shape.arrowup,      location.abovebar, color.lime,      text="B\n‎")
-plotshape(true, "", shape.arrowdown,    location.belowbar, color.red,       text="C")
-plotshape(true, "", shape.arrowdown,    location.belowbar, color.maroon,    text="‎\nD")
-```
-![.](https://www.tradingview.com/x/MMMFiRZI/ "Lift text up with plotshape()")
-
-### How can I plot color gradients?
-There are no built-in functions to generate color gradients in Pine yet. Gradients progressing horizontally across bars are much easier to implement and run faster. These are a few examples:
-
-- [Color Gradient (16 colors) Framework - PineCoders FAQ](https://www.tradingview.com/script/EjLGV9qg-Color-Gradient-16-colors-Framework-PineCoders-FAQ/)
-- [Color Gradient Framework - PineCoders FAQ](https://www.tradingview.com/script/rFJ5I3Hl-Color-Gradient-Framework-PineCoders-FAQ/)
-- [[e2] Color Gradient Function](https://www.tradingview.com/script/VSGvuDEF-e2-Color-Gradient-Function/)
-- [[RS]Color Gradient Function](https://www.tradingview.com/script/nUq3gvD5-RS-Color-Gradient-Function/)
-- [[RS]Function - RGB Color (low resolution)](https://www.tradingview.com/script/nUq3gvD5-RS-Color-Gradient-Function/)
-
-To produce gradients progressing in vertical space on the same bar you will need to use a progession of plots, each with a different color. Doing so requires many plot statements and scripts using this technique will run slower than ones producing horizontal gradients. Examples:
-
-- [Trend Following Bar](https://www.tradingview.com/script/UGgNcgNi-Trend-Following-Bar/)
-- [Angled Volume Profile [feeble]](https://www.tradingview.com/script/OGwqa3DI-Angled-Volume-Profile-feeble/)
-- [Stochastic Heat Map](https://www.tradingview.com/script/7PRbCBjk-Stochastic-Heat-Map/)
-
-### How can I color the chart's background on a condition detected on the last bar?
-This code uses a very wide line to do it as this cannot be accomplished with `bgcolor()`. Because of that, the indicator is occupying all the background, so some chart functions like the measuring tool cannot be used with Shift-Click, but it will work if you select its tool explicitly.
-
-The position and width of the background can be modified through the script's *Inputs*.
-
-The background is very light. To change its brightness, you'll need to play with the transparency in the two `color.new()` calls, as it cannot be controlled from an input:
-
-```js
-//@version=4
-study("", "", true)
-
-period      = input(50,     "MA period", minval = 2)
-offstBg     = input(100,    "Background: Horizontal Offset to its Center", minval = 0, step = 5)
-lineWidth   = input(10000,  "Background: Width", minval = 0, step = 100)
-
-ma          = sma(close, period)
-condUp      = barstate.islast and close[1] > ma[1]
-condDn      = barstate.islast and close[1] < ma[1]
-c_lineColor = condUp ? color.new(color.green, 97) : condDn ? color.new(color.maroon, 97) : na
-
-if barstate.islast
-    var line bg = na
-    line.delete(bg)
-    bg := line.new(bar_index[offstBg], low - tr, bar_index[offstBg], high + tr, color = c_lineColor, extend = extend.both, width = lineWidth)
-
-plot(ma)
-```
-
-### How can I format values to tick precision with `tostring()`?
-Use our `f_tickFormat()` function (kudos to [DayTradingOil](https://www.tradingview.com/u/DayTradingOil/#published-scripts) for the original idea). It uses the [`str.replace_all()`](https://www.tradingview.com/pine-script-reference/v4/#fun_str{dot}replace_all) function to replace the non-zero digits in the string representation of `syminfo.mintick` to produce a formatting string usable by [`tostring()`](https://www.tradingview.com/pine-script-reference/v4/#fun_tostring).
-```js
-//@version=4
-study("tostring() formatting to tick precision","",true)
-f_print(_txt) => var _lbl = label.new(bar_index, highest(10)[1], _txt, xloc.bar_index, yloc.price, #00000000, label.style_none, color.gray, size.large, text.align_center), label.set_xy(_lbl, bar_index, highest(10)[1]), label.set_text(_lbl, _txt)
-
-// Produces a string format usable with `tostring()` to restrict precision to ticks.
-//  • Note that `tostring()` will also round the value.
-f_tickFormat() =>
-    _s = tostring(syminfo.mintick)
-    _s := str.replace_all(_s, "25", "00")
-    _s := str.replace_all(_s, "5",  "0")
-    _s := str.replace_all(_s, "1",  "0")
-
-c = close * 0.99
-f_print("tostring(c)\n" + tostring(c) + "\n\n\n")
-f_print("tostring(c, f_tickFormat())\n" + tostring(c, f_tickFormat()))
-plotchar(syminfo.mintick, "syminfo.mintick", "", location.top)
-```
-![.](https://www.tradingview.com/x/EGfhBV3R/ "tostring() formatting to tick precision")
-
-If you need to round a numeric value to ticks without converting it to a string, see [this FAQ's entry](https://www.pinecoders.com/faq_and_code/#how-can-i-round-to-ticks).
-
-**[Back to top](#table-of-contents)**
-
-
-
-<br><br>
 ## INDICATORS
 
 
@@ -894,6 +517,367 @@ The complexity of the conversion process between strategies and studies is the r
 
 
 
+
+<br><br>
+## PLOTTING
+
+### Why can't I use a plot in an `if` or `for` statement?
+Because it's not allowed in Pine. You can use many different conditions to control plotting and the color of plots, but these must be controlled from within the `plot()` call.
+
+If, for example, you want to plot a highlight when 2 MAs are a certain multiple of ATR away from each other, you first need to define your condition, then plot on that condition only:
+```js
+//@version=4
+study("Conditional plot", "", true)
+// ————— Step 1: Define our condition.
+ma1 = sma(close, 10)
+ma2 = sma(close, 50)
+plotCondition = (ma1 - ma2) > atr(14) * 3
+// ————— Step 2: Plot.
+// These 2 plots are plotted all the time.
+plot(ma1, "Fast MA", color.fuchsia)
+plot(ma2, "Slow MA", color.orange)
+
+// Method 2a: This plots all the time as well, but because we make our color conditional,
+// It only shows when our condition is true.
+plot(ma1, "Highlight 2b", plotCondition ? color.fuchsia : na, 6, transp = 70)
+
+// Method 2b: This only plots a value when our condition is true.
+plot(plotCondition ? ma1 : na, "Highlight 2b", color.purple, 3, plot.style_circles)
+```
+![.](https://www.tradingview.com/x/IMgwPa29/ "Conditional plots")
+
+
+### Can I plot diagonals between two points on the chart?
+Yes, using the [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function available in v4. See the [Trendlines - JD](https://www.tradingview.com/script/mpeEgn5J-Trendlines-JD/) indicator by Duyck.
+
+### How do I plot a line using start/stop criteria?
+You'll need to define your start and stop conditions and use logic to remember states and the level you want to plot.
+
+Note the `plot()` call using a combination of plotting `na` and the `style = plot.style_linebr` parameter to avoid plotting a continuous line, which would produce inelegant joins between different levels.
+
+Also note how `plotchar()` is used to plot debugging information revealing the states of the boolean building blocks we use in our logic. These plots are not necessary in the final product; they are used to ensure your code is doing what you expect and can save you a lot of time when you are writing your code.
+```js
+//@version=4
+study("Plot line from start to end condition", overlay=true)
+lineExpiryBars = input(300, "Maximum bars line will plot", minval = 0)
+// Stores "close" level when start condition occurs.
+var savedLevel = float(na)
+// True when the line needs to be plotted.
+var plotLine = false
+// This is where you enter your start and end conditions.
+startCondition = pivothigh(close, 5, 2)
+endCondition = cross(close, savedLevel)
+// Determine if a line start/stop condition has occurred.
+startEvent = not plotLine and startCondition
+// If you do not need a limit on the length of the line, use this line instead: endEvent = plotLine and endCondition
+endEvent = plotLine and (endCondition or barssince(startEvent) > lineExpiryBars)
+// Start plotting or keep plotting until stop condition.
+plotLine := startEvent or (plotLine and not endEvent)
+if plotLine and not plotLine[1]
+    // We are starting to plot; save close level.
+    savedLevel := close
+// Plot line conditionally.
+plot(plotLine ? savedLevel : na, color = color.orange, style = plot.style_linebr)
+// State plots revealing states of conditions.
+plotchar(startCondition, "startCondition", "•", color = color.green, size=size.tiny, transp = 0)
+plotchar(endCondition, "endCondition", "•", color = color.red, size=size.tiny, location = location.belowbar, transp = 0)
+plotchar(startEvent, "startEvent", "►", color = color.green, size=size.tiny)
+plotchar(endEvent, "endEvent", "◄", color = color.red, size=size.tiny, location = location.belowbar)
+```
+
+### How do I plot a support or a trend line?
+To plot a continuous line in Pine, you need to either:
+1. Look back into elapsed bars to find an occurrence that will return the same value over consecutive bars so you can plot it, or
+1. Find levels and save them so that you can plot them. In this case your saving mechanism will determine how many levels you can save.
+1. You may also use the [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function available in v4. See [Trendlines - JD by Duyck](https://www.tradingview.com/script/mpeEgn5J-Trendlines-JD/) or [Pivots MTF](https://www.tradingview.com/script/VYzEUnYB-Pivots-MTF-LucF/).
+
+These are other examples:
+- [Backtest Rookies](https://backtest-rookies.com/2018/10/05/tradingview-support-and-resistance-indicator/)
+- [Auto-Support v 0.2 by jamc](https://www.tradingview.com/script/hBrQx1tG-Auto-Support-v-0-2/)
+- [S/R Barry by likebike](https://www.tradingview.com/script/EHqtQi2g-S-R-Barry/)
+
+### How many plots, security() calls, variables or lines of code can I use?
+- The limit for plots is 64. Note than one plot statement can use up more than one allowed plot, depending on how it is structured. If you use series (conditional) color on the plot or text, each one will add a plot count. Starting with Pine v4, `alertcondition()` calls also count for one plot. All plotting functions count for at least one plot, except `hline()` calls which do not count as a plot. Some plotting functions such as `plotcandle()` count as 4 plots, 5 if you use series color on the body. You can see plot counts in the Data Window if you don't use the `title` argument in your calls.
+- When using labels or lines created with `label.new()` and `line.new()` a garbage collector will preserve only the last ~50 objects of each type.
+- The limit for `security()` calls is 40, but by using functions returning tuples with `security()`, you can fetch many more values than 40.
+- The limit for variables is 1000.
+- We do not know of a limit to the number of lines in a script. There is, however a limit of 50K compiled tokens, but they don't correspond to code lines.
+
+### How can I use colors in my indicator plots?
+- See [Working with colours](https://kodify.net/tradingview/colours/) by Kodify.
+- Our Resources document has a list of [color pickers](https://www.pinecoders.com/resources/#color-pickers-or-palettes) to help you choose colors.
+- [midtownsk8rguy](https://www.tradingview.com/u/midtownsk8rguy/#published-scripts) has a complete set of custom colors in [Pine Color Magic and Chart Theme Simulator](https://www.tradingview.com/script/yyDYIrRQ-Pine-Color-Magic-and-Chart-Theme-Simulator/).
+
+### How do I make my indicator plot over the chart?
+Use `overlay=true` in `strategy()` or `study()` declaration statement, e.g.,:
+```js
+study("My Script", overlay = true)
+```
+If your indicator was already in a Pane before applying this change, you will need to use *Add to Chart* again for the change to become active.
+
+If your script only works correctly in overlay mode and you want to prevent users from moving it to a separate pane, you can add `linktoseries = true` to your `strategy()` or `study()` declaration statement.
+
+### Can I use `plot()` calls in a `for` loop?
+No, but you can use the v4 [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function in `for` loops.
+
+### How can I plot vertical lines on a chart?
+You can use the `plot.style_columns` style to plot them:
+```js
+//@version=4
+study("", "", true, scale = scale.none)
+cond = close > open
+plot(cond ? 10e20 : na, style = plot.style_columns, color = color.silver, transp=85)
+```
+There is a nice v4 function to plot a vertical line in this indicator: [vline() Function for Pine Script v4.0+](https://www.tradingview.com/script/EmTkvfCM-vline-Function-for-Pine-Script-v4-0/).
+
+### How can I toggle `hline()` plots on and off?
+```js
+showHline = input(true)
+hline(50, color = showHline ? color.blue : #00000000)
+```
+
+### How can I lift `plotshape()` text up?
+You will need to use `\n` followed by a special non-printing character that doesn't get stripped out. Here we're using U+200E. While you don't see it in the following code's strings, it is there and can be copy/pasted. The special Unicode character needs to be the last one in the string for text going up, and the first one when you are plotting under the bar and text is going down:
+```
+//@version=4
+study("Lift text", "", true)
+// Use U+200E (Decimal 8206) as a non-printing space after the last "\n".
+// The line will become difficult to edit in the editor, but the character will be there.
+// You can use https://unicode-table.com/en/tools/generator/ to generate a copy/pastable character.
+plotshape(true, "", shape.arrowup,      location.abovebar, color.green,     text="A")
+plotshape(true, "", shape.arrowup,      location.abovebar, color.lime,      text="B\n‎")
+plotshape(true, "", shape.arrowdown,    location.belowbar, color.red,       text="C")
+plotshape(true, "", shape.arrowdown,    location.belowbar, color.maroon,    text="‎\nD")
+```
+![.](https://www.tradingview.com/x/MMMFiRZI/ "Lift text up with plotshape()")
+
+### How can I plot color gradients?
+There are no built-in functions to generate color gradients in Pine yet. Gradients progressing horizontally across bars are much easier to implement and run faster. These are a few examples:
+
+- [Color Gradient (16 colors) Framework - PineCoders FAQ](https://www.tradingview.com/script/EjLGV9qg-Color-Gradient-16-colors-Framework-PineCoders-FAQ/)
+- [Color Gradient Framework - PineCoders FAQ](https://www.tradingview.com/script/rFJ5I3Hl-Color-Gradient-Framework-PineCoders-FAQ/)
+- [[e2] Color Gradient Function](https://www.tradingview.com/script/VSGvuDEF-e2-Color-Gradient-Function/)
+- [[RS]Color Gradient Function](https://www.tradingview.com/script/nUq3gvD5-RS-Color-Gradient-Function/)
+- [[RS]Function - RGB Color (low resolution)](https://www.tradingview.com/script/nUq3gvD5-RS-Color-Gradient-Function/)
+
+To produce gradients progressing in vertical space on the same bar you will need to use a progession of plots, each with a different color. Doing so requires many plot statements and scripts using this technique will run slower than ones producing horizontal gradients. Examples:
+
+- [Trend Following Bar](https://www.tradingview.com/script/UGgNcgNi-Trend-Following-Bar/)
+- [Angled Volume Profile [feeble]](https://www.tradingview.com/script/OGwqa3DI-Angled-Volume-Profile-feeble/)
+- [Stochastic Heat Map](https://www.tradingview.com/script/7PRbCBjk-Stochastic-Heat-Map/)
+
+### How can I format values to tick precision with `tostring()`?
+Use our `f_tickFormat()` function (kudos to [DayTradingOil](https://www.tradingview.com/u/DayTradingOil/#published-scripts) for the original idea). It uses the [`str.replace_all()`](https://www.tradingview.com/pine-script-reference/v4/#fun_str{dot}replace_all) function to replace the non-zero digits in the string representation of `syminfo.mintick` to produce a formatting string usable by [`tostring()`](https://www.tradingview.com/pine-script-reference/v4/#fun_tostring).
+```js
+//@version=4
+study("tostring() formatting to tick precision","",true)
+f_print(_txt) => var _lbl = label.new(bar_index, highest(10)[1], _txt, xloc.bar_index, yloc.price, #00000000, label.style_none, color.gray, size.large, text.align_center), label.set_xy(_lbl, bar_index, highest(10)[1]), label.set_text(_lbl, _txt)
+
+// Produces a string format usable with `tostring()` to restrict precision to ticks.
+//  • Note that `tostring()` will also round the value.
+f_tickFormat() =>
+    _s = tostring(syminfo.mintick)
+    _s := str.replace_all(_s, "25", "00")
+    _s := str.replace_all(_s, "5",  "0")
+    _s := str.replace_all(_s, "1",  "0")
+
+c = close * 0.99
+f_print("tostring(c)\n" + tostring(c) + "\n\n\n")
+f_print("tostring(c, f_tickFormat())\n" + tostring(c, f_tickFormat()))
+plotchar(syminfo.mintick, "syminfo.mintick", "", location.top)
+```
+![.](https://www.tradingview.com/x/EGfhBV3R/ "tostring() formatting to tick precision")
+
+If you need to round a numeric value to ticks without converting it to a string, see [this FAQ's entry](https://www.pinecoders.com/faq_and_code/#how-can-i-round-to-ticks).
+
+**[Back to top](#table-of-contents)**
+
+
+
+
+<br><br>
+## LABELS AND LINES
+
+### How can I position text on either side of a single bar?
+By chooosing label styles like `style = label.style_label_left` we can determine on which side of the bar the label is positioned. The text's alignment in the label can be controlled using `textalign = text.align_right`, and finally, we can make the label's background color transparent so we display only the text.
+```js
+//@version=4
+study("", "", true)
+f_print(_txt, _pos, _align) => var _lbl = label.new(bar_index, highest(10)[1], _txt, xloc.bar_index, yloc.price, #00000000, _pos, color.gray, size.huge, _align), label.set_xy(_lbl, bar_index, highest(10)[1]), label.set_text(_lbl, _txt)
+f_print("123\nLR", label.style_label_left,   text.align_right)
+f_print("123\nRL", label.style_label_right,  text.align_left)
+f_print("123\nC",  label.style_label_center, text.align_center)
+```
+The following three labels are all position on the chart's last bar:
+![.](https://www.tradingview.com/x/uFI5Rfn1/ "label text positioning")
+
+### How can I print a value at the top right of the chart?
+We will use a label to print our value. Labels however, require positioning relative to the symbol's price scale, which is by definition fluid. The technique we use here is to create an indicator running in "No Scale" space, and then create an artificially large internal scale for it by using the `plotchar()` call which doesn't print anything. We then print the label at the top of that large scale, which does not affect the main chart display because the indicator is running in a separate scale.
+
+Also note that we take care to only print the label on the last bar of the chart, which results in much more efficient code than if we deleted and re-created a label on every bar of the chart, as would be the case if the `if barstate.islast` condition didn't restrict calls to our `f_print()` label-creating function.
+```js
+//@version=4
+//@author=LucF, for PineCoders
+// Indicator needs to be on "no scale".
+study("Daily ATR", "", true, scale = scale.none)
+atrLength = input(14)
+barsRight = input(5)
+// Produces a string format usable with `tostring()` to restrict precision to ticks.
+f_tickFormat() =>
+    _s = tostring(syminfo.mintick)
+    _s := str.replace_all(_s, "25", "00")
+    _s := str.replace_all(_s, "5",  "0")
+    _s := str.replace_all(_s, "1",  "0")
+// Plot invisible value to give a large upper scale to indie space.
+plotchar(10e10, "", "")
+// Fetch daily ATR. We want the current daily value so we use a repainting security() call.
+dAtr = security(syminfo.tickerid, "D", atr(atrLength))
+// Label-creating function puts label at the top of the large scale.
+f_print(_txt) => t = time + (time - time[1]) * 3, var _lbl = label.new(t, high, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), label.set_xy(_lbl, t, high + 3 * tr), label.set_text(_lbl, _txt)
+// Print value on last bar only, so code runs faster.
+if barstate.islast
+    f_print(tostring(dAtr, f_tickFormat()))
+```
+
+### How can I keep only the last x labels or lines?
+The first thing required is to maintain a series containing the ids of the labels or lines as they are created. This is accomplished by assigning the returning value of the `label.new()` or `line.new()` function to a variable. This creates a series with value `na` if no label or line was created from that bar, and with a value of type *label* or *line* when an element is created.
+
+The next step will be to run a loop going back into the past from the current bar, jumping over a preset number of labels or lines and deleting all those following that, all the while doing nothing when an `na` value is found since this means no label or line was created on that bar.
+
+This first example illustrates the technique using labels:
+```js
+//@version=4
+//@author=LucF, for PineCoders
+maxBarsBack = 2000
+study("Keep last x labels", "", true, max_bars_back = maxBarsBack)
+keepLastLabels = input(5, "Last labels to keep")
+
+// ————— Label-creating condition: when close is above ma.
+ma = sma(close,30)
+var aboveMa = false
+aboveMa := crossover(close, ma) or (aboveMa and not crossunder(close, ma))
+
+// ————— Count number of bars since last crossover to show it on label.
+var barCount = 0
+barCount := aboveMa ? not aboveMa[1] ? 1 : barCount + 1 : 0
+
+// ————— Create labels while keeping a trail of label ids in series "lbl".
+// This is how we will later identify the bars where a label exist.
+label lbl = na
+if aboveMa
+    lbl := label.new(bar_index, high, tostring(barCount), xloc.bar_index, yloc.price, size = size.small)
+
+// ————— Delete all required labels.
+// Loop from previous bar into the past, looking for bars where a label was created.
+// Delete all labels found in last "maxBarsBack" bars after the required count has been left intact.
+lblCount = 0
+for i = 1 to maxBarsBack
+    if not na(lbl[i])
+        // We have identified a bar where a label was created.
+        lblCount := lblCount + 1
+        if lblCount > keepLastLabels
+            // We have saved the required count of labels; delete this one.
+            label.delete(lbl[i])
+
+plot(ma)
+```
+
+The second example illustrates the technique using lines:
+```js
+//@version=4
+//@author=LucF, for PineCoders
+maxBarsBack = 2000
+study("Keep last x lines", "", true, max_bars_back = maxBarsBack)
+
+// On crossovers/crossunders of these MAs we will be recording the hi/lo reched until opposite cross.
+// We will then use these hi/los to draw lines in the past.
+ma1 = sma(close, 20)
+ma2 = sma(close, 100)
+
+// ————— Build lines.
+// Highest/lowest hi/lo during up/dn trend.
+var hi = 10e-10
+var lo = 10e10
+// Bar index of highest/lowest hi/lo.
+var hiBar = 0
+var loBar = 0
+// Crosses.
+crossUp = crossover(ma1, ma2)
+crossDn = crossunder(ma1, ma2)
+upTrend = ma1 > ma2
+
+// Draw line in past when a cross occurs.
+line lin = na
+if crossUp or crossDn
+    lin := line.new(bar_index[bar_index - hiBar], high[bar_index - hiBar], bar_index[bar_index - loBar], low[bar_index - loBar], xloc.bar_index, extend.none, color.black)
+
+// Reset hi/lo and bar index on crosses.
+if crossUp
+    hi := high
+    hiBar := bar_index
+else
+    if crossDn
+        lo := low
+        loBar := bar_index
+
+// Update higher/lower hi/lo during trend.
+if upTrend and high > hi
+    hi := high
+    hiBar := bar_index
+else
+    if not upTrend and low < lo
+        lo := low
+        loBar := bar_index
+
+plot(ma1, "MA1", color.aqua, 1)
+plot(ma2, "MA2", color.orange, 1)
+
+// ————— Delete all required lines.
+// Loop from previous bar into the past, looking for bars where a line was created.
+// Delete all lines found in last "maxBarsBack" bars after the required count has been left intact.
+keepLastLines = input(5)
+lineCount = 0
+for i = 1 to maxBarsBack
+    if not na(lin[i])
+        lineCount := lineCount + 1
+        if lineCount > keepLastLines
+            line.delete(lin[i])
+```
+
+### Is it possible to draw geometric shapes?
+It's possible, but not trivial. See [this RicardoSantos script](https://www.tradingview.com/script/KhKqjR0J-RS-Function-Geometric-Line-Drawings/).
+
+### How can I color the chart's background on a condition detected on the last bar?
+This code uses a very wide line to do it as this cannot be accomplished with `bgcolor()`. Because of that, the indicator is occupying all the background, so some chart functions like the measuring tool cannot be used with Shift-Click, but it will work if you select its tool explicitly.
+
+The position and width of the background can be modified through the script's *Inputs*.
+
+The background is very light. To change its brightness, you'll need to play with the transparency in the two `color.new()` calls, as it cannot be controlled from an input:
+
+```js
+//@version=4
+study("", "", true)
+
+period      = input(50,     "MA period", minval = 2)
+offstBg     = input(100,    "Background: Horizontal Offset to its Center", minval = 0, step = 5)
+lineWidth   = input(10000,  "Background: Width", minval = 0, step = 100)
+
+ma          = sma(close, period)
+condUp      = barstate.islast and close[1] > ma[1]
+condDn      = barstate.islast and close[1] < ma[1]
+c_lineColor = condUp ? color.new(color.green, 97) : condDn ? color.new(color.maroon, 97) : na
+
+if barstate.islast
+    var line bg = na
+    line.delete(bg)
+    bg := line.new(bar_index[offstBg], low - tr, bar_index[offstBg], high + tr, color = c_lineColor, extend = extend.both, width = lineWidth)
+
+plot(ma)
+```
+
+
+
+
 <br><br>
 ## TIME, DATES AND SESSIONS
 
@@ -934,7 +918,6 @@ f_print("Date-time at beginning of last bar: " + f_timeToString(time) + "\n")
 f_print("Date-time at the start of the day, 4 days past the last bar's time: " + f_timeToString(timestamp(year, month, dayofmonth + 4, 00, 00, 00)))
 ```
 ![.](https://www.tradingview.com/x/cIO56toK/ "f_timeToString()")
-
 
 ### How can I know how many days are in the current month?
 Use [this function](https://www.tradingview.com/script/mHHDfDB8-RS-Function-Days-in-a-Month/) by RicardoSantos.
@@ -2061,6 +2044,43 @@ plotchar(newPH, "newPH", "•", location.abovebar, offset = - legs)
 plotchar(newPH, "newPH", "▲", location.top)
 ```
 > Note that we use `not na(pH)` to detect a new pivot, rather than the more common way of simply relying on the fact that `pH` will be different from zero or `na`—so true—when a pivot is found. While the common technique will work most of the time, it will not work when a pivot is found at a value of zero, because zero is evaluated as false in a conditional expression. Our method is thus more robust, and the recommended way to test for a pivot.
+
+### How can I access normal bar OHLC values on a non-standard chart?
+You need to use the `security()` function. This script allows you to view normal candles on the chart, although depending on the non-standard chart type you use, this may or may not make much sense:
+```js
+//@version=4
+study("Plot underlying OHLC", "", true)
+
+// ————— Allow plotting of underlying candles on chart.
+plotCandles = input(true, "Plot Candles")
+method      = input(1, "Using Method", minval = 1, maxval = 2)
+
+// ————— Method 1: Only works when chart is on default exchange for the symbol.
+o1 = security(syminfo.ticker, timeframe.period, open)
+h1 = security(syminfo.ticker, timeframe.period, high)
+l1 = security(syminfo.ticker, timeframe.period, low)
+c1 = security(syminfo.ticker, timeframe.period, close)
+// ————— Method 2: Works all the time because it use the chart's symbol and exchange information.
+ticker = tickerid(syminfo.prefix, syminfo.ticker)
+o2 = security(ticker, timeframe.period, open)
+h2 = security(ticker, timeframe.period, high)
+l2 = security(ticker, timeframe.period, low)
+c2 = security(ticker, timeframe.period, close)
+// ————— Get value corresponding to selected method.
+o = method == 1 ? o1 : o2
+h = method == 1 ? h1 : h2
+l = method == 1 ? l1 : l2
+c = method == 1 ? c1 : c2
+
+// ————— Plot underlying close.
+plot(c, "Underlying close", color = color.gray, linewidth = 3, trackprice = true)
+// ————— Plot candles if required.
+invisibleColor = color.new(color.white, 100)
+plotcandle(plotCandles ? o : na, plotCandles ? h : na, plotCandles ? l : na, plotCandles ? c : na, color = color.orange, wickcolor = color.orange)
+// ————— Plot label.
+f_print(_txt) => var _lbl = label.new(bar_index, highest(10)[1], _txt, xloc.bar_index, yloc.price, #00000000, label.style_none, color.gray, size.large, text.align_left), label.set_xy(_lbl, bar_index, highest(10)[1]), label.set_text(_lbl, _txt)
+f_print("Underlying Close1 = " + tostring(c1) + "\nUnderlying Close2 = " + tostring(c2) + "\nChart's close = " + tostring(close) + "\n Delta = " + tostring(close - c))
+```
 
 ### How can I initialize a series on specific dates using external data?
 Pine cannot yet use external data sources outside of the TradingView datafeeds. Until it can, external data must be inserted into machine-generated Pine code. This provides a template.
