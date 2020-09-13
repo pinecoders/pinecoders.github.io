@@ -699,7 +699,7 @@ If you need to round a numeric value to ticks without converting it to a string,
 ## LABELS AND LINES
 
 ### How can I position text on either side of a single bar?
-By chooosing label styles like `style = label.style_label_left` we can determine on which side of the bar the label is positioned. The text's alignment in the label can be controlled using `textalign = text.align_right`, and finally, we can make the label's background color transparent so we display only the text.
+By choosing label styles like `style = label.style_label_left` we can determine on which side of the bar the label is positioned. The text's alignment in the label can be controlled using `textalign = text.align_right`, and finally, we can make the label's background color transparent so we display only the text:
 ```js
 //@version=4
 study("", "", true)
@@ -708,7 +708,7 @@ f_print("123\nLR", label.style_label_left,   text.align_right)
 f_print("123\nRL", label.style_label_right,  text.align_left)
 f_print("123\nC",  label.style_label_center, text.align_center)
 ```
-The following three labels are all position on the chart's last bar:
+The following three labels are all positioned on the chart's last bar:  
 ![.](https://www.tradingview.com/x/uFI5Rfn1/ "label text positioning")
 
 ### How can I print a value at the top right of the chart?
