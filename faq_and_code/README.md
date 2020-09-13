@@ -2135,7 +2135,7 @@ Note that we do not use the third tuple value in the [`macd()`](https://www.trad
 ### How can I organize my script's inputs in the *Settings/Inputs* tab?
 This script shows how to organize your inputs using the following tricks:
 - Create separators using boolean checkboxes. Make their default value `true` so users are less prone to check them to see what they do, as they will most often do nothing. If your separators actually do something, make this clear in their wording.
-- Indent sub-sections using Unicode white space characters. Choose one that shows up in the Editor has a visible character. We like to use the Em space (` `): 8195 or 0x2003.
+- Indent sub-sections using Unicode white space characters. Choose one that shows up in the Editor as a visible character. We like to use the Em space (` `): 8195 (0x2003).
 
 Notes:
 - We cannot indent checkboxes, so your sections will look cleaner if you use `input()`'s `options` parameter to provide selections rather than checkboxes.
@@ -2144,7 +2144,22 @@ Notes:
 - Use ASCII characters 205 or 196 for continuous separator lines. The dash (ASCII 45) or Em dash (ASCII 151) do not join properly; they are thus less visually appealing.
 - For better visual effect, ensure all you separator titles are centered vertically throughout all your Inputs. This requires trial and error, as the MS Trebuchet font used for TV text is proportionnally spaced.
 
-![.](Inputs.png "Inputs")
+```js
+//@version=4
+study("")
+EQ1 = "On", EQ2 = "Off" // Do not use ampersand ("&") in `options` arguments. 
+_50 = input(true,   "══════════════ Settings ═══════════════")  // ASCII 205
+_60 = input(true,   "────────────── Settings ───────────────")  // ASCII 196
+_70 = input(true,   "————————————— Settings ———————————————")   // ASCII 151 (Em dash)
+_80 = input(true,   "-------------------------- Settings ------------------------------")   // ASCII 145 (dash)
+i_1 = input(65., "First level")
+i_2 = input(65., "  Second Level")
+i_3 = input(EQ1, "    Checkbox equivalent", options = [EQ1, EQ2])
+i_4 = input(65., "Widest Legend            ")
+plot(close)
+```
+
+![.](inputs.png "Inputs")
 
 **[Back to top](#table-of-contents)**
 
