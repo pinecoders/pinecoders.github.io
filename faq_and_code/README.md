@@ -2132,6 +2132,19 @@ plotchar(cond, "cond", "•", location.top, size = size.tiny)
 ```
 Note that we do not use the third tuple value in the [`macd()`](https://www.tradingview.com/pine-script-reference/v4/#fun_macd) call, so we replace it with an underscore.
 
+### How can I organize my script's inputs in the *Settings/Inputs* tab?
+This script shows how to organize your inputs using the following tricks:
+- Create separators using boolean checkboxes. Make their default value `true` so users are less prone to check them to see what they do, as they will most often do nothing. If your separators actually do something, make this clear in their wording.
+- Indent sub-sections using Unicode white space characters. Choose one that shows up in the Editor has a visible character. We like to use the Em space (` `): 8195 or 0x2003.
+
+Notes:
+- We cannot indent checkboxes, so your sections will look cleaner if you use `input()`'s `options` parameter to provide selections rather than checkboxes.
+- For separators to align neatly at the end of the dialog box, start by creating the longest input `title` you will be using, as it determines the width of db. This way you will avoid the tedious task or re-balancing the line characters on each side of your separator's name because of changes in the db's width when you add an input with a `title` longer than previous ones.
+- If your longest input title turns out to be shorter than you had first planned and you want to avoid re-balancing separators, you can use Unicode white space to artificially make it longer, as we demonstrate for input `i_4` in our code example.
+- Use ASCII characters 205 or 196 for continuous separator lines. The dash (ASCII 45) or Em dash (ASCII 151) do not join properly; they are thus less visually appealing.
+- For better visual effect, ensure all you separator titles are centered vertically throughout all your Inputs. This requires trial and error, as the MS Trebuchet font used for TV text is proportionnally spaced.
+
+![.](Inputs.png "Inputs")
 
 **[Back to top](#table-of-contents)**
 
