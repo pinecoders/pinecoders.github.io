@@ -2137,12 +2137,22 @@ This script shows how to organize your inputs using the following tricks:
 - Create separators using boolean checkboxes. Make their default value `true` so users are less prone to trying them out to see what they do, as they will most often do nothing. If your separators actually do something, make this clear in their wording.
 - Indent sub-sections using Unicode white space characters. Choose one that shows up in the Editor as a visible character. We like to use the Em space (` `): 8195 (0x2003).
 
-Notes:
+**Notes**
 - We cannot indent checkboxes, so your sections will look cleaner if you use `input()`'s `options` parameter to provide selections via dropdowns rather than checkboxes.
 - For separators to align neatly at the end of the dialog box, start by creating the longest input `title` you will be using, as it determines the width of db. This way you will avoid the tedious task or re-balancing the line characters on each side of your separator's name because of changes in the db's width when you add an input with a `title` longer than previous ones.
 - If your longest input title turns out to be shorter than you had first planned and you want to avoid re-balancing separators, you can use Unicode white space to artificially make it longer, as we demonstrate for input `i_4` in our code example.
 - Use ASCII characters 205 or 196 for continuous separator lines. The dash (ASCII 45) or Em dash (ASCII 151) do not join properly; they are thus less visually appealing.
 - For better visual effect, ensure all you separator titles are centered vertically throughout all your Inputs. This requires trial and error, as the MS Trebuchet font used for TV text is proportionnally spaced.
+
+**Tips**
+- Your script's plots and inputs constitute their user interface. Inputs thus play a key role in the user experience. The more options you provide, the more important the design of your *Inputs* dialog box becomes, especially when users don't read script descritpions or if your description is lacking.
+- Design the sequence of inputs with the user in mind—not by using the order in which they are used in your calculations. Place the most important/frequent selections at the top and test user travel down your list of inputs.
+- Never use two checkboxes for mutually exclusive selections. Use dropdowns instead; they allow you to include as many useful options as you see fit.
+- Do not be stingy when naming option selections. The dropdown widget can accommodate long strings.
+- Remember not to use ampersands in `option` arguments, as your boolean expressions will not work with them.
+- Choose your default values wisely.
+- Provide adequate `min` and `max` values for numeric values, selecting the proper *float* or *int* type.
+- When needed, customize `step` values to the particular use of each inputs.
 
 ```js
 //@version=4
