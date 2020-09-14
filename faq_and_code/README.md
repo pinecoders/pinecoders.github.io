@@ -846,7 +846,9 @@ for i = 1 to maxBarsBack
 ```
 
 ### Is it possible to draw geometric shapes?
-It's possible, but not trivial. See [this RicardoSantos script](https://www.tradingview.com/script/KhKqjR0J-RS-Function-Geometric-Line-Drawings/).
+It's possible, but not trivial. See these two scripts:
+- [[RS]Function - Geometric Line Drawings](https://www.tradingview.com/script/KhKqjR0J-RS-Function-Geometric-Line-Drawings/) by RicardoSantos.
+- [Periodic Ellipses](https://www.tradingview.com/script/ynUlUbP7-Periodic-Ellipses/) by alexgrover.
 
 ### How can I color the chart's background on a condition detected on the last bar?
 This code uses a very wide line to do it as this cannot be accomplished with `bgcolor()`. Because of that, the indicator is occupying all the background, so some chart functions like the measuring tool cannot be used with Shift-Click, but it will work if you select its tool explicitly.
