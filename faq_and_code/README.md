@@ -1298,6 +1298,7 @@ Yes but there are limits to using this technique:
 1. It only works on historical bars, which means your script will not return correct values in the realtime bar.
 1. You cannot reference intrabars at seconds resolutions. So you can call `security()` at 1m from a 15m chart, but not 30sec.
 1. Alerts will not work trigger correctly.
+1. See the tips in our FAQ entry on [optimization](https://www.pinecoders.com/faq_and_code/#how-can-i-optimize-pine-code).
 
 If you call `security()` at a lower resolution using a series argument such as `close` or `volume` for its `expression=` parameter, `security()` returns the series' value at the last intrabar, as in the `lastClose` variable in the following script.
 
