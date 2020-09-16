@@ -145,7 +145,7 @@ While this can easily be forgotten in the creative excitement of coding your lat
 To avoid problems, you need to be on the lookout for 2 conditions:
 
 #### Condition A  
-A conditional expression that can only be evaluated with incoming, new bar information (i.e., using series variables like close). This excludes expressions using values of literal, const, input or simple forms because they do not change during the script's execution, and so when you use them, the same block in the if statement is guaranteed to execute on every bar. [Read this](https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html) if you are not familiar with Pine forms and types.]
+A conditional expression that can only be evaluated with incoming, new bar information (i.e., using series variables like `close`). This excludes expressions using values of literal, const, input or simple forms because they do not change during the script's execution, and so when you use them, the same block in the `if` statement is guaranteed to execute on every bar. [Read this](https://www.tradingview.com/pine-script-docs/en/v4/language/Type_system.html) if you are not familiar with Pine forms and types.
 
 #### Condition B  
 When condition A is met, and the if block(s) contain(s) functions or built-ins NOT in the list of exceptions, i.e., which require evaluation on every bar to return a correct result, then condition B is also met.
