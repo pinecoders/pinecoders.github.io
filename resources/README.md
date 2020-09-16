@@ -14,11 +14,11 @@
 
 This document provides a list of Pine-related resources and tools.
 
-**Disclaimer**: Except the work for hire Pine programmers, we do not endorse the third-party tools and resources mentioned here, and their inclusion here does not imply any guarantee of their worthiness. So please, before you decide to purchase anything, show due diligence and do your own research.
+**Disclaimer**  
+Except the work for hire Pine programmers, we do not endorse the third-party tools and resources mentioned here, and their inclusion here does not imply any guarantee of their worthiness. So please, before you decide to purchase anything, show due diligence and do your own research.
 
-PineCoders does not benefit from the adoption of these tools. **This document contains no affiliate links.**
-
-> The original version of this document was written by [chrysopoetics](https://www.tradingview.com/u/chrysopoetics/), a TradingView member.<br>We are grateful to him for allowing us to maintain it. **Thanks Hermes!**
+PineCoders does not benefit from the adoption of these tools.  
+**This document contains no affiliate links.**
 
 ### Table of Contents
 
@@ -75,9 +75,9 @@ We have also begun publishing guides. See our first: the [Digital Signal Process
 
 
 ## Educational Content
-[Kodify](https://kodify.net/tradingview-programming-articles/): The indispensable and largest, most complete and well-written set of in-depth articles on Pine. Articles discuss many finer points of Pine not covered elsewhere. More than 200 articles to help you master Pine.
+[Kodify](https://kodify.net/tradingview-programming-articles/): The indispensable and largest, most complete and well-written set of in-depth articles on Pine outside TradingView. Articles discuss many finer points of Pine not covered elsewhere. More than 200 articles to help you master Pine, and particularly well-suited to coders for whom  Pine is their first programming language.
 
-[Backtest Rookies](https://backtest-rookies.com/category/tradingview/): They produce very quality material illustrating many of the typical tasks or subjects Pine coders want to do or explore.
+[Backtest Rookies](https://backtest-rookies.com/category/tradingview/): They produce in-depth, quality material illustrating many of the typical tasks or subjects Pine coders want to do or explore.
 
 TradingView user [Quansium](https://www.tradingview.com/u/Quansium/) has a well-written and detailed article on the steps he follows to create a strategy: [How To Create A Simple Trading Strategy With TradingView](https://medium.com/@quansium/how-to-create-a-simple-trading-strategy-with-tradingview-7a9fea3cffc1).
 
@@ -89,7 +89,7 @@ TradingView user [Quansium](https://www.tradingview.com/u/Quansium/) has a well-
 
 
 ## Forums
-Besides the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235) on TradingView, you can ask questions on [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script).
+We answer questions in two public forums: the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235) on TradingView, and on [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script).
 
 
 ## Videos
@@ -102,6 +102,8 @@ Besides the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO23
 [Market Calls (YouTube)](https://www.youtube.com/user/marketcalls/featured): Has many videos on trading concepts and a handful about TradingView and Pine.
 
 [BigBits (YouTube)](https://www.youtube.com/user/dpjohnson2009) has good-quality Pine tutorials. He also publishes some educational scripts from his [BigBitsIO](https://www.tradingview.com/u/BigBitsIO/#published-scripts) TradingView account.
+
+For Russian coders: [Китобойная](https://www.youtube.com/channel/UCZDHaKrCwsbgoVZ27fAclCw?view_as=subscriber).
 
 ## Trusted Pine Programmers for Hire
 These are Pine programmers we know and endorse, who have a good reputation of providing quality, paid Pine custom-coding services. While you can inquire to any number of them, it is considered very poor etiquette to send bulk inquiries to all. These programmers are all very good, and they are also very busy. Finding one who is free and willing to work with you will sometimes be a challenge.
@@ -278,3 +280,7 @@ Well-known TV Pine coder [everget](https://www.tradingview.com/u/everget/) has a
 <br>
 
 **[Back to top](#pine-resources)**
+
+<br><br>
+> The original version of this document was written by [chrysopoetics](https://www.tradingview.com/u/chrysopoetics/), a TradingView member.<br>We are grateful to him for allowing us to maintain it. **Thanks Hermes!**
+
