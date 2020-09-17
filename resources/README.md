@@ -29,7 +29,7 @@ PineCoders does not benefit from the adoption of these tools.
 - [Videos](#videos)
 - [Trusted Pine Programmers for Hire](#trusted-pine-programmers-for-hire)
 - [Automated Order Execution](#automated-order-execution)
-- [Text Editor Highlighters for Pine](#text-editor-highlighters-for-pine)
+- [Text Editor Highlighters for Pine](#text-editor-highlighters-and-utilities-for-pine)
 - [Color Pickers](#color-pickers-or-tools)
 - [Unicode characters](#unicode-characters)
 - [On GitHub](#on-github)
