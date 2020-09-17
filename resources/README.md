@@ -267,7 +267,7 @@ Well-known TV Pine coder [everget](https://www.tradingview.com/u/everget/) has a
 
 [Notepad++ Highlighter](https://github.com/nidkil/tradingview-pine-script-udl-npp)
 
-[VSCode Highlighter](https://marketplace.visualstudio.com/items?itemName=leifcr.pine-script-syntax-highlighting)
+[VS Code Highlighter](https://marketplace.visualstudio.com/items?itemName=leifcr.pine-script-syntax-highlighting)
 
 [VIM](https://github.com/jbmorgado/vim-pine-script)
 
