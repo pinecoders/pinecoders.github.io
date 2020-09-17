@@ -200,7 +200,9 @@ A few other suppliers of such services, unverified by PineCoders:
 Backtest Rookies has developed [tv2bt](https://backtest-rookies.com/2019/11/22/tv2bt-tradingview-to-backtrader-module/): *a data feed for Backtrader which will allow you to receive trade signals and/or OHLCV data from Tradingview. It aims to open access to the plethora of open source strategies and indicators on the Tradingview and allow you to use them to influence your own live strategies. In addition, it can also be used to find some good, reliable intra-day data.*
 
 
-## Text Editor Highlighters for Pine
+## Text Editor Highlighters and Utilities for Pine
+RicardoSantos has developed an [auto completion hack and snippets file for VS Code](https://github.com/ricardosantos79/vscode_pinescript_snippet).
+
 [Notepad++ UDL for Pine v4](https://www.tradingview.com/script/pDbCgvx9-4K-Notepad-UDL-Add-on-for-Pine-Script-v4-0/) by [midtownsk8rguy](https://www.tradingview.com/u/midtownsk8rguy/#published-scripts)
 
 [Notepad++ UDL](https://github.com/nidkil/tradingview-pine-script-udl-npp)
