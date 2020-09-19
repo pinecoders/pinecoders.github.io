@@ -2139,36 +2139,38 @@ plotchar(cond, "cond", "•", location.top, size = size.tiny)
 Note that we do not use the third tuple value in the [`macd()`](https://www.tradingview.com/pine-script-reference/v4/#fun_macd) call, so we replace it with an underscore.
 
 ### How can I cumulate a value for two exclusive states?
-We first need to define the conditions that will change our states. In this example, we use `rising/falling` conditions on `close`. A state begins when its trigger condition occurs and lasts until the first occurrence of the trigger condition for the other state. Our triggers are `upReset` and `upReset`.
+We first need to define the conditions that will change our states. In this example, we use `rising/falling` conditions on `close`. A state begins when its trigger condition occurs and lasts until the first occurrence of the trigger condition for the other state. Our triggers are `beginUp` and `beginDn`.
 
 We then declare the two variables that will hold our cumulative volume, one for each state. Since only one state can be active at any given moment, when we are cumulating for one state (using `volUp` for an uptrend, for example), the other variable (`volDn` in this case) will hold the `na` value. We use the `var` keyword when declaring the variables so they preserve their value bar to bar.
 
 The third and last step in our logic is to determine what value to set our cumulative variables with. We will use `volUp` in this discussion, so this line:
 ```js
-volUp := dnReset ? na : upReset and na(volUp) ? volume : volUp + volume
+volUp := beginDn ? na : beginUp and na(volUp) ? volume : volUp + volume
 ```
 We must distinguish between three outcomes:
-1. When a counter signal (`dnReset`) occurs, we set `volUp` to `na` as volume will then start accumulating in the variable's counterpart: `dnReset ? na`
-2. If we encounter a trigger (`upReset`) and we are currently cumulating for a trend in the other direction (`and na(volUp)`) then start a new cumulative count: `: upReset and na(volUp) ? volume`
+1. When a counter signal (`beginDn`) occurs, we set `volUp` to `na` as volume will then start accumulating in the variable's counterpart: `beginDn ? na`
+2. If we encounter a trigger (`beginUp`) and we are currently cumulating for a trend in the other direction (`and na(volUp)`) then start a new cumulative count: `: beginUp and na(volUp) ? volume`
 3. Otherwise we are already accumulating in that trend direction, so add the current volume to the total: `: volUp + volume`
 
 ```js
 //@version=4
 study("Cumulative volume", "")
 
-upReset = rising( close, 2)
-dnReset = falling(close, 2)
+beginUp = rising( close, 2)
+beginDn = falling(close, 2)
 var float volUp = na
 var float volDn = na
-volUp := dnReset ? na : upReset and na(volUp) ? volume : volUp + volume
-volDn := upReset ? na : dnReset and na(volDn) ? volume : volDn + volume
+volUp := beginDn ? na : beginUp and na(volUp) ? volume : volUp + volume
+volDn := beginUp ? na : beginDn and na(volDn) ? volume : volDn + volume
 
 plot(volUp,       "Up Volume", color.green,  4, plot.style_columns)
 plot(- volDn,     "Dn Volume", color.maroon, 4, plot.style_columns)
-plotchar(upReset, "Up Reset", "▲", location.bottom, color.green,  size = size.tiny)
-plotchar(dnReset, "Dn Reset", "▼", location.top,    color.maroon, size = size.tiny)
+plotchar(beginUp, "Up Reset", "▲", location.bottom, color.green,  size = size.tiny)
+plotchar(beginDn, "Dn Reset", "▼", location.top,    color.maroon, size = size.tiny)
 ```
-Here we display the cumulative count in Weis Wave fashion:
+
+Here we display the cumulative count in Weis Wave fashion. We also display the occurrences of triggers for debugging purposes:  
+
 ![.](https://www.tradingview.com/x/OvbcFKIO/ "Cumulative volume")
 
 
