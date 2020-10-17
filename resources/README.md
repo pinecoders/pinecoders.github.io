@@ -168,6 +168,9 @@ With experience in Pine Script, Python, HTML, CSS, and EasyLanguage since 2014, 
 <a href="https://www.tradingview.com/u/Daveatt/"><img src="https://s3.tradingview.com/userpics/1019763-MiAm.png" alt="Daveatt" height="25" width="25" style="vertical-align: text-top;"> Daveatt</a>  
 Ex quant trader with 5 years professional experience now developing indicators and bots for retail clients. Specializes in Pine Script, MT4, LUA (FXCM) and ProRealCode.<br><br>
 
+<a href="https://www.tradingview.com/u/BigBitsIO/"><img src="https://s3.tradingview.com/userpics/5541733-ByGK.png" alt="BigBitsIO" height="25" width="25" style="vertical-align: text-top;"> BigBitsIO</a>  
+Experienced programmer and certified project manager. Creator of a popular Pine coding tutorial series on YouTube.<br><br>
+
 <a href="https://www.tradingview.com/u/BacktestRookies/#published-scripts"><img src="https://s3.tradingview.com/userpics/1041044-i8Nm.png" alt="BacktestRookies" height="25" width="25" style="vertical-align: text-top;"> BacktestRookies</a>  
 Fumble through backtesting one step at a time with [backtest-rookies.com](https://backtest-rookies.com). A site dedicated to providing free step by step tutorials aimed at those with a passion for the market but no formal programming background. For the rest of you who have the passion but no desire to spend hours pecking at the keyboard, Backtest Rookies also provide custom programming services to develop algorithms and tools in Pine and/or Python.<br><br>
 
