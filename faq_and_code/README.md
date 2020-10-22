@@ -35,8 +35,13 @@ Do not make the mistake of assuming this is strictly beginner's material; some o
 - [Techniques](#techniques)
 - [Debugging](#debugging)
 
+
+
+
 <br><br>
 ## BUILT-IN VARIABLES
+
+
 
 
 ### What is the variable name for the current price? 
@@ -94,8 +99,11 @@ plotchar(close, "close", "", location.top, size = size.tiny)
 
 
 
+
 <br><br>
 ## BUILT-IN FUNCTIONS
+
+
 
 
 ### Why do I get an error message when using `highest()` or `lowest()`?
@@ -197,13 +205,15 @@ bgcolor(upVwap != upVwap2 ? color.silver : na)
 
 ![.](https://www.tradingview.com/x/Lvn6DdHM/ "When to pre-evaluate functions/built-ins")
 
-
 **[Back to top](#table-of-contents)**
+
 
 
 
 <br><br>
 ## OPERATORS
+
+
 
 
 ### What's the difference between `==`, `=` and `:=`?
@@ -317,10 +327,15 @@ plotchar(false, "false", "", location.top)
 ```
 ![.](https://www.tradingview.com/x/zk9ZOrd2/ "Logical expressions")
 
-
 **[Back to top](#table-of-contents)**
 
+
+
+<br><br>
 ## MATH
+
+
+
 
 ### How can I round a number to *x* increments?
 ```js
@@ -398,6 +413,8 @@ See the [Filter Information Box - PineCoders FAQ](https://www.tradingview.com/sc
 ## INDICATORS
 
 
+
+
 ### Can I create an indicator that plots like the built-in Volume or Volume Profile indicators?
 No. A few of the built-in indicators TradingView publishes are written in JavaScript because their behavior cannot be replicated in Pine. The Volume and Volume Profile indicators are among those.
 
@@ -434,6 +451,8 @@ Once you've made sure your scales will be compatible (or you have devised a way 
 
 <br><br>
 ## STRATEGIES
+
+
 
 
 ### Why are my orders executed on the bar following my triggers?
@@ -520,6 +539,9 @@ The complexity of the conversion process between strategies and studies is the r
 
 <br><br>
 ## PLOTTING
+
+
+
 
 ### Why can't I use a plot in an `if` or `for` statement?
 Because it's not allowed in Pine. You can use many different conditions to control plotting and the color of plots, but these must be controlled from within the `plot()` call.
@@ -697,6 +719,9 @@ If you need to round a numeric value to ticks without converting it to a string,
 
 <br><br>
 ## LABELS AND LINES
+
+
+
 
 ### How can I position text on either side of a single bar?
 By choosing label styles like `style = label.style_label_left` we can determine on which side of the bar the label is positioned. Note that since the "left"/"right" in there specifies the pointer's position, "left" has the side effect of positioning the label on the **right** side of the bar. The text's alignment in the label can be controlled using `textalign = text.align_right`, and finally, we can make the label's background color transparent so we display only the text:
@@ -878,11 +903,15 @@ if barstate.islast
 plot(ma)
 ```
 
+**[Back to top](#table-of-contents)**
+
 
 
 
 <br><br>
 ## TIME, DATES AND SESSIONS
+
+
 
 
 ### How can I get the time of the first bar in the dataset?
@@ -1151,8 +1180,13 @@ plot(hi)
 
 
 
+
 <br><br>
 ## OTHER TIMEFRAMES (MTF)
+
+
+
+
 If you work with data from other timeframes, you will be using the [``security()``](https://www.tradingview.com/pine-script-reference/v4/#fun_security) function and will typically require your script to provide a way to select the higher timeframe it will fetch data from. The PineCoders [MTF Selection Framework](https://www.tradingview.com/script/90mqACUV-MTF-Selection-Framework-PineCoders-FAQ/) provides a set of functions to do that.
 
 It provides a way to work with the chart or a target resolution in float format so it can be manipulated, and then be converted back to a string in [``timeframe.period``](https://www.tradingview.com/pine-script-reference/v4/#var_timeframe{dot}period) format for use with ``security()``.
@@ -1346,8 +1380,13 @@ Because gaps are used. See [this answer](https://www.tradingview.com/chart/TLT/g
 
 
 
+
 <br><br>
 ## ALERTS
+
+
+
+
 See the [PineCoders Alert Creation Framework](https://www.tradingview.com/script/JpDlXzdD-Alert-Creation-Framework-PineCoders-FAQ/) script for alert-creating code.
 
 ### How do I make an alert available from my script?
@@ -1471,8 +1510,11 @@ You can use other pre-defined placeholders to include variable information in al
 
 
 
+
 <br><br>
 ## EDITOR
+
+
 
 
 ### How can I access the Pine code of the built-in indicators?
@@ -1489,8 +1531,11 @@ With the script open in the editor, choose the *Convert to v4* button at the upp
 
 
 
+
 <br><br>
 ## TECHNIQUES
+
+
 
 
 ### How do I save a value or state for later use?
@@ -2226,6 +2271,9 @@ It will generate this *Inputs* dialog box:
 
 <br><br>
 ## DEBUGGING
+
+
+
 
 ### How can I examine the value of a string in my script?
 This code will show a label containing the current values of the variables you wish to see. Non-string variables need to be converted to strings using `tostring()`.
