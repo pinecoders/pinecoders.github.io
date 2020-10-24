@@ -143,7 +143,7 @@ Quant-minded, self-propelled, double analytical Pine Script consultant. Innovati
 -->
 
 <a href="https://www.tradingview.com/u/mks17/#published-scripts"><img src="https://s3.tradingview.com/userpics/3680780-XTVc.png" alt="makit0" height="25" width="25" style="vertical-align: text-top;"> mks17</a>  
-Ex-Ericsson and Hewlett Packard Telecom engineer having moved into finance and investment management 3 years ago. Experienced in Pine and Python and the developedment of trading strategies and indicators for cryptocurrencies and ETFs. Worked with Autoview to automate trades. Speaks Spanish, Italian and English.<br><br>
+Ex-Ericsson and Hewlett Packard Telecom engineer having moved into finance and investment management 3 years ago. Experienced in Pine and Python and the developement of trading strategies and indicators for cryptocurrencies and ETFs. Worked with Autoview to automate trades. Speaks Spanish, Italian and English.<br><br>
 
 <a href="https://www.tradingview.com/u/makit0/#published-scripts"><img src="https://s3.tradingview.com/userpics/3680780-XTVc.png" alt="makit0" height="25" width="25" style="vertical-align: text-top;"> makit0</a>  
 Full stack Java developer, sysadmin & DBA since 2008, trading and learning from the markets since 2018, Pine coder since 2019. If you have an idea, I can code it. If you have some coding skills, I can help you code it.<br><br>
