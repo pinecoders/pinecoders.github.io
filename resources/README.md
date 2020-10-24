@@ -55,7 +55,7 @@ From the Pine Editor: choose *New* and select from the list of built-in scripts 
 
 [Searching for scripts on TV](https://www.tradingview.com/): From TV's home page, select *Scripts* from the *Ticker* dropdown and enter your search criteria.
 
-Visit the *Scripts* page of good scripters publishing open source by using the [*Following* list from the PineCoders TV account](https://www.tradingview.com/u/PineCoders/#following-people).
+Visit the *Scripts* page of good coders publishing open source by using the [*Following* list from the PineCoders TV account](https://www.tradingview.com/u/PineCoders/#following-people).
 
 
 ## PineCoders
