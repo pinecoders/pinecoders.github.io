@@ -142,7 +142,7 @@ Ambitious junior Web developer offering conversions and development of indicator
 Quant-minded, self-propelled, double analytical Pine Script consultant. Innovative design of next-generation algorithmic technologies. study() oriented quality developer of eye candy indicators. Porting proficient, having fluency with EasyLanguage, PRC, EFS, LUA & MQL.<br><br>
 -->
 
-<a href="https://www.tradingview.com/u/mks17/#published-scripts"><img src="https://s3.tradingview.com/userpics/3680780-XTVc.png" alt="makit0" height="25" width="25" style="vertical-align: text-top;"> mks17</a>  
+<a href="https://www.tradingview.com/u/mks17/#published-scripts"><img src="https://s3.tradingview.com/userpics/1978268-Cp8k.png" alt="mks17" height="25" width="25" style="vertical-align: text-top;"> mks17</a>  
 Ex-Ericsson and Hewlett Packard Telecom engineer having moved into finance and investment management 3 years ago. Experienced in Pine and Python and the developement of trading strategies and indicators for cryptocurrencies and ETFs. Worked with Autoview to automate trades. Speaks Spanish, Italian and English.<br><br>
 
 <a href="https://www.tradingview.com/u/makit0/#published-scripts"><img src="https://s3.tradingview.com/userpics/3680780-XTVc.png" alt="makit0" height="25" width="25" style="vertical-align: text-top;"> makit0</a>  
