@@ -75,6 +75,9 @@ We have also begun publishing guides. See our first: the [Digital Signal Process
 
 
 ## Educational Content
+
+### Free
+
 [Kodify](https://kodify.net/tradingview-programming-articles/): The indispensable and largest, most complete and well-written set of in-depth articles on Pine outside TradingView. Articles discuss many finer points of Pine not covered elsewhere. More than 200 articles to help you master Pine, and particularly well-suited to coders for whom  Pine is their first programming language.
 
 [Backtest Rookies](https://backtest-rookies.com/category/tradingview/): They produce in-depth, quality material illustrating many of the typical tasks or subjects Pine coders want to do or explore.
@@ -85,8 +88,11 @@ TradingView user [Quansium](https://www.tradingview.com/u/Quansium/) has a well-
 
 [CryptoNTez (Medium)](https://medium.com/@CryptoNTez): Has a few Pine-related articles.
 
+### Paid
+
 [Kick studios](http://kickstudios.com/retail-trading-dev-services/courses/) offers paid Udemy courses on Pine.
 
+[Zen & The Art of Trading](https://www.pinescriptmastery.com/) offers free and paid courses on Pine.
 
 ## Forums
 We answer questions in two public forums: the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235) on TradingView, and on [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script).
