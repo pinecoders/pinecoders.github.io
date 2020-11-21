@@ -34,8 +34,9 @@ PineCoders does not benefit from the adoption of these tools.
 - [Unicode characters](#unicode-characters)
 - [On GitHub](#on-github)
 - [Technical Information on Indicators](#technical-information-on-indicators)
-
 <br><br>
+
+
 ## TradingView
 [Pine v4 Reference Manual](https://www.tradingview.com/pine-script-reference/v4/)
 
@@ -58,6 +59,7 @@ From the Pine Editor: choose *New* and select from the list of built-in scripts 
 Visit the *Scripts* page of good coders publishing open source by using the [*Following* list from the PineCoders TV account](https://www.tradingview.com/u/PineCoders/#following-people).
 
 
+
 ## PineCoders
 From our <a href="https://www.pinecoders.com">home page</a> you can access the following:
 
@@ -72,6 +74,7 @@ Our managed [PineCoders Repository](https://github.com/pinecoders/pine-utils) on
 - [Other open source projects](https://github.com/pinecoders) related to Pine.
 
 We have also begun publishing guides. See our first: the [Digital Signal Processing In Pine](https://www.pinecoders.com/techniques/dsp) written by [Alex Grover](https://www.tradingview.com/u/alexgrover/#published-scripts).
+
 
 
 ## Educational Content
@@ -89,6 +92,8 @@ TradingView user [Quansium](https://www.tradingview.com/u/Quansium/) has a well-
 [Kick studios](http://kickstudios.com/retail-trading-dev-services/courses/) offers paid Udemy courses on Pine.
 
 [Zen & The Art of Trading](https://www.pinescriptmastery.com/) offers free and paid courses on Pine.
+
+
 
 ## Forums
 We answer questions in two public forums: the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235) on TradingView, and on [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script).
@@ -188,6 +193,7 @@ A few other suppliers of such services, unverified by PineCoders:
 - [Kick studios](http://kickstudios.com/retail-trading-dev-services/) offers custom Pine script development.
 
 
+
 ## Automated Order Execution
 [3Commas](https://3commas.io/): Can receive TV alerts and connect them to their bots to execute simple orders on crypto exchanges.
 
@@ -208,6 +214,7 @@ A few other suppliers of such services, unverified by PineCoders:
 Backtest Rookies has developed [tv2bt](https://backtest-rookies.com/2019/11/22/tv2bt-tradingview-to-backtrader-module/): *a data feed for Backtrader which will allow you to receive trade signals and/or OHLCV data from Tradingview. It aims to open access to the plethora of open source strategies and indicators on the Tradingview and allow you to use them to influence your own live strategies. In addition, it can also be used to find some good, reliable intra-day data.*
 
 
+
 ## Text Editor Highlighters and Utilities for Pine
 RicardoSantos has developed an [auto completion hack and snippets file for VS Code](https://github.com/ricardosantos79/vscode_pinescript_snippet).
 
@@ -220,6 +227,9 @@ RicardoSantos has developed an [auto completion hack and snippets file for VS Co
 [VIM](https://github.com/jbmorgado/vim-pine-script)
 
 [GNU Emacs major-mode](https://github.com/EricCrosson/pine-script-mode)
+
+[Sublime Text](https://github.com/gerardroche/sublime-pine)
+
 
 
 ## Color Pickers or Tools
@@ -244,6 +254,7 @@ RicardoSantos has developed an [auto completion hack and snippets file for VS Co
 [Color Ramp](http://www.zonums.com/online/color_ramp/)
 
 
+
 ## Unicode characters
 [Amp What](http://www.amp-what.com/unicode/search/arrow) allows you to search characters by keyword.
 
@@ -266,6 +277,7 @@ RicardoSantos has developed an [auto completion hack and snippets file for VS Co
 [The Beauty of Unicode: Zero-Width Characters](https://www.ptiglobal.com/2018/04/26/the-beauty-of-unicode-zero-width-characters/)
 
 
+
 ## On GitHub
 [PineCoders Repository](https://github.com/pinecoders/pine-utils) of reusable Pine code on GitHub.
 
@@ -282,6 +294,7 @@ Well-known TV Pine coder [everget](https://www.tradingview.com/u/everget/) has a
 [GNU Emacs major-mode](https://github.com/EricCrosson/pine-script-mode)
 
 <br>
+
 
 
 ## Technical Information on Indicators
