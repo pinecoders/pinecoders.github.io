@@ -1176,6 +1176,11 @@ plotchar(dayofmonth, "dayofmonth", "", location.top)
 plot(hi)
 ```
 
+### Can I time the duration of a condition?
+The short answer is no and the reason is because of the rollback process that happens during the realtime bar, as is explained in the User Manual's page on Pine's [execution model](https://www.tradingview.com/pine-script-docs/en/v4/language/Execution_model.html#calculation-based-on-realtime-bars).
+
+To time the duration of an event, we would need to detect its beginning, save the time at that point (e.g., in a `timeSaved` variable), and for each subsequent execution of the script, check if the condition is still true and if so, use `timenow - timeSaved` to determine the number of milliseconds for which the condition has been true. This, however, cannot be done in Pine because the value of all variables are rolled back to their starting values at the beginning of the realtime bar before each realtime bar iteration of the script. This makes it impossible for the saved time in our `timeSaved` variable to perpetuate across subsequent iterations of the script in the same realtime bar. Only its value at the realtime bar's close, so the script's last iteration in the realtime bar, is preserved.
+
 **[Back to top](#table-of-contents)**
 
 
