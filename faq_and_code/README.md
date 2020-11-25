@@ -968,11 +968,12 @@ bgcolor(lastDay ? color.red : na)
 //@version=4
 //@author=mortdiggiddy, for PineCoders
 study("Detect today", "", true)
-currentYear = year(timenow)
-currentMonth = month(timenow)
-currentDay = dayofmonth(timenow)
-today = year == currentYear and month == currentMonth and dayofmonth == currentDay
-bgcolor(today ? color.gray : na)
+today() =>
+    _currentYear = year(timenow)
+    _currentMonth = month(timenow)
+    _currentDay = dayofmonth(timenow)
+    _result = year == _currentYear and month == _currentMonth and dayofmonth == _currentDay
+bgcolor(today() ? color.gray : na)
 ```
 
 ### How can I plot a value starting *n* months/years back?
