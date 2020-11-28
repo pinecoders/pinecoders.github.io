@@ -91,6 +91,8 @@ TradingView user [Quansium](https://www.tradingview.com/u/Quansium/) has a well-
 
 [Kick studios](http://kickstudios.com/retail-trading-dev-services/courses/) offers paid Udemy courses on Pine.
 
+QuantNomad has a [paid course on Pine](https://courses.quantnomad.com/p/pinescript-programming).
+
 [Zen & The Art of Trading](https://www.pinescriptmastery.com/) offers free and paid courses on Pine.
 
 
