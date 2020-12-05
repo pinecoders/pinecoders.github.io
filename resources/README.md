@@ -26,7 +26,6 @@ PineCoders does not benefit from the adoption of these tools.
 - [PineCoders](#pinecoders)
 - [Educational Content](#educational-content)
 - [Forums](#forums)
-- [Videos](#videos)
 - [Trusted Pine Programmers for Hire](#trusted-pine-programmers-for-hire)
 - [Automated Order Execution](#automated-order-execution)
 - [Text Editor Highlighters and Utilities for Pine](#text-editor-highlighters-and-utilities-for-pine)
@@ -87,6 +86,20 @@ We have also begun publishing guides. See our first: the [Digital Signal Process
 
 TradingView user [Quansium](https://www.tradingview.com/u/Quansium/) has a well-written and detailed article on the steps he follows to create a strategy: [How To Create A Simple Trading Strategy With TradingView](https://medium.com/@quansium/how-to-create-a-simple-trading-strategy-with-tradingview-7a9fea3cffc1).
 
+#### Videos
+[QuantNomad](https://www.youtube.com/channel/UC57DoaeefbGM9nbcVA3V5mg): By far the publisher who has the most videos on Pine.
+
+[BigBits](https://www.youtube.com/user/dpjohnson2009) has good-quality Pine tutorials. He also publishes some educational scripts from his [BigBitsIO](https://www.tradingview.com/u/BigBitsIO/#published-scripts) TradingView account.
+
+[Squiggly Lion](https://www.youtube.com/channel/UC4O-W0DfsAfPYPbxws2dIOw): Good quality tutorials.
+
+[m1xolyd1an](https://www.youtube.com/user/m1xolyd1an/featured): This guy doesn’t have that many videos on Pine but he produces quite a lot of other content.
+
+[Market Calls](https://www.youtube.com/user/marketcalls/featured): Has many videos on trading concepts and a handful about TradingView and Pine.
+
+For Russian coders: [Китобойная](https://www.youtube.com/channel/UCZDHaKrCwsbgoVZ27fAclCw?view_as=subscriber).
+
+
 #### Paid
 
 [Kick studios](http://kickstudios.com/retail-trading-dev-services/courses/) offers paid Udemy courses on Pine.
@@ -99,20 +112,6 @@ QuantNomad has a [paid course on Pine](https://courses.quantnomad.com/p/pinescri
 
 ## Forums
 We answer questions in two public forums: the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235) on TradingView, and on [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script).
-
-
-## Videos
-[QuantNomad (YouTube)](https://www.youtube.com/channel/UC57DoaeefbGM9nbcVA3V5mg): By far the publisher who has the most videos on Pine.
-
-[Squiggly Lion (YouTube)](https://www.youtube.com/channel/UC4O-W0DfsAfPYPbxws2dIOw): Good quality tutorials.
-
-[m1xolyd1an (YouTube)](https://www.youtube.com/user/m1xolyd1an/featured): This guy doesn’t have that many videos on Pine but he produces quite a lot of other content.
-
-[Market Calls (YouTube)](https://www.youtube.com/user/marketcalls/featured): Has many videos on trading concepts and a handful about TradingView and Pine.
-
-[BigBits (YouTube)](https://www.youtube.com/user/dpjohnson2009) has good-quality Pine tutorials. He also publishes some educational scripts from his [BigBitsIO](https://www.tradingview.com/u/BigBitsIO/#published-scripts) TradingView account.
-
-For Russian coders: [Китобойная](https://www.youtube.com/channel/UCZDHaKrCwsbgoVZ27fAclCw?view_as=subscriber).
 
 
 
