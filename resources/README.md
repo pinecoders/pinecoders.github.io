@@ -91,6 +91,8 @@ TradingView user [Quansium](https://www.tradingview.com/u/Quansium/) has a well-
 
 [BigBits](https://www.youtube.com/user/dpjohnson2009) has good-quality Pine tutorials. He also publishes some educational scripts from his [BigBitsIO](https://www.tradingview.com/u/BigBitsIO/#published-scripts) TradingView account.
 
+[Zen & The Art of Trading](https://www.youtube.com/playlist?list=PLSP_1DBafH-EvKYn_ARs3S3bEaQwGAj-W) has many good quality videos on Pine.
+
 [Squiggly Lion](https://www.youtube.com/channel/UC4O-W0DfsAfPYPbxws2dIOw): Good quality tutorials.
 
 [m1xolyd1an](https://www.youtube.com/user/m1xolyd1an/featured): This guy doesn’t have that many videos on Pine but he produces quite a lot of other content.
@@ -106,7 +108,7 @@ For Russian coders: [Китобойная](https://www.youtube.com/channel/UCZDH
 
 QuantNomad has a [paid course on Pine](https://courses.quantnomad.com/p/pinescript-programming).
 
-[Zen & The Art of Trading](https://www.pinescriptmastery.com/) offers free and paid courses on Pine.
+[Zen & The Art of Trading](https://www.pinescriptmastery.com/) offers paid courses on Pine.
 
 
 
