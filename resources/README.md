@@ -47,7 +47,7 @@ PineCoders does not benefit from the adoption of these tools.
 
 [TV indicators wiki](https://www.tradingview.com/wiki/Category:Indicators_and_overlays) : a list of TV-developed indicators with source code for most of them and good explanations. This is also where you can find explanations on the TV Volume Profile, the source of which is not available.
 
-From the Pine Editor: choose *New* and select from the list of built-in scripts to bring up its Pine source.
+From the Pine Editor: choose _New_ and select from the list of built-in scripts to bring up its Pine source.
 
 [TV blog posts on Pine](https://www.tradingview.com/blog/en/category/market-analysis/pine/): a selection of TV blog posts related to Pine.
 
