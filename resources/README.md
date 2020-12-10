@@ -106,6 +106,8 @@ For Russian coders: [Китобойная](https://www.youtube.com/channel/UCZDH
 
 [Kick studios](http://kickstudios.com/retail-trading-dev-services/courses/) offers paid Udemy courses on Pine.
 
+[Paul D. Mendes](https://www.udemy.com/user/paul-7512/) offers paid Udemy courses on Pine [programming](https://www.udemy.com/course/learn-tradingview-pine-script-programming-from-scratch/?referralCode=281D81A694E6125AC250) and [strategies.](https://www.udemy.com/course/pinescript/?referralCode=F2CF3AC89BB5D45E2049)
+
 QuantNomad has a [paid course on Pine](https://courses.quantnomad.com/p/pinescript-programming).
 
 [Zen & The Art of Trading](https://www.pinescriptmastery.com/) offers paid courses on Pine.
