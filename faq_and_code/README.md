@@ -415,6 +415,9 @@ See the [Filter Information Box - PineCoders FAQ](https://www.tradingview.com/sc
 
 
 
+### Can I use a Pine script with the TradingView screener?
+Not for the moment. The TV screener only works with the filters already included in it. A [search of the Public Library on "screener"](https://www.tradingview.com/scripts/screener/) will return a few examples of scripts that use [``security()``](https://www.tradingview.com/pine-script-reference/v4/#fun_security) to screen from pre-determined and limited lists of symbols.
+
 ### Can I create an indicator that plots like the built-in Volume or Volume Profile indicators?
 No. A few of the built-in indicators TradingView publishes are written in JavaScript because their behavior cannot be replicated in Pine. The Volume and Volume Profile indicators are among those.
 
