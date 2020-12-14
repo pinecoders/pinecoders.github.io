@@ -726,6 +726,9 @@ If you need to round a numeric value to ticks without converting it to a string,
 
 
 
+### How can I draw lines or labels into the future?
+For this, you will need to use `xloc = xloc.bar_time` in `label.new()` or `line.new()` because the default is `xloc = xloc.bar_index`, which does not allow positioning drawings in the future. See our [Time Offset Calculation Framework](https://www.tradingview.com/script/5mZ7hV66-Time-Offset-Calculation-Framework-PineCoders-FAQ/) for functions that will help you with this.
+
 ### How can I position text on either side of a single bar?
 By choosing label styles like `style = label.style_label_left` we can determine on which side of the bar the label is positioned. Note that since the "left"/"right" in there specifies the pointer's position, "left" has the side effect of positioning the label on the **right** side of the bar. The text's alignment in the label can be controlled using `textalign = text.align_right`, and finally, we can make the label's background color transparent so we display only the text:
 ```js
