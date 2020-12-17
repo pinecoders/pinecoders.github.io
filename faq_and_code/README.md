@@ -2277,11 +2277,16 @@ It will generate this *Inputs* dialog box:
 ![.](inputs.png "Inputs")
 
 ### How can I find the nth highest/lowest value in the last bars?
-The `f_nthHighest()` and `f_nthLowest()` functions in this script uses arrays to holds the values in the last x bars. The `_distinct` parameter allows you to determine if you allow similar values to count or not. The functions store the series in an array and sort a copy of that array on each bar to search for the nth highest/lowest value:
+The `f_nthHighest()` and `f_nthLowest()` functions in this script use an array to hold the values of the last x bars and sort a copy of that array on each bar to search for the nth highest/lowest value. The `_distinct` parameter allows you to determine if you allow similar values to count or not:
 
 ```
 //@version=4
+//@author=LucF, for PineCoders
 study("Nth Highest/Lowest Functions", "", true)
+
+i_len = input(50)
+i_nth = input(2)
+i_dst = input(false, "Distinct values")
 
 // ————— Function returns the _nth highest _source in the last _length bars.
 f_nthHighest(_source, _length, _nth, _distinct) =>
@@ -2347,13 +2352,10 @@ f_nthLowest(_source, _length, _nth, _distinct) =>
         _previousVal := _val
     _return
 
-len = input(50)
-nth = input(2)
-dst = input(false, "Distinct values")
-nthHi = f_nthHighest(high, len, nth, dst ? "distinct" : "")
-nthLo = f_nthLowest( low,  len, nth, dst ? "distinct" : "")
-hi = highest(len)
-lo = lowest(len)
+nthHi = f_nthHighest(high, i_len, i_nth, i_dst ? "distinct" : "")
+nthLo = f_nthLowest( low,  i_len, i_nth, i_dst ? "distinct" : "")
+hi = highest(i_len)
+lo = lowest( i_len)
 plot(nthHi, "nthHi", color.lime)
 plot(hi)
 plot(nthLo, "nthLo", color.maroon)
