@@ -2279,7 +2279,7 @@ It will generate this *Inputs* dialog box:
 ### How can I find the nth highest/lowest value in the last bars?
 The `f_nthHighest()` and `f_nthLowest()` functions in this script use an array to hold the values of the last x bars and sort a copy of that array on each bar to search for the nth highest/lowest value. The `_distinct` parameter allows you to determine if you allow similar values to count or not:
 
-```
+```js
 //@version=4
 //@author=LucF, for PineCoders
 study("Nth Highest/Lowest Functions", "", true)
