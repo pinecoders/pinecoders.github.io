@@ -2276,6 +2276,91 @@ It will generate this *Inputs* dialog box:
 
 ![.](inputs.png "Inputs")
 
+### How can I find the nth highest/lowest value in the last bars?
+The `f_nthHighest()` and `f_nthLowest()` functions in this script uses arrays to holds the values in the last x bars. The `_distinct` parameter allows you to determine if you allow similar values to count or not. The functions store the series in an array and sort a copy of that array on each bar to search for the nth highest/lowest value:
+
+```
+//@version=4
+study("Nth Highest/Lowest Functions", "", true)
+
+// ————— Function returns the _nth highest _source in the last _length bars.
+f_nthHighest(_source, _length, _nth, _distinct) =>
+    // _source  : series to evaluate.
+    // _length  : past bars to evaluate.
+    // _nth     : nth highest value to return.
+    // _distinct: If equal to "distinct", only distinct values are considered.
+    var _sources = array.new_float(_length)
+    var _valMustBeDistinct = _distinct == "distinct"
+    float _return = na
+    // Queue new value.
+    array.push(_sources, _source)
+    // De-queue oldest one.
+    array.shift(_sources)
+    // Reorder values in a copy of the array to preserve our original series.
+    _sortedSources = array.copy(_sources)
+    array.sort(_sortedSources, order.descending)
+    // Find nth highest value.
+    float _previousVal = na
+    _nthExamined = 1
+    for _i = 0 to _length - 1
+        _val = array.get(_sortedSources, _i)
+        if _valMustBeDistinct and _val == _previousVal
+            // Skip same values.
+            continue
+        if _nthExamined == _nth
+            // nth highest found.
+            _return := _val
+            break
+        _nthExamined := _nthExamined + 1
+        _previousVal := _val
+    _return
+
+// ————— Function returns the _nth lowest _source in the last _length bars.
+f_nthLowest(_source, _length, _nth, _distinct) =>
+    // _source  : series to evaluate.
+    // _length  : past bars to evaluate.
+    // _nth     : nth lowest value to return.
+    // _distinct: If equal to "distinct", only distinct values are considered.
+    var _sources = array.new_float(_length)
+    var _valMustBeDistinct = _distinct == "distinct"
+    float _return = na
+    // Queue new value.
+    array.push(_sources, _source)
+    // De-queue oldest one.
+    array.shift(_sources)
+    // Reorder values in a copy of the array to preserve our original series.
+    _sortedSources = array.copy(_sources)
+    array.sort(_sortedSources, order.ascending)
+    // Find nth highest value.
+    _previousVal = float(na)
+    _nthExamined = 1
+    for _i = 0 to _length - 1
+        _val = array.get(_sortedSources, _i)
+        if _valMustBeDistinct and _val == _previousVal
+            // Skip same values.
+            continue
+        if _nthExamined == _nth
+            // nth highest found.
+            _return := _val
+            break
+        _nthExamined := _nthExamined + 1
+        _previousVal := _val
+    _return
+
+len = input(50)
+nth = input(2)
+dst = input(false, "Distinct values")
+nthHi = f_nthHighest(high, len, nth, dst ? "distinct" : "")
+nthLo = f_nthLowest( low,  len, nth, dst ? "distinct" : "")
+hi = highest(len)
+lo = lowest(len)
+plot(nthHi, "nthHi", color.lime)
+plot(hi)
+plot(nthLo, "nthLo", color.maroon)
+plot(lo)
+bgcolor(nthLo == lo ? color.red : nthHi == hi ? color.green : na)
+```
+
 **[Back to top](#table-of-contents)**
 
 
