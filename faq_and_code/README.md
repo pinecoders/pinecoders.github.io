@@ -2255,7 +2255,7 @@ This script shows how to organize your inputs using the following tricks:
 
 ```js
 //@version=4
-study("")
+study("Inputs")
 EQ1 = "On", EQ2 = "Off" // Do not use ampersand ("&") in `options` arguments. 
 _50 = input(true,   "══════════════ Settings ═══════════════")  // ASCII 205
 _60 = input(true,   "────────────── Settings ───────────────")  // ASCII 196
