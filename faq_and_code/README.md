@@ -76,7 +76,7 @@ dnBar = not upBar
 In this case, when `close == open`, `upBar` will be false and `dnBar` true.
 
 ### Why do the OHLC built-ins sometimes return different values than the ones shown on the chart?
-Data feeds sometimes contains prices that exceed the symbol's tick precision. When this happens, the value returned by the `close` built-in may be different from the chart's close value. Chart prices are always rounded to tick precision, but built-ins are not. This makes it possible for occurrences like the one illustrated here, where the exchange feed contains a close price of 27491.79 that is more precise than the symbol's `0.1` tick size. In that case, the chart will show 27491.8 but the `close` built-in's value will be the feed's value: 27491.79.
+Data feeds sometimes contains prices that exceed the symbol's tick precision. When this happens, the value returned by the `close` built-in may be different from the chart's close value. Chart prices are always rounded to tick precision, but built-ins are not. This makes it possible for occurrences like the one illustrated here, where the exchange feed contains a close price of 30181.07 that is more precise than the symbol's `0.1` tick size. In that case, the chart will show 30181.1 but the `close` built-in's value will be the feed's value of 30181.07.
 
 The difference is subtle but such discrepancies do occur and should be taken into consideration when troubleshooting unexpected script behavior or designing precision-critical calculations. Cross detections are an example of calculations that can be affected.
 
