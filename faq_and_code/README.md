@@ -112,30 +112,29 @@ Most probably because you are trying to use a series integer instead of a simple
 ### How can I work with arrays in Pine?
 See the User Manual's [page on arrays](https://www.tradingview.com/pine-script-docs/en/v4/essential/Arrays.html).
 
-### How can I use a variable length argument in certain functions ?
-The `sma`, `variance`, `stdev`, `correlation` functions don't allow a **series** as their length argument which must be a **simple int**. The following equivalent functions by [alexgrover](https://www.tradingview.com/u/alexgrover/) allow you to use a series as the length argument (see the complete code in his [Functions Allowing Series As Length](https://www.tradingview.com/script/kY5hhjA7-Functions-Allowing-Series-As-Length-PineCoders-FAQ/) script):
+### Can I use a variable length in functions?
+You can use a "series int" length (so a length that varies from bar to bar on the following Pine functions: `alma(), change(), highest(), highestbars(), linreg(), lowest(), lowestbars(), mom(), sma(), sum(), vwma()` and `wma()`.
 
+The [Functions Allowing Series As Length](https://www.tradingview.com/script/kY5hhjA7-Functions-Allowing-Series-As-Length-PineCoders-FAQ/) script by 
+[alexgrover](https://www.tradingview.com/u/alexgrover/) provides versions of the `ema()`, `atr()`, `lsma()`, `variance()`, `covariance()`, `stdev()` and `correlation()` functions.
+
+When using variable lengths, you must ensure that:
+1. It is never less than one. You can do this using `max(1, len)`.
+1. It is never `na`. You can do this using `nz(len)`.
+1. It is always an "int". You can do this by casting the value to an "int" with `int(len)`.
+
+Proper protection using the result of a call to `barssince()` as a length would yield:
+
+```js
+//@version=4
+study("", "", true)
+b = int(max(1, nz(barssince(rising(close, 3)))))
+lo = lowest(b)
+plot(lo)
 ```
-Sum(src,p) => a = cum(src), a - a[p]
 
-Sma(src,p) => a = cum(src), (a - a[p])/p
+### How do I resolve errors when using can I use the result of `barssince()` as a length and not get an error?
 
-Variance(src,p) => p == 1 ? 0 : Sma(src*src,p) - pow(Sma(src,p),2)
-
-Stdev(src,p) => p == 1 ? 0 : sqrt(Sma(src*src,p) - pow(Sma(src,p),2))
-
-Covariance(x,y,p) => Sma(x*y,p) - Sma(x,p)*Sma(y,p)
-
-Correlation(x,y,p) => Covariance(x,y,p)/(Stdev(x,p)*Stdev(y,p))
-```
-
-If `p` is a decimal number then `p` is automatically rounded to the nearest integer. Most of the functions in the script are dependent on the `Sma` function except `Sum`, therefore if you want to use a function don't forget to include the `Sma` function in your script. The rolling correlation `Cor` make use of the `Cov` and `Stdev` function, so you must include them if you plan to use `Cor`.
-
-Make sure the series you use as length argument is greater than 0, else the functions will return `na`. When using a series as length argument, the following error might appear : *Pine cannot determine the referencing length of a series. Try using max_bars_back in the study or strategy function*, this can be frequent if you plan to use `barssince(condition)` where `condition` is a relatively rare event. You can fix it by making use of `max_bars_back` as follows :
-
-`study("Title",overlay=true,max_bars_back=5000)`
-
-*Note that the rolling variance/standard deviation/covariance are computed using the naïve algorithm.*
 
 ### Why do some functions and built-ins evaluate incorrectly in ``if`` or ternary (``?``) blocks?
 
