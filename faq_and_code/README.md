@@ -1182,6 +1182,22 @@ plotchar(dayofmonth, "dayofmonth", "", location.top)
 plot(hi)
 ```
 
+### How can I detect bars opening at a specific hour?
+This code shows three methods to detect bars opening at 18h00:
+
+```js
+//@version=4
+study("")
+method1 = hour == 18 and minute == 00
+t = time(timeframe.period, "1800-1900:1234567")
+method2 = not na(t) and na(t[1])
+tt = timestamp(year, month, dayofmonth, 18, 00, 00)
+method3 = tt == time
+plotchar(method1 ? 1 : na, "method1", "•", location.absolute, size = size.tiny)
+plotchar(method2 ? 2 : na, "method2", "•", location.absolute, size = size.tiny)
+plotchar(method3 ? 3 : na, "method3", "•", location.absolute, size = size.tiny)
+```
+
 ### Can I time the duration of a condition?
 The short answer is no and the reason is because of the rollback process that happens during the realtime bar, as is explained in the User Manual's page on Pine's [execution model](https://www.tradingview.com/pine-script-docs/en/v4/language/Execution_model.html#calculation-based-on-realtime-bars).
 
