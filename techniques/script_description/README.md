@@ -164,7 +164,7 @@ This is an example of a marked up description which you can use as is in an actu
 
 
 ### Tags in Comments
-Note that the only tags interpreted in comments posted on TradingView publications are links to TV publications and chart snapshots, and Pine code block tags. As in descriptions, links to TV publications and snapshots do not require using `[chart]...[/chart]` tags; you can simply paste the link in the comment.
+Note that the only tags interpreted in comments posted on TradingView publications are links to TV publications and chart snapshots, and Pine code block tags. As in descriptions, links to TV publications and snapshots do not require using `[chart]...[/chart]` tags; you can simply paste the link in the comment, which will render as an image.
 
 ### AutoHotkey Macros
 We use these AutoHotkey macros to help us with tags:
