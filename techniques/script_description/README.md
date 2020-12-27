@@ -1,3 +1,11 @@
+# Script Descriptions
+
+The following markup is available in script description:
+
+`[i]...[/i]` for italics.
+
+
+
 ```
 █ [b]OVERVIEW[/b]
 
