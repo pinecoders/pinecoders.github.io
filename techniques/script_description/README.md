@@ -2,8 +2,8 @@
 
 The following markup is available in script description:
 
-Italics: `[i]...[/i]`.
-Bold: `[b]...[/b]`.
+Italics: `[i]...[/i]`.  
+Bold: `[b]...[/b]`.  
 Bulleted lists:
 ```
 [list]
