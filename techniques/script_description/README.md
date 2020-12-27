@@ -31,7 +31,9 @@ In order to achieve this, we:
 ## Our Building Blocks
 
 ### Markup
-The following markup is available in script descriptions:
+The following markup is available in script descriptions. You can access all these tags except the Pine code block tags from the list of icons at the top of the "Publish script" or "Edit script" window:
+
+[<img src="TagIcons.png">](https://www.pinecoders.com/techniques/script_description/TagIcons.png)
 
 #### Bold and Italics
 ```
