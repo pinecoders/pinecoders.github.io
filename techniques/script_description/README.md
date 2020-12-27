@@ -1,7 +1,14 @@
 # How We Format Our Script Description
 
-This document explains how we format our script descriptions for publication on TradingView.
+This document explains how we format our script descriptions for publication on TradingView. We write and format our descriptions with the single purpose of providing enough information for users of our scripts to understand and use them to their advantage.
 
+In order to achieve this, we:
+
+- Organize the information by placing the most relevant at the top of the description.
+- Aim to achieve maximal legibility while using minimal graphic/typographic attributes.
+- Ensure that the first sentence or two summarize our script properly, as they will be visible in the script's widget, which users will see before opening our script's page.
+
+## Markup
 The following markup is available in script descriptions:
 
 Italics: `[i]...[/i]`  
