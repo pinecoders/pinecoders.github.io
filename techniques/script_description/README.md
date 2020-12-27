@@ -134,7 +134,7 @@ We begin our descriptions with an "Overview" section, keeping in mind that these
 
 
 ```
-The above text will look like this in your description:
+The above text will look like this in your script's page:
 
 [<img src="Overview.png">](https://www.pinecoders.com/techniques/script_description/Overview.png)
 
