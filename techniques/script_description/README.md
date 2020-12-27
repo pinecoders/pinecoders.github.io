@@ -34,7 +34,7 @@ We use a few different [Unicode space characters](http://jkorpela.fi/chars/space
 - Thin space, U+2009, ( ) 
 
 and:
-- the full block, U+2588, (█)
+- the "full block", U+2588, (█)
 
 ```
 █ [b]OVERVIEW[/b]
