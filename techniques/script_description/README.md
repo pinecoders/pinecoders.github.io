@@ -119,9 +119,9 @@ We use a few different [Unicode space characters](http://jkorpela.fi/chars/space
 - Thin space, U+2009 ( ) 
 
 and:
-- The "full block", U+2588 (█)
-- The bullet, U+2022 (•)
-- The Em dash, U+2014 (—)
+- Full block, U+2588 (█)
+- Bullet, U+2022 (•)
+- Em dash, U+2014 (—)
 
 
 <br><br>
