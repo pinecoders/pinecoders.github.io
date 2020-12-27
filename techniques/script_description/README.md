@@ -4,10 +4,10 @@ The following markup is available in script description:
 
 Italics: `[i]...[/i]`.  
 Bold: `[b]...[/b]`.  
-URLs: `[url=https://www.pinecoders.com/]PineCoders[/url]`
-Link to a TV publication or screenshot (displays its preview): [chart]https://www.tradingview.com/...[/chart]
-Link to a symbol: `[symbol="NASDAQ:AAPL"]NASDAQ:AAPL[/symbol]`
-Pine code blocks (there is no inline equivalent): `[pine]...[/pine]`
+URLs: `[url=https://www.pinecoders.com/]PineCoders[/url]`  
+Link to a TV publication or screenshot (displays its preview): [chart]https://www.tradingview.com/...[/chart]  
+Link to a symbol: `[symbol="NASDAQ:AAPL"]NASDAQ:AAPL[/symbol]`  
+Pine code blocks (there is no inline equivalent): `[pine]...[/pine]`  
 Bulleted lists:
 ```
 [list]
