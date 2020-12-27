@@ -36,6 +36,8 @@ We use a few different [Unicode space characters](http://jkorpela.fi/chars/space
 and:
 - the "full block", U+2588, (█)
 
+## Example of a description
+
 ```
 █ [b]OVERVIEW[/b]
 
@@ -143,4 +145,25 @@ Several additive coloring conditions allow the bull/bear coloring of the oscilla
 This code was written using the following standards:
  • The PineCoders [url=http://www.pinecoders.com/coding_conventions/]Coding Conventions for Pine[/url].
  • A modified version of the PineCoders [url=https://www.tradingview.com/script/Wvcqygsx-MTF-Oscillator-Framework-PineCoders/]MTF Oscillator Framework[/url] and [url=https://www.tradingview.com/script/90mqACUV-MTF-Selection-Framework-PineCoders-FAQ/]MTF Selection Framework[/url].
+```
+
+## Tips
+
+### AutoHotkey macros
+
+We use these AutoHotkey macros to help us with tags:
+
+```
+; ————— TV tags for chats (CTRL-ALT-WIN ► ◄)
+^#!Right::SendInput [pine]		; Pine open tag.
+^#!Left::SendInput [/pine]		; Pine close tag.
+
+; ————— TV tags for Script Descriptions (ALT-letter to open, SHIFT-ALT-letter to close)
+!b::SendInput [b]				; bold tag.
+!+b::SendInput [/b]				; bold tag.
+!i::SendInput [i]				; itals tag.
+!+i::SendInput [/i]				; itals tag.
+!l::SendInput [list]			; list tag.
+!+l::SendInput [/list]			; list tag.
+^!+l::SendInput [*]				; list tag.
 ```
