@@ -29,7 +29,8 @@ In order to achieve this, we:
 - Aim to achieve maximal legibility while using minimal graphic/typographic attributes.
 - Write the first sentence or two extra carefully, as they will be visible in the script's widget, which users will see before opening our script's page. We want that first sentence or two to adequately summarize our script.
 
-> Note that these recommendations are optimized for the rendering of script pages on desktops. Other devices may render script pages in ways these recommendations cannot optimize for.
+> Note that these recommendations are optimized for the rendering of script pages on desktops.  
+Other devices may render script pages in ways these recommendations cannot optimize for.
 
 <br><br>
 ## Our Building Blocks
