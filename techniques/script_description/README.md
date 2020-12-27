@@ -148,7 +148,55 @@ Note:
 - We follow section titles with an empty line.
 - We end sections with two empty lines to provide visual separation between sections. This entails that we never use two empty lines within sections.
 
+This is the rest of our example description:
+```
+█ [b]CONCEPTS[/b]
 
+Besides plain paragraphs of body text like this one, sections can contain:
+
+[b]Numbered lists[/b]
+We placed an empty line before this sub-section and used bold type for its header. Numbered lists work well for instructions divided into steps, or for lists introduced by specifying a finite number of elements. This numbered list contains three items:
+1 — We use a number + space + Em dash + space to prefix items. As we do for bulleted lists, we manually break long elements into individual lines shorter than a script page's width so we can indent the item correctly. Otherwise it would appear like this one, which is inelegant and makes the list more difficult to read.
+2 — This is a properly broken element. We try to break items after a sentence or a comma. If that's not possible, we select places in a sentence that affect legibility the least. 
+  You will often need to preview an element's text to determine which lines require manual breaks, as the editing window may have any width.
+  We prefix lines following the first one with two Em spaces in order for them to align correctly, as is done with this line and the previous and the following ones. 
+  This makes the next items easier to read. Try to make the last line of multiple-line elements the shortest.
+3 — This element is easier to read because the previous lines are indented.
+
+[b]Bulleted lists[/b]
+They work the same way as numbered lists, except that:
+ • They are prefixed with Em space + bullet + space.
+ • When an item requires its lines to be broken manually, we indent the lines after the first one with: Em space + bullet + space.
+  Second line introducing an indented bulleted list:
+   • First line of second bulleted list which is prefixed with three Em spaces. This first item is too long and will require manual line breaking.
+    We prefix this second line with four Em spaces.
+   • Second item.
+ • Last item of our bulleted list.
+
+[b]Sub-sections containing one or more paragraphs[/b]
+At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+
+Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+
+
+█ [b]OTHER SECTIONS[/b]
+
+These are some common other types of sections we use, as needed:
+ • FEATURES: to describe the detailed features of the script, usually ordered in the same order as users will find them in the script's inputs.
+ • LIMITATIONS: where we mention any shortcomings of our script, such as that it plots using offsets into the past, or doesn't work on certain types of charts, 
+  or is less reliable is certain market conditions, for example.
+ • RAMBLINGS: where we discuss points of view or hypotheses.
+ • NOTES
+ • THANKS: where we credit authors who have provided either code or inspiration for our work.
+
+
+
+═════════════════════════════════════════════════════════════════════════
+
+
+
+A clear separation between major parts of your description can be indicated by several empty lines above and below a line made of the double-line character, U+2550 (═).
+```
 
 
 
