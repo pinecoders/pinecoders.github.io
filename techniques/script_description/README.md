@@ -187,16 +187,14 @@ This code was written using the following standards:
 We use these AutoHotkey macros to help us with tags:
 
 ```
-; ————— TV tags for chats (CTRL-ALT-WIN ► ◄)
-^#!Right::SendInput [pine]      ; Pine open tag.
-^#!Left::SendInput [/pine]      ; Pine close tag.
-
-; ————— TV tags for Script Descriptions (ALT-letter to open, SHIFT-ALT-letter to close)
-!b::SendInput [b]               ; bold open.
-!+b::SendInput [/b]             ; bold close.
-!i::SendInput [i]               ; itals open.
-!+i::SendInput [/i]             ; itals close.
-!l::SendInput [list]            ; list open.
-!+l::SendInput [/list]			; list close.
-^!+l::SendInput [*]             ; list item.
+; ————— TV markup tags.
+!b::SendInput [b]               ; bold open (ALT-B).
+!+b::SendInput [/b]             ; bold close (SHIFT-ALT-B).
+!i::SendInput [i]               ; itals open (ALT-I).
+!+i::SendInput [/i]             ; itals close (SHIFT-ALT-I).
+!l::SendInput [list]            ; list open (ALT-L).
+!+l::SendInput [/list]          ; list close (SHIFT-ALT-L).
+^!+l::SendInput [*]             ; list item (CTRL-SHIFT-ALT-L).
+^#!Right::SendInput [pine]      ; Pine open tag (CTRL-WIN-ALT-RightArrow).
+^#!Left::SendInput [/pine]      ; Pine close tag (CTRL-WIN-ALT-LeftArrow).
 ```
