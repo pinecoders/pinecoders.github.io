@@ -1,4 +1,4 @@
-# Script Descriptions
+# How to Format a Script Description
 
 The following markup is available in script description:
 
