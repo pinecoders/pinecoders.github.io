@@ -82,7 +82,7 @@ to yield:
 
 Notes:
 - There is no inline equivalent for a monospace tag.
-- Some character combinations in Pine code will be interpreted and garbled in the parser's output. Be sure to test the output of your code blocks in private descriptions before publishing them.
+- Some character combinations in Pine code will be interpreted and garbled in the parser's output. Be sure to test the output of your code blocks in private descriptions before publishing them by copyying the published result and trying to compile it in the Pine Editor.
 
 #### Bulleted lists
 
