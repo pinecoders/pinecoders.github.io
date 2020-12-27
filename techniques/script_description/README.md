@@ -34,7 +34,6 @@ In order to achieve this, we:
 The following markup is available in script descriptions:
 
 #### Bold and Italics
-We try to use bold and italics sparingly. We use bold to mark emphasis and italics to name special.
 ```
 This text will produce [i]italics[/i], [b]bold[/b] and [b][i]bold italics[/i][/b].
 ```
@@ -42,9 +41,18 @@ and will look like this:
 
 [<img src="BoldItalics.png">](https://www.pinecoders.com/techniques/script_description/BoldItalics.png)
 
+We try to use bold and italics sparingly. We use bold to mark emphasis and italics to name elements of our indicators that we refer to in its inputs or documentation.
 
 #### URLs
-URLs: `[url=https://www.pinecoders.com/]PineCoders[/url]`  
+Two types of URLs can be included. General URLs look like:
+```
+The PineCoders account's [url=https://www.tradingview.com/u/PineCoders/#published-scripts]Scripts page[/url].
+```
+and yield:
+
+[<img src="GeneralLink.png">](https://www.pinecoders.com/techniques/script_description/GeneralLink.png)
+
+
 Link to a TV publication or screenshot (displays its preview): `[chart]https://www.tradingview.com/...[/chart]`  
 
 #### Symbols
