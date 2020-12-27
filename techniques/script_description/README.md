@@ -60,7 +60,11 @@ to obtain:
 
 [<img src="LinkToPublication.png">](https://www.pinecoders.com/techniques/script_description/LinkToPublication.png)
 
-Note that this type of tag is not required; raw links to TV publications or snapshots will be interpreted the same way.
+Note that this type of tag is not required; raw links to TV publications or snapshots will be interpreted the same way, so that:
+```
+Link to a script publication: https://www.tradingview.com/script/Wvcqygsx-MTF-Oscillator-Framework-PineCoders/
+```
+will yield the same output.
 
 #### Symbols
 You can link to symbol using:
