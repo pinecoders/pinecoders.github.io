@@ -134,8 +134,13 @@ We begin our descriptions with an "Overview" section, keeping in mind that these
 
 
 ```
+The above text will look like this in your description:
 
 [<img src="Overview.png">](https://www.pinecoders.com/techniques/script_description/Overview.png)
+
+and like this in your script's widget:
+
+[<img src="ScriptWidget.png">](https://www.pinecoders.com/techniques/script_description/ScriptWidget.png)
 
 Note:
 - We prefix section titles with a full block and an Em space: (█ ).
