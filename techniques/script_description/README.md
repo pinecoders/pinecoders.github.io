@@ -33,12 +33,23 @@ In order to achieve this, we:
 ### Markup
 The following markup is available in script descriptions:
 
-Italics: `[i]...[/i]`  
+#### Bold and Italics
+We try to use bold and italics sparingly. We use bold to mark emphasis and italics to name special 
+
+: `[i]...[/i]`  
 Bold: `[b]...[/b]`  
+#### URLs
 URLs: `[url=https://www.pinecoders.com/]PineCoders[/url]`  
 Link to a TV publication or screenshot (displays its preview): `[chart]https://www.tradingview.com/...[/chart]`  
+
+#### Symbols
 Link to a symbol: `[symbol="NASDAQ:AAPL"]NASDAQ:AAPL[/symbol]`  
+
+#### Pine code blocks
 Pine code blocks (there is no inline equivalent): `[pine]...[/pine]`  
+
+#### Bulleted lists
+
 Bulleted lists:
 ```
 [list]
