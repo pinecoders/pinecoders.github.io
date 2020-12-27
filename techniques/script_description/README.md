@@ -94,7 +94,7 @@ List:
 [*]Item 2
 [/list]
 ```
-but look like this:
+and look like this:
 
 [<img src="Lists.png">](https://www.pinecoders.com/techniques/script_description/Lists.png)
 
@@ -110,6 +110,7 @@ We use a few different [Unicode space characters](http://jkorpela.fi/chars/space
 
 and:
 - the "full block", U+2588, (█)
+- the bullet, U+2022, (•)
 
 ## Example of a Description
 This is an example of a marked up description which you can use as is in an actual TradingView script publication. Copy/paste it in a private script publication's description to play around with it.
