@@ -1,4 +1,4 @@
-# How We Write and Format Our Script Descriptions
+# How PineCoders Write and Format Their Script Descriptions
 
 This document explains how we format our script descriptions for publication on TradingView. We write and format our descriptions with the single purpose of providing enough information for users of our scripts to understand and use them to their advantage.
 
