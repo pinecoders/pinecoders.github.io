@@ -86,13 +86,20 @@ Notes:
 
 #### Bulleted lists
 
-Bulleted lists:
+Lists are tagged like this:
 ```
+List:
 [list]
 [*]Item 1
 [*]Item 2
 [/list]
 ```
+but look like this:
+
+[<img src="Lists.png">](https://www.pinecoders.com/techniques/script_description/Lists.png)
+
+We don't like the smaller point size used for list items and prefer to build our own lists, as we explain in our example description.
+
 
 ### Special Characters
 
