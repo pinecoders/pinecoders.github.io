@@ -6,7 +6,7 @@ In order to achieve this, we:
 
 - Order the content vertically by decreasing relevance.
 - Aim to achieve maximal legibility while using minimal graphic/typographic attributes.
-- Ensure that the first sentence or two summarize our script properly, as they will be visible in the script's widget, which users will see before opening our script's page.
+- Write the first sentence or two extra carefully, as they will be visible in the script's widget, which users will see before opening our script's page. We want that first sentence or two to adequately summarize our script.
 
 ## Markup
 The following markup is available in script descriptions:
