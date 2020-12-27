@@ -60,9 +60,14 @@ to obtain:
 
 [<img src="LinkToPublication.png">](https://www.pinecoders.com/techniques/script_description/LinkToPublication.png)
 
-
 #### Symbols
+You can link to symbol using:
+```
 Link to a symbol: `[symbol="NASDAQ:AAPL"]NASDAQ:AAPL[/symbol]`  
+```
+which will look like this:
+
+[<img src="LinkToASymbol.png">](https://www.pinecoders.com/techniques/script_description/LinkToASymbol.png)
 
 #### Pine code blocks
 Pine code blocks (there is no inline equivalent): `[pine]...[/pine]`  
