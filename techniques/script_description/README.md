@@ -16,7 +16,7 @@
 
 - [Introduction](#introduction)
 - [Our Building Blocks](#our-building-blocks)
-- [Example of a Description](#example-of-a-description)
+- [A Description, Step by Step](#a-description-step-by-step)
 - [Tips](#tips)
 
 
