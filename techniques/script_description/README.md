@@ -70,7 +70,19 @@ which will look like this:
 [<img src="LinkToASymbol.png">](https://www.pinecoders.com/techniques/script_description/LinkToASymbol.png)
 
 #### Pine code blocks
-Pine code blocks (there is no inline equivalent): `[pine]...[/pine]`  
+You can include Pine code in monospace blocks by using:
+```
+Pine code:[pine]//@version=4
+study("")
+plot(close)[/pine]
+```
+to yield:
+
+[<img src="PineTags.png">](https://www.pinecoders.com/techniques/script_description/PineTags.png)
+
+Notes:
+- There is no inline equivalent for a monospace tag.
+- Some character combinations in Pine code will be interpreted and garbled in the parser's output. Be sure to test the output of your code blocks in private descriptions before publishing them.
 
 #### Bulleted lists
 
