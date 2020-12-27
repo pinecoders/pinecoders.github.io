@@ -4,7 +4,7 @@ This document explains how we format our script descriptions for publication on 
 
 In order to achieve this, we:
 
-- Organize the information by placing the most relevant at the top of the description.
+- Order the content vertically by decreasing relevance.
 - Aim to achieve maximal legibility while using minimal graphic/typographic attributes.
 - Ensure that the first sentence or two summarize our script properly, as they will be visible in the script's widget, which users will see before opening our script's page.
 
