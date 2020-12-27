@@ -114,13 +114,13 @@ We don't like the smaller point size used for list items and prefer to build our
 ### Special Characters
 
 We use a few different [Unicode space characters](http://jkorpela.fi/chars/spaces.html) to indent and align our text:
-- Em space, U+2003, ( )
-- En Space, U+2002, ( )
-- Thin space, U+2009, ( ) 
+- Em space, U+2003 ( )
+- En Space, U+2002 ( )
+- Thin space, U+2009 ( ) 
 
 and:
-- The "full block", U+2588, (█)
-- The bullet, U+2022, (•)
+- The "full block", U+2588 (█)
+- The bullet, U+2022 (•)
 - The Em dash, U+2014 (—)
 
 
