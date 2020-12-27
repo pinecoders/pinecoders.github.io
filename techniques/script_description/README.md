@@ -20,7 +20,8 @@
 - [Tips](#tips)
 
 
-<br><br>## Introduction
+<br><br>
+## Introduction
 This document explains how we write and format our script descriptions for publication on TradingView. We aim for our descriptions to **provide the most useful and legible information enabling users of our scripts to understand and use them advantageously**.
 
 In order to achieve this, we:
@@ -28,7 +29,8 @@ In order to achieve this, we:
 - Aim to achieve maximal legibility while using minimal graphic/typographic attributes.
 - Write the first sentence or two extra carefully, as they will be visible in the script's widget, which users will see before opening our script's page. We want that first sentence or two to adequately summarize our script.
 
-<br><br>## Our Building Blocks
+<br><br>
+## Our Building Blocks
 
 ### Markup
 The following markup is available in script descriptions. You can access all these tags except the Pine code block tags from the list of icons at the top of the "Publish script" or "Edit script" window:
@@ -120,7 +122,9 @@ and:
 - the "full block", U+2588, (█)
 - the bullet, U+2022, (•)
 
-<br><br>## A Description, Step by Step
+
+<br><br>
+## A Description, Step by Step
 We will now build an example description step by step. We begin with our "Overview" section:
 ```
 █ [b]OVERVIEW[/b]
@@ -145,7 +149,8 @@ Note:
 This is an example of a marked up description which you can use as is in an actual TradingView script publication. Copy/paste it in a private script publication's description to play around with it.
 
 
-<br><br>## Tips
+<br><br>
+## Tips
 
 
 ### Tags in Comments
