@@ -159,11 +159,11 @@ We use these AutoHotkey macros to help us with tags:
 ^#!Left::SendInput [/pine]		; Pine close tag.
 
 ; ————— TV tags for Script Descriptions (ALT-letter to open, SHIFT-ALT-letter to close)
-!b::SendInput [b]				; bold tag.
-!+b::SendInput [/b]				; bold tag.
-!i::SendInput [i]				; itals tag.
-!+i::SendInput [/i]				; itals tag.
-!l::SendInput [list]			; list tag.
-!+l::SendInput [/list]			; list tag.
-^!+l::SendInput [*]				; list tag.
+!b::SendInput [b]			; bold open.
+!+b::SendInput [/b]			; bold close.
+!i::SendInput [i]			; itals open.
+!+i::SendInput [/i]			; itals close.
+!l::SendInput [list]			; list open.
+!+l::SendInput [/list]			; list close.
+^!+l::SendInput [*]			; list item.
 ```
