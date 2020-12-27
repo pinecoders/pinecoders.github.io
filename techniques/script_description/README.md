@@ -198,13 +198,10 @@ These are some common other types of sections we use, as needed:
 A clear separation between major parts of your description can be indicated by several empty lines above and below a line made of the double-line character, U+2550 (═).
 ```
 
+This is what it produces once published:
 
+[<img src="RestOfDescription.png">](https://www.pinecoders.com/techniques/script_description/RestOfDescription.png)
 
-
-
-
-
-This is an example of a marked up description which you can use as is in an actual TradingView script publication. Copy/paste it in a private script publication's description to play around with it.
 
 
 <br><br>
