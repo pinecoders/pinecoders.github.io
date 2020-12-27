@@ -47,7 +47,7 @@ Bulleted lists:
 [/list]
 ```
 
-### Unicode Whitespace
+### Special Characters
 
 We use a few different [Unicode space characters](http://jkorpela.fi/chars/spaces.html) to indent and align our text:
 - Em space, U+2003, ( )
@@ -57,7 +57,7 @@ We use a few different [Unicode space characters](http://jkorpela.fi/chars/space
 and:
 - the "full block", U+2588, (█)
 
-## Example of a description
+## Example of a Description
 This is an example of a marked up description which you can use as is in an actual TradingView script publication. Copy/paste it in a private script publication's description to play around with it.
 
 ```
