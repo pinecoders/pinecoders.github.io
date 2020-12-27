@@ -77,7 +77,7 @@ which will look like this:
 
 [<img src="LinkToASymbol.png">](https://www.pinecoders.com/techniques/script_description/LinkToASymbol.png)
 
-#### Pine code blocks
+#### Pine Code Blocks
 You can include Pine code in monospace blocks by using:
 ```
 Pine code:[pine]//@version=4
@@ -92,7 +92,7 @@ Notes:
 - There is no inline equivalent for a monospace tag.
 - Some character combinations in Pine code will be interpreted and garbled in the parser's output. Be sure to test the output of your code blocks in private descriptions before publishing them by copyying the published result and trying to compile it in the Pine Editor.
 
-#### Bulleted lists
+#### Bulleted Lists
 
 Lists are tagged like this:
 ```
@@ -235,10 +235,10 @@ This code was written using the following standards:
 ## Tips
 
 
-### Tags in comments
+### Tags in Comments
 Note that the only tags interpreted in comments posted on TradingView publications are links to TV publications and chart snapshots, and Pine code block tags. As in descriptions, links to TV publications and snapshots do not require using `[chart]...[/chart]` tags; you can simply paste the link in the comment.
 
-### AutoHotkey macros
+### AutoHotkey Macros
 We use these AutoHotkey macros to help us with tags:
 
 ```
