@@ -6,7 +6,9 @@ This document explains how we write and format our script descriptions for publi
 - Aim to achieve maximal legibility while using minimal graphic/typographic attributes.
 - Write the first sentence or two extra carefully, as they will be visible in the script's widget, which users will see before opening our script's page. We want that first sentence or two to adequately summarize our script.
 
-## Markup
+## Our building blocks
+
+### Markup
 The following markup is available in script descriptions:
 
 Italics: `[i]...[/i]`  
@@ -23,6 +25,13 @@ Bulleted lists:
 [/list]
 ```
 
+### Unicode Whitespace
+
+We use a few different Unicode space characters to indent and align our text:
+
+- Em space
+- En Space
+- Figure space
 
 ```
 █ [b]OVERVIEW[/b]
