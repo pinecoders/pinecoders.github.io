@@ -162,6 +162,13 @@ This is an example of a marked up description which you can use as is in an actu
 <br><br>
 ## Tips
 
+### Multilingual Descriptions
+When writing multilingual descriptions, House rules require that you begin with English. To indicate to readers of another locale that another language is available, it is good practice to mention this in the very first line of your description. If a French description was available after the English, you could use:
+
+```
+[Une description en français suit l'anglais.]
+```
+which says "A French description follows the English one."
 
 ### Tags in Comments
 Note that the only tags interpreted in comments posted on TradingView publications are links to TV publications and chart snapshots, and Pine code block tags. As in descriptions, links to TV publications and snapshots do not require using `[chart]...[/chart]` tags; you can simply paste the link in the comment, which will render as an image.
