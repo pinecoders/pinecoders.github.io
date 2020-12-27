@@ -12,6 +12,15 @@
 
 # How PineCoders Write and Format Their Script Descriptions
 
+### Table of Contents
+
+- [Introduction](#introduction)
+- [Our building blocks](#our-building-blocks)
+- [Example of a description](#example-of-a-description)
+- [Tips](#tips)
+<br><br>
+
+## Introduction
 This document explains how we write and format our script descriptions for publication on TradingView. We aim for our descriptions to **provide the most useful and legible information enabling users of our scripts to understand and use them advantageously**.
 
 In order to achieve this, we:
