@@ -34,10 +34,13 @@ In order to achieve this, we:
 The following markup is available in script descriptions:
 
 #### Bold and Italics
-We try to use bold and italics sparingly. We use bold to mark emphasis and italics to name special 
+We try to use bold and italics sparingly. We use bold to mark emphasis and italics to name special.
+```
+This text will produce [i]italics[/i], [b]bold[/b] and [b][i]bold italics[/i][/b].
+```
+and will look like this:
 
-: `[i]...[/i]`  
-Bold: `[b]...[/b]`  
+
 #### URLs
 URLs: `[url=https://www.pinecoders.com/]PineCoders[/url]`  
 Link to a TV publication or screenshot (displays its preview): `[chart]https://www.tradingview.com/...[/chart]`  
