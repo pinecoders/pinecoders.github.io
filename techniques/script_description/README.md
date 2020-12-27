@@ -133,6 +133,9 @@ We begin our descriptions with an "Overview" section, keeping in mind that these
 
 
 ```
+
+[<img src="Overview.png">](https://www.pinecoders.com/techniques/script_description/Overview.png)
+
 Note:
 - We prefix section titles with a full block and an Em space: (█ ).
 - We use all caps for the title and the bold attribute.
