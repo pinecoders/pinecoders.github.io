@@ -60,7 +60,7 @@ to obtain:
 
 [<img src="LinkToPublication.png">](https://www.pinecoders.com/techniques/script_description/LinkToPublication.png)
 
-Note that for this type of tag is not required; raw links to TV publications or snapshots will be interpreted the same way.
+Note that this type of tag is not required; raw links to TV publications or snapshots will be interpreted the same way.
 
 #### Symbols
 You can link to symbol using:
