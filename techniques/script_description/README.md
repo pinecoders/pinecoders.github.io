@@ -52,8 +52,14 @@ and yield:
 
 [<img src="GeneralLink.png">](https://www.pinecoders.com/techniques/script_description/GeneralLink.png)
 
+When you want to link to a TradingView publication such as a script or idea, or a chart snapshot created use:
+```
+Link to a script publication: [chart]https://www.tradingview.com/script/Wvcqygsx-MTF-Oscillator-Framework-PineCoders/[/chart]
+```
+to obtain:
 
-Link to a TV publication or screenshot (displays its preview): `[chart]https://www.tradingview.com/...[/chart]`  
+[<img src="LinkToPublication.png">](https://www.pinecoders.com/techniques/script_description/LinkToPublication.png)
+
 
 #### Symbols
 Link to a symbol: `[symbol="NASDAQ:AAPL"]NASDAQ:AAPL[/symbol]`  
