@@ -210,6 +210,9 @@ This is what it produces once published:
 ### Write Descriptions That Will Age Well
 Because original script descriptions cannot be modified after the initial grace period of 15 minutes, refrain from including non-critical details that may change in the future. For example, when this does not jeopardize the usability of your script, you can omit a list of dropdown menu items (like a list of colors) and only explain what that input field does. Non-critical default periods or lookback lengths used in inputs are another example of information that may change as your script evolves, and which you may be glad not to have mentioned when they do change.
 
+### Charts or other indicators
+When including links that will render as an image, first introduce the image so that it does not appear out of the blue. Prepare your reader for the image they are about to see, present the image, then describe its contents.
+
 ### Multilingual Descriptions
 When writing multilingual descriptions, House rules require that you begin with English. To indicate to readers of another locale that another language is available, it is good practice to mention this in the very first line of your description. If a French description was available after the English, you could use:
 
