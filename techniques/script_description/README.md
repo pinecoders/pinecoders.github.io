@@ -139,6 +139,7 @@ We begin our descriptions with an "Overview" section, keeping in mind that these
 Note:
 - We prefix section titles with a full block and an Em space: (█ ).
 - We use all caps for the title and the bold attribute.
+- We follow section titles with an empty line.
 - We end sections with two empty lines to provide visual separation between sections. This entails that we never use two empty lines within sections.
 
 
