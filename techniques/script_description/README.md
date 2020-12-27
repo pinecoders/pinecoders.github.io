@@ -15,8 +15,8 @@
 ### Table of Contents
 
 - [Introduction](#introduction)
-- [Our building blocks](#our-building-blocks)
-- [Example of a description](#example-of-a-description)
+- [Our Building Blocks](#our-building-blocks)
+- [Example of a Description](#example-of-a-description)
 - [Tips](#tips)
 <br><br>
 
@@ -28,7 +28,7 @@ In order to achieve this, we:
 - Aim to achieve maximal legibility while using minimal graphic/typographic attributes.
 - Write the first sentence or two extra carefully, as they will be visible in the script's widget, which users will see before opening our script's page. We want that first sentence or two to adequately summarize our script.
 
-## Our building blocks
+## Our Building Blocks
 
 ### Markup
 The following markup is available in script descriptions:
