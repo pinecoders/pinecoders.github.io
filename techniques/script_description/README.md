@@ -10,7 +10,7 @@
 
 [<img src="https://www.pinecoders.com/images/PineCodersLong.png">](https://www.pinecoders.com/)
 
-# How PineCoders Write and Format Their Script Descriptions
+# How PineCoders Write and Format Script Descriptions
 
 ### Table of Contents
 
