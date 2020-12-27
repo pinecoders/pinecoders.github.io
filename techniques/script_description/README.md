@@ -2,8 +2,15 @@
 
 The following markup is available in script description:
 
-`[i]...[/i]` for italics.
-
+Italics: `[i]...[/i]`.
+Bold: `[b]...[/b]`.
+Bulleted lists:
+```
+[list]
+[*]Item 1
+[*]Item 2
+[/list]
+```
 
 
 ```
