@@ -67,7 +67,7 @@ Link to a script publication: https://www.tradingview.com/script/Wvcqygsx-MTF-Os
 will yield the same output.
 
 #### Symbols
-You can link to symbol using:
+You can link to a symbol which readers may click on to bring up a generic chart:
 ```
 Link to a symbol: `[symbol="NASDAQ:AAPL"]NASDAQ:AAPL[/symbol]`  
 ```
