@@ -29,10 +29,12 @@ Bulleted lists:
 ### Unicode Whitespace
 
 We use a few different [Unicode space characters](http://jkorpela.fi/chars/spaces.html) to indent and align our text:
-
 - Em space, U+2003, ( )
 - En Space, U+2002, ( )
 - Thin space, U+2009, ( ) 
+
+and:
+- the full block, U+2588, (█)
 
 ```
 █ [b]OVERVIEW[/b]
