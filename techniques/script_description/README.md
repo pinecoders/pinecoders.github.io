@@ -1,3 +1,4 @@
+```
 █ [b]OVERVIEW[/b]
 
 Efficient Work measures the ratio of price movement from close to close ([i]resulting work[/i]) over the distance traveled to the high and low before settling down at the close ([i]total work[/i]). The closer the two values are, the more Efficient Work approaches its maximum value of +1 for an up move or -1 for a down move. When price does not change, Efficient Work is zero.
@@ -104,3 +105,4 @@ Several additive coloring conditions allow the bull/bear coloring of the oscilla
 This code was written using the following standards:
  • The PineCoders [url=http://www.pinecoders.com/coding_conventions/]Coding Conventions for Pine[/url].
  • A modified version of the PineCoders [url=https://www.tradingview.com/script/Wvcqygsx-MTF-Oscillator-Framework-PineCoders/]MTF Oscillator Framework[/url] and [url=https://www.tradingview.com/script/90mqACUV-MTF-Selection-Framework-PineCoders-FAQ/]MTF Selection Framework[/url].
+```
