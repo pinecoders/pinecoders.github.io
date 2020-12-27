@@ -1,5 +1,7 @@
 # How We Format Our Script Description
 
+This document explains how we format our script descriptions for publication on TradingView.
+
 The following markup is available in script description:
 
 Italics: `[i]...[/i]`  
