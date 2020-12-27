@@ -226,8 +226,11 @@ This code was written using the following standards:
 
 ## Tips
 
-### AutoHotkey macros
 
+### Tags in comments
+Note that the only tags interpreted in comments posted on TradingView publications are links to TV publications and chart snapshots, and Pine code block tags. As in descriptions, links to TV publications and snapshots do not require using `[chart]...[/chart]` tags; you can simply paste the link in the comment.
+
+### AutoHotkey macros
 We use these AutoHotkey macros to help us with tags:
 
 ```
@@ -242,7 +245,3 @@ We use these AutoHotkey macros to help us with tags:
 ^#!Right::SendInput [pine]      ; Pine open tag (CTRL-WIN-ALT-RightArrow).
 ^#!Left::SendInput [/pine]      ; Pine close tag (CTRL-WIN-ALT-LeftArrow).
 ```
-
-### Tags in comments
-
-Note that the only tags interpreted in comments posted on TradingView publications are links to TV publications and chart snapshots, and Pine code block tags. As in descriptions, links to TV publications and snapshots do not require using `[chart]...[/chart]` tags; you can simply paste the link in the comment.
