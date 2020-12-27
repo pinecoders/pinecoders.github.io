@@ -38,7 +38,7 @@ We try to use bold and italics sparingly. We use bold to mark emphasis and itali
 ```
 This text will produce [i]italics[/i], [b]bold[/b] and [b][i]bold italics[/i][/b].
 ```
-and will look like this:
+and will look like this:  
 [<img src="BoldItalics.png">](https://www.pinecoders.com/techniques/script_description/BoldItalics.png)
 
 
