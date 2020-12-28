@@ -98,7 +98,7 @@ Notes:
     ```
     This sentence refers to the `bar_index` built-in variable.
     ```
-- Some character combinations in Pine code will be interpreted and garbled in the parser's output. Be sure to test the output of your code blocks in private descriptions before publishing them by copying the published result and trying to compile it in the Pine Editor.
+- Some character combinations in Pine code blocks will be interpreted and garbled in the parser's output. Be sure to test the output of your code blocks in private descriptions before publishing them by copying the published result and trying to compile it in the Pine Editor.
 
 #### Bulleted Lists
 
@@ -215,6 +215,16 @@ Because original script descriptions cannot be modified after the initial grace 
 
 ### Charts or Other Indicators
 When including links that will render as an image, first introduce the image so that it does not appear out of the blue. Prepare your reader for the image they are about to see, present the image, then describe its contents.
+
+### Pine's History-Referencing Operator Is Stripped From Text Outside Block Codes
+Be aware that references to past values of variables will be eliminated by the parser if they are not in Pine code block tags. This is true for both descriptions and comments. This text:
+```
+I use `bar_index[1]`.
+[pine]I use `bar_index[1]`.[/pine]
+```
+will yield:
+
+[<img src="HistoryReferencing.png">](https://www.pinecoders.com/techniques/script_description/HistoryReferencing.png)
 
 ### Multilingual Descriptions
 When writing multilingual descriptions, House rules require that you begin with English. To indicate to readers of another locale that another language is available, it is good practice to mention this in the very first line of your description. If a French description was available after the first one in English, you could use:
