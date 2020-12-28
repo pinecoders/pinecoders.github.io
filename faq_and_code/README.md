@@ -514,17 +514,28 @@ plot(entryPrice, "Method 1", color.orange, 3, plot.style_circles)
 plot(strategy.position_avg_price, "Method 2", color.gray, 1, plot.style_circles, transp = 0)
 ```
 
-### Can my strategy generate orders through exchanges or brokers?
-No, because:
-1. The [brokers with integration to TradingView](https://www.tradingview.com/brokers/) can only be used for manual trading.
-1. The only possible connection between Pine scripts and brokers/exchanges is via alerts, through [third-party execution engines](https://www.pinecoders.com/resources/#automated-order-execution), and only Pine studies can generate alerts.
+### Can my strategy place orders with TradingView brokers?
+Not directly from the TradingView platform, as can be done manually; only manual orders can be placed with [brokers integrated in TradingView](https://www.tradingview.com/brokers/). It is, however, possible for Pine scripts to place orders in markets for automated trading, including through some of the brokers integrated in TradingView, but to reach them you will need to use a third party execution engine to relay orders. See our next entry on the subject.
 
-If you have a Pine strategy and want to automate it to place orders on markets, you will have to:
-- Decide which third-party execution you will be using, as this will impact the design of your solution.
-- Create an indicator (a.k.a. *study*) from your strategy.
-- Insert `alertcondition()` calls in your indicator using your buy/sell conditions.
-- Create alerts from those `alertcondition()` calls in your study using TV's alert creation feature from charts (ALT-A).
-- Link those alerts to a third-party app/bot which will in turn relay orders to exchanges or brokers.
+
+### Can my strategy or study in Pine trade in markets?
+Yes. By generating alert events which are redirected to third party execution engines, orders can be relayed from a script to the execution engine, and then to a broker or exchange.
+
+The markets you can reach from a Pine script are limited by those execution engines interface with. There is a healthy ecosystem of execution engines able to accept incoming TradingView alerts containing orders intended for markets. Our [Resources page](https://www.pinecoders.com/resources/#automated-order-execution), lists a few of them. While they do not cover the entirety of the planet's markets, you will be able to reach quite a few, conventional or crypto.
+
+These are the steps you will typically need to go through to build a working automated trading system from a Pine strategy or study:
+- Decide which third-party execution you will be using. This will have an impact on:
+  - The markets you can reach from it.
+  - The syntax required in alert messages to communicate orders.
+  - The conduit you will be using to send the alerts to the execution engine (webhooks, email, etc.).
+- You will need an account with the execution engine and with the broker/exchange where your oders will be executed.
+- In your study or strategy, create alert events that will trigger when you need orders to be sent, along with the required order-placement syntax.
+- From your TV charts, create an alert for each symbol you want to run your system on, and configure it so that it is sent through the conduit required by your particular execution engine.
+
+For information on creating alert events from studies, see the [Pine User Manual on `alertcondition()`](https://www.tradingview.com/pine-script-docs/en/v4/annotations/Alert_conditions.html).
+To create alert events from strategies, see the [Help Center page on strategy alerts](https://www.tradingview.com/?solution=43000481368).
+See this Help Center page to learn [how to create alerts from the charts UI](https://www.tradingview.com/?solution=43000595315).
+
 
 #### Points to consider
 - If your strategy uses logic depending on Pine's `strategy.*()` calls which is implemented by the broker emulator used in TV backtesting, that logic will need to be handled in the conversion process, either through custom Pine code in your study or through delegation of the logic to the execution engine, if it supports those features, in which case you will need to use the appropriate syntax in your alert messages so the particular execution engine you are using understands how to execute your orders.
@@ -573,6 +584,7 @@ plot(plotCondition ? ma1 : na, "Highlight 2b", color.purple, 3, plot.style_circl
 
 ### Can I plot diagonals between two points on the chart?
 Yes, using the [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function available in v4. See the [Trendlines - JD](https://www.tradingview.com/script/mpeEgn5J-Trendlines-JD/) indicator by Duyck.
+
 
 ### How do I plot a line using start/stop criteria?
 You'll need to define your start and stop conditions and use logic to remember states and the level you want to plot.
