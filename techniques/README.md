@@ -14,3 +14,7 @@
 
 
 # PineCoders Library
+
+This section of our website contains educational articles for Pine coders:
+- [Digital Signal Processing in Pine](https://www.pinecoders.com/techniques/dsp/), by [alexgrover](https://www.tradingview.com/u/alexgrover/#published-scripts).
+- [How PineCoders Write and Format Script Descriptions](https://www.pinecoders.com/techniques/script_description/), by [LucF](https://www.tradingview.com/u/LucF/#published-scripts).
