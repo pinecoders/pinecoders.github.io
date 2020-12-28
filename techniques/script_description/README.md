@@ -95,9 +95,9 @@ to yield:
 
 Notes:
 - There is no inline equivalent for a monospace tag. We use backticks to wrap Pine keywords or short Pine segments. They are not interpreted by the parser but provide a visual clue that the enclosed text is code:
-```
-This sentence refers to the `bar_index` built-in variable.
-```
+    ```
+    This sentence refers to the `bar_index` built-in variable.
+    ```
 - Some character combinations in Pine code will be interpreted and garbled in the parser's output. Be sure to test the output of your code blocks in private descriptions before publishing them by copying the published result and trying to compile it in the Pine Editor.
 
 #### Bulleted Lists
