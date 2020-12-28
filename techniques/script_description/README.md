@@ -216,7 +216,7 @@ Because original script descriptions cannot be modified after the initial grace 
 ### Charts or Other Indicators
 When including links that will render as an image, first introduce the image so that it does not appear out of the blue. Prepare your reader for the image they are about to see, present the image, then describe its contents.
 
-### Pine's History-Referencing Operator Is Stripped From Text Outside Block Codes
+### Pine's History-Referencing Operator Is Stripped From Text Not Inside Code Blocks
 Be aware that references to past values of variables will be eliminated by the parser if they are not in Pine code block tags. This is true for both descriptions and comments. This text:
 ```
 I use `bar_index[1]`.
