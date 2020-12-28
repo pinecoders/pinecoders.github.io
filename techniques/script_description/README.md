@@ -231,6 +231,8 @@ When writing multilingual descriptions, House rules require that you begin with 
 
 ```
 [Une description en français suit l'anglais.]
+
+█ [b]OVERVIEW[/b]
 ```
 which says "A French description follows the English one."
 
