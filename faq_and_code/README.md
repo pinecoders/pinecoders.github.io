@@ -518,18 +518,18 @@ plot(strategy.position_avg_price, "Method 2", color.gray, 1, plot.style_circles,
 Not directly from the TradingView platform, as can be done manually; only manual orders can be placed with [brokers integrated in TradingView](https://www.tradingview.com/brokers/). It is, however, possible for Pine scripts to place orders in markets for automated trading, including through some of the brokers integrated in TradingView, but to reach them you will need to use a third party execution engine to relay orders. See our next entry on the subject.
 
 
-### Can my strategy or study in Pine trade in markets?
-Yes. By generating alert events which are redirected to third party execution engines, orders can be relayed from a script to the execution engine, and then to a broker or exchange.
+### Can my Pine strategy or study place automated orders in markets?
+Yes. By generating alert events and sending them to third party execution engines, orders can be relayed from a script to the execution engine, and then to a broker or exchange.
 
-The markets you can reach from a Pine script are limited by those execution engines interface with. There is a healthy ecosystem of execution engines able to accept incoming TradingView alerts containing orders intended for markets. Our [Resources page](https://www.pinecoders.com/resources/#automated-order-execution), lists a few of them. While they do not cover the entirety of the planet's markets, you will be able to reach quite a few, conventional or crypto.
+The markets you can reach from a Pine script are limited by the execution engine you will use. There is a healthy ecosystem of execution engines able to accept incoming TradingView alerts containing orders intended for markets. Our [Resources page](https://www.pinecoders.com/resources/#automated-order-execution) lists a few of them. While they do not cover the entirety of world markets, you will be able to reach quite a few, conventional or crypto.
 
-These are the steps you will typically need to go through to build a working automated trading system from a Pine strategy or study:
+These are the steps you will typically need to go through to build a working automated trading system from a Pine study/strategy:
 - Decide which third-party execution you will be using. This will have an impact on:
-  - The markets you can reach from it.
+  - The markets you can reach.
   - The syntax required in alert messages to communicate orders.
   - The conduit you will be using to send the alerts to the execution engine (webhooks, email, etc.).
 - You will need an account with the execution engine and with the broker/exchange where your oders will be executed.
-- In your study or strategy, create alert events that will trigger when you need orders to be sent, along with the required order-placement syntax.
+- In your study or strategy, create alert events that will trigger when orders must be sent, along with the required order-placement syntax.
 - From your TV charts, create an alert for each symbol you want to run your system on, and configure it so that it is sent through the conduit required by your particular execution engine.
 
 For information on creating alert events from studies, see the [Pine User Manual on `alertcondition()`](https://www.tradingview.com/pine-script-docs/en/v4/annotations/Alert_conditions.html).
