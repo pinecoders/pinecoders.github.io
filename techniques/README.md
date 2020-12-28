@@ -10,7 +10,7 @@
 
 <link rel="icon" href="http://pinecoders.com/favicon.ico?v=2" />
 
-![logo](images/PineCoders.png "PineCoders")
+[<img src="https://www.pinecoders.com/images/PineCodersLong.png">](https://www.pinecoders.com/)
 
 
 # PineCoders Library
