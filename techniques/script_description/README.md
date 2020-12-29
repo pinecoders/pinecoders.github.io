@@ -80,7 +80,7 @@ You can link to a symbol which readers may click on to bring up a generic chart:
 ```
 Link to a symbol: `[symbol="NASDAQ:AAPL"]NASDAQ:AAPL[/symbol]`  
 ```
-which will look like this:
+will look like this:
 
 [<img src="LinkToASymbol.png">](https://www.pinecoders.com/techniques/script_description/LinkToASymbol.png)
 
