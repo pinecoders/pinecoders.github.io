@@ -99,7 +99,7 @@ to output:
 [<img src="PineTags.png">](https://www.pinecoders.com/techniques/script_description/PineTags.png)
 
 Notes:
-- There is no inline equivalent for a monospace tag. We use backticks to wrap Pine keywords or short Pine segments. They are not interpreted by the parser but provide a visual clue that the enclosed text is code:
+- There is no inline equivalent for a monospace tag. We use backticks to wrap Pine keywords or short Pine segments. They are not interpreted by the parser but provide a visual clue to the effect that the enclosed text is code:
     ```
     This sentence refers to the `bar_index` built-in variable.
     ```
