@@ -1888,32 +1888,61 @@ If you know the minimum/maximum values of the series, then you should use the `r
 ```js
 //@version=4
 //@author=glaz + LucF, for PineCoders
-study("Normalizer")
+study("FAQ - Rescaling/Normalizing values")
 
-// ————— When scale of signal to rescale is unknown.
+// ————— When the scale of the signal to rescale is unknown (unbounded).
 // Min/Max of signal to rescale is determined by its historical low/high.
-normalize(_src, _min, _max) => 
+normalize(_src, _min, _max) =>
     // Normalizes series with unknown min/max using historical min/max.
-    // _src: series to rescale.
-    // _min: minimum value of rescaled series.
-    // _max: maximum value of rescaled series.
-    var _historicMin = 10e10
+    // _src      : series to rescale.
+    // _min, _min: min/max values of rescaled series.
+    var _historicMin =  10e10
     var _historicMax = -10e10
     _historicMin := min(nz(_src, _historicMin), _historicMin)
     _historicMax := max(nz(_src, _historicMax), _historicMax)
     _min + (_max - _min) * (_src - _historicMin) / max(_historicMax - _historicMin, 10e-10)
-plot(normalize(volume, -100, 100))
 
-// ————— When scale of signal to rescale is known.
+// ————— When the scale of the signal to rescale is known (bounded).
 rescale(_src, _oldMin, _oldMax, _newMin, _newMax) =>
     // Rescales series with known min/max.
-    // _src: series to rescale.
-    // _oldMin: minimum value of series to rescale.
-    // _oldMax: maximum value of series to rescale.
-    // _newMin: minimum value of rescaled series.
-    // _newMax: maximum value of rescaled series.
+    // _src            : series to rescale.
+    // _oldMin, _oldMax: min/max values of series to rescale.
+    // _newMin, _newMin: min/max values of rescaled series.
     _newMin + (_newMax - _newMin) * (_src - _oldMin) / max(_oldMax - _oldMin, 10e-10)
-plot(rescale(rsi(close, 14), 0, 100, -100, 100), color = color.fuchsia)
+
+// ————— Usual CCI calculations.
+length = input(20, minval=1)
+src = input(close, title="Source")
+ma = sma(src, length)
+cci = (src - ma) / (0.015 * dev(src, length))
+
+// —————————— Plots
+
+// ————— Normalized CCI.
+plot(normalize(cci, 100, 500), "Normalized CCI", color=#996A15)
+// Arbitrary and inexact equivalent of 100 and -100 levels rescaled to the 100/500 scale.
+band1 = hline(400, "Upper Band", color=#C0C0C0, linestyle=hline.style_dashed)
+band0 = hline(200, "Lower Band", color=#C0C0C0, linestyle=hline.style_dashed)
+fill(band1, band0, color=#9C6E1B, title="Background")
+
+// ————— Normalized volume in the same region as the rescaled RSI.
+plot(normalize(volume, -100, 100), "Normalized volume", color.black)
+hline( 100)
+hline(-100)
+
+// ————— Rescaled RSI.
+plot(rescale(rsi(close, 14), 0, 100, -100, 100), "Rescaled RSI", #8E1599)
+hline(0)
+// Precise equivalent of 70 and 30 levels rescaled to the -100/100 scale.
+band11 = hline(40, "Upper Band", color=#C0C0C0)
+band00 = hline(-40, "Lower Band", color=#C0C0C0)
+fill(band11, band00, color=#9915FF, transp=90, title="Background")
+
+// ————— Plot actual values in Data Window.
+plotchar(na, "═══════════════", "", location.top, size = size.tiny)
+plotchar(cci, "Real CCI", "", location.top, size = size.tiny)
+plotchar(volume, "Real volume", "", location.top, size = size.tiny)
+plotchar(rsi(close, 14), "Real RSI", "", location.top, size = size.tiny)
 ```
 
 ### How can I monitor script run time?
@@ -1941,6 +1970,7 @@ if crossover(close, hiHi)
 plot(hiHi)
 plot(priceAtCross, "Price At Cross", color.orange, 3, plot.style_circles)
 ```
+![.](RescalingNormalizingValues.png "RescalingNormalizingValues.png")
 
 ### How can I count touches of a specific level?
 This technique shows one way to count touches of a level that is known in advance (the median in this case). We keep a separate tally of up and down bar touches, and account for gaps across the median. Every time a touch occurs, we simply save a 1 value in a series. We can then use the [`sum()`](https://www.tradingview.com/pine-script-reference/v4/#fun_sum) function to count the number of ones in that series in the last `lookBackTouches` bars.
