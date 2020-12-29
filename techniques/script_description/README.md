@@ -94,7 +94,7 @@ study("")
 plot(close)
 [/pine]
 ```
-to yield:
+to output:
 
 [<img src="PineTags.png">](https://www.pinecoders.com/techniques/script_description/PineTags.png)
 
