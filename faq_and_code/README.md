@@ -440,13 +440,6 @@ Note that you can export strategy data using the same method.
 ### Can my script place something on the chart when it is running from a pane?
 The only thing that can be changed on the chart from within a pane is the color of the bars. See the [`barcolor()`](https://www.tradingview.com/pine-script-docs/en/v4/annotations/Barcoloring_a_series_with_barcolor.html) function.
 
-### Can I merge 2 or more indicators into one?
-Sure, but start by looking at the scale each one is using. If you're thinking of merging a moving average indicator designed to plot on top of candles and in relation to them, you are going to have problems if you also want to include and indicator showing volume bars in the same script because their values are not on the same scale.
-
-Once you've made sure your scales will be compatible (or you have devised a way of [normalizing/re-scaling them](#how-can-i-rescale-an-indicator-from-one-scale-to-another)), it's a matter of gathering the code from all indicators into one script and removing any variable name collisions so each indicator's calculations retain their independence and integrity. You may need to convert some code from one version of Pine to another, so pay attention to the Pine version used in each codebase.
-
-> Note that if the indicators you've merged are CPU intensive, you may run into runtime limitations when executing the compound script.
-
 **[Back to top](#table-of-contents)**
 
 
@@ -1880,6 +1873,13 @@ plotchar(condB, "condB", "▼", location.abovebar, color.red, 30, size = size.ti
 plotchar(condATrigger and not condA, "condATrigger", "•", location.belowbar, color.green, 0, size = size.tiny, text = "a")
 plotchar(condBTrigger and not condB, "condBTrigger", "•", location.abovebar, color.maroon, 0, size = size.tiny, text = "b")
 ```
+
+### Can I merge two or more indicators into one?
+Sure, but start by looking at the scale each one is using. If you're thinking of merging a moving average indicator designed to plot on top of candles and in relation to them, you are going to have problems if you also want to include and indicator showing volume bars in the same script because their values are not on the same scale.
+
+Once you've made sure your scales will be compatible (or you have devised a way of [normalizing/re-scaling them](#how-can-i-rescale-an-indicator-from-one-scale-to-another)), it's a matter of gathering the code from all indicators into one script and removing any variable name collisions so each indicator's calculations retain their independence and integrity. You may need to convert some code from one version of Pine to another, so pay attention to the Pine version used in each codebase.
+
+> Note that if the indicators you've merged are CPU intensive, you may run into runtime limitations when executing the compound script.
 
 ### How can I rescale an indicator from one scale to another?
 The answer depends on whether you know the minimum/maximum possible values of the signal to be rescaled. If you don't know them, as is the case for volume or MACD where the maximum value is unknown, then you will need to use a function that uses past history to determine the minimum/maximum values, as in the `normalize()` function here. While this is an imperfect solution since the minimum/maximum need to be discovered as your script progresses bar to bar, we prefer it to the technique using `lowest()` and `highest()` over a fixed period because it uses the minimum/maximum values for the complete set of elapsed bars rather than a subset of fixed length. The ideal solution would be to know in advance the minimum/maximum values for the whole series **prior** to beginning the normalization process, but this is currently not possible in Pine.
