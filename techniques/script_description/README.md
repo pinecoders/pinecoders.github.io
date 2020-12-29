@@ -241,8 +241,11 @@ When writing multilingual descriptions, House rules require that you begin with 
 ```
 which says "A French description follows the English one."
 
-### Tags in Comments
-Note that the only tags interpreted in comments posted on TradingView publications are links to TV publications and chart snapshots, and Pine code block tags. As in descriptions, links to TV publications and snapshots do not require using `[chart]...[/chart]` tags; you can simply paste the link in the comment, which will render as an image.
+### Tags in Comments and Chats
+Note that the only tags interpreted in comments posted on TradingView publications and chat messages are links to TV publications and chart snapshots, and Pine code block tags. As in descriptions, links to TV publications and snapshots do not require using `[chart]...[/chart]` tags; you can simply paste the link in the comment, which will render as an image.
+
+### Keep Templates
+We keep a few private versions of recently published public scripts in our user profile's scripts page. Their marked up description's source can be used as a template for new descriptions.
 
 ### AutoHotkey Macros
 We use these AutoHotkey macros to help us with tags:
