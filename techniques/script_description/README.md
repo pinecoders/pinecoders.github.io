@@ -87,9 +87,12 @@ will look like this:
 #### Pine Code Blocks
 You can include Pine code in monospace blocks by using:
 ```
-Pine code:[pine]//@version=4
+Pine code:
+[pine]
+//@version=4
 study("")
-plot(close)[/pine]
+plot(close)
+[/pine]
 ```
 to yield:
 
