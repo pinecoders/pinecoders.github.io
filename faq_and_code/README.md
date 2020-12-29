@@ -1884,7 +1884,11 @@ plotchar(condBTrigger and not condB, "condBTrigger", "•", location.abovebar, c
 ### How can I rescale an indicator from one scale to another?
 The answer depends on whether you know the minimum/maximum possible values of the signal to be rescaled. If you don't know them, as is the case for volume where the maximum is unknown, then you will need to use a function that uses past history to determine the minimum/maximum values, as in the `normalize()` function here. While this is an imperfect solution since the minimum/maximum need to be discovered as your script progresses left to right through historical bars, it is better than techniques using `lowest()` and `highest()` over a fixed length, because it uses the minimum/maximum values for the complete set of elapsed bars rather than a subset of fixed length. The ideal solution would be to know in advance the minimum/maximum values for the whole series **prior** to beginning the normalization process, but this is currently not possible in Pine.
 
-If you know the minimum/maximum values of the series, then you should use the `rescale()` function:
+If you know the minimum/maximum values of the series, then you should use the `rescale()` function.
+
+Here, we show how to present RSI and volume in one part of our our indicator's pane, in the -100/100 range. As RSI is a bounded indicator with known values between 0/100, we can rescale it to the -100/100 and not lose any of its information. Volume, however, is another story. As it is unbounded, we need to normalize it to the same -100/100 scale because we want its plot line to be constrained to the same space as our rescaled RSI. Volume is shown as the black line.
+
+In addition to RSI and volume in one part of our indicator's space, let's say we also want to show CCI. CCI is an unbounded indicator. While 75% of its values should lie in the -100/100 space, there are no fixed upper/lower bounds for CCI; it is unbounded. We will thus need to normalize the value. We choose to present it in the 100/500 space of our indicator. CCI is normally displayed with lines at -100 and 100, but in the 100/500 bounded space when we are normalizing CCI, there is no precise equivalent for the -100 and 100 levels, so we arbitraly decide on 200/400:
 ```js
 //@version=4
 //@author=glaz + LucF, for PineCoders
@@ -1944,6 +1948,14 @@ plotchar(cci, "Real CCI", "", location.top, size = size.tiny)
 plotchar(volume, "Real volume", "", location.top, size = size.tiny)
 plotchar(rsi(close, 14), "Real RSI", "", location.top, size = size.tiny)
 ```
+![.](RescalingNormalizingValues.png "RescalingNormalizingValues.png")
+Note that:
+- Our indicator is the top one in the screenshot. Normal CCI and RSI indicators are below it.
+- At points 1 and 2 the value of CCI relative to the horizontal levels is unreliable.
+- We have precise, rescaled values for RSI. Even if the rescaled values for RSI are different than real values, they are reliable with respect to each other and to the horizontal levels. They are only presented on a different scale.
+- Normalized values for volume and CCI have become relative to their historical min/max.  
+  Their values being relative to their historical min/max, they are heavily transformed and become less reliable. They lose their exact proportionality.
+- You can see the actual values for the indicators in the Data Window.
 
 ### How can I monitor script run time?
 Use the code from the PineCoders [Script Stopwatch](https://www.tradingview.com/script/rRmrkRDr-Script-Stopwatch-PineCoders-FAQ/). You will be able to time script execution so you can explore different scenarios when developing code and see for yourself which version performs the best.
@@ -1970,7 +1982,6 @@ if crossover(close, hiHi)
 plot(hiHi)
 plot(priceAtCross, "Price At Cross", color.orange, 3, plot.style_circles)
 ```
-![.](RescalingNormalizingValues.png "RescalingNormalizingValues.png")
 
 ### How can I count touches of a specific level?
 This technique shows one way to count touches of a level that is known in advance (the median in this case). We keep a separate tally of up and down bar touches, and account for gaps across the median. Every time a touch occurs, we simply save a 1 value in a series. We can then use the [`sum()`](https://www.tradingview.com/pine-script-reference/v4/#fun_sum) function to count the number of ones in that series in the last `lookBackTouches` bars.
