@@ -2433,16 +2433,10 @@ bgcolor(nthLo == lo ? color.red : nthHi == hi ? color.green : na)
 
 
 ### How can I examine the value of a string in my script?
-This code will show a label containing the current values of the variables you wish to see. Non-string variables need to be converted to strings using `tostring()`.
-```js
-//@version=4
-study("f_print()", "", true)
-f_print(_txt) => var _lbl = label.new(bar_index, highest(10)[1], _txt, xloc.bar_index, yloc.price, #00000000, label.style_none, color.gray, size.large, text.align_left), label.set_xy(_lbl, bar_index, highest(10)[1]), label.set_text(_lbl, _txt)
-f_print("Multiplier = " + tostring(timeframe.multiplier) + "\nPeriod = " + timeframe.period + "\nHigh = " + tostring(high))
-```
-![.](https://www.tradingview.com/x/LeHp5kUg/ "f_print()")
+See the this section of the Pine User Manual on [debugging strings](https://www.tradingview.com/pine-script-docs/en/v4/Debugging.html#displaying-strings).
 
-This multi-line version of the function allows for more flexibility. The example shows how it can be used multiple times to print lines using a different color for each:
+This multi-line version of the `f_print()` function in the User Manual allows for more flexibility. 
+The example shows how it can be used multiple times to print lines using a different color for each:
 ```js
 //@version=4
 study("f_print() (Multi-line version)", "", true)
@@ -2471,93 +2465,10 @@ f_print(t3, y, color.fuchsia, 15)
 ![.](https://www.tradingview.com/x/GQUVMzHi/ "f_print() (Multi-line version)")
 
 ### How can I plot numeric values so that they do not disrupt the indicator's scale?
-The solution is to use the `plotchar()` function, but without actually printing a character, and using the fact that values plotted with `plotchar()` will appear both:
-- in the Indicator's values (their display is controlled by the chart's *Settings/Status Line/Indicator Values* checkbox)
-- in the Data Window (third icon down the list at the right of your TV window)
-
-The reason for using the `location = location.top` parameter is that `plotchar()` uses `location.abovebar` as the default when the `location=` parameter is not specified, and this puts price into play in your indicator's scale, even if no character is actually plotted by `plotchar()`.
-
-Note that you may use `plotchar()` to test variables of string type, but only by comparing them to a single string, as is done in the second `plotchar()` call in the following code:
-```js
-//@version=4
-study("Printing values with plotchar()")
-plotchar(bar_index, "Bar Index", "", location = location.top)
-// This will be true (1) when chart is at 1min. Otherwise it will show false (0).
-plotchar(timeframe.period == "1", "timeframe.period='1'", "", location = location.top)
-```
-
-![.](printing_values_with_plotchar.png "Printing values with plotchar()")
-
-Note that:
-- The indicator's scale is not affected by the `bar_index` value of `11215` being plotted.
-- The value of `1` printed by the second call to `plotchar()`, indicating that we are on a 1 min chart.
-- Values appear in both the indicator's values and the Data Window, even if nothing is plotted in the indicator's scale.
+See the this section of the Pine User Manual on [displaying numeric values when the script’s scale must be preserved](https://www.tradingview.com/pine-script-docs/en/v4/Debugging.html#when-the-script-s-scale-must-be-preserved).
 
 ### How can I visualize many different states?
-This code displays green or red squares corresponding to the two different states of four different conditions, and colors the background when they are either all true or all false:
-```js
-//@version=4
-study("Debugging states with plotshape() and bgcolor()")
-cond1 = close > open
-cond2 = close > close[1]
-cond3 = volume > volume[1]
-cond4 = high - close < open - low
-cond5 = cond1 and cond2 and cond3 and cond4
-cond6 = not (cond1 or cond2 or cond3 or cond4)
-plotshape(9, "cond1", shape.square, location.absolute, cond1 ? color.green : color.red, size = size.tiny)
-plotshape(8, "cond2", shape.square, location.absolute, cond2 ? color.green : color.red, size = size.tiny)
-plotshape(7, "cond3", shape.square, location.absolute, cond3 ? color.green : color.red, size = size.tiny)
-plotshape(6, "cond4", shape.square, location.absolute, cond4 ? color.green : color.red, size = size.tiny)
-bgcolor(cond5 ? color.green : cond6 ? color.red : na, title = "cond5/6")
-```
-
-![.](debugging_states_with_plotshape_and_bgcolor.png "Debugging states with plotshape() and bgcolor()")
-
-You could also use `plot()` to achieve a somewhat similar result. Here we are plotting the condition number only when the condition is true:
-```js
-//@version=4
-study("Debugging states with plot() and bgcolor()")
-// ————— States
-cond1 = close > open
-cond2 = close > close[1]
-cond3 = volume > volume[1]
-cond4 = high - close < open - low
-cond5 = cond1 and cond2 and cond3 and cond4
-cond6 = not (cond1 or cond2 or cond3 or cond4)
-plot(cond1 ? 1 : na, "cond1", linewidth = 4, style = plot.style_circles)
-plot(cond2 ? 2 : na, "cond2", linewidth = 4, style = plot.style_circles)
-plot(cond3 ? 3 : na, "cond3", linewidth = 4, style = plot.style_circles)
-plot(cond4 ? 4 : na, "cond4", linewidth = 4, style = plot.style_circles)
-bgcolor(cond5 ? color.green : cond6 ? color.red : na, title = "cond5/6")
-```
-
-![.](debugging_states_with_plot_and_bgcolor.png "Debugging states with plot() and bgcolor()")
-
 ### How can I visualize my script's conditions on the chart?
-When building compound conditions that rely on the accuracy of multiple underlying conditions used as building blocks, you will usually  want to confirm your code is correctly identifying the underlying conditions. Here, markers identifying them are plotted at the top and bottom of the chart using `plotshape()`, while the compound conditions 5 an 6 are marked above and below bars using `plotshape()`, and one bar later using `plotchar()` and a Unicode character:
-```js
-//@version=4
-study("Plotting markers with plotshape()", "", true)
-cond1 = close > open
-cond2 = close > close[2]
-cond3 = volume > volume[1]
-cond4 = high - close < open - low
-cond5 = cond1 and cond2 and cond3 and cond4
-cond6 = not (cond1 or cond2 or cond3 or cond4)
-plotshape(cond1, "cond1", shape.circle, location.top, color.silver, text = "1", size = size.small)
-plotshape(cond2, "cond2", shape.diamond, location.top, color.orange, text = "2", size = size.tiny)
-plotshape(cond3, "cond3", shape.circle, location.bottom, color.fuchsia, text = "3", size = size.small)
-plotshape(cond4, "cond4", shape.diamond, location.bottom, color.aqua, text = "4", size = size.tiny)
-plotshape(cond5, "cond5", shape.triangleup, location.belowbar, color.green, 0, text = "cond5", size = size.tiny)
-plotshape(cond6, "cond6", shape.triangledown, location.abovebar, color.maroon, 0, text = "cond6", size = size.tiny)
-// Place these markers one bar late so they don't overprint the "plotshape()" triangles.
-plotchar(cond5[1], "cond5", "⮝", location.belowbar, color.lime, 0, size = size.tiny)
-plotchar(cond6[1], "cond6", "⮟", location.abovebar, color.red, 0, size = size.tiny)
-```
-
-![.](https://www.tradingview.com/x/BUkdl478/ "Plotting markers with plotshape()")
-
-You will find links to lists of Unicode characters in our [Resources](https://www.pinecoders.com/resources/#unicode-characters) document. Because they are not all mapped in the MS Trebuchet font TV uses, not all characters will work with `plotchar()`.
-
+See the this section of the Pine User Manual on [debugging compound conditions](https://www.tradingview.com/pine-script-docs/en/v4/Debugging.html#compound-conditions).
 
 **[Back to top](#table-of-contents)**
