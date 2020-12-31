@@ -224,7 +224,7 @@ Prepare your reader for the image they are about to see, show the image, then de
 
 ### Pine's History-Referencing Operator Is Stripped From Text Not Inside Code Blocks
 Be aware that references to past values of variables will be eliminated by the parser if they are not in Pine code block tags. 
-This is true for both descriptions and comments, but not in chat comments where they work fine. This text typed in a description or in comments:
+This is true for both descriptions and comments, but not for chat messages where they work fine. This text typed in a description or in comments:
 ```
 I use `bar_index[1]`.
 [pine]I use `bar_index[1]`.[/pine]
