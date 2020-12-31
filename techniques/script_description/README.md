@@ -219,7 +219,8 @@ This is what it produces once published:
 Because original script descriptions cannot be modified after the initial grace period of 15 minutes, refrain from including non-critical details that may change in the future. For example, when this does not jeopardize the usability of your script, you can omit a list of dropdown menu items (like a list of colors) and only explain what that input field does. Non-critical default periods or lookback lengths used in inputs are another example of information that may change as your script evolves, and which you may be glad not to have mentioned in your original description when they do change.
 
 ### Charts or Other Indicators
-When including links that will render as an image, first introduce the image so that it does not appear out of the blue. Prepare your reader for the image they are about to see, present the image, then describe its contents.
+When including links that will render as an image, first introduce the image so that it does not appear out of the blue. 
+Prepare your reader for the image they are about to see, show the image, then describe its contents.
 
 ### Pine's History-Referencing Operator Is Stripped From Text Not Inside Code Blocks
 Be aware that references to past values of variables will be eliminated by the parser if they are not in Pine code block tags. This is true for both descriptions and comments. This text:
