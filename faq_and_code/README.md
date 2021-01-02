@@ -1497,16 +1497,17 @@ alertcondition(cond1, title="cond1", message = "cond1 Text")
 alertcondition(cond2, title="cond2", message = "cond2 Text")
 ```
 
-The only workaround, which is admittedly not ideal, is to use two different alerts, as is shown in the last part of the script. This will also require setting up 2 different alerts in TV web.
+There are two workaround:
 
-**The only dynamic text that can be included in an alert message is the text available using the pre-defined placeholders:**
+- Use distinct [`alertcondition()`](https://www.tradingview.com/pine-script-reference/v4/#fun_alertcondition) calls, as is shown in the last part of the script. This will also require setting up 2 different alerts in TV web.
+- Use placeholders in alert messages. Placeholders satisfy the requirement of using a string that doesn't change at runtime, but the placeholders are replaced at runtime with dynamic content. See the [Help Center page on placeholders](https://www.tradingview.com/?solution=43000531021) for a list of the placeholders you can use.
 
 {% raw %}
-```js
-{{exchange}}
-{{ticker}}
-{{interval}}
-```
+  ```
+  {{exchange}}
+  {{ticker}}
+  {{interval}}
+  ```
 {% endraw %}
 
 ### How can I include values that change in my alerts?
