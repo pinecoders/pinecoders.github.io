@@ -1497,10 +1497,10 @@ alertcondition(cond1, title="cond1", message = "cond1 Text")
 alertcondition(cond2, title="cond2", message = "cond2 Text")
 ```
 
-There are two workaround:
+There are two workarounds:
 
-- Use distinct [`alertcondition()`](https://www.tradingview.com/pine-script-reference/v4/#fun_alertcondition) calls, as is shown in the last part of the script. This will also require setting up 2 different alerts in TV web.
-- Use placeholders in alert messages. Placeholders satisfy the requirement of using a string that doesn't change at runtime, but the placeholders are replaced at runtime with dynamic content. See the [Help Center page on placeholders](https://www.tradingview.com/?solution=43000531021) for a list of the placeholders you can use.
+- Use distinct [`alertcondition()`](https://www.tradingview.com/pine-script-reference/v4/#fun_alertcondition) calls, as is shown in the last part of the last script. This will also require setting up 2 different alerts in the charts UI.
+- Use placeholders in alert messages. Placeholders satisfy the requirement of using a string that doesn't change at runtime, but the placeholders themselves are replaced at runtime with dynamic content. See the [Help Center page on placeholders](https://www.tradingview.com/?solution=43000531021) for a list of the placeholders such as these:
 
 {% raw %}
   ```
