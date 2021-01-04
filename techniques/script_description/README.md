@@ -206,7 +206,7 @@ These are some common other types of sections we use, as needed. Keep section ti
 A clear separation between major parts of your description can be indicated by several empty lines above and below a line made of the double-line character, U+2550 (═), which renders without gaps in the Trebuchet font TradingView uses.
 ```
 
-This is what it produces once published:
+This is what it produces once published (you can also see the complete description rendered in the [accompanying idea published on TradingView](https://www.tradingview.com/chart/SSP/aOYEvBxw-How-We-Write-and-Format-Script-Descriptions/)):
 
 [<img src="RestOfDescription.png">](https://www.pinecoders.com/techniques/script_description/RestOfDescription.png)
 
