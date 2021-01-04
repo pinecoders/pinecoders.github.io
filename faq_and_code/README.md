@@ -917,7 +917,7 @@ plot(ma)
 
 
 ### How can I split a string into characters?
-It can be done using an array of characters. We begin by using [`str.replace_all()`](https://www.tradingview.com/pine-script-reference/v4/#fun_str{dot}replace_all) to insert a comma between each character of a string, then use [`str.split(()`](https://www.tradingview.com/pine-script-reference/v4/#fun_str{dot}split) to split that string into an array of characters:
+It can be done using an array of characters. We begin by using [`str.replace_all()`](https://www.tradingview.com/pine-script-reference/v4/#fun_str{dot}replace_all) to insert a comma between each character of a string, then use [`str.split()`](https://www.tradingview.com/pine-script-reference/v4/#fun_str{dot}split) to split that string into an array of characters:
 ```js
 //@version=4
 study("Split a string into characters")
