@@ -28,6 +28,7 @@ Do not make the mistake of assuming this is strictly beginner's material; some o
 - [Strategies](#strategies)
 - [Plotting](#plotting)
 - [Labels and Lines](#labels-and-lines)
+- [Arrays](#arrays)
 - [Time, dates and Sessions](#time-dates-and-sessions)
 - [Other Timeframes (MTF)](#other-timeframes-mtf)
 - [Alerts](#alerts)
@@ -905,6 +906,35 @@ plot(ma)
 ```
 
 **[Back to top](#table-of-contents)**
+
+
+
+
+<br><br>
+## LABELS AND LINES
+
+
+
+
+### How can I split a string into characters?
+It can be done using an array of characters. We begin by using [`str.replace_all()`](https://www.tradingview.com/pine-script-reference/v4/#fun_str{dot}replace_all) to insert a comma between each character of a string, then use [`str.split(()`](https://www.tradingview.com/pine-script-reference/v4/#fun_str{dot}split) to split that string into an array of characters:
+```js
+//@version=4
+study("Split a string into characters")
+f_print(_text) => var _label = label.new(bar_index, na, _text, xloc.bar_index, yloc.price, color(na), label.style_none, color.gray, size.large, text.align_left), label.set_xy(_label, bar_index, highest(10)[1]), label.set_text(_label, _text)
+
+i_sourceString = input("123456789")
+// Add commas between each character, including one at the beginning and end of the string.
+stringWithCommas = str.replace_all(i_sourceString, "", ",")
+// Split string into an array of characters, not including the comma, except for one at the end.
+arrayOfCharacters = str.split(stringWithCommas, ",")
+// Remove the comma which ended `arrayOfCharacters`.
+array.remove(arrayOfCharacters, array.indexof(arrayOfCharacters, ""))
+
+f_print("i_sourceString: [" + i_sourceString + "]\n\n")
+f_print("stringWithCommas: [" + stringWithCommas + "]\n")
+f_print("arrayOfCharacters " + tostring(arrayOfCharacters))
+```
 
 
 
