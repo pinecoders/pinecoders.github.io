@@ -926,14 +926,14 @@ f_print(_text) => var _label = label.new(bar_index, na, _text, xloc.bar_index, y
 i_sourceString = input("123456789")
 // Add commas between each character, including one at the beginning and end of the string.
 stringWithCommas = str.replace_all(i_sourceString, "", ",")
-// Split string into an array of characters, not including the comma, except for one at the end.
+// Split string into an array of characters, not including the comma. This adds a null character at the end.
 arrayOfCharacters = str.split(stringWithCommas, ",")
-// Remove the comma which ended `arrayOfCharacters`.
+// Remove the empty character which ended `arrayOfCharacters`.
 array.remove(arrayOfCharacters, array.indexof(arrayOfCharacters, ""))
 
 f_print("i_sourceString: [" + i_sourceString + "]\n\n")
 f_print("stringWithCommas: [" + stringWithCommas + "]\n")
-f_print("arrayOfCharacters " + tostring(arrayOfCharacters))
+f_print("arrayOfCharacters: " + tostring(arrayOfCharacters))
 ```
 
 
