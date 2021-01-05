@@ -119,7 +119,7 @@ You can use a "series int" length (so a length that varies from bar to bar) in t
 The [Functions Allowing Series As Length](https://www.tradingview.com/script/kY5hhjA7-Functions-Allowing-Series-As-Length-PineCoders-FAQ/) script by 
 [alexgrover](https://www.tradingview.com/u/alexgrover/) provides versions of the `ema()`, `atr()`, `lsma()`, `variance()`, `covariance()`, `stdev()` and `correlation()` functions.
 
-### How can I calculate values depending on variable lenghts that reset on a condition?
+### How can I calculate values depending on variable lengths that reset on a condition?
 Such calculations typically use [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) to determine the number of bars elapsed since a condition occurs. When using variable lengths, you must pay attention to the following:
 1. [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) returns zero on the bar where the condition is met. Lengths, however, cannot be zero, so you need to ensure the length has a minimum value of one, which can be accomplished by using `max(1, len)`.
 1. At the beginning of a dataset, until the condition is detected a first time, [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) returns `na`, which also cannot be used as a length, so you must protect your calculation against this, which can be done by using `nz(len)`.
@@ -141,7 +141,6 @@ plotchar(lookback, "lookback", "", location.top, size = size.tiny)
 ```
 
 ### Why do some functions and built-ins evaluate incorrectly in ``if`` or ternary (``?``) blocks?
-
 An important change to the way conditional statement blocks are evaluated was introduced with v4 of Pine. Many coders are not aware of it or do not understand its implications. [This User Manual section](https://www.tradingview.com/pine-script-docs/en/v4/language/Functions_and_annotations.html#execution-of-pine-functions-and-historical-context-inside-function-blocks) explains the change and provides a list of [exceptions](https://www.tradingview.com/pine-script-docs/en/v4/language/Functions_and_annotations.html#exceptions) for functions/built-ins which are NOT affected by the constraints. We'll explain what's happening here, and how to avoid the problems caused by code that does not take the change into account.
 
 This is what's happening:
