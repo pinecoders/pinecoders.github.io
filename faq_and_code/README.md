@@ -119,23 +119,26 @@ You can use a "series int" length (so a length that varies from bar to bar) in t
 The [Functions Allowing Series As Length](https://www.tradingview.com/script/kY5hhjA7-Functions-Allowing-Series-As-Length-PineCoders-FAQ/) script by 
 [alexgrover](https://www.tradingview.com/u/alexgrover/) provides versions of the `ema()`, `atr()`, `lsma()`, `variance()`, `covariance()`, `stdev()` and `correlation()` functions.
 
-When using variable lengths, you must ensure that:
-1. It is never less than one. You can do this using `max(1, len)`.
-1. It is never `na`. You can do this using `nz(len)`.
-1. It is always an "int". You can do this by casting the value to an "int" with `int(len)`.
+### How can I calculate values depending on variable lenghts that reset on a condition?
+Such calculations typically use [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) to determine the number of bars elapsed since a condition occurs. When using variable lengths, you must pay attention to the following:
+1. [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) returns zero on the bar where the condition is met. Lengths, however, cannot be zero, so you need to ensure the length has a minimum value of one, which can be accomplished by using `max(1, len)`.
+1. At the beginning of a dataset, until the condition is detected a first time, [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) returns `na`, which also cannot be used as a length, so you must protect your calculation against this, which can be done by using `nz(len)`.
+1. The length must be an "int", so it is safer to cast the result of your length's calculation to an "int" using `int(len)`.
+1. Finally, a [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) value of `0` must translate to a variable length of `1`, and so on, so we must add `1` to the value returned by [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince).
 
-Proper protection using the result of a call to `barssince()` as a length would yield:
-
+Put together, these requirements yield code such as this one to calculate the lowest `low` since `cond` has occurred the last time:
 ```js
 //@version=4
-study("", "", true)
-b = int(max(1, nz(barssince(rising(close, 3)))))
-lo = lowest(b)
-plot(lo)
+study("Lowest low since condition", "", true)
+cond = rising(close, 3)
+lookback = int(max(1, nz(barssince(cond)) + 1))
+lowestSinceCondition = lowest(lookback)
+plot(lowestSinceCondition)
+// Show when condition occurs.
+plotchar(cond, "cond", "•", location.top, size = size.tiny)
+// Display varying lookback period in Data Window.
+plotchar(lookback, "lookback", "", location.top, size = size.tiny)
 ```
-
-### How do I resolve errors when using can I use the result of `barssince()` as a length and not get an error?
-
 
 ### Why do some functions and built-ins evaluate incorrectly in ``if`` or ternary (``?``) blocks?
 
