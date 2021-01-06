@@ -1073,8 +1073,8 @@ srcHi = input(high, "Source for Highs")
 srcLo = input(low, "Source for Lows")
 timeAllowed = input("1200-1500", "Allowed hours", input.session)
 
-// Check to see if we are in allowed hours.
-timeIsAllowed = time(timeframe.period, timeAllowed)
+// Check to see if we are in allowed hours using session info on all 7 days of the week.
+timeIsAllowed = time(timeframe.period, timeAllowed + ":1234567")
 var hi = 10e-10
 var lo = 10e10
 if timeIsAllowed
