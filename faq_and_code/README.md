@@ -532,6 +532,10 @@ For information on creating alert events from studies, see the [Pine User Manual
 To create alert events from strategies, see the [Help Center page on strategy alerts](https://www.tradingview.com/?solution=43000481368).  
 See this Help Center page to learn [how to create alerts from the charts UI](https://www.tradingview.com/?solution=43000595315).
 
+### Can I connect my strategies to my paper trading account?
+Strategies cannot generate orders for a TradingView paper trading account. If you hold a paper account with a broker or exchange, 
+it may be possible to connect your strategies to it via alerts and a third-party execution engine. See [this FAQ entry](https://www.pinecoders.com/faq_and_code/#can-my-pine-strategy-or-study-place-automated-orders-in-markets).
+
 **[Back to top](#table-of-contents)**
 
 
