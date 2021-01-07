@@ -194,7 +194,7 @@ RicardoSantos has developed an [auto completion hack and snippets file for VS Co
 
 [Unicode: Arrows, all of them (⇪ ↹ ⬈ ↘ ⟾ ↶) for HTML charset UTF-8](https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows/)
 
-[jkorpela Unicode spaces](http://jkorpela.fi/chars/spaces.html) or [qwerty.dev Unicode spaces](https://qwerty.dev/whitespace/)
+Unicode spaces: [jkorpela](http://jkorpela.fi/chars/spaces.html) or [qwerty.dev](https://qwerty.dev/whitespace/)
 
 [Unicode Lookup: convert special characters](https://unicodelookup.com/)
 
