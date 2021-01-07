@@ -1256,14 +1256,14 @@ Use the ``f_resInMinutes()`` function from the PineCoders [MTF Selection Framewo
 //@version=4
 study("Current res in float minutes", "", true)
 
-// ————— Converts current "timeframe.multiplier" plus the TF into minutes of type float.
+// ————— Converts current chart resolution into a float minutes value.
 f_resInMinutes() => 
     _resInMinutes = timeframe.multiplier * (
-      timeframe.isseconds   ? 1. / 60.  :
-      timeframe.isminutes   ? 1.        :
-      timeframe.isdaily     ? 1440.     :
-      timeframe.isweekly    ? 10080.    :
-      timeframe.ismonthly   ? 43800.    : na)
+      timeframe.isseconds ? 1. / 60             :
+      timeframe.isminutes ? 1.                  :
+      timeframe.isdaily   ? 60. * 24            :
+      timeframe.isweekly  ? 60. * 24 * 7        :
+      timeframe.ismonthly ? 60. * 24 * 30.4375  : na)
 
 f_htfLabel(_txt, _y, _color, _offsetLabels) => 
     _t = int(time + (f_resInMinutes() * _offsetLabels * 60000)), var _lbl = label.new(_t, _y, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), if barstate.islast
