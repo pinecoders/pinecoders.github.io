@@ -1256,7 +1256,7 @@ Use the ``f_resInMinutes()`` function from the PineCoders [MTF Selection Framewo
 //@version=4
 study("Current res in float minutes", "", true)
 
-// ————— Converts current chart resolution into a float minutes value.
+// ————— Converts current chart timeframe into a float minutes value.
 f_resInMinutes() => 
     _resInMinutes = timeframe.multiplier * (
       timeframe.isseconds ? 1. / 60             :
