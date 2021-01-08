@@ -1432,6 +1432,9 @@ plot(qtyIntrabars,"qtyIntrabars")
 ### Why do HTF plots appear smoothed when using the `resolution` parameter with [`study()`](https://www.tradingview.com/pine-script-reference/v4/#fun_study)?
 Because gaps are used. See [this answer](https://www.tradingview.com/chart/TLT/gfhcvho3-How-to-Use-Multi-Timeframe-Analysis-and-What-It-Means/#tc4114362) to a question on TradingView's [How to Use Multi-Timeframe Analysis and What It Means](https://www.tradingview.com/chart/TLT/gfhcvho3-How-to-Use-Multi-Timeframe-Analysis-and-What-It-Means/) publication for more details.
 
+### Why do intraday OHLCV values not correspond to values retrieved with `security()` at daily timeframes and higher?
+Some exchanges/brokers provide distinct data feeds for intraday and daily charts, and the data from both feeds sometimes differs.
+
 **[Back to top](#table-of-contents)**
 
 
