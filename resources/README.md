@@ -163,6 +163,8 @@ RicardoSantos has developed an [auto completion hack and snippets file for VS Co
 
 
 ## Color Pickers or Tools
+[Color Designer Gradient Generator](https://colordesigner.io/gradient-generator)
+
 [w3schools.com](https://www.w3schools.com/colors/default.asp)
 
 [ColorHexa](https://www.colorhexa.com/)
@@ -173,7 +175,7 @@ RicardoSantos has developed an [auto completion hack and snippets file for VS Co
 
 [Colorizer](http://colorizer.org/)
 
-[PerBang](http://www.perbang.dk/rgbgradient/)
+[PerBang (doesn't work with all browsers)](http://www.perbang.dk/rgbgradient/)
 
 [500 Most Popular PNG Image Colors](https://imgbin.com/colors)
 
