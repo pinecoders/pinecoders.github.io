@@ -2453,6 +2453,25 @@ plot(lo)
 bgcolor(nthLo == lo ? color.red : nthHi == hi ? color.green : na)
 ```
 
+### How can I calculate the all-time high and all-time low?
+This script keeps track of the maximum `high` and minimum `low` values as the script executes bar-to-bar:
+```js
+//@version=4
+study("ATH & ATL", "", true)
+
+// ————— Function returns the all-time high.
+f_ath() => 
+    var float _return = high
+    _return := max(high, _return)
+// ————— Function returns the all-time low.
+f_atl() => 
+    var float _return = low
+    _return := min(low, _return)
+
+plot(f_ath(), "ATH", color.yellow)
+plot(f_atl(), "ATL", color.purple)
+```
+
 **[Back to top](#table-of-contents)**
 
 
