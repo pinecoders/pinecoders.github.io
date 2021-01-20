@@ -189,9 +189,10 @@ plot(
 ## Example Scripts
 
 Some authors use the Coding Conventions systematically:
+- [Relative Volume at Time](https://www.tradingview.com/script/n0f50JKv-Relative-Volume-at-Time/)
 - [Bar Balance [LucF]](https://www.tradingview.com/script/lcgCwWwI-Bar-Balance-LucF/)
 - [[e2] Absolute Retracement](https://www.tradingview.com/script/X87V5IBs-e2-Absolute-Retracement/)
-- [Color Gradient (16 colors) Framework - PineCoders FAQ](https://www.tradingview.com/script/EjLGV9qg-Color-Gradient-16-colors-Framework-PineCoders-FAQ/)
+- [MTF Oscillator Framework](https://www.tradingview.com/script/Wvcqygsx-MTF-Oscillator-Framework-PineCoders/)
 
 
 <br>
