@@ -96,6 +96,30 @@ plotchar(close, "close", "", location.top, size = size.tiny)
 ```
 ![.](built-ins_Chart_vs_built-in_discrepancies.png "Built-ins - Chart vs built-in discrepancies")
 
+You can also use this version of the function which returns rounded OHLC values in a single call:
+```js
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © PineCoders
+ 
+//@version=4
+study("My Script", precision = 8)
+f_ohlcRoundedToTick() => [round(open / syminfo.mintick) * syminfo.mintick, round(high / syminfo.mintick) * syminfo.mintick, round(low / syminfo.mintick) * syminfo.mintick, round(close / syminfo.mintick) * syminfo.mintick]
+f_color(_v1, _v2) => _v1 != _v2 ? color.red : color.blue
+
+[o, h, l, c] = f_ohlcRoundedToTick()
+
+plotchar(o,     "o",     "", location.top, f_color(o, open))
+plotchar(open,  "open",  "", location.top, f_color(o, open))
+plotchar(h,     "h",     "", location.top, f_color(h, high))
+plotchar(high,  "high",  "", location.top, f_color(h, high))
+plotchar(l,     "l",     "", location.top, f_color(l, low))
+plotchar(low,   "low",   "", location.top, f_color(l, low))
+plotchar(c,     "c",     "", location.top, f_color(c, close))
+plotchar(close, "close", "", location.top, f_color(c, close))
+
+bgcolor(o != open or h != high or l != low or c != close ? color.red : na)
+```
+
 **[Back to top](#table-of-contents)**
 
 
