@@ -1403,6 +1403,7 @@ f_htfLabel(
 ### Is it possible to use `security()` on lower intervals than the chart's current interval?
 Yes but there are limits to using this technique:
 1. It's not supported by TV.
+1. If you are not using a function especially written to collect information from intrabars, the value returned by [`security()`](https://www.tradingview.com/pine-script-reference/v4/#fun_security) will be that of the last intrabar in the chart bar, which has very limited use.
 1. It doesn't always return reliable data. Intrabar volume information on stocks, for example, will not match >1D volume, as data for both is reported differently by exchanges.
 1. It only works on historical bars, which means your script will not return correct values in the realtime bar.
 1. You cannot reference intrabars at seconds resolutions. So you can call `security()` at 1m from a 15m chart, but not 30sec.
