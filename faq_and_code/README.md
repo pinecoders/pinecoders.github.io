@@ -76,6 +76,23 @@ dnBar = not upBar
 ```
 In this case, when `close == open`, `upBar` will be false and `dnBar` true.
 
+If you want to go one step further in defining what constitutes an up and down bar, you can use these functions. They are useful on smaller timeframes when price does not move during bars. Note that these functions taken together do not account for all possible situations, as none of them will return `true` when price does not move during a bar and the bar closes at the same level as the previous bar. These functions also use price values that are rounded to tick precision (see the following FAQ entry for the reasons why that can be useful):
+```js
+f_ohlcRoundedToTick() => [round(open / syminfo.mintick) * syminfo.mintick, round(high / syminfo.mintick) * syminfo.mintick, round(low / syminfo.mintick) * syminfo.mintick, round(close / syminfo.mintick) * syminfo.mintick]
+[o, h, l, c] = f_ohlcRoundedToTick()
+// ————— Function returning true when a bar is considered to be an up bar.
+f_barUp() => 
+    // Dependencies: `o` and `c`, which are the open and close values rounded to tick precision.
+    // Account for the normal "close > open" condition, but also for zero movement bars when their close is higher than previous close.
+    _result = c > o or (c == o and c > nz(c[1], c))
+// ————— Function returning true when a bar is considered to be a down bar.
+f_barDn() => 
+    // Dependencies: `o` and `c`, which are the open and close values rounded to tick precision.
+    // Account for the normal "close < open" condition, but also for zero movement bars when their close is lower than previous close.
+    _result = c < o or (c == o and c < nz(c[1], c))
+```
+
+
 ### Why do the OHLC built-ins sometimes return different values than the ones shown on the chart?
 Data feeds sometimes contains prices that exceed the symbol's tick precision. When this happens, the value returned by the `close` built-in may be different from the chart's close value. Chart prices are always rounded to tick precision, but built-ins are not. This makes it possible for occurrences like the one illustrated here, where the exchange feed contains a close price of 30181.07 that is more precise than the symbol's `0.1` tick size. In that case, the chart will show 30181.1 but the `close` built-in's value will be the feed's value of 30181.07.
 
