@@ -30,7 +30,7 @@ PineCoders does not benefit from the adoption of these tools.
 - [Automated Order Execution](#automated-order-execution)
 - [Text Editor Highlighters and Utilities for Pine](#text-editor-highlighters-and-utilities-for-pine)
 - [Color Pickers](#color-pickers-or-tools)
-- [Unicode characters](#unicode-characters)
+- [Unicode resources](#unicode-resources)
 - [On GitHub](#on-github)
 - [Technical Information on Indicators](#technical-information-on-indicators)
 <br><br>
@@ -187,7 +187,11 @@ RicardoSantos has developed an [auto completion hack and snippets file for VS Co
 
 
 
-## Unicode characters
+## Unicode resources
+Unicode characters have lots to offer to Pine coders who want to push the limits of their visuals. We encourage you to explore these tools:
+
+[Online Unicode Tools](https://onlineunicodetools.com/count-unicode-characters) has a plethora of tools to work with Unicode.
+
 [Amp What](http://www.amp-what.com/unicode/search/arrow) allows you to search characters by keyword.
 
 [What Unicode character is this?](https://www.babelstone.co.uk/Unicode/whatisit.html)
