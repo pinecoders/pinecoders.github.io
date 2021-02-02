@@ -367,7 +367,7 @@ plotchar(false, "false", "", location.top)
 ```
 ![.](https://www.tradingview.com/x/zk9ZOrd2/ "Logical expressions")
 
-If you are comparing two and want to be sure they produce the same values all the time, including `na` values, you can use code like this to make sure they are rigously the same on all bars. It compares the value of `rsi(close, 14)` to an external input:
+If you are comparing two signals and want to be sure they produce the same values all the time, including `na` values, you can use code like this to make sure they are rigously the same on all bars. It compares the value of `rsi(close, 14)` to an external input:
 
 ```js
 //@version=4
