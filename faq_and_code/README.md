@@ -367,6 +367,20 @@ plotchar(false, "false", "", location.top)
 ```
 ![.](https://www.tradingview.com/x/zk9ZOrd2/ "Logical expressions")
 
+If you are comparing two and want to be sure they produce the same values all the time, including `na` values, you can use code like this to make sure they are rigously the same on all bars. It compares the value of `rsi(close, 14)` to an external input:
+
+```js
+//@version=4
+study("")
+// ——— For verification, allows comparison to user rating from another version of "Technicals".
+i_comparedSignal = input(close, "Debugging: Compare to")
+f_nzEqEq(_c1, _c2) => nz(_c1, 10e15) == nz(_c2, 10e15)
+signal = rsi(close, 14)
+var error = false
+error := error or not f_nzEqEq(signal, i_comparedSignal)
+bgcolor(error ? color.red : na)
+```
+
 **[Back to top](#table-of-contents)**
 
 
