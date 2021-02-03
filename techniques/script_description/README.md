@@ -69,6 +69,15 @@ to obtain:
 
 [<img src="LinkToPublication.png">](https://www.pinecoders.com/techniques/script_description/LinkToPublication.png)
 
+Sometimes, special words in the name of a publication can cause the link to not work as expected. If, for example, you try to use this:
+```
+[url=https://www.tradingview.com/script/n0f50JKv-Relative-Volume-at-Time/]Relative Volume at Time[/url]
+```
+The link will break after "Relative". A workaround for such cases is to replace the spaces in the name with Unicode double figure spaces:
+```
+[url=https://www.tradingview.com/script/n0f50JKv-Relative-Volume-at-Time/]Relative  Volume  at  Time[/url]
+```
+
 Note that this type of tag is not required; raw links to TV publications or snapshots will be interpreted the same way, so that:
 ```
 Link to a script publication: https://www.tradingview.com/script/Wvcqygsx-MTF-Oscillator-Framework-PineCoders/
