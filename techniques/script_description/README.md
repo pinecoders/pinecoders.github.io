@@ -70,7 +70,7 @@ The link will break after "Relative". A workaround for such cases is to replace 
 [url=https://www.tradingview.com/script/n0f50JKv-Relative-Volume-at-Time/]Relative  Volume  at  Time[/url]
 ```  
 
-When you want to link to a TradingView publication such as a script or idea, and incluode a preview of the publication's chart, you can use another type of url link:
+When you want to link to a TradingView publication such as a script or idea, and include a preview of the publication's chart, you can use another type of url link:
 ```
 Link to a script publication: [chart]https://www.tradingview.com/script/Wvcqygsx-MTF-Oscillator-Framework-PineCoders/[/chart]
 ```
