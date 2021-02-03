@@ -212,6 +212,8 @@ Unicode spaces: [jkorpela](http://jkorpela.fi/chars/spaces.html) or [qwerty.dev]
 
 [The Beauty of Unicode: Zero-Width Characters](https://www.ptiglobal.com/2018/04/26/the-beauty-of-unicode-zero-width-characters/)
 
+[Emoji](https://unicode.org/emoji/charts/full-emoji-list.html)
+
 
 
 ## On GitHub
