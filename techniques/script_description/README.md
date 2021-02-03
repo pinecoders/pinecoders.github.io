@@ -61,14 +61,6 @@ and yield:
 
 [<img src="GeneralLink.png">](https://www.pinecoders.com/techniques/script_description/GeneralLink.png)
 
-When you want to link to a TradingView publication such as a script or idea, or a chart snapshot created use:
-```
-Link to a script publication: [chart]https://www.tradingview.com/script/Wvcqygsx-MTF-Oscillator-Framework-PineCoders/[/chart]
-```
-to obtain:
-
-[<img src="LinkToPublication.png">](https://www.pinecoders.com/techniques/script_description/LinkToPublication.png)
-
 Sometimes, special words in the name of a publication can cause the link to not work as expected. If, for example, you try to use this:
 ```
 [url=https://www.tradingview.com/script/n0f50JKv-Relative-Volume-at-Time/]Relative Volume at Time[/url]
@@ -78,7 +70,15 @@ The link will break after "Relative". A workaround for such cases is to replace 
 [url=https://www.tradingview.com/script/n0f50JKv-Relative-Volume-at-Time/]Relative  Volume  at  Time[/url]
 ```
 
-Note that this type of tag is not required; raw links to TV publications or snapshots will be interpreted the same way, so that:
+When you want to link to a TradingView publication such as a script or idea, or a chart snapshot created use:
+```
+Link to a script publication: [chart]https://www.tradingview.com/script/Wvcqygsx-MTF-Oscillator-Framework-PineCoders/[/chart]
+```
+to obtain:
+
+[<img src="LinkToPublication.png">](https://www.pinecoders.com/techniques/script_description/LinkToPublication.png)
+
+Note that this type of url tag is not strictly required; raw links to TV publications or snapshots will be interpreted the same way, so that:
 ```
 Link to a script publication: https://www.tradingview.com/script/Wvcqygsx-MTF-Oscillator-Framework-PineCoders/
 ```
