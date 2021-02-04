@@ -214,6 +214,7 @@ Unicode spaces: [jkorpela](http://jkorpela.fi/chars/spaces.html) or [qwerty.dev]
 
 [Emoji](https://unicode.org/emoji/charts/full-emoji-list.html)
 
+[Fancy Text Generator](https://lingojam.com/FancyTextGenerator)
 
 
 ## On GitHub
