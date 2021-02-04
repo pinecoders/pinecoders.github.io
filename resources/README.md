@@ -33,9 +33,10 @@ PineCoders does not benefit from the adoption of these tools.
 - [Unicode resources](#unicode-resources)
 - [On GitHub](#on-github)
 - [Technical Information on Indicators](#technical-information-on-indicators)
-<br><br>
 
 
+
+<br>
 ## TradingView
 [Pine v4 Reference Manual](https://www.tradingview.com/pine-script-reference/v4/)
 
@@ -59,6 +60,7 @@ Visit the *Scripts* page of good coders publishing open source by using the [*Fo
 
 
 
+<br>
 ## PineCoders
 From our <a href="https://www.pinecoders.com">home page</a> you can access the following:
 
@@ -76,6 +78,7 @@ We have also begun publishing guides. See our first: the [Digital Signal Process
 
 
 
+<br>
 ## Educational Content
 
 #### Free
@@ -114,16 +117,19 @@ QuantNomad has a [paid course on Pine](https://courses.quantnomad.com/p/pinescri
 
 
 
+<br>
 ## Forums
 We answer questions in two public forums: the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235) on TradingView, and on [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script).
 
 
 
+<br>
 ## Trusted Pine Programmers for Hire
 We maintain a list of [trusted Pine programmers for hire in TradingView's Help Center](https://www.tradingview.com/?solution=43000601677).
 
 
 
+<br>
 ## Automated Order Execution
 [3Commas](https://3commas.io/): Can receive TV alerts and connect them to their bots to execute simple orders on crypto exchanges.
 
@@ -145,6 +151,7 @@ Backtest Rookies has developed [tv2bt](https://backtest-rookies.com/2019/11/22/t
 
 
 
+<br>
 ## Text Editor Highlighters and Utilities for Pine
 RicardoSantos has developed an [auto completion hack and snippets file for VS Code](https://github.com/ricardosantos79/vscode_pinescript_snippet).
 
@@ -162,6 +169,7 @@ RicardoSantos has developed an [auto completion hack and snippets file for VS Co
 
 
 
+<br>
 ## Color Pickers or Tools
 [Color Designer Gradient Generator](https://colordesigner.io/gradient-generator)
 
@@ -187,6 +195,7 @@ RicardoSantos has developed an [auto completion hack and snippets file for VS Co
 
 
 
+<br>
 ## Unicode resources
 Unicode characters have lots to offer to Pine coders who want to push the limits of their visuals. We encourage you to explore these tools:
 
@@ -218,6 +227,8 @@ Unicode spaces: [jkorpela](http://jkorpela.fi/chars/spaces.html) or [qwerty.dev]
 
 [Surrogate pair calculator (useful to convert Unicode code points for entry into AutoHotKey, for example)](http://www.russellcottrell.com/greek/utilities/SurrogatePairCalculator.htm)
 
+
+<br>
 ## On GitHub
 [PineCoders Repository](https://github.com/pinecoders/pine-utils) of reusable Pine code on GitHub.
 
@@ -233,15 +244,15 @@ Well-known TV Pine coder [everget](https://www.tradingview.com/u/everget/) has a
 
 [GNU Emacs major-mode](https://github.com/EricCrosson/pine-script-mode)
 
+
+
 <br>
-
-
-
 ## Technical Information on Indicators
 [Concept Index](https://user42.tuxfamily.org/chart/manual/Concept-Index.html#Concept-Index).
 
-<br>
 
+
+<br>
 **[Back to top](#pine-resources)**
 
 <br><br>
