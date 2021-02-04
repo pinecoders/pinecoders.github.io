@@ -36,7 +36,7 @@ PineCoders does not benefit from the adoption of these tools.
 
 
 
-<br>
+  
 ## TradingView
 [Pine v4 Reference Manual](https://www.tradingview.com/pine-script-reference/v4/)
 
