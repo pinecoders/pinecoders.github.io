@@ -36,7 +36,8 @@ PineCoders does not benefit from the adoption of these tools.
 
 
 
-  
+<br>
+
 ## TradingView
 [Pine v4 Reference Manual](https://www.tradingview.com/pine-script-reference/v4/)
 
@@ -61,6 +62,7 @@ Visit the *Scripts* page of good coders publishing open source by using the [*Fo
 
 
 <br>
+
 ## PineCoders
 From our <a href="https://www.pinecoders.com">home page</a> you can access the following:
 
