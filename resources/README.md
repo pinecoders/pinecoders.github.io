@@ -216,6 +216,7 @@ Unicode spaces: [jkorpela](http://jkorpela.fi/chars/spaces.html) or [qwerty.dev]
 
 [Fancy Text Generator](https://lingojam.com/FancyTextGenerator)
 
+[Surrogate pair calculator (useful to convert Unicode code points for entry into AutoHotKey, for example)](http://www.russellcottrell.com/greek/utilities/SurrogatePairCalculator.htm)
 
 ## On GitHub
 [PineCoders Repository](https://github.com/pinecoders/pine-utils) of reusable Pine code on GitHub.
