@@ -588,6 +588,81 @@ See this Help Center page to learn [how to create alerts from the charts UI](htt
 Strategies cannot generate orders for a TradingView paper trading account. If you hold a paper account with a broker or exchange, 
 it may be possible to connect your strategies to it via alerts and a third-party execution engine. See [this FAQ entry](https://www.pinecoders.com/faq_and_code/#can-my-pine-strategy-or-study-place-automated-orders-in-markets).
 
+### How can I implement a time delay between orders?
+Here, we set up the script to allow the user to turn the delay on and off, and to set the duration of the delay. 
+The `f_tfInMinutes()` and `f_timeFrom(_from, _qty, _units)` are lifted from our 
+[Time Offset Calculation Framework](https://www.tradingview.com/script/5mZ7hV66-Time-Offset-Calculation-Framework-PineCoders-FAQ/):
+
+```js
+//@version=4
+strategy("Strat with time delay", overlay=true)
+
+ON  = "On"
+OFF = "Off"
+i_delayEntries  = input(ON, "Delay between entries", options = [OFF, ON]) == ON
+i_qtyTimeUnits  = - input(20, "Quantity", minval = 0)
+i_timeUnits     = input("minutes", "Delay between entries", options = ["seconds", "minutes", "hours", "days", "months", "years"])
+
+// ————— Converts current chart timeframe into a float minutes value.
+f_tfInMinutes() => 
+    _tfInMinutes = timeframe.multiplier * (
+      timeframe.isseconds ? 1. / 60             :
+      timeframe.isminutes ? 1.                  :
+      timeframe.isdaily   ? 60. * 24            :
+      timeframe.isweekly  ? 60. * 24 * 7        :
+      timeframe.ismonthly ? 60. * 24 * 30.4375  : na)
+
+// ————— Calculates a +/- time offset in variable units from the current bar's time or from the current time.
+// WARNING:
+//      This functions does not solve the challenge of taking into account irregular gaps between bars when calculating time offsets.
+//      Optimal behavior occurs when there are no missing bars at the chart resolution between the current bar and the calculated time for the offset.
+//      Holidays, no-trade periods or other irregularities causing missing bars will produce unpredictable results.
+f_timeFrom(_from, _qty, _units) =>
+    // _from  : starting time from where the offset is calculated: "bar" to start from the bar's starting time, "close" to start from the bar's closing time, "now" to start from the current time.
+    // _qty   : the +/- qty of _units of offset required. A "series float" can be used but it will be cast to a "series int".
+    // _units : string containing one of the seven allowed time units: "chart" (chart's resolution), "seconds", "minutes", "hours", "days", "months", "years".
+    // Dependency: f_resInMinutes().
+    int _timeFrom = na
+    // Remove any "s" letter in the _units argument, so we don't need to compare singular and plural unit names.
+    _unit = str.replace_all(_units, "s", "")
+    // Determine if we will calculate offset from the bar's time or from current time.
+    _t = _from == "bar" ? time : _from == "close" ? time_close : timenow
+    // Calculate time at offset.
+    if _units == "chart"
+        // Offset in chart res multiples.
+        _timeFrom := int(_t + (f_tfInMinutes() * 60 * 1000 * _qty))
+    else
+        // Add the required _qty of time _units to the _from starting time.
+        _year   = year(_t)       + (_unit == "year"   ? int(_qty) : 0)
+        _month  = month(_t)      + (_unit == "month"  ? int(_qty) : 0)
+        _day    = dayofmonth(_t) + (_unit == "day"    ? int(_qty) : 0)
+        _hour   = hour(_t)       + (_unit == "hour"   ? int(_qty) : 0)
+        _minute = minute(_t)     + (_unit == "minute" ? int(_qty) : 0)
+        _second = second(_t)     + (_unit == "econd"  ? int(_qty) : 0)
+        // Return the resulting time in ms Unix time format.
+        _timeFrom := timestamp(_year, _month, _day, _hour, _minute, _second)
+
+// Entry conditions.
+ma = sma(close, 100)
+goLong = close > ma
+goShort = close < ma
+
+// Time delay filter
+var float lastTradeTime = na
+if nz(change(strategy.position_size), time)
+    // An order has been executed; save the bar's time.
+    lastTradeTime := time
+// If user has chosen to do so, wait `i_qtyTimeUnits` `i_timeUnits` between orders
+delayElapsed = not i_delayEntries or f_timeFrom("bar", i_qtyTimeUnits, i_timeUnits) > lastTradeTime
+
+if goLong and delayElapsed
+	strategy.entry("Long", strategy.long, comment="Long")
+if goShort and delayElapsed
+	strategy.entry("Short", strategy.short, comment="Short")
+
+plot(ma, "MA", goLong ? color.lime : color.red)
+```
+
 **[Back to top](#table-of-contents)**
 
 
