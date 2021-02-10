@@ -52,8 +52,12 @@ All around book describing how to read market moves. Apart from other popular te
 **Incerto Series**, Nassim Nicholas Taleb  
 An illuminating journey into opacity, uncertainty, randomness, and our general ignorance or misconceptions surrounding them. A humbling study of our shortcomings in appraising the past, present and future. The stimulating and funny work of an unashamedly radical thinker who, after making piles of "fuck you money", decided to take some time off from trading to walk slowly and rethink large parts of what we consider to be knowledge—and what is knowable.
 
-**Thinking in Bets: Making Smarter Decisions When You Don't Have All the Facts**, Annie Duke  
-An ex-poker player and psychologist has a look at how to improve our thinking in situations where we don't have perfect information but still need to make decisions. She explores our learning process and how we can better distinguish between the quality of outcomes and the quality of our decisions, which because of randomness often cannot be linked.
+**Thinking, Fast and Slow**, Daniel Kahneman  
+A brilliant and gentle mind's overview of research in cognitive psychology, by himself and many others. Kahneman explores why we think what we think, why we see what we see, and why we sometimes get it right, and sometimes get it all wrong. Kahneman also makes a diligent effort to illustrate the impact of how our brain works—or doesn't work—in different areas of our life: social, economic and political. Fascinating.
 
 **The Disciplined Trader: Developing Winning Attitudes**, Mark Douglas  
 An oft-vehiculated myth about automated trading is that it takes emotions out of the picture. Reality is different. Unchecked emotions and counter-productive thoughts can prevent you from modeling or adequately managing trading systems. This book focuses on the mental processes that can impact your trading. Douglas doesn't mention automated trading at all, and goes whole chapters at a time without even mentioning trading, but his book takes you on an introspective journey that has good probabilities of changing you for the best.
+
+**Thinking in Bets: Making Smarter Decisions When You Don't Have All the Facts**, Annie Duke  
+An ex-poker player and psychologist has a look at how to improve our thinking in situations where we don't have perfect information but still need to make decisions. She explores our learning process and how we can better distinguish between the quality of outcomes and the quality of our decisions, which because of randomness often cannot be linked.
+
