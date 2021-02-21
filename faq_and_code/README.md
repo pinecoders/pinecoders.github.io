@@ -666,7 +666,7 @@ plot(ma, "MA", goLong ? color.lime : color.red)
 ### How can I calculate custom statistics in a strategy?
 When you issue orders in a strategy by using any of the `strategy.*()` function calls, you do the equivalent of sending an order to your broker/exchange. The broker emulator takes over the management of those orders and simulates their execution when the conditions in the orders are fulfilled. In order to detect the execution of those orders, you can use changes in the built-in variables such as [`strategy.opentrades`](https://www.tradingview.com/pine-script-reference/v4/#var_strategy{dot}opentrades) and `strategy.closedtrades`](https://www.tradingview.com/pine-script-reference/v4/#var_strategy{dot}closedtrades).
 
-This script demonstrates how to accomplish this. The first part calculates the usual conditions required to manage trade orders and issues those orders. The second part detects order fill events and calculates various statistics from them:
+This script demonstrates how to accomplish this. The first part calculates the usual conditions required to manage trade orders and issues those orders. The second part detects order fill events and calculates various statistics from them. The script also demonstrates how to calculate position sizes using a fixed percentage of the equity and the risk incurred when entering the trade, which is defined as the distance to the entry stop. The default strategy parameters also use commission. All strategies should account for some fees, either in the form of commission or in slippage (which can be used to simulate spreads), as nobody usually trades for free, and ignoring trading fees is a common mistake which can be costly:
 
 ```js
 //@version=4
