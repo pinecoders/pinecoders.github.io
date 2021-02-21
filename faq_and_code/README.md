@@ -663,6 +663,113 @@ if goShort and delayElapsed
 plot(ma, "MA", goLong ? color.lime : color.red)
 ```
 
+### How can I calculate custom statistics in a strategy?
+When you issue orders in a strategy by using any of the `strategy.*()` function calls, you do the equivalent of sending an order to your broker/exchange. The broker emulator takes over the management of those orders and simulates their execution when the conditions in the orders are fulfilled. In order to detect the execution of those orders, you can use changes in the built-in variables such as [`strategy.opentrades`](https://www.tradingview.com/pine-script-reference/v4/#var_strategy{dot}opentrades) and `strategy.closedtrades`](https://www.tradingview.com/pine-script-reference/v4/#var_strategy{dot}closedtrades).
+
+This script demonstrates how to accomplish this. The first part calculates the usual conditions required to manage trade orders and issues those orders. The second part detects order fill events and calculates various statistics from them:
+
+```js
+//@version=4
+strategy("Custom strat stats", "", true, initial_capital = 10000, commission_type = strategy.commission.percent, commission_value = 0.075, max_bars_back = 1000)
+
+float i_maxPctRisk = input(1.0, "Maximum %Risk On Equity Per Trade", minval = 0., maxval = 100., step = 0.25) / 100.
+
+// ———————————————————— Strat calcs.
+// ————— Function rounding _price to tick precision.
+f_roundToTick(_price) => round(_price / syminfo.mintick) * syminfo.mintick
+
+// ————— Entries on MA crosses when equity is not depleted.
+float c   = f_roundToTick(close)
+float maF = f_roundToTick(sma(hlc3, 10))
+float maS = f_roundToTick(sma(hlc3, 60))
+bool enterLong  = crossover( maF, maS) and strategy.equity > 0
+bool enterShort = crossunder(maF, maS) and strategy.equity > 0
+// ————— Exits on breach of hi/lo channel.
+float stopLong  = lowest(20)[1]
+float stopShort = highest(20)[1]
+// ————— Position sizing.
+// Position size is calculated so the trade's risk equals the user-selected max risk of equity allowed per trade.
+// This way, positions sizes throttle with equity variations, but always incur the same % risk on equity.
+// Note that we are estimating here. We do not yet know the actual fill price because the order will only be executed at the open of the next bar.
+float riskOnEntry  = abs(c - (enterLong ? stopLong : enterShort ? stopShort : na))
+float positionSize = strategy.equity * i_maxPctRisk / riskOnEntry
+// ————— Orders to broker emulator.
+// Entries, which may include reversals. Don't enter on first bars if no stop can be calculated yet.
+strategy.entry("Long",  strategy.long,  qty = positionSize, comment ="►Long",  when = enterLong  and not na(stopLong))
+strategy.entry("Short", strategy.short, qty = positionSize, comment ="►Short", when = enterShort and not na(stopShort))
+// Exits. Each successive call modifies the existing order, so the current stop value is always used.
+strategy.exit("◄Long",  "Long",  stop = stopLong)
+strategy.exit("◄Short", "Short", stop = stopShort)
+
+// ———————————————————— Custom stat calcs.
+// From this point on, we only rely on changes to `strategy.*` variables to detect the execution of orders.
+// ————— Detection of order fill events.
+bool tradeWasClosed  = change(strategy.closedtrades)
+bool tradeWasEntered = change(strategy.opentrades) > 0 or (strategy.opentrades > 0 and tradeWasClosed)
+bool tradeIsActive   = strategy.opentrades != 0
+// ————— Number of trades entered.
+float tradesEntered  = cum(tradeWasEntered ? 1 : 0)
+// ————— Percentage of bars we are in a trade.
+float barsInTradePct = 100 * cum(tradeIsActive ? 1 : 0) / bar_index
+// ————— Avg position size.
+float avgPositionSize = cum(nz(positionSize))[1] / tradesEntered
+// ————— Avg entry stop in %.
+float stopPct = riskOnEntry / c
+float avgEntryStopPct = 100 * cum(nz(stopPct)) / tradesEntered
+// ————— Avg distance to stop during trades in %.
+var float[] distancesToStopInPctDuringTrade = array.new_float(0)
+var float[] distancesToStopInPct = array.new_float(0)
+float stop           = strategy.position_size > 0 ? stopLong : strategy.position_size < 0 ? stopShort : na
+float distanceToStopInPct = 100 * abs(stop - c) / c
+// Keep track of distances to stop during trades.
+if tradeWasEntered
+    // Start with an empty array for each trade.
+    array.clear(distancesToStopInPctDuringTrade)
+else if tradeIsActive
+    // Add a new distance for each bar in the trade.
+    array.push(distancesToStopInPctDuringTrade, distanceToStopInPct)
+else if tradeWasClosed
+    // At the end of a trade, save the avg distance for that trade in our global values for all trades.
+    array.push(distancesToStopInPct, array.avg(distancesToStopInPctDuringTrade))
+// Avg distance for all trades.
+float avgDistancesToStop = array.avg(distancesToStopInPct)
+
+// ———————————————————— Plots
+// ————— Chart plots.
+plot(maF, "MA Fast")
+plot(maS, "MA Slow", color.silver)
+plot(stop, "Stop", color.fuchsia, 1, plot.style_circles)
+bgcolor(strategy.position_size > 0 ? color.teal : strategy.position_size < 0 ? color.maroon : na, transp = 95)
+// ————— Data Window plots.
+plotchar(na, "════════ Risk", "", location.top, size = size.tiny)
+plotchar(strategy.equity, "Equity", "", location.top, size = size.tiny)
+plotchar(strategy.equity * i_maxPctRisk, "Max value of equity to risk", "", location.top, size = size.tiny)
+plotchar(riskOnEntry, "Risk On Entry", "", location.top, size = size.tiny)
+plotchar(positionSize, "Position Size", "", location.top, size = size.tiny)
+plotchar(0, "════════ Stats", "", location.top, size = size.tiny)
+plotchar(tradesEntered, "tradesEntered", "", location.top, size = size.tiny)
+plotchar(barsInTradePct, "barsInTradePct", "", location.top, size = size.tiny)
+plotchar(avgPositionSize, "avgPositionSize", "", location.top, size = size.tiny)
+plotchar(avgEntryStopPct, "avgEntryStopPct", "", location.top, size = size.tiny)
+plotchar(avgDistancesToStop, "avgDistancesToStop", "", location.top, size = size.tiny)
+plotchar(na, "════════ Misc.", "", location.top, size = size.tiny)
+plotchar(strategy.opentrades, "strategy.opentrades", "", location.top, size = size.tiny)
+plotchar(strategy.closedtrades, "strategy.closedtrades", "", location.top, size = size.tiny)
+plotchar(strategy.position_size, "strategy.position_size", "", location.top, size = size.tiny)
+plotchar(positionSize, "positionSize", "", location.top, size = size.tiny)
+plotchar(positionSize * close, "Position's Value", "", location.top, size = size.tiny)
+plotchar(close, "Estimated entry Price", "", location.top, size = size.tiny)
+p = riskOnEntry / close
+plotchar(p, "p", "", location.top, size = size.tiny)
+plotchar(strategy.equity * i_maxPctRisk, "strategy.equity * i_maxPctRisk", "", location.top, size = size.tiny)
+r = positionSize * riskOnEntry
+plotchar(r, "r", "", location.top, size = size.tiny)
+plotchar(enterLong, "enterLong", "", location.top, size = size.tiny)
+plotchar(enterShort, "enterShort", "", location.top, size = size.tiny)
+plotchar(tradeWasClosed, "tradeWasClosed", "—", location.bottom, size = size.tiny)
+plotchar(tradeWasEntered, "tradeWasEntered", "+", location.top, size = size.tiny)
+```
+
 **[Back to top](#table-of-contents)**
 
 
