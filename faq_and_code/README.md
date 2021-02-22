@@ -473,7 +473,7 @@ See the [Filter Information Box - PineCoders FAQ](https://www.tradingview.com/sc
 Not for the moment. The TV screener only works with the filters already included in it. A [search of the Public Library on "screener"](https://www.tradingview.com/scripts/screener/) will return a few examples of scripts that use [``security()``](https://www.tradingview.com/pine-script-reference/v4/#fun_security) to screen from pre-determined and limited lists of symbols.
 
 ### Can I create an indicator that plots like the built-in Volume or Volume Profile indicators?
-No. A few of the built-in indicators TradingView publishes are written in JavaScript because their behavior cannot be replicated in Pine. The Volume and Volume Profile indicators are among those.
+No. A few of the built-in indicators TradingView publishes are written in JavaScript because their behavior cannot be replicated in Pine. The Volume and Volume Profile indicators are among those. This [Stack Overflow answer](https://stackoverflow.com/questions/60346464/tradingview-pine-script-how-can-i-make-custom-volume-indicator-behave-like-a-b) provides an imperfect workaround.
 
 ### How can I use one script's output as an input into another?
 Use the following in your code:
@@ -664,7 +664,7 @@ plot(ma, "MA", goLong ? color.lime : color.red)
 ```
 
 ### How can I calculate custom statistics in a strategy?
-When you issue orders in a strategy by using any of the `strategy.*()` function calls, you do the equivalent of sending an order to your broker/exchange. The broker emulator takes over the management of those orders and simulates their execution when the conditions in the orders are fulfilled. In order to detect the execution of those orders, you can use changes in the built-in variables such as [`strategy.opentrades`](https://www.tradingview.com/pine-script-reference/v4/#var_strategy{dot}opentrades) and `strategy.closedtrades`](https://www.tradingview.com/pine-script-reference/v4/#var_strategy{dot}closedtrades).
+When you issue orders in a strategy by using any of the `strategy.*()` function calls, you do the equivalent of sending an order to your broker/exchange. The broker emulator takes over the management of those orders and simulates their execution when the conditions in the orders are fulfilled. In order to detect the execution of those orders, you can use changes in the built-in variables such as [`strategy.opentrades`](https://www.tradingview.com/pine-script-reference/v4/#var_strategy{dot}opentrades) and [`strategy.closedtrades`](https://www.tradingview.com/pine-script-reference/v4/#var_strategy{dot}closedtrades).
 
 This script demonstrates how to accomplish this. The first part calculates the usual conditions required to manage trade orders and issues those orders. The second part detects order fill events and calculates various statistics from them. The script also demonstrates how to calculate position sizes using a fixed percentage of the equity and the risk incurred when entering the trade, which is defined as the distance to the entry stop. The default strategy parameters also use commission. All strategies should account for some fees, either in the form of commission or in slippage (which can be used to simulate spreads), as nobody usually trades for free, and ignoring trading fees is a common mistake which can be costly:
 
