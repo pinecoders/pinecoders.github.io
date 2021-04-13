@@ -597,11 +597,8 @@ The `f_tfInMinutes()` and `f_timeFrom(_from, _qty, _units)` are lifted from our
 //@version=4
 strategy("Strat with time delay", overlay=true)
 
-ON  = "On"
-OFF = "Off"
-i_delayEntries  = input(ON, "Delay between entries", options = [OFF, ON]) == ON
-i_qtyTimeUnits  = - input(20, "Quantity", minval = 0)
-i_timeUnits     = input("minutes", "Delay between entries", options = ["seconds", "minutes", "hours", "days", "months", "years"])
+i_qtyTimeUnits  = - input(20, "Quantity", inline = "Delay", minval = 0, tooltip = "Use 0 for no delay")
+i_timeUnits     = input("minutes", "", inline = "Delay", options = ["seconds", "minutes", "hours", "days", "months", "years"])
 
 // ————— Converts current chart timeframe into a float minutes value.
 f_tfInMinutes() => 
@@ -649,11 +646,11 @@ goShort = close < ma
 
 // Time delay filter
 var float lastTradeTime = na
-if nz(change(strategy.position_size), time)
+if nz(change(strategy.position_size), time) != 0
     // An order has been executed; save the bar's time.
     lastTradeTime := time
 // If user has chosen to do so, wait `i_qtyTimeUnits` `i_timeUnits` between orders
-delayElapsed = not i_delayEntries or f_timeFrom("bar", i_qtyTimeUnits, i_timeUnits) > lastTradeTime
+delayElapsed = f_timeFrom("bar", i_qtyTimeUnits, i_timeUnits) >= lastTradeTime
 
 if goLong and delayElapsed
 	strategy.entry("Long", strategy.long, comment="Long")
@@ -661,6 +658,7 @@ if goShort and delayElapsed
 	strategy.entry("Short", strategy.short, comment="Short")
 
 plot(ma, "MA", goLong ? color.lime : color.red)
+plotchar(delayElapsed, "delayElapsed", "•", location.top, size = size.tiny)
 ```
 
 ### How can I calculate custom statistics in a strategy?
