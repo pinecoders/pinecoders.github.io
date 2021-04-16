@@ -240,6 +240,9 @@ Unicode spaces: [jkorpela](http://jkorpela.fi/chars/spaces.html) or [qwerty.dev]
 
 [Thematic symbols](https://getsymbols.com/)
 
+Generate various representations of text with [lingojam](https://lingojam.com/SpecialText).
+
+Search the Unicode space by [categories of characters](https://www.compart.com/en/unicode/).
 
 <br>
 
