@@ -418,6 +418,14 @@ f_round( _val, _decimals) =>
     round(abs(_val) * _p) / _p * sign(_val)
 ```
 
+### How can I round down the number of decimals of a value?
+This function allows you to truncate the number of decimal places of a float value. `f_roundDown(1.218, 2)` will yield "1.21", and `f_roundDown(-1.218, 2)` will yield "-1.22":
+```js
+f_roundDown(_number, _decimals) =>
+    (floor(_number * pow(10, _decimals))) / pow(10, _decimals)
+```
+Thanks to [Daveatt](https://www.tradingview.com/u/Daveatt/#published-scripts) for the function.
+
 ### How can I round to ticks?
 ```js
 f_roundToTick( _price) => round(_price / syminfo.mintick) * syminfo.mintick
