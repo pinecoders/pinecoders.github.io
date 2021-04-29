@@ -409,14 +409,8 @@ plot(f_roundTo(close, i_to))
 ### How can I control the number of decimals used in displaying my script's values?
 Rounding behavior in displayed values is controlled by the combination of your script's `precision=` and `format=` arguments in its `study()` or `strategy()` declaration statement. See the [Reference](https://www.tradingview.com/pine-script-reference/v4/#fun_study) and [User Manual](https://www.tradingview.com/pine-script-docs/en/v4/annotations/study_annotation.html?highlight=format) on the subject. The default will use the precision of the price scale. To increase it, you will need to specify a `precision=` argument greater than that of the price scale.
 
-### How can I round the decimals displayed with my script's values?
-Using this code you will round the precision, but won't be able to eliminate the display of insignificant decimals, as this is controlled by factors enumerated in the entry above this one:
-```js
-f_round( _val, _decimals) => 
-    // Rounds _val to _decimals places.
-    _p = pow(10, _decimals)
-    round(abs(_val) * _p) / _p * sign(_val)
-```
+### How can I control the precision of values used in my calculations?
+You can use the [`round(number, precision)`](https://www.tradingview.com/pine-script-reference/v4/#fun_round) form of `round()` to round values. You can also round values to tick precision using our function from [this entry](https://www.pinecoders.com/faq_and_code/#how-can-i-round-to-ticks).
 
 ### How can I round down the number of decimals of a value?
 This function allows you to truncate the number of decimal places of a float value. `f_roundDown(1.218, 2)` will yield "1.21", and `f_roundDown(-1.218, 2)` will yield "-1.22":
