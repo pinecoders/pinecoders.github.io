@@ -770,6 +770,27 @@ plotchar(tradeWasClosed, "tradeWasClosed", "—", location.bottom, size = size.t
 plotchar(tradeWasEntered, "tradeWasEntered", "+", location.top, size = size.tiny)
 ```
 
+### Why can't I backtest deeper into history?
+The depth of history is measured in bars—not time. The quantity of bars on charts varies with your type of account:
+
+- 5K bars for Basic accounts.
+- 10K bars for Pro and Pro+ accounts.
+- 20K bars for Premium accounts.
+
+At 20K bars on 1min charts, the depth measured in time will vary with the quantity of 1min bars in the dataset. 24x7 markets with pretty much all 1min bars present will yield ~17 days of history. Less densely populated 1min charts like GOOGL will yield ~72 days.
+
+You can use this script to test how deep your history reaches:
+
+```js
+//@version=4
+study("Days of history")
+var begin = time
+days = (time - begin) / (24 * 60 * 60 * 1000)
+plot(days)
+f_print(_text) => var _label = label.new(bar_index, na, _text, xloc.bar_index, yloc.price, color(na), label.style_label_up, color.gray, size.large, text.align_left), label.set_xy(_label, bar_index, days), label.set_text(_label, _text)
+f_print(tostring(days, "#.0 days\n") + tostring(bar_index + 1, "# bars"))
+```
+
 **[Back to top](#table-of-contents)**
 
 
