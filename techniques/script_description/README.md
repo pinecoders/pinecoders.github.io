@@ -135,7 +135,7 @@ We don't like the smaller point size used for list items and prefer to build our
 
 We use a few different Unicode characters to build our descriptions:
 - Em space, U+2003 ( )
-- Zero-width spave, U+200B (​)
+- Zero-width space, U+200B (​)
 - Full block, U+2588 (█)
 - Bullet, U+2022 (•)
 - Em dash, U+2014 (—)
@@ -233,7 +233,7 @@ When including links that will render as an image, first introduce the image so 
 Prepare your reader for the image they are about to see, show the image, then describe its contents.
 
 ### To remove the automatically-generated links on some words
-The TradingView default markup will create links for words like "one", "volume", company names, etc. Such words will appear with a dotted line under them and an extra space after the word. To eliminate these links, you can add an invisible zero-width Unicode space after their last character.
+The TradingView default markup will create links for words like "one", "volume", company names, etc. Such words will appear with a dotted line under them and an extra space after the word. To eliminate these links, you can add an invisible zero-width Unicode space (U+200B (​)) after their last character.
 
 ### Pine's History-Referencing Operator Is Stripped From Text Not Inside Code Blocks
 Be aware that references to past values of variables will be eliminated by the parser if they are not in Pine code block tags. 
