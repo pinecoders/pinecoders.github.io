@@ -152,7 +152,7 @@ bgcolor(o != open or h != high or l != low or c != close ? color.red : na)
 See the User Manual's [page on arrays](https://www.tradingview.com/pine-script-docs/en/v4/essential/Arrays.html).
 
 ### Can I use a variable length in functions?
-You can use a "series int" length (so a length that varies from bar to bar) in the following Pine functions: `alma()`, `change()`, `highest()`, `highestbars()`, `linreg()`, `lowest()`, `lowestbars()`, `mom()`, `sma()`, `sum()`, and `vwma()` and `wma()`.
+You can use a "series int" length (so a length that varies from bar to bar) in the following Pine functions: `alma()`, `bb`, `bbw`, `cci`, `change()`, `cmo`, `cog`, `correlation`, `dev`, `falling`, `highest()`, `highestbars()`, `linreg()`, `lowest()`, `lowestbars()`, `mfi`, `mom()`, `percentile_linear_interpolation`, `percentile_nearest_rank`, `percentrank`, `rising`, `roc`, `sma()`, `stdev`, `stoch`, `sum()`, `variance`, `vwma()`, `wma()` and `wpr`.
 
 The [Functions Allowing Series As Length](https://www.tradingview.com/script/kY5hhjA7-Functions-Allowing-Series-As-Length-PineCoders-FAQ/) script by 
 [alexgrover](https://www.tradingview.com/u/alexgrover/) provides versions of the `ema()`, `atr()`, `lsma()`, `variance()`, `covariance()`, `stdev()` and `correlation()` functions.
