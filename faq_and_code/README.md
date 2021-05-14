@@ -1696,7 +1696,7 @@ This will display a non-repainting ATR value formatted with the symbol's tick pr
 ```js
 //@version=4
 study("ATR", "", true)
-i_tf = input("", "Timeframe", input.resolution)
+string i_tf = input("", "Timeframe", input.resolution)
 f_security(_sym, _res, _src, _rep) => security(_sym, _res, _src[not _rep and barstate.isrealtime ? 1 : 0])[_rep or barstate.isrealtime ? 0 : 1]
 f_print(_text) => var _label = label.new(bar_index, na, _text, xloc.bar_index, yloc.price, color(na), label.style_none, color.gray, size.large, text.align_left), label.set_xy(_label, bar_index, highest(10)[1]), label.set_text(_label, _text)
 f_tickFormat() =>
@@ -1704,8 +1704,9 @@ f_tickFormat() =>
     _s := str.replace_all(_s, "25", "00")
     _s := str.replace_all(_s, "5",  "0")
     _s := str.replace_all(_s, "1",  "0")
-a = f_security(syminfo.tickerid, i_tf, atr(20), false)
-f_print(tostring(a, f_tickFormat()))
+float myAtr = atr(20)
+float atrHtf = f_security(syminfo.tickerid, i_tf, myAtr, false)
+f_print(tostring(atrHtf, f_tickFormat()))
 ```
 
 **[Back to top](#table-of-contents)**
