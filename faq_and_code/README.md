@@ -35,6 +35,7 @@ Do not make the mistake of assuming this is strictly beginner's material; some o
 - [Editor](#editor)
 - [Techniques](#techniques)
 - [Debugging](#debugging)
+- [Limits](#limits)
 
 
 
@@ -877,13 +878,6 @@ These are other examples:
 - [Backtest Rookies](https://backtest-rookies.com/2018/10/05/tradingview-support-and-resistance-indicator/)
 - [Auto-Support v 0.2 by jamc](https://www.tradingview.com/script/hBrQx1tG-Auto-Support-v-0-2/)
 - [S/R Barry by likebike](https://www.tradingview.com/script/EHqtQi2g-S-R-Barry/)
-
-### How many plots, security() calls, variables or lines of code can I use?
-- The limit for plots is 64. Note than one plot statement can use up more than one allowed plot, depending on how it is structured. If you use color of any form that is not of "const" form on the plot or text, each one will add a plot count. Starting with Pine v4, `alertcondition()` calls also count for one plot. All plotting functions count for at least one plot, except `hline()` calls which do not count as a plot. Some plotting functions such as `plotcandle()` count as 4 plots, 5 if you use series color on the body. You can see plot counts in the Data Window if you don't use the `title` argument in your calls.
-- When using labels or lines created with `label.new()` and `line.new()` a garbage collector will preserve only the last ~50 objects of each type.
-- The limit for `security()` calls is 40, but by using functions returning tuples with `security()`, you can fetch many more values than 40.
-- The limit for variables is 1000.
-- We do not know of a limit to the number of lines in a script. There is, however a limit of 50K compiled tokens, but they don't correspond to code lines.
 
 ### How can I use colors in my indicator plots?
 - See [Working with colours](https://kodify.net/tradingview/colours/) by Kodify.
@@ -2802,3 +2796,28 @@ See the this section of the Pine User Manual on [displaying numeric values when 
 See the this section of the Pine User Manual on [debugging compound conditions](https://www.tradingview.com/pine-script-docs/en/v4/Debugging.html#compound-conditions).
 
 **[Back to top](#table-of-contents)**
+
+
+
+
+
+<br><br>
+## LIMITS
+
+### What are the limits in Pine?
+As is mentioned in the Pine User Manual, 
+
+> Because each script uses computational resources in the cloud, we must impose limits in order to share these resources fairly among our users. We strive to impose as few limits as possible while enforcing as many as needed. We must ensure the platform keeps running smoothly so nobody is negatively affected by scripts that consume a disproportionate amount of resources. The imposed limits apply to elements such as the amount of data from additional symbols, execution time, memory usage and script size. Additionally, we keep Pine syntax and semantics simple so it can handle common tasks efficiently.
+
+
+- The limit for plots is 64. Note than one plot statement can use up more than one allowed plot, depending on how it is structured. If you use color of any form that is not of "const" form on the plot or text, each one will add a plot count. Starting with Pine v4, `alertcondition()` calls also count for one plot. All plotting functions count for at least one plot, except `hline()` calls which do not count as a plot. Some plotting functions such as `plotcandle()` count as 4 plots, 5 if you use series color on the body. You can see plot counts in the Data Window if you don't use the `title` argument in your calls.
+- When using labels or lines created with `label.new()` and `line.new()` a garbage collector will preserve only the last ~50 objects of each type.
+- The limit for `security()` calls is 40, but by using functions returning tuples with `security()`, you can fetch many more values than 40.
+- The limit for variables is 1000.
+- We do not know of a limit to the number of lines in a script. There is, however a limit of 50K compiled tokens, but they don't correspond to code lines.
+
+
+
+
+**[Back to top](#table-of-contents)**
+
