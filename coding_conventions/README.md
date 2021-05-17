@@ -88,7 +88,7 @@ plot(signal, color = color.orange)
 Constants are variables whose value will not change during script execution. Use all caps snake case for constants, and declare them using the `var` keyword so they are only initialized when the script executes at bar zero, when [``barstate.isfirst``](https://www.tradingview.com/pine-script-reference/v4/#var_barstate{dot}isfirst) is true. Example:
 
 ```js
-// ———————————————————— Constants, global arrays and inputs {
+// ———————————————————— Constants {
 
 // ————— Input `options` selections.
 var string RT1 = "MAs and Oscillators"
