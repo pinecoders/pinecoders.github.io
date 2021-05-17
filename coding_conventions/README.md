@@ -28,11 +28,11 @@ The goal of these Coding Conventions is to present a set of best practices and s
 
 The Pine compiler is not very strict on exact positioning of specific statements or compiler directives. While many other arrangements are syntactically correct, these guidelines aim to provide a standard way of ordering elements in scripts:
 
-1. The first line of a script should be the `//@version=X` compiler directive, where `X` is replaced by the version of Pine the script is written for. While the compiler defaults to Pine version 1 when no directive is used, scripts written using version 1 of Pine should nonetheless contain the `//@version=1` directive on their first line.
+1. The first line of a script should be the [``//@version=X``](https://www.tradingview.com/pine-script-docs/en/v4/language/Versions.html) compiler directive, where `X` is replaced by the version of Pine the script is written for. While the compiler defaults to Pine version 1 when no directive is used, scripts written using version 1 of Pine should nonetheless contain the `//@version=1` directive on their first line.
 
 1. **Comments** describing the script are usually placed immediately after the `@version` compiler directive.
 
-1. The first Pine statement in the script should be either the `study()` or `strategy()` declaration statement.
+1. The first Pine statement in the script should be either the [``study()``](https://www.tradingview.com/pine-script-reference/v4/#fun_study) or [``strategy()``](https://www.tradingview.com/pine-script-reference/v4/#fun_strategy) declaration statement.
 
 1. The next lines should contain the following sections, properly identified if they are long:
 
@@ -85,7 +85,7 @@ plot(signal, color = color.orange)
 
 ### Constants
 
-Constants are variables whose value will not change during script execution. Use all caps snake case for constants, and declare them using the `var` keyword so they are only initialized when the script executes at bar zero, when [``barstate.isfirst``](https://www.tradingview.com/pine-script-reference/v4/#var_barstate{dot}isfirst) is true. Example:
+Constants are variables whose value will not change during script execution. Use all caps snake case for constants, and declare them using the [``var``](https://www.tradingview.com/pine-script-reference/v4/#op_var) keyword so they are only initialized when the script executes at bar zero, when [``barstate.isfirst``](https://www.tradingview.com/pine-script-reference/v4/#var_barstate{dot}isfirst) is true. Example:
 
 ```js
 // ———————————————————— Constants {
@@ -116,7 +116,7 @@ We recommend using camelCase for variable names. Example: `emaLength`, `obLevel`
 
 For large projects, you may find it useful to use prefixes for a few types of variables, to make them more readily identifiable. The following prefixes can then be used:
 
-- `i_` for variables initialized through `input()` calls.
+- `i_` for variables initialized through [``input()``](https://www.tradingview.com/pine-script-reference/v4/#fun_input) calls.
 - `c_` for variables containing colors.
 - `p_` for variables used as [``plot()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plot) or [``hline()``](https://www.tradingview.com/pine-script-reference/v4/#fun_hline) identifiers in [``fill()``](https://www.tradingview.com/pine-script-reference/v4/#fun_fill) calls.
 - All caps for constants, i.e., variables often initialized at the beginning of scripts whose value will not change during execution.
