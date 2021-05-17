@@ -44,13 +44,10 @@ The Pine compiler is not very strict on exact positioning of specific statements
     - Plots
     - Alerts
 
-1. The following lines can contain **variable initializations** and **function definitions** in any order required. Note that all Pine functions must be defined in the script's global scope, as nested function definitions are not allowed. Concerning variable initializations, some scripts lend themselves to mass initializations and others will be more readable with an *initialize as you need* style that places initializations with the code segments where the variables are used. It's up to each coder to adopt the most useful style. Local block variables must be declared in the local block where they will be used.
+Notes:
 
-1. The rest of the script will contain **calculations**, followed by,
-
-1. `plot()` calls,
-1. `strategy.*()` calls (for strategies) and,
-1. `alertcondition()` calls (for indicators), if needed.
+- All Pine functions must be defined in the script's global scope. Nested function definitions are not allowed. If functions use global variables, they must appear after their definition, which sometimes entails they cannot be placed in the same function section of your code as the other functions.
+- Variable initializations are often easier to refer to when done just before the calculations using them. Variables used throughout the script can be declared in the constants section at the top of the script. Local variables must be declared in the local block where they are used.
 
 Here is an example of a complete script:
 
