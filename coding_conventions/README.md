@@ -83,6 +83,33 @@ plot(signal, color = color.orange)
 
 ## Naming Conventions
 
+### Constants
+
+Constants are variables whose value will not change during script execution. Use all caps snake case for constants, and declare them using the `var` keyword so they are only initialized when the script executes at bar zero, or when [``barstate.isfirst``](https://www.tradingview.com/pine-script-reference/v4/#var_barstate{dot}isfirst) is true. Examples:
+
+```js
+// ———————————————————— Constants, global arrays and inputs {
+
+// ————— Input `options` selections.
+var string RT1 = "MAs and Oscillators"
+var string RT2 = "MAs"
+var string RT3 = "Oscillators"
+
+var string ON  = "On"
+var string OFF = "Off"
+
+// Levels determining "Strong Buy/Sell" and "Buy/Sell" ratings.
+var float LEVEL_STRONG = 0.5
+var float LEVEL_WEAK   = 0.1
+
+// Color constants.
+var color C_AQUA    = #0080FFff
+var color C_BLACK   = #000000ff
+// }
+```
+
+The curly braces at the beginning and end of this code section allow you to collapse/expand that code section using the little triangle in the Editor's left margin.
+
 ### Variable Names
 
 We recommend using camelCase for variable names. Example: `emaLength`, `obLevel`, `showSignal2`, `aLongVariableName`.
