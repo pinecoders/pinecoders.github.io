@@ -121,6 +121,28 @@ For large projects, you may find it useful to use prefixes for a few types of va
 - `p_` for variables used as [``plot()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plot) or [``hline()``](https://www.tradingview.com/pine-script-reference/v4/#fun_hline) identifiers in [``fill()``](https://www.tradingview.com/pine-script-reference/v4/#fun_fill) calls.
 - All caps for constants, i.e., variables often initialized at the beginning of scripts whose value will not change during execution.
 
+We also recommend declaring the type of variables explicitly—even if the compiler does not require it. This make it easier for readers to distinguish initializations, which are done using ``=``, from reassignments, which use ``:=``. Example:
+
+```js
+//@version=4
+study("", "", true)
+
+// ————— Calculate all-time high.
+// This line declares the variable on the first bar only.
+// On successive bars, its value is thus preserved bar to bar, until it is assigned a new value.
+var float allTimeHigh = high
+allTimeHigh := max(allTimeHigh, high)
+
+// ————— Detect changes in the all-time high.
+bool newAllTimeHigh = change(allTimeHigh)
+
+plot(allTimeHigh)
+plotchar(newAllTimeHigh, "newAllTimeHigh", "•", location.top, size = size.tiny)
+```
+
+We first calculate the all-time high. We start by declaring the ``allTimeHigh`` variable as being of type "float", and assign it the value of the bar's ``high`` at bar zero. This line will no longer be executed after bar zero. When the script runs on each successive bar and on each realtime update of the feed, the variable is re-assigned with the maximum of either the variable's last value or the current bar's ``high``.
+
+We then declare the ``newAllTimeHigh`` variable as a being of type "boolean", and on each bar, the script will assign it the value of the change in ``allTimeHigh`` between the previous and the current bar. This "float" value is then cast to a "boolean" in such a way that it is false when zero, and true otherwise.
 
 ### Function Names
 
