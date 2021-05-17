@@ -108,7 +108,7 @@ var color C_BLACK   = #000000ff
 // }
 ```
 
-The curly braces at the beginning and end of this code section allow you to collapse/expand that code section using the little triangle in the Editor's left margin.
+The curly braces at the beginning and end of this code section allow you to collapse/expand it using the little triangle in the Editor's left margin.
 
 ### Variable Names
 
