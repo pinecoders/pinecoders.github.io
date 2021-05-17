@@ -193,9 +193,9 @@ plot(
 
 ## Example Scripts
 
-Some authors use the Coding Conventions systematically:
+These are examples of scripts by authors who use our Coding Conventions systematically:
 - [Relative Volume at Time](https://www.tradingview.com/script/n0f50JKv-Relative-Volume-at-Time/)
-- [Bar Balance [LucF]](https://www.tradingview.com/script/lcgCwWwI-Bar-Balance-LucF/)
+- [Tape [LucF]](https://www.tradingview.com/script/8mVFTxPg-Tape-LucF/)
 - [[e2] Absolute Retracement](https://www.tradingview.com/script/X87V5IBs-e2-Absolute-Retracement/)
 - [MTF Oscillator Framework [PineCoders]](https://www.tradingview.com/script/Wvcqygsx-MTF-Oscillator-Framework-PineCoders/)
 
