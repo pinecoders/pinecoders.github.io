@@ -30,7 +30,7 @@ The Pine compiler is not very strict on exact positioning of specific statements
 
 1. The first line of a script should be the [``//@version=X``](https://www.tradingview.com/pine-script-docs/en/v4/language/Versions.html) compiler directive, where `X` is replaced by the version of Pine the script is written for. While the compiler defaults to Pine version 1 when no directive is used, scripts written using version 1 of Pine should nonetheless contain the `//@version=1` directive on their first line.
 
-1. **Comments** describing the script are usually placed immediately after the `@version` compiler directive.
+1. **Comments** describing the script are usually placed immediately after the `//@version` compiler directive.
 
 1. The first Pine statement in the script should be either the [``study()``](https://www.tradingview.com/pine-script-reference/v4/#fun_study) or [``strategy()``](https://www.tradingview.com/pine-script-reference/v4/#fun_strategy) declaration statement.
 
