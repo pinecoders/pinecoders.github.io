@@ -15,11 +15,11 @@ The goal of these Coding Conventions is to present a set of best practices and s
 
 ### Table of Contents
 
-  - [Script Structure](#script-structure)
-  - [Naming Conventions](#naming-conventions)
-  - [Spacing](#spacing)
-  - [Line Wrapping](#line-wrapping)
-  - [Example Scripts](#example-scripts)
+    - [Script Structure](#script-structure)
+    - [Naming Conventions](#naming-conventions)
+    - [Spacing](#spacing)
+    - [Line Wrapping](#line-wrapping)
+    - [Example Scripts](#example-scripts)
 
 
 <br>
