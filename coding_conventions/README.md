@@ -34,7 +34,15 @@ The Pine compiler is not very strict on exact positioning of specific statements
 
 1. The first Pine statement in the script should be either the `study()` or `strategy()` declaration statement.
 
-1. The next lines should contain the script's **inputs**.
+1. The next lines should contain the following sections, properly identified if they are long:
+
+- Constant initializations
+- Inputs
+- Functions
+- Calculations
+- Strategy calls (for strategies)
+- Plots
+- Alerts
 
 1. The following lines can contain **variable initializations** and **function definitions** in any order required. Note that all Pine functions must be defined in the script's global scope, as nested function definitions are not allowed. Concerning variable initializations, some scripts lend themselves to mass initializations and others will be more readable with an *initialize as you need* style that places initializations with the code segments where the variables are used. It's up to each coder to adopt the most useful style. Local block variables must be declared in the local block where they will be used.
 
