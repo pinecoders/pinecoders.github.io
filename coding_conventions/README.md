@@ -128,16 +128,16 @@ We also recommend declaring the type of variables explicitly—even if the compi
 study("", "", true)
 
 // ————— Calculate all-time high.
-// This line declares the variable on the first bar only.
+// The first line declares the variable on the first bar only.
 // On successive bars, its value is thus preserved bar to bar, until it is assigned a new value.
-var float allTimeHigh = high
-allTimeHigh := max(allTimeHigh, high)
+var float allTimeHi = high
+allTimeHi := max(allTimeHi, high)
 
 // ————— Detect changes in the all-time high.
-bool newAllTimeHigh = change(allTimeHigh)
+bool newAllTimeHi = change(allTimeHi)
 
-plot(allTimeHigh)
-plotchar(newAllTimeHigh, "newAllTimeHigh", "•", location.top, size = size.tiny)
+plot(allTimeHi)
+plotchar(newAllTimeHi, "newAllTimeHi", "•", location.top, size = size.tiny)
 ```
 
 We first calculate the all-time high. We start by declaring the ``allTimeHigh`` variable as being of type "float", and assign it the value of the bar's ``high`` at bar zero. This line will no longer be executed after bar zero. When the script runs on each successive bar and on each realtime update of the feed, the variable is re-assigned with the maximum of either the variable's last value or the current bar's ``high``.
