@@ -15,11 +15,11 @@ The goal of these Coding Conventions is to present a set of best practices and s
 
 ### Table of Contents
 
-    - [Script Structure](#script-structure)
-    - [Naming Conventions](#naming-conventions)
-    - [Spacing](#spacing)
-    - [Line Wrapping](#line-wrapping)
-    - [Example Scripts](#example-scripts)
+- [Script Structure](#script-structure)
+- [Naming Conventions](#naming-conventions)
+- [Spacing](#spacing)
+- [Line Wrapping](#line-wrapping)
+- [Example Scripts](#example-scripts)
 
 
 <br>
@@ -36,13 +36,13 @@ The Pine compiler is not very strict on exact positioning of specific statements
 
 1. The next lines should contain the following sections, properly identified if they are long:
 
-- Constant initializations
-- Inputs
-- Functions
-- Calculations
-- Strategy calls (for strategies)
-- Plots
-- Alerts
+  - Constant initializations
+  - Inputs
+  - Functions
+  - Calculations
+  - Strategy calls (for strategies)
+  - Plots
+  - Alerts
 
 1. The following lines can contain **variable initializations** and **function definitions** in any order required. Note that all Pine functions must be defined in the script's global scope, as nested function definitions are not allowed. Concerning variable initializations, some scripts lend themselves to mass initializations and others will be more readable with an *initialize as you need* style that places initializations with the code segments where the variables are used. It's up to each coder to adopt the most useful style. Local block variables must be declared in the local block where they will be used.
 
