@@ -118,7 +118,7 @@ For large projects, you may find it useful to use prefixes for a few types of va
 
 - `i_` for variables initialized through `input()` calls.
 - `c_` for variables containing colors.
-- `p_` for variables used as `plot` or `hline` identifiers for use in `fill()` calls.
+- `p_` for variables used as `plot` or `hline` identifiers in [``fill()``](https://www.tradingview.com/pine-script-reference/v4/#fun_fill) calls.
 - All caps for constants, i.e., variables often initialized at the beginning of scripts whose value will not change during execution.
 
 
