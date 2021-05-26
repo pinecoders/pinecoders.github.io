@@ -792,7 +792,7 @@ f_print(tostring(days, "#.0 days\n") + tostring(bar_index + 1, "# bars"))
 ```
 
 ### How can I implement a time delay between orders?
-By saving the time when trades occur, and then determining, as bars elapse since the last order execution, if the required time delay has elapsed. The broker emulator doesn't notify a script when an order is executed, so we will detect their execution by monitoring changes in the [``strategy.position_size``](https://www.tradingview.com/pine-script-reference/v4/#var_strategy{dot}position_size) built-in variable. We will use our ``f_timeFrom()`` function, lifted from our [Time Offset Calculation Framework](https://www.tradingview.com/script/5mZ7hV66-Time-Offset-Calculation-Framework-PineCoders-FAQ/) publication to calculate time offsets:
+By saving the time when trades occur, and then determining, as bars elapse since the last order execution, if the required time delay has passed. The broker emulator doesn't notify a script when an order is executed, so we will detect their execution by monitoring changes in the [``strategy.position_size``](https://www.tradingview.com/pine-script-reference/v4/#var_strategy{dot}position_size) built-in variable. We will use our ``f_timeFrom()`` function, lifted from our [Time Offset Calculation Framework](https://www.tradingview.com/script/5mZ7hV66-Time-Offset-Calculation-Framework-PineCoders-FAQ/) publication to calculate time offsets:
 
 ```js
 //@version=4
