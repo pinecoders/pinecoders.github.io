@@ -1072,7 +1072,7 @@ The following three labels are all positioned on the chart's last bar:
 See [this example](https://www.tradingview.com/pine-script-docs/en/v4/essential/Tables.html#placing-a-single-value-in-a-fixed-position) in the Pine User Manual which use a table to do it.
 
 ### How can I keep only the last x labels or lines?
-The easiest way is to manage an array containing the ids of the labels or lines. We will manage the array in such a way that it emulates a queue, i.e., new ids come in from the end and each time a new id comes in, we remove one from the beginning of the array, which contains the oldest id. The technique is explained in the Pine User Manual's page on arrays, but we will use a function which allows us to save lines:
+The easiest way is to manage an array containing the ids of the labels or lines. We will manage the array in such a way that it emulates a queue, i.e., new ids come in from the end and each time a new id comes in, we remove one from the beginning of the array, which contains the oldest id. The technique is explained in the Pine User Manual's [page on arrays](https://www.tradingview.com/pine-script-docs/en/v4/essential/Arrays.html#using-an-array-as-a-queue), but we will use a function which allows us to save lines:
 
 ```js
 //@version=4
@@ -1109,32 +1109,7 @@ It's possible, but not trivial. See these two scripts:
 - [Periodic Ellipses](https://www.tradingview.com/script/ynUlUbP7-Periodic-Ellipses/) by alexgrover.
 
 ### How can I color the chart's background on a condition detected on the last bar?
-This code uses a very wide line to do it as this cannot be accomplished with `bgcolor()`. Because of that, the indicator is occupying all the background, so some chart functions like the measuring tool cannot be used with Shift-Click, but it will work if you select its tool explicitly.
-
-The position and width of the background can be modified through the script's *Inputs*.
-
-The background is very light. To change its brightness, you'll need to play with the transparency in the two `color.new()` calls, as it cannot be controlled from an input:
-
-```js
-//@version=4
-study("", "", true)
-
-period      = input(50,     "MA period", minval = 2)
-offstBg     = input(100,    "Background: Horizontal Offset to its Center", minval = 0, step = 5)
-lineWidth   = input(10000,  "Background: Width", minval = 0, step = 100)
-
-ma          = sma(close, period)
-condUp      = barstate.islast and close[1] > ma[1]
-condDn      = barstate.islast and close[1] < ma[1]
-c_lineColor = condUp ? color.new(color.green, 97) : condDn ? color.new(color.maroon, 97) : na
-
-if barstate.islast
-    var line bg = na
-    line.delete(bg)
-    bg := line.new(bar_index[offstBg], low - tr, bar_index[offstBg], high + tr, color = c_lineColor, extend = extend.both, width = lineWidth)
-
-plot(ma)
-```
+See this example in the Pine User Manual's [page on tables](https://www.tradingview.com/pine-script-docs/en/v4/essential/Tables.html#coloring-the-chart-s-background).
 
 **[Back to top](#table-of-contents)**
 
