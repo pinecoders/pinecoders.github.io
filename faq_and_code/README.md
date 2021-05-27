@@ -1104,9 +1104,14 @@ label.delete(f_qDq(myLabels, label.new(bar_index, high, tostring(high), style = 
 ```
 
 ### Is it possible to draw geometric shapes?
-It's possible, but not trivial. See these two scripts:
+Yes it's possible. See these examples:
 - [[RS]Function - Geometric Line Drawings](https://www.tradingview.com/script/KhKqjR0J-RS-Function-Geometric-Line-Drawings/) by RicardoSantos.
 - [Periodic Ellipses](https://www.tradingview.com/script/ynUlUbP7-Periodic-Ellipses/) by alexgrover.
+- [Euler Cubes - Cubᵋ](https://www.tradingview.com/script/eIs1vcDX-Golden-ratio-Cubes-GoRaC/) by fikira.
+- [Penrose Diagram](https://www.tradingview.com/script/N8flt7gC-Penrose-Diagram/) by DayTradingOil.
+- [Speedometer Toolbox](https://www.tradingview.com/script/1T498Yog-Speedometer-Toolbox/) by rumpypumpydumpy.
+- [Auto Fib Speed Resistance Fans by DGT](https://www.tradingview.com/script/FnxXRrPG-Auto-Pitchfork-Fib-Retracement-and-Zig-Zag-by-DGT/) by dgtrd.
+
 
 ### How can I color the chart's background on a condition detected on the last bar?
 See this example in the Pine User Manual's [page on tables](https://www.tradingview.com/pine-script-docs/en/v4/essential/Tables.html#coloring-the-chart-s-background).
