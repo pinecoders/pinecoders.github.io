@@ -1069,136 +1069,38 @@ The following three labels are all positioned on the chart's last bar:
 ![.](https://www.tradingview.com/x/LitxmLuO/ "label text positioning")
 
 ### How can I print a value at the top right of the chart?
-We will use a label to print our value. Labels however, require positioning relative to the symbol's price scale, which is by definition fluid. The technique we use here is to create an indicator running in "No Scale" space, and then create an artificially large internal scale for it by using the `plotchar()` call which doesn't print anything. We then print the label at the top of that large scale, which does not affect the main chart display because the indicator is running in a separate scale.
-
-Also note that we take care to only print the label on the last bar of the chart, which results in much more efficient code than if we deleted and re-created a label on every bar of the chart, as would be the case if the `if barstate.islast` condition didn't restrict calls to our `f_print()` label-creating function.
-```js
-//@version=4
-//@author=LucF, for PineCoders
-// Indicator needs to be on "no scale".
-study("Daily ATR", "", true, scale = scale.none)
-atrLength = input(14)
-barsRight = input(5)
-// Produces a string format usable with `tostring()` to restrict precision to ticks.
-f_tickFormat() =>
-    _s = tostring(syminfo.mintick)
-    _s := str.replace_all(_s, "25", "00")
-    _s := str.replace_all(_s, "5",  "0")
-    _s := str.replace_all(_s, "1",  "0")
-// Plot invisible value to give a large upper scale to indie space.
-plotchar(10e10, "", "")
-// Fetch daily ATR. We want the current daily value so we use a repainting security() call.
-dAtr = security(syminfo.tickerid, "D", atr(atrLength))
-// Label-creating function puts label at the top of the large scale.
-f_print(_txt) => t = time + (time - time[1]) * 3, var _lbl = label.new(t, high, _txt, xloc.bar_time, yloc.price, #00000000, label.style_none, color.gray, size.large), label.set_xy(_lbl, t, high + 3 * tr), label.set_text(_lbl, _txt)
-// Print value on last bar only, so code runs faster.
-if barstate.islast
-    f_print(tostring(dAtr, f_tickFormat()))
-```
+See [this example](https://www.tradingview.com/pine-script-docs/en/v4/essential/Tables.html#placing-a-single-value-in-a-fixed-position) in the Pine User Manual which use a table to do it.
 
 ### How can I keep only the last x labels or lines?
-The first thing required is to maintain a series containing the ids of the labels or lines as they are created. This is accomplished by assigning the returning value of the `label.new()` or `line.new()` function to a variable. This creates a series with value `na` if no label or line was created from that bar, and with a value of type *label* or *line* when an element is created.
+The easiest way is to manage an array containing the ids of the labels or lines. We will manage the array in such a way that it emulates a queue, i.e., new ids come in from the end and each time a new id comes in, we remove one from the beginning of the array, which contains the oldest id. The technique is explained in the Pine User Manual's page on arrays, but we will use a function which allows us to save lines:
 
-The next step will be to run a loop going back into the past from the current bar, jumping over a preset number of labels or lines and deleting all those following that, all the while doing nothing when an `na` value is found since this means no label or line was created on that bar.
-
-This first example illustrates the technique using labels:
 ```js
 //@version=4
-//@author=LucF, for PineCoders
-maxBarsBack = 2000
-study("Keep last x labels", "", true, max_bars_back = maxBarsBack)
-keepLastLabels = input(5, "Last labels to keep")
 
-// ————— Label-creating condition: when close is above ma.
-ma = sma(close,30)
-var aboveMa = false
-aboveMa := crossover(close, ma) or (aboveMa and not crossunder(close, ma))
+// We decide on an arbitray maximum of 100 labels. It could be as high as 500.
+var int MAX_LABELS = 100
 
-// ————— Count number of bars since last crossover to show it on label.
-var barCount = 0
-barCount := aboveMa ? not aboveMa[1] ? 1 : barCount + 1 : 0
+// Use the MAX_LABELS as the argument to `max_labels_count` because the default value would be 50 otherwise.
+study("", "", true, max_labels_count = MAX_LABELS)
 
-// ————— Create labels while keeping a trail of label ids in series "lbl".
-// This is how we will later identify the bars where a label exist.
-label lbl = na
-if aboveMa
-    lbl := label.new(bar_index, high, tostring(barCount), xloc.bar_index, yloc.price, size = size.small)
+// Get required number of historical labels to preserve, using our constant to limit its value. If user chooses 0, no labels will display.
+int i_qtyLabels = input(50, "Quantity of last labels to show", minval = 0, maxval = MAX_LABELS)
 
-// ————— Delete all required labels.
-// Loop from previous bar into the past, looking for bars where a label was created.
-// Delete all labels found in last "maxBarsBack" bars after the required count has been left intact.
-lblCount = 0
-for i = 1 to maxBarsBack
-    if not na(lbl[i])
-        // We have identified a bar where a label was created.
-        lblCount := lblCount + 1
-        if lblCount > keepLastLabels
-            // We have saved the required count of labels; delete this one.
-            label.delete(lbl[i])
+// ————— Queues a new element in an array and de-queues its first element.
+f_qDq(_array, _val) =>
+    array.push(_array, _val)
+    _return = array.shift(_array)
 
-plot(ma)
-```
+// Create an array of label ids once. Use the user-selected quantity to determine its size.
+var label[] myLabels = array.new_label(i_qtyLabels)
 
-The second example illustrates the technique using lines:
-```js
-//@version=4
-//@author=LucF, for PineCoders
-maxBarsBack = 2000
-study("Keep last x lines", "", true, max_bars_back = maxBarsBack)
-
-// On crossovers/crossunders of these MAs we will be recording the hi/lo reched until opposite cross.
-// We will then use these hi/los to draw lines in the past.
-ma1 = sma(close, 20)
-ma2 = sma(close, 100)
-
-// ————— Build lines.
-// Highest/lowest hi/lo during up/dn trend.
-var hi = 10e-10
-var lo = 10e10
-// Bar index of highest/lowest hi/lo.
-var hiBar = 0
-var loBar = 0
-// Crosses.
-crossUp = crossover(ma1, ma2)
-crossDn = crossunder(ma1, ma2)
-upTrend = ma1 > ma2
-
-// Draw line in past when a cross occurs.
-line lin = na
-if crossUp or crossDn
-    lin := line.new(bar_index[bar_index - hiBar], high[bar_index - hiBar], bar_index[bar_index - loBar], low[bar_index - loBar], xloc.bar_index, extend.none, color.black)
-
-// Reset hi/lo and bar index on crosses.
-if crossUp
-    hi := high
-    hiBar := bar_index
-else
-    if crossDn
-        lo := low
-        loBar := bar_index
-
-// Update higher/lower hi/lo during trend.
-if upTrend and high > hi
-    hi := high
-    hiBar := bar_index
-else
-    if not upTrend and low < lo
-        lo := low
-        loBar := bar_index
-
-plot(ma1, "MA1", color.aqua, 1)
-plot(ma2, "MA2", color.orange, 1)
-
-// ————— Delete all required lines.
-// Loop from previous bar into the past, looking for bars where a line was created.
-// Delete all lines found in last "maxBarsBack" bars after the required count has been left intact.
-keepLastLines = input(5)
-lineCount = 0
-for i = 1 to maxBarsBack
-    if not na(lin[i])
-        lineCount := lineCount + 1
-        if lineCount > keepLastLines
-            line.delete(lin[i])
+// On each bar:
+//      1. Create a new label.
+//      2. Add its id to the end of the `myLabels` array.
+//      3. Remove the oldest label id from the array's beginning and return its id.
+//      4. Delete the label corresponding to that id.
+// Note that on early bars, until the array fills to capacity, we will be deleting ids with `na` values, but that doesn't generate runtime errors.
+label.delete(f_qDq(myLabels, label.new(bar_index, high, tostring(high), style = label.style_label_down, color = color(na))))
 ```
 
 ### Is it possible to draw geometric shapes?
