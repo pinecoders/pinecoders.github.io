@@ -1001,21 +1001,6 @@ showHline = input(true)
 hline(50, color = showHline ? color.blue : #00000000)
 ```
 
-### How can I lift `plotshape()` text up?
-You will need to use `\n` followed by a special non-printing character that doesn't get stripped out. Here we're using U+200E. While you don't see it in the following code's strings, it is there and can be copy/pasted. The special Unicode character needs to be the last one in the string for text going up, and the first one when you are plotting under the bar and text is going down:
-```
-//@version=4
-study("Lift text", "", true)
-// Use U+200E (Decimal 8206) as a non-printing space after the last "\n".
-// The line will become difficult to edit in the editor, but the character will be there.
-// You can use https://unicode-table.com/en/tools/generator/ to generate a copy/pastable character.
-plotshape(true, "", shape.arrowup,      location.abovebar, color.green,     text="A")
-plotshape(true, "", shape.arrowup,      location.abovebar, color.lime,      text="B\n‎")
-plotshape(true, "", shape.arrowdown,    location.belowbar, color.red,       text="C")
-plotshape(true, "", shape.arrowdown,    location.belowbar, color.maroon,    text="‎\nD")
-```
-![.](https://www.tradingview.com/x/MMMFiRZI/ "Lift text up with plotshape()")
-
 ### How can I plot color gradients?
 There are no built-in functions to generate color gradients in Pine yet. Gradients progressing horizontally across bars are much easier to implement and run faster. These are a few examples:
 
@@ -1077,23 +1062,52 @@ You can display text using one of the following methods:
 
 The [``plotchar()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotchar) or [``plotshape()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotshape) functions are useful to display fixed text on bars. There is no limit to the number of bars you may use those functions on, but you cannot decide at runtime which text to print. One [``plotchar()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotchar) call can print only one character on a bar. Using [``plotshape()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotshape)'s ``text`` parameter, you can plot a string.
 
+```js
+//@version=4
+study("", "", true)
+bool barUp = close > open
+bool barDn = close < open
+plotchar(barUp, "Up", "▲", location.top, size = size.tiny)
+plotchar(barDn, "Down", "▼", location.bottom, size = size.tiny)
+```
+
+We need two distinct calls here because the argument to the ``call``parameter in [``plotchar()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotchar) must be of "input string" type, which means it can be determined by an input, but not calculated dynamically at runtime. This for example, would not work:
+
+```js
+plotchar(barUp or barDn, "Up/Down", barUp ? "▲" : "▼", location.top, size = size.tiny)
+```
+
 Labels are useful when the text you want to display needs to vary from bar to bar. They are required when, for example, you want to print values on the chart such as pivot levels, which cannot be known before the script executes. There is a limit to the number of labels that can be displayed by a script. By default, it is approximately the 50 latest labels drawn by the script. You can increase that value up to 500 using the ``max_labels_count`` parameter of [``study()``](https://www.tradingview.com/pine-script-reference/v4/#fun_study) or [``strategy()``](https://www.tradingview.com/pine-script-reference/v4/#fun_strategy).
 
-Tables are useful to display text that *floats" in a fixed position of the indicator's visual space, untethered to chart bars.
+This shows how you can use labels to display more or less the equivalent of our first example using labels. Notice how we can now determine both the label's text and position at runtime, so using "series string" arguments:
+
+```js
+//@version=4
+study("", "", true)
+bool barUp = close > open
+bool barDn = close < open
+label.new(bar_index, na, barUp ? "▲" : "▼", yloc = barUp ? yloc.belowbar : yloc.abovebar, color = na, textcolor = color.blue)
+```
+
+Tables are useful to display text that *floats* in a fixed position of the indicator's visual space, untethered to chart bars.
 
 
+### How can I lift `plotshape()` text up?
+You will need to use `\n` followed by a special non-printing character that doesn't get stripped out. Here we're using U+200E. While you don't see it in the following code's strings, it is there and can be copy/pasted. The special Unicode character needs to be the last one in the string for text going up, and the first one when you are plotting under the bar and text is going down:
 
+```js
+//@version=4
+study("Lift text", "", true)
+// Use U+200E (Decimal 8206) as a non-printing space after the last "\n".
+// The line will become difficult to edit in the editor, but the character will be there.
+// You can use https://unicode-table.com/en/tools/generator/ to generate a copy/pastable character.
+plotshape(true, "", shape.arrowup,      location.abovebar, color.green,     text="A")
+plotshape(true, "", shape.arrowup,      location.abovebar, color.lime,      text="B\n‎")
+plotshape(true, "", shape.arrowdown,    location.belowbar, color.red,       text="C")
+plotshape(true, "", shape.arrowdown,    location.belowbar, color.maroon,    text="‎\nD")
+```
+![.](https://www.tradingview.com/x/MMMFiRZI/ "Lift text up with plotshape()")
 
-
-
-
-
-<br><br>
-## LABELS AND LINES
-
-
-### How can I draw lines or labels into the future?
-For this, you will need to use `xloc = xloc.bar_time` in `label.new()` or `line.new()` because the default is `xloc = xloc.bar_index`, which does not allow positioning drawings in the future. See our [Time Offset Calculation Framework](https://www.tradingview.com/script/5mZ7hV66-Time-Offset-Calculation-Framework-PineCoders-FAQ/) for functions that will help you with this.
 
 ### How can I position text on either side of a single bar?
 By choosing label styles like `style = label.style_label_left` we can determine on which side of the bar the label is positioned. Note that since the "left"/"right" in there specifies the pointer's position, "left" has the side effect of positioning the label on the **right** side of the bar. The text's alignment in the label can be controlled using `textalign = text.align_right`, and finally, we can make the label's background color transparent so we display only the text:
@@ -1109,8 +1123,23 @@ The following three labels are all positioned on the chart's last bar:
 
 ![.](https://www.tradingview.com/x/LitxmLuO/ "label text positioning")
 
+
 ### How can I print a value at the top right of the chart?
 See [this example](https://www.tradingview.com/pine-script-docs/en/v4/essential/Tables.html#placing-a-single-value-in-a-fixed-position) in the Pine User Manual which use a table to do it.
+
+
+
+
+
+
+
+
+<br><br>
+## LABELS AND LINES
+
+
+### How can I draw lines or labels into the future?
+For this, you will need to use `xloc = xloc.bar_time` in `label.new()` or `line.new()` because the default is `xloc = xloc.bar_index`, which does not allow positioning drawings in the future. See our [Time Offset Calculation Framework](https://www.tradingview.com/script/5mZ7hV66-Time-Offset-Calculation-Framework-PineCoders-FAQ/) for functions that will help you with this.
 
 ### How can I keep only the last x labels or lines?
 The easiest way is to manage an array containing the ids of the labels or lines. We will manage the array in such a way that it emulates a queue, i.e., new ids come in from the end and each time a new id comes in, we remove one from the beginning of the array, which contains the oldest id. The technique is explained in the Pine User Manual's [page on arrays](https://www.tradingview.com/pine-script-docs/en/v4/essential/Arrays.html#using-an-array-as-a-queue), but we will use a function which allows us to save lines:
