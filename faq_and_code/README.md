@@ -1071,9 +1071,15 @@ If you need to round a numeric value to ticks without converting it to a string,
 ### How can I place text on chart?
 You can display text using one of the following methods:
 
-- The [``plotchar()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotchar) or [``plotshape()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotshape) functions
-- [Labels](https://www.tradingview.com/pine-script-docs/en/v4/essential/Drawings.html)
+- The [``plotchar()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotchar) or [``plotshape()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotshape) functions.
+- [Labels](https://www.tradingview.com/pine-script-docs/en/v4/essential/Drawings.html), when you need to display dynamic text that may v
 - [Tables](https://www.tradingview.com/pine-script-docs/en/v4/essential/Tables.html)
+
+The [``plotchar()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotchar) or [``plotshape()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotshape) functions are useful to display fixed text on bars. There is no limit to the number of bars you may use those functions on, but you cannot decide at runtime which text to print. One [``plotchar()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotchar) call can print only one character on a bar. Using [``plotshape()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotshape)'s ``text`` parameter, you can plot a string.
+
+Labels are useful when the text you want to display needs to vary from bar to bar. They are required when, for example, you want to print values on the chart such as pivot levels, which cannot be known before the script executes. There is a limit to the number of labels that can be displayed by a script. By default, it is approximately the 50 latest labels drawn by the script. You can increase that value up to 500 using the ``max_labels_count`` parameter of [``study()``](https://www.tradingview.com/pine-script-reference/v4/#fun_study) or [``strategy()``](https://www.tradingview.com/pine-script-reference/v4/#fun_strategy).
+
+Tables are useful to display text that *floats" in a fixed position of the indicator's visual space, untethered to chart bars.
 
 
 
