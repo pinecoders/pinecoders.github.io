@@ -1060,7 +1060,7 @@ You can display text using one of the following methods:
 - [Labels](https://www.tradingview.com/pine-script-docs/en/v4/essential/Drawings.html), when you need to display dynamic text that may v
 - [Tables](https://www.tradingview.com/pine-script-docs/en/v4/essential/Tables.html)
 
-The [``plotchar()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotchar) or [``plotshape()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotshape) functions are useful to display fixed text on bars. There is no limit to the number of bars you may use those functions on, but you cannot decide at runtime which text to print. One [``plotchar()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotchar) call can print only one character on a bar. Using [``plotshape()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotshape)'s ``text`` parameter, you can plot a string.
+The [``plotchar()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotchar) or [``plotshape()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotshape) functions are useful to display fixed text on bars. There is no limit to the number of bars you may use those functions on, but you cannot decide at runtime which text to print. One [``plotchar()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotchar) call can print only one character on a bar. Using [``plotshape()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotshape)'s ``text`` parameter, you can plot a string. When you want to print two different characters on bars depending on a condition that can only be evaluated at runtime, you must use two distinct calls, each one printing on a different condition:
 
 ```js
 //@version=4
@@ -1071,7 +1071,7 @@ plotchar(barUp, "Up", "▲", location.top, size = size.tiny)
 plotchar(barDn, "Down", "▼", location.bottom, size = size.tiny)
 ```
 
-We need two distinct calls here because the argument to the ``call``parameter in [``plotchar()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotchar) must be of "input string" type, which means it can be determined by an input, but not calculated dynamically at runtime. This for example, would not work:
+We need two distinct calls here because the argument to the ``char``parameter in [``plotchar()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotchar) must be of "input string" type, which means it can be determined by an input, but not calculated dynamically at runtime. This for example, would not work:
 
 ```js
 plotchar(barUp or barDn, "Up/Down", barUp ? "▲" : "▼", location.top, size = size.tiny)
