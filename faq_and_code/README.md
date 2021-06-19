@@ -1127,6 +1127,9 @@ The following three labels are all positioned on the chart's last bar:
 ### How can I print a value at the top right of the chart?
 See [this example](https://www.tradingview.com/pine-script-docs/en/v4/essential/Tables.html#placing-a-single-value-in-a-fixed-position) in the Pine User Manual which use a table to do it.
 
+**[Back to top](#table-of-contents)**
+
+
 
 
 
