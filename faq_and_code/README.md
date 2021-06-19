@@ -27,6 +27,7 @@ Do not make the mistake of assuming this is strictly beginner's material; some o
 - [Indicators (a.k.a. studies)](#indicators)
 - [Strategies](#strategies)
 - [Plotting](#plotting)
+- [Text](#text)
 - [Labels and Lines](#labels-and-lines)
 - [Arrays](#arrays)
 - [Time, dates and Sessions](#time-dates-and-sessions)
@@ -39,10 +40,12 @@ Do not make the mistake of assuming this is strictly beginner's material; some o
 
 
 
+
+
+
+
 <br><br>
 ## BUILT-IN VARIABLES
-
-
 
 
 ### What is the variable name for the current price? 
@@ -142,10 +145,12 @@ bgcolor(o != open or h != high or l != low or c != close ? color.red : na)
 
 
 
+
+
+
+
 <br><br>
 ## BUILT-IN FUNCTIONS
-
-
 
 
 ### How can I work with arrays in Pine?
@@ -250,10 +255,12 @@ bgcolor(upVwap != upVwap2 ? color.silver : na)
 
 
 
+
+
+
+
 <br><br>
 ## OPERATORS
-
-
 
 
 ### What's the difference between `==`, `=` and `:=`?
@@ -385,10 +392,12 @@ bgcolor(error ? color.red : na)
 
 
 
+
+
+
+
 <br><br>
 ## MATH
-
-
 
 
 ### How can I round a number to *x* increments?
@@ -465,10 +474,12 @@ See the [Filter Information Box - PineCoders FAQ](https://www.tradingview.com/sc
 
 
 
+
+
+
+
 <br><br>
 ## INDICATORS
-
-
 
 
 ### Can I use a Pine script with the TradingView screener?
@@ -501,10 +512,12 @@ The only thing that can be changed on the chart from within a pane is the color 
 
 
 
+
+
+
+
 <br><br>
 ## STRATEGIES
-
-
 
 
 ### Why are my orders executed on the bar following my triggers?
@@ -871,10 +884,12 @@ plotchar(strategy.position_avg_price, "strategy.position_avg_price", "", locatio
 
 
 
+
+
+
+
 <br><br>
 ## PLOTTING
-
-
 
 
 ### Why can't I use a plot in an `if` or `for` statement?
@@ -1045,10 +1060,30 @@ If you need to round a numeric value to ticks without converting it to a string,
 
 
 
+
+
+
+
+<br><br>
+## TEXT
+
+
+### How can I place text on chart?
+You can display text using one of the following methods:
+
+- The [``plotchar()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotchar) or [``plotshape()``](https://www.tradingview.com/pine-script-reference/v4/#fun_plotshape) functions
+- [Labels](https://www.tradingview.com/pine-script-docs/en/v4/essential/Drawings.html)
+- [Tables](https://www.tradingview.com/pine-script-docs/en/v4/essential/Tables.html)
+
+
+
+
+
+
+
+
 <br><br>
 ## LABELS AND LINES
-
-
 
 
 ### How can I draw lines or labels into the future?
@@ -1121,11 +1156,12 @@ See this example in the Pine User Manual's [page on tables](https://www.tradingv
 
 
 
+
+
+
+
 <br><br>
 ## ARRAYS
-
-
-
 
 ### How can I split a string into characters?
 It can be done using [`str.split()`](https://www.tradingview.com/pine-script-reference/v4/#fun_str{dot}split) and an empty string argument for the `separator` parameter. 
@@ -1145,10 +1181,12 @@ f_print("arrayOfCharacters: " + tostring(arrayOfCharacters))
 
 
 
+
+
+
+
 <br><br>
 ## TIME, DATES AND SESSIONS
-
-
 
 
 ### How can I get the time of the first bar in the dataset?
@@ -1440,10 +1478,12 @@ To time the duration of an event, we would need to detect its beginning, save th
 
 
 
+
+
+
+
 <br><br>
 ## OTHER TIMEFRAMES (MTF)
-
-
 
 
 If you work with data from other timeframes, you will be using the [``security()``](https://www.tradingview.com/pine-script-reference/v4/#fun_security) function and will typically require your script to provide a way to select the higher timeframe it will fetch data from. The PineCoders [MTF Selection Framework](https://www.tradingview.com/script/90mqACUV-MTF-Selection-Framework-PineCoders-FAQ/) provides a set of functions to do that.
@@ -1664,10 +1704,12 @@ f_print(tostring(atrHtf, f_tickFormat()))
 
 
 
+
+
+
+
 <br><br>
 ## ALERTS
-
-
 
 
 See the [PineCoders Alert Creation Framework](https://www.tradingview.com/script/JpDlXzdD-Alert-Creation-Framework-PineCoders-FAQ/) script for alert-creating code.
@@ -1795,10 +1837,12 @@ You can use other pre-defined placeholders to include variable information in al
 
 
 
+
+
+
+
 <br><br>
 ## EDITOR
-
-
 
 
 ### How can I access the Pine code of the built-in indicators?
@@ -1816,10 +1860,12 @@ With the script open in the editor, choose the *Convert to v4* button at the upp
 
 
 
+
+
+
+
 <br><br>
 ## TECHNIQUES
-
-
 
 
 ### How do I save a value or state for later use?
@@ -2706,10 +2752,12 @@ plot(f_atl(), "ATL", color.purple)
 
 
 
+
+
+
+
 <br><br>
 ## DEBUGGING
-
-
 
 
 ### How can I examine the value of a string in my script?
