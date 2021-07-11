@@ -81,8 +81,9 @@ In this case, when `close == open`, `upBar` will be false and `dnBar` true.
 
 If you want to go one step further in defining what constitutes an up and down bar, you can use these functions. They are useful on smaller timeframes when price does not move during bars. Note that these functions taken together do not account for all possible situations, as none of them will return `true` when price does not move during a bar and the bar closes at the same level as the previous bar. These functions also use price values that are rounded to tick precision (see the following FAQ entry for the reasons why that can be useful):
 ```js
-f_ohlcRoundedToTick() => [round(open / syminfo.mintick) * syminfo.mintick, round(high / syminfo.mintick) * syminfo.mintick, round(low / syminfo.mintick) * syminfo.mintick, round(close / syminfo.mintick) * syminfo.mintick]
-[o, h, l, c] = f_ohlcRoundedToTick()
+f_roundedToTickOHLC() => 
+    [round_to_mintick(open), round_to_mintick(high), round_to_mintick(low), round_to_mintick(close)]
+[o, h, l, c] = f_roundedToTickOHLC()
 // ————— Function returning true when a bar is considered to be an up bar.
 f_barUp() => 
     // Dependencies: `o` and `c`, which are the open and close values rounded to tick precision.
