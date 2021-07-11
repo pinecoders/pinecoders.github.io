@@ -105,9 +105,8 @@ One solution is to force a rounding of OHLC built-ins and use the rounded values
 ```js
 //@version=4
 study("My Script", overlay = true, precision = 10)
-f_roundToTick( _price) => round(_price / syminfo.mintick) * syminfo.mintick
-o = f_roundToTick(open)
-c = f_roundToTick(close)
+o = round_to_mintick(open)
+c = round_to_mintick(close)
 bgcolor(o == c and open != close ? color.red : na)
 plotchar(o, "o", "", location.top, size = size.tiny)
 plotchar(c, "c", "", location.top, size = size.tiny)
@@ -118,15 +117,13 @@ plotchar(close, "close", "", location.top, size = size.tiny)
 
 You can also use this version of the function which returns rounded OHLC values in a single call:
 ```js
-// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
-// © PineCoders
- 
 //@version=4
-study("My Script", precision = 8)
-f_ohlcRoundedToTick() => [round(open / syminfo.mintick) * syminfo.mintick, round(high / syminfo.mintick) * syminfo.mintick, round(low / syminfo.mintick) * syminfo.mintick, round(close / syminfo.mintick) * syminfo.mintick]
+study("", precision = 8)
+f_roundedToTickOHLC() => 
+    [round_to_mintick(open), round_to_mintick(high), round_to_mintick(low), round_to_mintick(close)]
 f_color(_v1, _v2) => _v1 != _v2 ? color.red : color.blue
 
-[o, h, l, c] = f_ohlcRoundedToTick()
+[o, h, l, c] = f_roundedToTickOHLC()
 
 plotchar(o,     "o",     "", location.top, f_color(o, open))
 plotchar(open,  "open",  "", location.top, f_color(o, open))
