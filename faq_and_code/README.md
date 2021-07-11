@@ -53,6 +53,7 @@ The `close` variable holds both the price at the close of historical bars and th
 
 To access the close of the previous bar's close in Pine, use `close[1]`. In Pine, brackets are used as the [history-referencing operator](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator).
 
+
 ### What is the code for an up bar?
 ```js
 upBar = close > open
@@ -154,11 +155,13 @@ bgcolor(o != open or h != high or l != low or c != close ? color.red : na)
 ### How can I work with arrays in Pine?
 See the User Manual's [page on arrays](https://www.tradingview.com/pine-script-docs/en/v4/essential/Arrays.html).
 
+
 ### Can I use a variable length in functions?
 You can use a "series int" length (so a length that varies from bar to bar) in the following Pine functions: `alma()`, `bb()`, `bbw()`, `cci()`, `change()`, `cmo()`, `cog()`, `correlation()`, `dev()`, `falling()`, `highest()`, `highestbars()`, `linreg()`, `lowest()`, `lowestbars()`, `mfi()`, `mom()`, `percentile_linear_interpolation()`, `percentile_nearest_rank()`, `percentrank()`, `rising()`, `roc()`, `sma()`, `stdev()`, `stoch()`, `sum()`, `variance()`, `vwma()`, `wma()` and `wpr()`.
 
 The [Functions Allowing Series As Length](https://www.tradingview.com/script/kY5hhjA7-Functions-Allowing-Series-As-Length-PineCoders-FAQ/) script by 
 [alexgrover](https://www.tradingview.com/u/alexgrover/) provides versions of the `ema()`, `atr()`, `lsma()`, `variance()`, `covariance()`, `stdev()` and `correlation()` functions.
+
 
 ### How can I calculate values depending on variable lengths that reset on a condition?
 Such calculations typically use [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) to determine the number of bars elapsed since a condition occurs. When using variable lengths, you must pay attention to the following:
@@ -180,6 +183,7 @@ plotchar(cond, "cond", "•", location.top, size = size.tiny)
 // Display varying lookback period in Data Window.
 plotchar(lookback, "lookback", "", location.top, size = size.tiny)
 ```
+
 
 ### Why do some functions and built-ins evaluate incorrectly in ``if`` or ternary (``?``) blocks?
 An important change to the way conditional statement blocks are evaluated was introduced with v4 of Pine. Many coders are not aware of it or do not understand its implications. [This User Manual section](https://www.tradingview.com/pine-script-docs/en/v4/language/Functions_and_annotations.html#execution-of-pine-functions-and-historical-context-inside-function-blocks) explains the change and provides a list of [exceptions](https://www.tradingview.com/pine-script-docs/en/v4/language/Functions_and_annotations.html#exceptions) for functions/built-ins which are NOT affected by the constraints. We'll explain what's happening here, and how to avoid the problems caused by code that does not take the change into account.
@@ -276,6 +280,7 @@ a := 2
 plot(a == 0 ? 1 : 2, color = aqua)
 ```
 
+
 ### Can I use the `:=` operator to assign values to past values of a series?
 No. Past values in Pine series are read-only, as is the past in real life. Only the current bar instance (`variableName[0]`) of a series variable can be assigned a value, and when you do, the `[]` history-referencing operator must **not** be used—only the variable name.
 
@@ -284,6 +289,7 @@ What you can do is create a series with the values you require in it as the scri
 range = close > open ? close - open : 0.0
 ```
 In the previous example, we could determine the value to assign to the `range` series variable as we were going over each bar in the dataset because the condition used to assign values was known on that bar. Sometimes, you will only obtain enough information to identify the condition after a number of bars have elapsed. In such cases, a `for` loop must be used to go back in time and analyse past bars. This will be the case in situations where you want to identify fractals or pivots. See the [Pivots Points High/Low](https://www.tradingview.com/pine-script-docs/en/v4/essential/Drawings.html#pivot-points-high-low) from the User Manual, for example.
+
 
 ### Why do some logical expressions not evaluate as expected when na values are involved?
 Pine logical expressions have 3 possible values: `true`, `false` and `na`. Whenever an `na` value is used in a logical expression, the result of the logical expression will be na. Thus, contrary to what could be expected, `na == na`, `na == true`, `na == false` or `na != true` all evaluate to `na`. Furthermore, when a logical expression evaluates to `na`, the false branch of a conditional statement will be executed. This may lead to unexpected behavior and entails that special cases must be accounted for if you want your code to handle all possible logical expression results according to your expectations.
@@ -413,11 +419,14 @@ plot(f_roundTo(i_val, i_to))
 plot(f_roundTo(close, i_to))
 ```
 
+
 ### How can I control the number of decimals used in displaying my script's values?
 Rounding behavior in displayed values is controlled by the combination of your script's `precision=` and `format=` arguments in its `study()` or `strategy()` declaration statement. See the [Reference](https://www.tradingview.com/pine-script-reference/v4/#fun_study) and [User Manual](https://www.tradingview.com/pine-script-docs/en/v4/annotations/study_annotation.html?highlight=format) on the subject. The default will use the precision of the price scale. To increase it, you will need to specify a `precision=` argument greater than that of the price scale.
 
+
 ### How can I control the precision of values used in my calculations?
 You can use the [`round(number, precision)`](https://www.tradingview.com/pine-script-reference/v4/#fun_round) form of `round()` to round values. You can also round values to tick precision using our function from [this entry](https://www.pinecoders.com/faq_and_code/#how-can-i-round-to-ticks).
+
 
 ### How can I round down the number of decimals of a value?
 This function allows you to truncate the number of decimal places of a float value. `f_roundDown(1.218, 2)` will yield "1.21", and `f_roundDown(-1.218, 2)` will yield "-1.22":
@@ -427,8 +436,41 @@ f_roundDown(_number, _decimals) =>
 ```
 Thanks to [Daveatt](https://www.tradingview.com/u/Daveatt/#published-scripts) for the function.
 
+
 ### How can I round to ticks?
 Use [``round_to_mintick()``](round_to_mintick). If you need to round a string representation of a number, use [``tostring(x, format.mintick)``](https://www.tradingview.com/pine-script-reference/v4/#fun_tostring).
+
+
+### How can I abbreviate large values?
+To abbreviate large values like volume (e.g., 1,222,333.0 ► "1.222M"), you can:
+1. Use `format = format.volume` parameter in `study()` or `strategy()`. This affects all values displayed by the script.
+1. Use [``tostring(x, format.volume)``](https://www.tradingview.com/pine-script-reference/v4/#fun_tostring) to abbreviate specific values.
+1. Use a function such as this `f_abbreviateValue(_v, _precision)`, which allows you to specify a custom precision, abbreviates up to trillions, and provides subtle spacing between the value and the letter denoting the magnitude:
+
+```js
+//@version=4
+study("")
+// ————— Function to format large values.
+f_abbreviateValue(_v, _precision) =>    // Thx Alex P.!
+    // float _v         : value to format.
+    // string _precision: format suffix for precision ("" for none, ".00" for two digits, etc.)
+    float _digits = log10(abs(_v))
+    string _precisionFormat = "#" + _precision
+    string _return = if _digits > 12
+        tostring(_v / 1e12, _precisionFormat + "  T")
+    else if _digits > 9
+        tostring(_v / 1e9,  _precisionFormat + "  B")
+    else if _digits > 6
+        tostring(_v / 1e6,  _precisionFormat + "  M")
+    else if _digits > 3
+        tostring(_v / 1e3,  _precisionFormat + "  K")
+    else
+        tostring(_v,  "#" + _precisionFormat)
+
+f_print(_text) => var table _t = table.new(position.middle_right, 1, 1), table.cell(_t, 0, 0, _text, bgcolor = color.yellow)
+f_print(f_abbreviateValue(volume, ".00"))
+```
+
 
 ### How can I calculate using pips?
 Use this function to return the correct pip value for pips on Forex symbols:
@@ -436,17 +478,21 @@ Use this function to return the correct pip value for pips on Forex symbols:
 pip() => syminfo.mintick * (syminfo.type == "forex" ? 10 : 1)
 ```
 
+
 ### How do I calculate averages?
 1. If the values you need to average are in distinct variables, you can use [`avg(val1, val2)`](https://www.tradingview.com/pine-script-reference/v4/#fun_avg) with up to ten values.
 1. If you need the average between a single bar's prices, see [`hl2`](https://www.tradingview.com/pine-script-reference/v4/#var_hl2), [`hlc3`](https://www.tradingview.com/pine-script-reference/v4/#var_hlc3) and [`ohlc4`](https://www.tradingview.com/pine-script-reference/v4/#var_ohlc4). 
 1. To average the last *n* values in a series, you can use [`sma(series, n)`](https://www.tradingview.com/pine-script-reference/v4/#fun_sma).
 1. Finally, you can also use an array to build a custom set of values and then use [``array.avg()``](https://www.tradingview.com/pine-script-reference/v4/#fun_array{dot}avg) to average them. See the [Pine User Manual on arrays](https://www.tradingview.com/pine-script-docs/en/v4/essential/Arrays.html#calculations-on-arrays) for more information.
 
+
 ### How can I calculate an average only when a certain condition is true?
 [This script](https://www.tradingview.com/script/isSfahiX-Averages-PineCoders-FAQ/) shows how to calculate a conditional average using three different methods.
 
+
 ### How can I generate a random number?
 See [``random()``](https://www.tradingview.com/pine-script-reference/v4/#fun_random).
+
 
 ### How can I evaluate a filter I am planning to use?
 See the [Filter Information Box - PineCoders FAQ](https://www.tradingview.com/script/oTEP9DJF-Filter-Information-Box-PineCoders-FAQ/#tc3370225) script by [alexgrover](https://www.tradingview.com/u/alexgrover/#published-scripts). You can add your filter code to it; the script will then evaluate its impulse response and display your filter's characteristics.
