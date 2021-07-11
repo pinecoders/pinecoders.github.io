@@ -430,10 +430,7 @@ f_roundDown(_number, _decimals) =>
 Thanks to [Daveatt](https://www.tradingview.com/u/Daveatt/#published-scripts) for the function.
 
 ### How can I round to ticks?
-```js
-f_roundToTick( _price) => round(_price / syminfo.mintick) * syminfo.mintick
-```
-If you need to round a string representation of a number converted with `tostring()` to ticks for use in a label, see [this FAQ entry](https://www.pinecoders.com/faq_and_code/#how-can-i-format-values-to-tick-precision-with-tostring).
+Use [``round_to_mintick()``](round_to_mintick). If you need to round a string representation of a number, use [``tostring(x, format.mintick)``](https://www.tradingview.com/pine-script-reference/v4/#fun_tostring).
 
 ### How can I calculate using pips?
 Use this function to return the correct pip value for pips on Forex symbols:
@@ -442,29 +439,16 @@ pip() => syminfo.mintick * (syminfo.type == "forex" ? 10 : 1)
 ```
 
 ### How do I calculate averages?
-1. If you just want the average between two values, you can use `avg(val1, val2)` or `(val1 + val2)/2`. Note that [`avg()`](https://www.tradingview.com/pine-script-reference/v4/#fun_avg) accepts up to 10 values.
-1. To average the last x values in a series, you can use `sma(series, x)`.
+1. If the values you need to average are in distinct variables, you can use [`avg(val1, val2)`](https://www.tradingview.com/pine-script-reference/v4/#fun_avg) with up to ten values.
+1. If you need the average between a single bar's prices, see [`hl2`](https://www.tradingview.com/pine-script-reference/v4/#var_hl2), [`hlc3`](https://www.tradingview.com/pine-script-reference/v4/#var_hlc3) and [`ohlc4`](https://www.tradingview.com/pine-script-reference/v4/#var_ohlc4). 
+1. To average the last *n* values in a series, you can use [`sma(series, n)`](https://www.tradingview.com/pine-script-reference/v4/#fun_sma).
+1. Finally, you can also use an array to build a custom set of values and then use [``array.avg()``](https://www.tradingview.com/pine-script-reference/v4/#fun_array{dot}avg) to average them. See the [Pine User Manual on arrays](https://www.tradingview.com/pine-script-docs/en/v4/essential/Arrays.html#calculations-on-arrays) for more information.
 
 ### How can I calculate an average only when a certain condition is true?
 [This script](https://www.tradingview.com/script/isSfahiX-Averages-PineCoders-FAQ/) shows how to calculate a conditional average using three different methods.
 
 ### How can I generate a random number?
-Because Pine scripts do not have direct access to the hardware timer it is impossible to create a real random number generator. This function gives authors the closest thing. It will generate a different seed every time the script is first run in *uncached* mode on a symbol/timeframe, which occurs when it runs the first time after a browser refresh or because the script is saved from the Editor.
-
-The function uses the fact that the [`timenow`](https://www.tradingview.com/pine-script-reference/v4/#var_timenow) built-in, which returns the current time, will be different on the first bar of a script for each *first execution* of the script. Because of the caching mechanism in the Pine runtime, this value will not change if you run the script once on a symbol/TF, change TF and return to the original TF.
-
-The function allows a range to be specified. Credits to RicardoSantos for the [original code](https://www.tradingview.com/script/EgKBHFnb-RS-Function-Functions-to-generate-Random-values/).
-
-```js
-//@version=4
-study("Seeded Randomizer")
-f_random_number(_range) =>
-    var _return = 1.0 + timenow
-    _return := (3.14159 * _return % (bar_index + 1)) % _range
-
-r = f_random_number(100)
-plot(r, style = plot.style_circles)
-```
+See [``random()``](https://www.tradingview.com/pine-script-reference/v4/#fun_random).
 
 ### How can I evaluate a filter I am planning to use?
 See the [Filter Information Box - PineCoders FAQ](https://www.tradingview.com/script/oTEP9DJF-Filter-Information-Box-PineCoders-FAQ/#tc3370225) script by [alexgrover](https://www.tradingview.com/u/alexgrover/#published-scripts). You can add your filter code to it; the script will then evaluate its impulse response and display your filter's characteristics.
@@ -957,6 +941,7 @@ plotchar(startEvent, "startEvent", "►", color = color.green, size=size.tiny)
 plotchar(endEvent, "endEvent", "◄", color = color.red, size=size.tiny, location = location.belowbar)
 ```
 
+
 ### How do I plot a support or a trend line?
 To plot a continuous line in Pine, you need to either:
 1. Look back into elapsed bars to find an occurrence that will return the same value over consecutive bars so you can plot it, or
@@ -968,10 +953,12 @@ These are other examples:
 - [Auto-Support v 0.2 by jamc](https://www.tradingview.com/script/hBrQx1tG-Auto-Support-v-0-2/)
 - [S/R Barry by likebike](https://www.tradingview.com/script/EHqtQi2g-S-R-Barry/)
 
+
 ### How can I use colors in my indicator plots?
 - See [Working with colours](https://kodify.net/tradingview/colours/) by Kodify.
 - Our Resources document has a list of [color pickers](https://www.pinecoders.com/resources/#color-pickers-or-palettes) to help you choose colors.
 - [midtownsk8rguy](https://www.tradingview.com/u/midtownsk8rguy/#published-scripts) has a complete set of custom colors in [Pine Color Magic and Chart Theme Simulator](https://www.tradingview.com/script/yyDYIrRQ-Pine-Color-Magic-and-Chart-Theme-Simulator/).
+
 
 ### How do I make my indicator plot over the chart?
 Use `overlay=true` in `strategy()` or `study()` declaration statement, e.g.,:
@@ -982,8 +969,10 @@ If your indicator was already in a Pane before applying this change, you will ne
 
 If your script only works correctly in overlay mode and you want to prevent users from moving it to a separate pane, you can add `linktoseries = true` to your `strategy()` or `study()` declaration statement.
 
+
 ### Can I use `plot()` calls in a `for` loop?
 No, but you can use the v4 [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function in `for` loops.
+
 
 ### How can I plot vertical lines on a chart?
 You can use the `plot.style_columns` style to plot them:
@@ -995,11 +984,13 @@ plot(cond ? 10e20 : na, style = plot.style_columns, color = color.silver, transp
 ```
 There is a nice v4 function to plot a vertical line in this indicator: [vline() Function for Pine Script v4.0+](https://www.tradingview.com/script/EmTkvfCM-vline-Function-for-Pine-Script-v4-0/).
 
+
 ### How can I toggle `hline()` plots on and off?
 ```js
 showHline = input(true)
 hline(50, color = showHline ? color.blue : #00000000)
 ```
+
 
 ### How can I plot color gradients?
 There are no built-in functions to generate color gradients in Pine yet. Gradients progressing horizontally across bars are much easier to implement and run faster. These are a few examples:
@@ -1015,30 +1006,6 @@ To produce gradients progressing in vertical space on the same bar you will need
 - [Trend Following Bar](https://www.tradingview.com/script/UGgNcgNi-Trend-Following-Bar/)
 - [Angled Volume Profile [feeble]](https://www.tradingview.com/script/OGwqa3DI-Angled-Volume-Profile-feeble/)
 - [Stochastic Heat Map](https://www.tradingview.com/script/7PRbCBjk-Stochastic-Heat-Map/)
-
-### How can I format values to tick precision with `tostring()`?
-Use our `f_tickFormat()` function (kudos to [DayTradingOil](https://www.tradingview.com/u/DayTradingOil/#published-scripts) for the original idea). It uses the [`str.replace_all()`](https://www.tradingview.com/pine-script-reference/v4/#fun_str{dot}replace_all) function to replace the non-zero digits in the string representation of `syminfo.mintick` to produce a formatting string usable by [`tostring()`](https://www.tradingview.com/pine-script-reference/v4/#fun_tostring).
-```js
-//@version=4
-study("tostring() formatting to tick precision","",true)
-f_print(_txt) => var _lbl = label.new(bar_index, highest(10)[1], _txt, xloc.bar_index, yloc.price, #00000000, label.style_none, color.gray, size.large, text.align_center), label.set_xy(_lbl, bar_index, highest(10)[1]), label.set_text(_lbl, _txt)
-
-// Produces a string format usable with `tostring()` to restrict precision to ticks.
-//  • Note that `tostring()` will also round the value.
-f_tickFormat() =>
-    _s = tostring(syminfo.mintick)
-    _s := str.replace_all(_s, "25", "00")
-    _s := str.replace_all(_s, "5",  "0")
-    _s := str.replace_all(_s, "1",  "0")
-
-c = close * 0.99
-f_print("tostring(c)\n" + tostring(c) + "\n\n\n")
-f_print("tostring(c, f_tickFormat())\n" + tostring(c, f_tickFormat()))
-plotchar(syminfo.mintick, "syminfo.mintick", "", location.top)
-```
-![.](https://www.tradingview.com/x/EGfhBV3R/ "tostring() formatting to tick precision")
-
-If you need to round a numeric value to ticks without converting it to a string, see [this FAQ's entry](https://www.pinecoders.com/faq_and_code/#how-can-i-round-to-ticks).
 
 **[Back to top](#table-of-contents)**
 
@@ -1176,6 +1143,7 @@ var label[] myLabels = array.new_label(i_qtyLabels)
 label.delete(f_qDq(myLabels, label.new(bar_index, high, tostring(high), style = label.style_label_down, color = color(na))))
 ```
 
+
 ### Is it possible to draw geometric shapes?
 Yes it's possible. See these examples:
 - [[RS]Function - Geometric Line Drawings](https://www.tradingview.com/script/KhKqjR0J-RS-Function-Geometric-Line-Drawings/) by RicardoSantos.
@@ -1240,6 +1208,7 @@ var t = time
 plot(t)
 ```
 
+
 ### How can I convert a time to a date-time string?
 Use our `f_timeToString()` function, which accepts any timestamp in Unix format and returns the corresponding date-time in string format. This code shows four different ways of using it to get the date-time from various starting points and using a 4-day offset in the future for the last two uses demonstrated: 
 
@@ -1264,8 +1233,10 @@ f_print("Date-time at the start of the day, 4 days past the last bar's time: " +
 ```
 ![.](https://www.tradingview.com/x/cIO56toK/ "f_timeToString()")
 
+
 ### How can I know how many days are in the current month?
 Use [this function](https://www.tradingview.com/script/mHHDfDB8-RS-Function-Days-in-a-Month/) by RicardoSantos.
+
 
 ### How can I detect the chart's last day?
 To do this, we will use the [`security()`](https://www.tradingview.com/pine-script-reference/v4/#fun_security) function called at the 1D resolution and have it evaluate the [`barstate.islast`](https://www.tradingview.com/pine-script-reference/v4/#var_barstate{dot}islast) variable on that time frame, which returns true when the bar is the last one in the dataset, even if it is not a realtime bar because the market is closed. We also allow the `security()` function to lookahead, otherwise it will only return true on the last bar of the chart's resolution.
@@ -1275,6 +1246,7 @@ study("")
 lastDay = security(syminfo.tickerid, "D", barstate.islast, lookahead = barmerge.lookahead_on)
 bgcolor(lastDay ? color.red : na)
 ```
+
 
 ### How can I detect if a bar's date is today?
 ```js
@@ -1288,6 +1260,7 @@ today() =>
     _result = year == _currentYear and month == _currentMonth and dayofmonth == _currentDay
 bgcolor(today() ? color.gray : na)
 ```
+
 
 ### How can I plot a value starting *n* months/years back?
 The [``timestamp()``](https://www.tradingview.com/pine-script-reference/v4/#fun_timestamp) function allows the use of negative argument values and will convert them into the proper date. Using a negative month value, for example, will subtract the proper number of years from the result. We use this feature here to allow us to look back an arbitrary number of months or years. A choice is given to identify the first of the target month, or go back from the current date and time.
@@ -1314,6 +1287,7 @@ plot(valueToPlot)
 bgcolor(beginMonth ? color.green : na)
 ```
 
+
 ### How can I track highs/lows for a specific timeframe?
 This code shows how to do that without using `security()` calls, which slow down your script. The source used to calculate the highs/lows can be selected in the script's *Inputs*, as well as the period after which the high/low must be reset.
 ```js
@@ -1335,6 +1309,7 @@ lo := change(time(period)) ? srcLo : min(srcLo, lo)
 plot(showHi ? hi : na, "Highs", color.blue, 3, plot.style_circles)
 plot(showLo ? lo : na, "Lows", color.fuchsia, 3, plot.style_circles)
 ```
+
 
 ### How can I track highs/lows for a specific period of time?
 We use session information in the 2-parameter version of the [`time`](https://www.tradingview.com/pine-script-reference/v4/#fun_time) function to test if we are in the user-defined hours during which we must keep track of the highs/lows. A setting allows the user to choose if he wants levels not to plot outside houts. It's the default.
@@ -1367,6 +1342,7 @@ plot(showHi and not(noPlotOutside and not timeIsAllowed)? hi : na, "Highs", colo
 plot(showLo and not(noPlotOutside and not timeIsAllowed)? lo : na, "Lows", color.fuchsia, 3, plot.style_circles)
 ```
 ![.](https://www.tradingview.com/x/nxoCwdMs/ "Session Hi/Lo")
+
 
 ### How can I track highs/lows between specific intrabar hours?
 We use the intrabar inspection technique explained [here](https://www.pinecoders.com/faq_and_code/#is-it-possible-to-use-security-on-lower-intervals-than-the-charts-current-interval) to inspect intrabars and save the high or low if the intrabar is whithin user-defined begin and end times.
@@ -1474,6 +1450,7 @@ plotchar(second, "second", "", location.top)
 ```
 ![.](detecting_a_specific_time.png "Detecting a specific time (in the exchange's timezone)")
 
+
 ### How can I know the date when a highest value was found?
 Both [`highest()`](https://www.tradingview.com/pine-script-reference/v4/#fun_highest) and [`lowest()`](https://www.tradingview.com/pine-script-reference/v4/#fun_lowest) have a corresponding function that can be used to get the offset to the bar where the highest/lowest value was found. Those [`highestbars()`](https://www.tradingview.com/pine-script-reference/v4/#fun_highestbars) and [`lowestbars()`](https://www.tradingview.com/pine-script-reference/v4/#fun_lowestbars) functions return a negative offset, so we need to change its sign before using it as a value with the `[]` history-referencing operator.
 
@@ -1490,6 +1467,7 @@ plotchar(dayofmonth, "dayofmonth", "", location.top)
 plot(hi)
 ```
 
+
 ### How can I detect bars opening at a specific hour?
 This code shows three methods to detect bars opening at 18h00:
 
@@ -1505,6 +1483,7 @@ plotchar(method1 ? 1 : na, "method1", "•", location.absolute, size = size.tiny
 plotchar(method2 ? 2 : na, "method2", "•", location.absolute, size = size.tiny)
 plotchar(method3 ? 3 : na, "method3", "•", location.absolute, size = size.tiny)
 ```
+
 
 ### Can I time the duration of a condition?
 The short answer is no and the reason is because of the rollback process that happens during the realtime bar, as is explained in the User Manual's page on Pine's [execution model](https://www.tradingview.com/pine-script-docs/en/v4/language/Execution_model.html#calculation-based-on-realtime-bars).
@@ -1529,6 +1508,7 @@ If you work with data from other timeframes, you will be using the [``security()
 It provides a way to work with the chart or a target resolution in float format so it can be manipulated, and then be converted back to a string in [``timeframe.period``](https://www.tradingview.com/pine-script-reference/v4/#var_timeframe{dot}period) format for use with ``security()``.
 
 The following examples provide examples of common tasks.
+
 
 ### How can I convert the current resolution in a numeric format?
 Use the ``f_resInMinutes()`` function from the PineCoders [MTF Selection Framework](https://www.tradingview.com/script/90mqACUV-MTF-Selection-Framework-PineCoders-FAQ/) to convert the chart's current resolution in minutes of type float. From there you will be able to manipulate it using the other PineCoders MTF functions.
@@ -1555,6 +1535,7 @@ resInMinutes = f_resInMinutes()
 // ————— Plot label.
 f_htfLabel(tostring(resInMinutes, "Current res in minutes (float): #.0000"), sma(high + 3 * tr, 10)[1], color.gray, 3)
 ```
+
 
 ### How can I convert a resolution in float minutes into a string usable with ``security()``?
 Use the ``f_resFromMinutes()`` function from the PineCoders [MTF Selection Framework](https://www.tradingview.com/script/90mqACUV-MTF-Selection-Framework-PineCoders-FAQ/).
@@ -1606,6 +1587,7 @@ f_htfLabel(
   color.gray, 3)
 ```
   
+
 ### How do I define a higher interval that is a multiple of the current one?
 Use the ``f_multipleOfRes()`` function from the PineCoders [MTF Selection Framework](https://www.tradingview.com/script/90mqACUV-MTF-Selection-Framework-PineCoders-FAQ/).
 ```js
@@ -1662,6 +1644,7 @@ f_htfLabel(
   color.gray, 3)
 ```
 
+
 ### Is it possible to use `security()` on lower intervals than the chart's current interval?
 Yes but there are limits to using this technique:
 1. It's not supported by TV.
@@ -1711,11 +1694,14 @@ plot(qtyIntrabars,"qtyIntrabars")
 ```
 [This](https://www.tradingview.com/script/F2ylEYOO-Delta-Volume-Columns-Pro-LucF/) is an example of a script that uses the technique illustrated in the functions to calculate delta volume. Note the *Warning* and *Limitations* sections in the description, warning traders of the indicator's shortcomings.
 
+
 ### Why do HTF plots appear smoothed when using the `resolution` parameter with [`study()`](https://www.tradingview.com/pine-script-reference/v4/#fun_study)?
 Because gaps are used. See [this answer](https://www.tradingview.com/chart/TLT/gfhcvho3-How-to-Use-Multi-Timeframe-Analysis-and-What-It-Means/#tc4114362) to a question on TradingView's [How to Use Multi-Timeframe Analysis and What It Means](https://www.tradingview.com/chart/TLT/gfhcvho3-How-to-Use-Multi-Timeframe-Analysis-and-What-It-Means/) publication for more details.
 
+
 ### Why do intraday OHLCV values not correspond to values retrieved with `security()` at daily timeframes and higher?
 Some exchanges/brokers provide distinct data feeds for intraday and daily charts, and the data from both feeds sometimes differs.
+
 
 ### How can I fetch the ATR value from a higher timeframe?
 
@@ -1752,6 +1738,7 @@ f_print(tostring(atrHtf, f_tickFormat()))
 
 See the [PineCoders Alert Creation Framework](https://www.tradingview.com/script/JpDlXzdD-Alert-Creation-Framework-PineCoders-FAQ/) script for alert-creating code.
 
+
 ### How do I make an alert available from my script?
 Two steps are required:
 1. Insert an `alertcondition()` call in a script.
@@ -1774,12 +1761,14 @@ When TradingView creates an alert, it saves a snapshot of the environment that w
 
 > Note that while alert condition code will compile in strategy scripts, alerts are only functional in studies.
 
+
 ### I have a custom script that generates alerts. How do I run it on many symbols?
 You need to create a separate alert for each symbol. There is currently no way to create an alert for all the symbols in a watchlist or for the Screener.
 
 By using a [`security()`](https://www.tradingview.com/pine-script-reference/v4/#fun_security) call for each symbol (maximum 40), you can monitor more than one symbol with the same script, and generate alerts containing the symbol's name using placeholders in your alert's text. See this [TV blog post on variable alerts](https://www.tradingview.com/blog/en/introducing-variables-in-alerts-14880/) for more information.
 
 If one of the generic indicators supplied with the Screener suits your needs and your symbols are tagged with a color label, you can create an alert on those markets from within the Screener.
+
 
 ### Is it possible to use a string that varies as an argument to the `alertcondition()` function's `message=` parameter?
 The string may vary conditionally, but it must be of type *const string*, which implies it **must be known at compile time**.
@@ -1850,6 +1839,7 @@ There are two workarounds:
   ```
 {% endraw %}
 
+
 ### How can I include values that change in my alerts?
 Numeric values plotted by an indicator can be inserted in alert text using placeholders. If you use:
 ```js
@@ -1886,8 +1876,10 @@ You can use other pre-defined placeholders to include variable information in al
 ### How can I access the Pine code of the built-in indicators?
 From the Pine Editor, go to the *New* menu and select the built-in you want to work with. Note that some built-ins like the three Volume Profile and the Volume indicators are not written in Pine and their behavior cannot be reproduced in Pine.
 
+
 ### How can I make the console appear in the editor?
 Use the CTRL-&#8997; + \` (grave accent) keyboard shortcut or right click on the script's name and choose *Show Console*.
+
 
 ### How can I convert a script from v3 to v4?
 With the script open in the editor, choose the *Convert to v4* button at the upper right of the editor window, to the right of the *Save* button.
@@ -1931,6 +1923,7 @@ plot(initOnEachBar2, "initOnEachBar2", color.orange, 3, transp = 0)
 
 See [here](https://www.tradingview.com/pine-script-docs/en/v4/language/Expressions_declarations_and_statements.html#variable-declaration) for more information. This is another example by vitvlkv: [Holding a state in a variable](https://www.tradingview.com/script/llcoIPKG-Pine-Example-Holding-a-state-in-a-variable/).
 
+
 ### How to avoid repainting when using the `security()` function?
 See the discussion published with the PineCoders indicator [How to avoid repainting when using security()](https://www.tradingview.com/script/cyPWY96u-How-to-avoid-repainting-when-using-security-PineCoders-FAQ/).
 
@@ -1943,10 +1936,12 @@ And this for v3:
 security(tickerid, "D", close[1], lookahead = barmerge.lookahead_on)
 ```
 
+
 ### How to avoid repainting when NOT using the `security()` function?
 See the discussion published with the PineCoders indicator [How to avoid repainting when NOT using security()](https://www.tradingview.com/script/s8kWs84i-How-to-avoid-repainting-when-NOT-using-security/).
 
 The general idea is to use the confirmed information from the last bar for calculations.
+
 
 ### How can I trigger a condition only when a number of bars have elapsed since the last condition occurred?
 Use the [``barssince()``](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) function:
@@ -1960,8 +1955,10 @@ plotchar(cond)
 plotchar(trigger, "", "O", color = color.red)
 ```
 
+
 ### How can my script identify what chart type is active?
 Use everget's [Chart Type Identifier](https://www.tradingview.com/script/8xCRJkGR-RESEARCH-Chart-Type-Identifier/).
+
 
 ### How can I plot the chart's historical high and low?
 Notice how we take advantage of the fact that script execution begins at the first bar of the dataset and executes once for each successive bar. By working this way we don't need a `for` loop to go inspect past bars, as our script is already running in a sort of giant loop taking it on each of the dataset's bars, from the oldest to the realtime bar. Scripts with calculations structured in the following way will execute much faster than ones using `for` loops:
@@ -1986,6 +1983,7 @@ lo := min(nz(lo[1]), low)
 plot(hi, trackprice = true)
 plot(lo, trackprice = true)
 ```
+
 
 ### How can I remember when the last time a condition occurred?
 The [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince) built-in function is the simplest way of doing it, as is done in Method 1 in the following script. Method 2 shows an alternate way to achieve the same result as `barssince()`. In Method 2 we watch for the condition as the script is executing on each successive bar, initialize our distance to 0 when we encounter the condition, and until we encounter the condition again, add 1 to the distance at each bar. In method 3 we save the bar's index when the condition occurs, and we then use the difference between the current bar's index and that one to derive the distance between the two.
@@ -2051,6 +2049,7 @@ plot(maF)
 plot(maS, color = color.fuchsia)
 ```
 
+
 ### How can I plot the previous and current day's open ?
 We define a period through the script's *Settings/Inputs*, in this case 1 day. Then we use the `time()` function to detect changes in the period, and when it changes, save the running `open` in the the previous day's variable, and get the current `open.
 
@@ -2072,6 +2071,7 @@ plot(oYesterday, "oYesterday",  lines and change(time(period)) ? na : color.gray
 plot(oToday,     "oToday",      lines and change(time(period)) ? na : color.silver, 2, stylePlots)
 ```
 ![.](https://www.tradingview.com/x/ah9iREmg/ "Previous and current day open")
+
 
 ### How can I count the occurrences of a condition in the last x bars?
 The built-in [`sum()`](https://www.tradingview.com/pine-script-reference/v4/#fun_sum) function is the most efficient way to do it, but its length (the number of last bars in your sample) cannot be a series float or int. This script shows three different ways of achieving the count:
@@ -2164,6 +2164,7 @@ plot(v3, "3. f_verboseAndINEFFICIENT_TimesInLast")
 bgcolor(v1 != v2 or v2 != v3 ? color.red : na, transp = 80)
 ```
 
+
 ### How can I implement and On/Off switch?
 ```js
 //@version=4
@@ -2181,6 +2182,7 @@ bgcolor(onOffSwitch ? color.green : na)
 plotchar(triggerOn, "triggerOn", "▲", location.belowbar, color.lime, 0, size = size.tiny, text = "On")
 plotchar(triggerOff, "triggerOff", "▼", location.abovebar, color.red, 0, size = size.tiny, text = "Off")
 ```
+
 
 ### How can I allow transitions from condition A►B or B►A, but not A►A nor B►B
 One way to do it is by using [`barssince()`](https://www.tradingview.com/pine-script-reference/v4/#fun_barssince). This way is more flexible and faster:
@@ -2218,6 +2220,7 @@ plotchar(condB, "condB", "▼", location.abovebar, color.red, 30, size = size.ti
 plotchar(condATrigger and not condA, "condATrigger", "•", location.belowbar, color.green, 0, size = size.tiny, text = "a")
 plotchar(condBTrigger and not condB, "condBTrigger", "•", location.abovebar, color.maroon, 0, size = size.tiny, text = "b")
 ```
+
 
 ### Can I merge two or more indicators into one?
 Sure, but start by looking at the scale each one is using. If you're thinking of merging a moving average indicator designed to plot on top of candles and in relation to them, you are going to have problems if you also want to include and indicator showing volume bars in the same script because their values are not on the same scale.
@@ -2301,8 +2304,10 @@ Note that:
 - Normalized values for volume and CCI have become relative to their historical min/max. They are heavily transformed and become less reliable. They lose their exact proportionality. This is an inevitable compromise when constraining an unbounded value to a finite scale.
 - You can see the actual values for the indicators in the Data Window.
 
+
 ### How can I monitor script run time?
 Use the code from the PineCoders [Script Stopwatch](https://www.tradingview.com/script/rRmrkRDr-Script-Stopwatch-PineCoders-FAQ/). You will be able to time script execution so you can explore different scenarios when developing code and see for yourself which version performs the best.
+
 
 ### How can I save a value when an event occurs?
 The key to this technique is declaring a variable using the `var` keyword. While there are other ways to accomplish our task in Pine, this is the simplest. When you declare a variable using the `var` keyword, the variable is initialized only once at bar_index zero, rather than on each bar. This has the effect of preserving the variable's value without the explicit re-assignement that was required in earlier versions of pine where you would see code like this:
@@ -2383,6 +2388,7 @@ fill(p_baseMinus, p_loMinus, color.red, transp = 0)
 ```
 ![.](https://www.tradingview.com/x/SJZzmMfN/ "Median touches")
 
+
 ### What does the ``Return type of 'then' block (series[label]) is not compatible with return type of 'else' block (series[integer])`` compilation error mean?
 In Pine, an [``if``](https://www.tradingview.com/pine-script-docs/en/v4/language/Expressions_declarations_and_statements.html#if-statement) statement returns a value that can be assigned to a variable, so the compiler expects both branches of the statement to return the same type of value which corresponds, as it does in functions, to the type returned by the last statement in the block.
 
@@ -2444,6 +2450,7 @@ first3 := allowTrigger3 and cond
 plotchar(first3, "first3", "•", location.top, color = color.orange, size = size.large)
 ```
 
+
 ### How can I optimize Pine code?
 The most important factor in writing fast Pine code is to structure your code so that it maximizes the combined power of the Pine runtime model and series. This requires a good understanding of what's going on when your script executes. These User Manual sections on the [execution model](https://www.tradingview.com/pine-script-docs/en/v4/language/Execution_model.html) and [series](https://www.tradingview.com/pine-script-docs/en/v4/language/Operators.html#history-reference-operator) will get you started.
 1. Only use strategies when you need to. Studies run much faster and consume less resources.
@@ -2471,6 +2478,7 @@ There are three ways:
     - Both your script and the require Financials indicator will need to be loaded on the chart.
     - The selection of the Financials indicator's output as an input into your indicator will need to be done manually through your script's *Settings/Inputs*.
 
+
 ### How can I save a value from a signal when a pivot occurs?
 You will need to:
 1. Detect a new pivot, which is done by testing for `not na`, as the pivot built-ins only return a non-na value when they identify a pivot. Keep in mind this always happens *n* bars after the pivot itself, with *n* corresponding to the number of bars you use as right legs to identify your pivots.
@@ -2494,6 +2502,7 @@ plotchar(pHi, "pHi", "▲", location.top, offset = - legs)
 
 > Note that this code plots the pivot markers (▲) and the RSI level where the pivot was found by *cheating*, i.e., plotting *legs* bars back. If you publish indicators using such code, this should always be mentioned so that you do not mislead unsuspecting traders.
 
+
 ### How can I find the maximum value among the last pivots?
 We will be finding the highest value of the last 3 high pivots here, but the technique can be extended to any number of pivots. We will be using [`valuewhen()`](https://www.tradingview.com/pine-script-reference/v4/#fun_valuewhen) to fetch the value from the nth occurrence of a high pivot, remembering to offset the value we are retrieving with number of right legs used to detect the pivot, as a pivot is only detected after than number of bars has elapsed from the actual pivot bar.
 ```js
@@ -2511,6 +2520,7 @@ plotchar(newPH, "newPH", "•", location.abovebar, offset = - legs)
 plotchar(newPH, "newPH", "▲", location.top)
 ```
 > Note that we use `not na(pH)` to detect a new pivot, rather than the more common way of simply relying on the fact that `pH` will be different from zero or `na`—so true—when a pivot is found. While the common technique will work most of the time, it will not work when a pivot is found at a value of zero, because zero is evaluated as false in a conditional expression. Our method is thus more robust, and the recommended way to test for a pivot.
+
 
 ### How can I access normal bar OHLC values on a non-standard chart?
 You need to use the `security()` function. This script allows you to view normal candles on the chart, although depending on the non-standard chart type you use, this may or may not make much sense:
@@ -2549,6 +2559,7 @@ f_print(_txt) => var _lbl = label.new(bar_index, highest(10)[1], _txt, xloc.bar_
 f_print("Underlying Close1 = " + tostring(c1) + "\nUnderlying Close2 = " + tostring(c2) + "\nChart's close = " + tostring(close) + "\n Delta = " + tostring(close - c))
 ```
 
+
 ### How can I initialize a series on specific dates using external data?
 Pine cannot yet use external data sources outside of the TradingView datafeeds. Until it can, external data must be inserted into machine-generated Pine code. This provides a template.
 
@@ -2570,6 +2581,7 @@ d := t == timestamp(2010, 01, 05, 0, 0, 0) ? 2010010.5 : d
 plot(d, "d", color.fuchsia, 2, plot.style_circles)
 ```
 
+
 ### How can I display plot values in the chart's scale?
 ![.](https://www.tradingview.com/x/cFJ7oV60/ "SMA Script")
 To achieve this effect with your indicator, you need to check 2 checkboxes in the chart's *Settings/Scales* tab: *Indicator Name Label* and *Indicator Last Value Label*. You reach the *Chart Settings* menu by right-clicking on the chart or by using the cog wheel in the chart's upper-right icons.
@@ -2584,6 +2596,7 @@ plot(maOne, "MA1")
 plot(maTwo, "MA2", color.fuchsia)
 ```
 
+
 ### How can I reset a sum on a condition?
 We first need a variable whose value is preserved bar to bar, so we will use the [`var`](https://www.tradingview.com/pine-script-reference/v4/#op_var) keyword to initialize our `vol` variable on the first bar only. We then need to define the resetting condition, in this case a MACD cross. We then add the volume to our `vol` variable on each bar, except when a cross occurs, in which case we reset our sum to zero. We also plot a dot on crosses for debugging purposes:
 ```js
@@ -2597,6 +2610,7 @@ plot(vol)
 plotchar(cond, "cond", "•", location.top, size = size.tiny)
 ```
 Note that we do not use the third tuple value in the [`macd()`](https://www.tradingview.com/pine-script-reference/v4/#fun_macd) call, so we replace it with an underscore.
+
 
 ### How can I cumulate a value for two exclusive states?
 We first need to define the conditions that will change our states. In this example, we use `rising/falling` conditions on `close`. A state begins when its trigger condition occurs and lasts until the first occurrence of the trigger condition for the other state. Our triggers are `beginUp` and `beginDn`.
@@ -2678,6 +2692,7 @@ The code will look this way in the Editor:
 It will generate this *Inputs* dialog box:
 
 ![.](inputs.png "Inputs")
+
 
 ### How can I find the nth highest/lowest value in the last bars?
 The `f_nthHighest()` and `f_nthLowest()` functions in this script use an array to hold the values of the last x bars and sort a copy of that array on each bar to search for the nth highest/lowest value. The `_distinct` parameter allows you to determine if you allow similar values to count or not:
@@ -2765,6 +2780,7 @@ plot(nthLo, "nthLo", color.maroon)
 plot(lo)
 bgcolor(nthLo == lo ? color.red : nthHi == hi ? color.green : na)
 ```
+
 
 ### How can I calculate the all-time high and all-time low?
 This script keeps track of the maximum `high` and minimum `low` values as the script executes bar-to-bar:
