@@ -443,7 +443,7 @@ Use [``round_to_mintick()``](round_to_mintick). If you need to round a string re
 
 ### How can I abbreviate large values?
 To abbreviate large values like volume (e.g., 1,222,333.0 ► "1.222M"), you can:
-1. Use `format = format.volume` parameter in `study()` or `strategy()`. This affects all values displayed by the script.
+1. Use `format = format.volume` in `study()` or `strategy()`. This affects all values displayed by the script.
 1. Use [``tostring(x, format.volume)``](https://www.tradingview.com/pine-script-reference/v4/#fun_tostring) to abbreviate specific values.
 1. Use a function such as this `f_abbreviateValue(_v, _precision)`, which allows you to specify a custom precision, abbreviates up to trillions, and provides subtle spacing between the value and the letter denoting the magnitude:
 
