@@ -152,10 +152,6 @@ bgcolor(o != open or h != high or l != low or c != close ? color.red : na)
 ## BUILT-IN FUNCTIONS
 
 
-### How can I work with arrays in Pine?
-See the User Manual's [page on arrays](https://www.tradingview.com/pine-script-docs/en/v4/essential/Arrays.html).
-
-
 ### Can I use a variable length in functions?
 You can use a "series int" length (so a length that varies from bar to bar) in the following Pine functions: `alma()`, `bb()`, `bbw()`, `cci()`, `change()`, `cmo()`, `cog()`, `correlation()`, `dev()`, `falling()`, `highest()`, `highestbars()`, `linreg()`, `lowest()`, `lowestbars()`, `mfi()`, `mom()`, `percentile_linear_interpolation()`, `percentile_nearest_rank()`, `percentrank()`, `rising()`, `roc()`, `sma()`, `stdev()`, `stoch()`, `sum()`, `variance()`, `vwma()`, `wma()` and `wpr()`.
 
@@ -1212,6 +1208,10 @@ See this example in the Pine User Manual's [page on tables](https://www.tradingv
 
 <br><br>
 ## ARRAYS
+
+### How can I work with arrays in Pine?
+See the User Manual's [page on arrays](https://www.tradingview.com/pine-script-docs/en/v4/essential/Arrays.html).
+
 
 ### How can I split a string into characters?
 It can be done using [`str.split()`](https://www.tradingview.com/pine-script-reference/v4/#fun_str{dot}split) and an empty string argument for the `separator` parameter. 
