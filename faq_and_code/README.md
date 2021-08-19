@@ -1767,6 +1767,62 @@ float atrHtf = f_security(syminfo.tickerid, i_tf, myAtr, false)
 f_print(tostring(atrHtf, f_tickFormat()))
 ```
 
+
+### How can I plot a moving average when the chart's timeframe is 1D or higher?
+
+We use ``f_chartTfInMinutes() >= 1440`` in here to test if the chart's timeframe is one day (1440 minutes) or greater. Our ``f_chartTfInMinutes()`` converts the chart's timeframe in minutes:
+
+```js
+//@version=4
+study("", "", true)
+ma = sma(close, 200)
+// ————— Converts current chart timeframe into a float minutes value.
+f_chartTfInMinutes() => 
+    float _return = timeframe.multiplier * (
+      timeframe.isseconds ? 1. / 60             :
+      timeframe.isminutes ? 1.                  :
+      timeframe.isdaily   ? 60. * 24            :
+      timeframe.isweekly  ? 60. * 24 * 7        :
+      timeframe.ismonthly ? 60. * 24 * 30.4375  : na)
+
+// Detect if chart TF is >= 1D
+var bool plotMa = f_chartTfInMinutes() >= 1440
+plot(plotMa ? ma : na)
+```
+
+
+### How can I plot a moving average calculated on the 1H timeframe on any chart?
+
+Here we plot the MA200 calculated at the 1H timeframe, but only when the chart's timeframe is lower or equal to 1H, otherwise it does make sense to calculate an MA at a lower timeframe than the chart's:
+
+```js
+//@version=4
+study("", "", true)
+ma = sma(close, 200)
+// ————— Converts current chart timeframe into a float minutes value.
+f_chartTfInMinutes() => 
+    float _return = timeframe.multiplier * (
+      timeframe.isseconds ? 1. / 60             :
+      timeframe.isminutes ? 1.                  :
+      timeframe.isdaily   ? 60. * 24            :
+      timeframe.isweekly  ? 60. * 24 * 7        :
+      timeframe.ismonthly ? 60. * 24 * 30.4375  : na)
+
+// ————— Provides non-repainting access to `security()`.
+f_security(_sym, _res, _src, _rep) => security(_sym, _res, _src[not _rep and barstate.isrealtime ? 1 : 0])[_rep or barstate.isrealtime ? 0 : 1]
+
+// ————— Prints a message in the lower-right of the chart.
+f_print(_text) => var table _t = table.new(position.bottom_right, 1, 1), table.cell(_t, 0, 0, _text, bgcolor = color.red)
+
+// Detect is chart's timeframe is <= 60 minutes because we don't plot the MA then.
+var bool plotMa = f_chartTfInMinutes() <= 60
+if not plotMa
+    f_print("The MA is not displayed when the chart's timeframe is > 60 minutes.")
+
+ma1H = f_security(syminfo.tickerid, "60", ma, false)
+plot(plotMa ? ma1H : na)
+```
+
 **[Back to top](#table-of-contents)**
 
 
