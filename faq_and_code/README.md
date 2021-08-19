@@ -1768,7 +1768,7 @@ f_print(tostring(atrHtf, f_tickFormat()))
 ```
 
 
-### How can I plot a moving average when the chart's timeframe is 1D or higher?
+### How can I plot a moving average only when the chart's timeframe is 1D or higher?
 
 We use ``f_chartTfInMinutes() >= 1440`` in here to test if the chart's timeframe is one day (1440 minutes) or greater. Our ``f_chartTfInMinutes()`` converts the chart's timeframe in minutes:
 
@@ -1793,7 +1793,7 @@ plot(plotMa ? ma : na)
 
 ### How can I plot a moving average calculated on the 1H timeframe on any chart?
 
-Here we plot the MA200 calculated at the 1H timeframe, but only when the chart's timeframe is lower or equal to 1H, otherwise it does make sense to calculate an MA at a lower timeframe than the chart's:
+Here we plot the MA200 calculated at the 1H timeframe, but only when the chart's timeframe is lower or equal to 1H, otherwise it doesn't make sense to calculate an MA at a lower timeframe than the chart's:
 
 ```js
 //@version=4
@@ -1821,6 +1821,15 @@ if not plotMa
 
 ma1H = f_security(syminfo.tickerid, "60", ma, false)
 plot(plotMa ? ma1H : na)
+```
+
+If you are OK with your script doing only that, this is a simpler method of achieving more or less the same result, without the bells and whistles of the previous example:
+
+```js
+//@version=4
+study("", "", true, resolution = "60")
+ma = sma(close, 200)
+plot(ma)
 ```
 
 **[Back to top](#table-of-contents)**
