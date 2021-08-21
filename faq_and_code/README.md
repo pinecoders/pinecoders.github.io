@@ -1534,6 +1534,39 @@ The short answer is no and the reason is because of the rollback process that ha
 
 To time the duration of an event, we would need to detect its beginning, save the time at that point (e.g., in a `timeSaved` variable), and for each subsequent execution of the script, check if the condition is still true and if so, use `timenow - timeSaved` to determine the number of milliseconds for which the condition has been true. This, however, cannot be done in Pine because the value of all variables are rolled back to their starting values at the beginning of the realtime bar before each realtime bar iteration of the script. This makes it impossible for the saved time in our `timeSaved` variable to perpetuate across subsequent iterations of the script in the same realtime bar. Only its value at the realtime bar's close, so the script's last iteration in the realtime bar, is preserved.
 
+
+### How can I identify the nth occurrence of a weekday in the month?
+This shows how to use our `f_nthDayofweekInMonth(_nth, _dayNo)` function to detect the first Monday of the month:
+
+```js
+//@version=4
+study("", "", true)
+
+// The default inputs look for the first Monday of the month.
+// Note that days must be trading days for the function to work correctly.
+int i_nth   = input(1, "nth Occurence of the day", minval = 1, maxval = 5)
+int i_dayNo = input(2, "Day number", minval = 1, maxval = 7, tooltip = "1 is Sunday")
+
+// ————— Function returning `true` on the `_nth` occurrence of `_dayNo` in the month.
+f_nthDayofweekInMonth(_nth, _dayNo) =>
+    // int _nth  : The occurrence required. Use 1 for the first occurrence.
+    // int _dayNo: The day of the week number (Sunday is 1, Saturday is 7). Days not found on the chart are not accounted for.
+    var int _occurrence = 0
+    bool _newMonth = change(time("M")) > 0
+    bool _newDay = dayofweek == _dayNo and dayofweek[1] != _dayNo
+    if _newMonth
+        if _newDay
+            _occurrence := 1
+        else
+            _occurrence := 0
+    else if _newDay
+        _occurrence += 1
+    bool _return = _occurrence == _nth and dayofweek == _dayNo
+
+plotchar(f_nthDayofweekInMonth(i_nth, i_dayNo), "Day", "•", location.top, size = size.tiny)
+```
+
+
 **[Back to top](#table-of-contents)**
 
 
