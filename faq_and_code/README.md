@@ -941,6 +941,8 @@ plot(plotCondition ? ma1 : na, "Highlight 2b", color.purple, 3, plot.style_circl
 ```
 ![.](https://www.tradingview.com/x/IMgwPa29/ "Conditional plots")
 
+The same limitations apply to `plotchar()`, `plotshape()` and `fill()`.
+
 
 ### Can I plot diagonals between two points on the chart?
 Yes, using the [`line.new()`](https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new) function available in v4. See the [Trendlines - JD](https://www.tradingview.com/script/mpeEgn5J-Trendlines-JD/) indicator by Duyck.
