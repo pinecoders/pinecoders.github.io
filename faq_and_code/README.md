@@ -1568,6 +1568,17 @@ f_nthDayofweekInMonth(_nth, _dayNo) =>
 plotchar(f_nthDayofweekInMonth(i_nth, i_dayNo), "Day", "•", location.top, size = size.tiny)
 ```
 
+### How can I implement a countdown timer?
+This code will work at intraday timeframes and at 1D. It would require more discerning logic for it to work on timeframes higher than that:
+
+```js
+//@version=4
+study("Countdown", "", true)
+int timeLeftInBar = (timeframe.isdaily and timeframe.multiplier == 1) or timeframe.isintraday ? (time_close - time) - (timenow - time) : 0
+string countDown = str.format("{0,time,HH:mm:ss}", timeLeftInBar)
+f_print(_text) => var table _t = table.new(position.middle_right, 1, 1), table.cell(_t, 0, 0, _text, bgcolor = color.yellow)
+f_print(countDown)
+```
 
 **[Back to top](#table-of-contents)**
 
