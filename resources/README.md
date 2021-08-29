@@ -170,7 +170,9 @@ RicardoSantos has developed an [auto completion hack and snippets file for VS Co
 
 [Notepad++ UDL](https://github.com/nidkil/tradingview-pine-script-udl-npp)
 
-[VSCode Highlighter](https://marketplace.visualstudio.com/items?itemName=leifcr.pine-script-syntax-highlighting)
+[VSCode Highlighter by leifcr](https://marketplace.visualstudio.com/items?itemName=leifcr.pine-script-syntax-highlighting)
+
+[VSCode Highlighter by ex-codes](https://marketplace.visualstudio.com/items?itemName=ex-codes.pine-script-syntax-highlighter)
 
 [VIM](https://github.com/jbmorgado/vim-pine-script)
 
