@@ -159,6 +159,8 @@ We maintain a list of [trusted Pine programmers for hire in TradingView's Help C
 
 [TradingView alerts to MT4/MT5](https://www.tradingconnector.com/) receives TV alerts and converts them into instant orders on MT4/MT5 in forex, indices and commodities markets. Latency is below 1 second.
 
+[WolfBot](https://wolfbot.org/) can receive TV alerts via Email or Webhook URL and trade on 25+ cryptocurrency exchanges. Supported alerts include buy/sell (limit and market orders), as well as more advanced order types such as stop-loss and trailing-stop.
+
 ### For developers
 
 Backtest Rookies has developed [tv2bt](https://backtest-rookies.com/2019/11/22/tv2bt-tradingview-to-backtrader-module/): *a data feed for Backtrader which will allow you to receive trade signals and/or OHLCV data from Tradingview. It aims to open access to the plethora of open source strategies and indicators on the Tradingview and allow you to use them to influence your own live strategies. In addition, it can also be used to find some good, reliable intra-day data.*
