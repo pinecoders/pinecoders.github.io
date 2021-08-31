@@ -118,9 +118,13 @@ For Russian coders: [Китобойная](https://www.youtube.com/channel/UCZDH
 
 [Paul D. Mendes](https://www.udemy.com/course/learn-tradingview-pine-script-programming-from-scratch/) offers paid Udemy courses on Pine.
 
+[Achal](https://www.udemy.com/course/creating-trade-strategies-backtesting-using-pinescript/) offers paid Udemy course on Pine
+
 QuantNomad has a [paid course on Pine](https://courses.quantnomad.com/p/pinescript-programming).
 
 [Zen & The Art of Trading](https://www.pinescriptmastery.com/) offers paid courses on Pine.
+
+[Achal](https://www.amazon.com/Achal/e/B092HFKV6N) offers Amazon books on Pine.
 
 
 
