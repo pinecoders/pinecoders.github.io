@@ -26,7 +26,7 @@ As a last resort, ask on <a href="https://stackoverflow.com/questions/tagged/pin
 Subscribe to our <a href="https://t.me/PineCodersSquawkBox">PineCoders Squawk Box on Telegram</a>, or follow our <a href="https://twitter.com/PineCoders">Twitter account</a> or the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script chat room</a>.<br><br>
 
 <font size="+1"><strong>Looking for a professional Pine programmer?</strong></font><br>
-See our <a href="https://www.pinecoders.com/resources/#trusted-pine-programmers-for-hire">Trusted Pine Programmers for Hire</a>.<br><br>
+See our <a href="https://www.tradingview.com/?solution=43000601677">Trusted Pine Programmers for Hire</a>.<br><br>
 
 <font size="+1"><strong>Looking for more resources on Pine?</strong></font><br>
 Use our <a href="http://www.pinecoders.com/resources">Pine Resources</a>.<br><br>
