@@ -39,13 +39,9 @@ PineCoders does not benefit from the adoption of these tools.
 <br>
 
 ## TradingView
-[Pine v4 Reference Manual](https://www.tradingview.com/pine-script-reference/v4/)
+[Pine Reference Manual](https://www.tradingview.com/pine-script-reference/v5/)
 
-[Pine v4 User Manual](https://www.tradingview.com/pine-script-docs/en/v4/index.html)
-
-[Pine v3 Reference Manual](https://www.tradingview.com/pine-script-reference/v3/)
-
-[Pine v3 User Manual](https://www.tradingview.com/wiki/Pine_Script_Tutorial)
+[Pine User Manual](https://www.tradingview.com/pine-script-docs/en/v5/index.html)
 
 [TV indicators wiki](https://www.tradingview.com/wiki/Category:Indicators_and_overlays) : a list of TV-developed indicators with source code for most of them and good explanations. This is also where you can find explanations on the TV Volume Profile, the source of which is not available.
 
