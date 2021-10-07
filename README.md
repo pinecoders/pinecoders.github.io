@@ -22,9 +22,6 @@ Your answer is probably already in our <a href="http://www.pinecoders.com/faq_an
 If not, look up the <a href="https://www.tradingview.com/pine-script-reference/v4/">Reference Manual</a>, the <a href="https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html">User Manual</a>, or search the Web.<br>
 As a last resort, ask in the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script chat room</a> on TradingView, or on <a href="https://stackoverflow.com/questions/tagged/pine-script?tab=Newest">Stack Overflow</a>.<br><br>
 
-<font size="+1"><strong>Want to learn proper Pine coding style?</strong></font><br>
-Read our <a href="http://www.pinecoders.com/coding_conventions">Pine Coding Conventions</a>.<br><br>
-
 <font size="+1"><strong>Want to stay abreast of Pine news?</strong></font><br>
 Subscribe to our <a href="https://t.me/PineCodersSquawkBox">PineCoders Squawk Box on Telegram</a>, or follow our <a href="https://twitter.com/PineCoders">Twitter account</a> or the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script chat room</a>.<br><br>
 
