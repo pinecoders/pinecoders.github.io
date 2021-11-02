@@ -28,7 +28,7 @@ Whereas Davey's approach is small-scale, Prado writes about building larger-scal
 This book is similar to the Kevin Davey book, but written by a quant. Chan paints broad strokes in discussing many of the facets of running a small-scale automated operation.
 
 **Professional Automated Trading: Theory and Practice**, Eugene A. Durenard  
-Durenard explains how he develops medium-scale adaptive systems using LISP. Plenty examples of code. Good concepts by a real practicioner.
+Durenard explains how he develops medium-scale adaptive systems using LISP. Plenty of examples of code. Good concepts by a real practitioner.
 
 **Trend Following, 5th Edition: How to Make a Fortune in Bull, Bear and Black Swan Markets**, Michael Covel  
 This book is essentially 3 books in one, it has interviews with many of the greatest traders, evidence based arguments for using trend following, and the facets of system trading. Spoiler alert: If you are looking for the holy grail the author does not include it.
@@ -56,7 +56,7 @@ An illuminating journey into opacity, uncertainty, randomness, and our general i
 A brilliant and gentle mind's overview of research in cognitive psychology, by himself and many others. Kahneman explores why we think what we think, see what we see, and why we sometimes get it right, and sometimes get it all wrong. Kahneman also makes a diligent effort to illustrate the impact of how our brain works—or tries to work—in different areas of our life: social, economic and political. Fascinating.
 
 **The Disciplined Trader: Developing Winning Attitudes**, Mark Douglas  
-An oft-vehiculated myth about automated trading is that it takes emotions out of the picture. Reality is different. Unchecked emotions and counter-productive thoughts can prevent you from modeling or adequately managing trading systems. This book focuses on the mental processes that can impact your trading. Douglas doesn't mention automated trading at all, and goes whole chapters at a time without even mentioning trading, but his book takes you on an introspective journey that has good probabilities of changing you for the best.
+An oft-vehiculated myth about automated trading is that it takes emotions out of the picture. Reality is different. Unchecked emotions and counterproductive thoughts can prevent you from modeling or adequately managing trading systems. This book focuses on the mental processes that can impact your trading. Douglas doesn't mention automated trading at all, and goes whole chapters at a time without even mentioning trading, but his book takes you on an introspective journey that has good probabilities of changing you for the best.
 
 **Thinking in Bets: Making Smarter Decisions When You Don't Have All the Facts**, Annie Duke  
 An ex-poker player and psychologist has a look at how to improve our thinking in situations where we don't have perfect information but still need to make decisions. She explores our learning process and how we can better distinguish between the quality of outcomes and the quality of our decisions, which because of randomness often cannot be linked.
