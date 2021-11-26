@@ -178,7 +178,7 @@ RicardoSantos has developed an [auto completion hack and snippets file for VS Co
 
 [VSCode Highlighter by ex-codes](https://marketplace.visualstudio.com/items?itemName=ex-codes.pine-script-syntax-highlighter)
 
-[VSCode Highlighter by jeyllani](https://github.com/jeyllani/pinescript)
+[VSCode Highlighter by jeyllani](https://marketplace.visualstudio.com/items?itemName=JeylaniB.pinescript)
 
 [VSCode Highlighter by leifcr](https://marketplace.visualstudio.com/items?itemName=leifcr.pine-script-syntax-highlighting)
 
