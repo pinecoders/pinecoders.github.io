@@ -1580,7 +1580,7 @@ f_print(_text) => var table _t = table.new(position.middle_right, 1, 1), table.c
 f_print(countDown)
 ```
 
-### How can I get the weeek of the month?
+### How can I get the week of the month?
 This code uses changes in the week of the year to determine the week of the month:
 
 ```js
