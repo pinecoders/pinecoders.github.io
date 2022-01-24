@@ -1580,6 +1580,24 @@ f_print(_text) => var table _t = table.new(position.middle_right, 1, 1), table.c
 f_print(countDown)
 ```
 
+### How can I get the weeek of the month?
+This code uses changes in the week of the year to determine the week of the month:
+
+```js
+//@version=5
+//@author=Bjorgum, for PineCoders
+indicator("weekOfMonth()")
+weekOfMonth(timestamp = time) =>
+    var week = weekofyear(timestamp) %4
+    if ta.change(weekofyear(timestamp))    
+        week += 1
+    if ta.change(month(timestamp))
+        week := 1
+    int result = timeframe.ismonthly ? na : week
+
+plot(weekOfMonth())
+```
+
 **[Back to top](#table-of-contents)**
 
 
