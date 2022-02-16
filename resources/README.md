@@ -272,14 +272,6 @@ Well-known TV Pine coder [everget](https://www.tradingview.com/u/everget/) has a
 
 [Instabot](https://instabot42.github.io/): An open source execution engine that relays orders received from HTTP requests to Bitfinex, Deribit and Coinbase Pro, with support for Bitmex and Binance planned.
 
-[Notepad++ Highlighter](https://github.com/nidkil/tradingview-pine-script-udl-npp)
-
-[VS Code Highlighter](https://marketplace.visualstudio.com/items?itemName=leifcr.pine-script-syntax-highlighting)
-
-[VIM](https://github.com/jbmorgado/vim-pine-script)
-
-[GNU Emacs major-mode](https://github.com/EricCrosson/pine-script-mode)
-
 [.Net Stock Indicator Library](https://github.com/ooples/OoplesFinance.StockIndicators): A library of more than 700 indicator calculations written in C#.
 
 <br>
