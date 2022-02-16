@@ -262,6 +262,9 @@ Search the Unicode space by [categories of characters](https://www.compart.com/e
 
 <br>
 
+
+
+
 ## On GitHub
 [PineCoders Repository](https://github.com/pinecoders/pine-utils) of reusable Pine code on GitHub.
 
@@ -277,9 +280,12 @@ Well-known TV Pine coder [everget](https://www.tradingview.com/u/everget/) has a
 
 [GNU Emacs major-mode](https://github.com/EricCrosson/pine-script-mode)
 
-
+[.Net Stock Indicator Library](https://github.com/ooples/OoplesFinance.StockIndicators): A library of more than 700 indicator calculations written in C#.
 
 <br>
+
+
+
 
 ## Technical Information on Indicators
 [Concept Index](https://user42.tuxfamily.org/chart/manual/Concept-Index.html#Concept-Index).
