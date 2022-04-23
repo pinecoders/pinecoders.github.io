@@ -56,7 +56,7 @@ in our <a href="https://t.me/PineCodersQA">PineCoders Pine Script™ Q&A forum o
 and in the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script™ chat</a> on TradingView. 
 - Publish open-source indicators and educational material from the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-scripts),
 [PineCodersTASC](https://www.tradingview.com/u/PineCodersTASC/#published-scripts),
-and [TradingView](https://www.tradingview.com/u/TradingView/#published-scripts) accounts on [TradingView](https://www.tradingview.com/).
+and [TradingView](https://www.tradingview.com/u/TradingView/#published-scripts) accounts on TradingView.
 - Follow [leading publishers](https://www.tradingview.com/u/PineCoders/#following-people) of open-source scripts on TV.
 
 [Pine Script™ Reference Manual](https://www.tradingview.com/pine-script-reference/v5/)  
