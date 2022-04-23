@@ -10,7 +10,7 @@
 
 [<img src="https://www.pinecoders.com/images/PineCodersLong.png">](https://www.pinecoders.com/)
 
-# Learning Pine Roadmap
+# Learning Pine Script™ Roadmap
 
 This document aims to provide information that will be useful for newcomers to the [Pine Script](https://www.tradingview.com/pine-script-docs/en/v4/Introduction.html) programming language. Pine Script is the programming language used on the [TradingView](https://www.tradingview.com) charting platform.
 
