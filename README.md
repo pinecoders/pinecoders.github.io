@@ -51,6 +51,7 @@ PineCoders is a small, [TradingView](https://www.tradingview.com/)-supported gro
 
 - Collaborate with TradingView's Pine team to steer the future of the language and make Pine Script™ indicators and strategies easier to use for TradingViewers.
 - Pilot the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-charts) moderator account on TV, from where we moderate all new [Community Scripts](https://www.tradingview.com/scripts/).
+- Select the [Editors' Picks for scripts](https://www.tradingview.com/scripts/editors-picks/).
 - Answer questions in the <a href="https://stackoverflow.com/questions/tagged/pine-script?tab=Newest">Stack Overflow [pine-script] tag</a>, 
 in our <a href="https://t.me/PineCodersQA">PineCoders Pine Script™ Q&A forum on Telegram</a> 
 and in the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script™ chat</a> on TradingView. 
