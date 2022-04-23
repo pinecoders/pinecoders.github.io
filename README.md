@@ -15,7 +15,7 @@
 
 <div align="center">
 <font size="+1"><strong>New to Pine Script™?</strong></font><br>
-Begin your journey with our <a href="http://www.pinecoders.com/learning_pine_roadmap">Learning Pine Roadmap</a>.<br><br>
+Begin your journey with our <a href="http://www.pinecoders.com/learning_pine_roadmap">Learning Pine Script™ Roadmap</a>.<br><br>
 
 <font size="+1"><strong>Have a programming question?</strong></font><br>
 Your answer is probably already in our <a href="http://www.pinecoders.com/faq_and_code">FAQ & Code</a>.<br>
@@ -24,8 +24,8 @@ As a last resort, ask on <a href="https://stackoverflow.com/questions/tagged/pin
 in our <a href="https://t.me/PineCodersQA">PineCoders Pine Script™ Q&A forum on Telegram</a> 
 or in the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script™ chat</a> on TradingView.<br><br>
 
-<font size="+1"><strong>Want to stay abreast of Pine news?</strong></font><br>
-Subscribe to our <a href="https://t.me/PineCodersSquawkBox">PineCoders Squawk Box on Telegram</a>, or follow our <a href="https://twitter.com/PineCoders">Twitter account</a> or the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script™ chat</a> on TradingView.<br>
+<font size="+1"><strong>Want to stay abreast of new developments in Pine Script™?</strong></font><br>
+Subscribe to our <a href="https://t.me/PineCodersSquawkBox">PineCoders Squawk Box on Telegram</a>, follow our <a href="https://twitter.com/PineCoders">Twitter account</a> or the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script™ chat</a> on TradingView.<br>
 Changes to Pine Script™ are also logged in the <a href="https://www.tradingview.com/pine-script-docs/en/v5/Release_notes.html">User Manual's Release Notes</a>.<br><br>
 
 <font size="+1"><strong>Looking for a Pine Script™ programmer to hire?</strong></font><br>
