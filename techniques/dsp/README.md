@@ -10,7 +10,7 @@
 
 [<img src="https://www.pinecoders.com/images/PineCodersLong.png">](https://www.pinecoders.com/)
 
-# Digital Signal Processing in Pine Script, by [Alex Grover](https://www.tradingview.com/u/alexgrover/#published-scripts)
+# Digital Signal Processing in Pine Script™, by [Alex Grover](https://www.tradingview.com/u/alexgrover/#published-scripts)
 
 <br/>
 
