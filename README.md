@@ -25,7 +25,7 @@ in our <a href="https://t.me/PineCodersQA">PineCoders Pine Script™ Q&A forum o
 or in the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script™ chat</a> on TradingView.<br><br>
 
 <font size="+1"><strong>Want to stay abreast of Pine news?</strong></font><br>
-Subscribe to our <a href="https://t.me/PineCodersSquawkBox">PineCoders Squawk Box on Telegram</a>, or follow our <a href="https://twitter.com/PineCoders">Twitter account</a> or the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script chat room</a>.<br><br>
+Subscribe to our <a href="https://t.me/PineCodersSquawkBox">PineCoders Squawk Box on Telegram</a>, or follow our <a href="https://twitter.com/PineCoders">Twitter account</a> or the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script™ chat</a> on TradingView.<br><br>
 
 <font size="+1"><strong>Looking for a professional Pine programmer?</strong></font><br>
 See our <a href="https://www.tradingview.com/?solution=43000601677">Trusted Pine Programmers for Hire</a>.<br><br>
