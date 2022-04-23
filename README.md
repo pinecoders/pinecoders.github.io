@@ -14,7 +14,7 @@
 
 
 <div align="center">
-<font size="+1"><strong>New to Pine Script™?</strong></font><br>
+<font size="+1"><strong>New to <a href="https://www.tradingview.com/u/?solution=43000561836">Pine Script™</a>?</strong></font><br>
 Begin your journey with our <a href="http://www.pinecoders.com/learning_pine_roadmap">Learning Pine Script™ Roadmap</a>.<br><br>
 
 <font size="+1"><strong>Have a programming question?</strong></font><br>
