@@ -50,8 +50,7 @@ and a <a href="http://www.pinecoders.com/books">list of books</a>.
 PineCoders is a small, [TradingView](https://www.tradingview.com/)-supported group of programmers who code in [Pine Script™](https://www.tradingview.com/pine-script-docs/en/v5/Introduction.html), the programming language used to write trading indicators and strategies for the TradingView financial charting platform. Our members include most of the [Pine Script™ Wizards](https://www.tradingview.com/pine-wizards/) and many of the top programmers of the platform. Our community-oriented members work together to:
 
 - Collaborate with TradingView's Pine team to steer the future of the language and make Pine Script™ indicators and strategies easier to use for TradingViewers.
-- Pilot the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-charts) moderator account on TV.
-- Moderate all new [Community Scripts](https://www.tradingview.com/scripts/).
+- Pilot the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-charts) moderator account on TV, from where we moderate all new [Community Scripts](https://www.tradingview.com/scripts/).
 - Answer questions in the <a href="https://stackoverflow.com/questions/tagged/pine-script?tab=Newest">Stack Overflow [pine-script] tag</a>, 
 in our <a href="https://t.me/PineCodersQA">PineCoders Pine Script™ Q&A forum on Telegram</a> 
 and in the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script™ chat</a> on TradingView. 
