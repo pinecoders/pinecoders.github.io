@@ -172,7 +172,7 @@ RicardoSantos has developed an [auto completion hack and snippets file for VS Co
 
 [Notepad++ UDL for Pine v5](https://www.tradingview.com/script/6Jacp8xE-RKs-Notepad-Pine-Script-V5/) by [RodrigoKazuma](https://www.tradingview.com/u/RodrigoKazuma/#published-scripts)
 
-[Notepad++ UDL for Pine v4](https://www.tradingview.com/script/pDbCgvx9-4K-Notepad-UDL-Add-on-for-Pine-Script-v4-0/) by [midtownsk8rguy](https://www.tradingview.com/u/midtownsk8rguy/#published-scripts)
+[Notepad++ UDL for Pine v4](https://www.tradingview.com/script/pDbCgvx9-4K-Notepad-UDL-Add-on-for-Pine-Script-v4-0/) by [ImmortalFreedom](https://www.tradingview.com/u/ImmortalFreedom/#published-scripts)
 
 [Notepad++ UDL](https://github.com/nidkil/tradingview-pine-script-udl-npp)
 
