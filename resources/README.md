@@ -10,15 +10,14 @@
 
 [<img src="https://www.pinecoders.com/images/PineCodersLong.png">](https://www.pinecoders.com/)
 
-# Pine Resources
+# Pine Script™ Resources
 
 This document provides a list of Pine-related resources and tools.
 
 **Disclaimer**  
-Except the work for hire Pine programmers, we do not endorse the third-party tools and resources mentioned here, and their inclusion here does not imply any guarantee of their worthiness. So please, before you decide to purchase anything, show due diligence and do your own research.
+Except for the people from our [Trusted Pine Script™ Programmers for Hire](https://www.tradingview.com/u/?solution=43000601677), we do not endorse third-party tools and resources. Their inclusion here does not imply any guarantee of their worthiness; please do your own research before purchasing or using them.
 
-PineCoders does not benefit from the adoption of these tools.  
-**This document contains no affiliate links.**
+PineCoders does not financially benefit from the use of these tools, and **this page contains no affiliate links.**
 
 ### Table of Contents
 
@@ -45,7 +44,7 @@ PineCoders does not benefit from the adoption of these tools.
 
 [TV indicators wiki](https://www.tradingview.com/wiki/Category:Indicators_and_overlays) : a list of TV-developed indicators with source code for most of them and good explanations. This is also where you can find explanations on the TV Volume Profile, the source of which is not available.
 
-From the Pine Editor: choose *New* and select from the list of built-in scripts to bring up its Pine source.
+From the Pine Script™ Editor: choose *New* and select from the list of built-in scripts to bring up its Pine source.
 
 [TV blog posts on Pine](https://www.tradingview.com/blog/en/category/market-analysis/pine/): a selection of TV blog posts related to Pine.
 
@@ -62,7 +61,7 @@ Visit the *Scripts* page of good coders publishing open source by using the [*Fo
 ## PineCoders
 From our <a href="https://www.pinecoders.com">home page</a> you can access the following:
 
-- Our <a href="https://www.pinecoders.com/learning_pine_roadmap">Learning Pine Roadmap</a> for newcomers which also has tips on what to do when you get stuck.
+- Our <a href="https://www.pinecoders.com/learning_pine_roadmap">Learning Pine Script™ Roadmap</a> for newcomers which also has tips on what to do when you get stuck.
 - Our <a href="https://www.pinecoders.com/faq_and_code">FAQ & Code</a> which answers common—and not so common—questions asked by Pine coders, with answers or links to answers.
 - Our <a href="https://www.pinecoders.com/coding_conventions">Coding Conventions</a> provide standard guidelines for writing Pine.
 - [Tools and educational Pine code on TradingView](https://www.tradingview.com/u/PineCoders/#published-scripts). We use our TradingView account to publish useful or fun code snippets, as well as full-blown tools like our [Backtesting-Trading Engine](https://www.tradingview.com/script/dYqL95JB-Backtesting-Trading-Engine-PineCoders/).
@@ -72,7 +71,7 @@ Our managed [PineCoders Repository](https://github.com/pinecoders/pine-utils) on
 - Tricks and techniques to help you accomplish frequently needed tasks,
 - [Other open source projects](https://github.com/pinecoders) related to Pine.
 
-We have also begun publishing guides. See our first: the [Digital Signal Processing In Pine](https://www.pinecoders.com/techniques/dsp) written by [Alex Grover](https://www.tradingview.com/u/alexgrover/#published-scripts).
+We have also begun publishing guides. See our first: the [Digital Signal Processing In Pine Script™](https://www.pinecoders.com/techniques/dsp) written by [Alex Grover](https://www.tradingview.com/u/alexgrover/#published-scripts).
 
 
 
