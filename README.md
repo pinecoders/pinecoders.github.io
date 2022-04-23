@@ -20,7 +20,9 @@ Begin your journey with our <a href="http://www.pinecoders.com/learning_pine_roa
 <font size="+1"><strong>Have a question on Pine?</strong></font><br>
 Your answer is probably already in our <a href="http://www.pinecoders.com/faq_and_code">FAQ & Code</a>.<br>
 If not, look up the <a href="https://www.tradingview.com/pine-script-reference/v5/">Reference Manual</a>, the <a href="https://www.tradingview.com/pine-script-docs/en/v5/Introduction.html">User Manual</a>, or search the Web.<br>
-As a last resort, ask on <a href="https://stackoverflow.com/questions/tagged/pine-script?tab=Newest">Stack Overflow</a> or in the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script chat room</a> on TradingView.<br><br>
+As a last resort, ask on <a href="https://stackoverflow.com/questions/tagged/pine-script?tab=Newest">Stack Overflow</a>, 
+in our <a href="https://t.me/PineCodersQA">PineCoders Pine Script™ Q&A forum on Telegram</a> 
+or in the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script™ chat</a> on TradingView.<br><br>
 
 <font size="+1"><strong>Want to stay abreast of Pine news?</strong></font><br>
 Subscribe to our <a href="https://t.me/PineCodersSquawkBox">PineCoders Squawk Box on Telegram</a>, or follow our <a href="https://twitter.com/PineCoders">Twitter account</a> or the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script chat room</a>.<br><br>
