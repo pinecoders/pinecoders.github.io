@@ -126,7 +126,11 @@ QuantNomad has a [paid course on Pine](https://courses.quantnomad.com/p/pinescri
 <br>
 
 ## Forums
-We answer questions in two public forums: the [Pine Script chat](https://www.tradingview.com/chat/#BfmVowG1TZkKO235) on TradingView, and on [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script).
+We answer questions on Pine Script™ programming in three public forums:
+
+- On [StackOverflow](https://stackoverflow.com/questions/tagged/pine-script)
+- In the [PineCoders Pine Script™ Q&A forum on Telegram](https://t.me/PineCodersQA)
+- In the [Pine Script™ Q&A public chat on TradingView](https://www.tradingview.com/chat/#BfmVowG1TZkKO235)
 
 
 
