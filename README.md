@@ -28,7 +28,7 @@ or in the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Scri
 Subscribe to our <a href="https://t.me/PineCodersSquawkBox">PineCoders Squawk Box on Telegram</a>, follow our <a href="https://twitter.com/PineCoders">Twitter account</a> or the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Script™ chat</a> on TradingView.<br>
 Changes to Pine Script™ are also logged in the <a href="https://www.tradingview.com/pine-script-docs/en/v5/Release_notes.html">User Manual's Release Notes</a>.<br><br>
 
-<font size="+1"><strong>Looking for a Pine Script™ programmer to hire?</strong></font><br>
+<font size="+1"><strong>Need to hire a Pine Script™ programmer?</strong></font><br>
 See our <a href="https://www.tradingview.com/?solution=43000601677">Trusted Pine Script™ Programmers for Hire</a>.<br><br>
 
 <font size="+1"><strong>Looking for more resources?</strong></font><br>
