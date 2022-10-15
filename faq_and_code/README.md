@@ -1037,8 +1037,7 @@ hline(50, color = showHline ? color.blue : #00000000)
 ### How can I plot color gradients?
 There are no built-in functions to generate color gradients in Pine yet. Gradients progressing horizontally across bars are much easier to implement and run faster. These are a few examples:
 
-- [Color Gradient (16 colors) Framework - PineCoders FAQ](https://www.tradingview.com/script/EjLGV9qg-Color-Gradient-16-colors-Framework-PineCoders-FAQ/)
-- [Color Gradient Framework - PineCoders FAQ](https://www.tradingview.com/script/rFJ5I3Hl-Color-Gradient-Framework-PineCoders-FAQ/)
+- [Color Gradient Framework - PineCoders FAQ](https://www.tradingview.com/script/hqH4YIFa-Color-Gradient-Framework-PineCoders/)
 - [[e2] Color Gradient Function](https://www.tradingview.com/script/VSGvuDEF-e2-Color-Gradient-Function/)
 - [[RS]Color Gradient Function](https://www.tradingview.com/script/nUq3gvD5-RS-Color-Gradient-Function/)
 - [[RS]Function - RGB Color (low resolution)](https://www.tradingview.com/script/nUq3gvD5-RS-Color-Gradient-Function/)
