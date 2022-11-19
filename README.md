@@ -49,7 +49,7 @@ and a <a href="http://www.pinecoders.com/books">list of books</a>.
 
 PineCoders is a small, [TradingView](https://www.tradingview.com/)-supported group of programmers who code in [Pine Script™](https://www.tradingview.com/pine-script-docs/en/v5/Introduction.html), the programming language used to write trading indicators and strategies for the TradingView financial charting platform. Our members include most of the [Pine Script™ Wizards](https://www.tradingview.com/pine-wizards/) and many of the platform's top programmers. Our community-oriented members work together to:
 
-- Collaborate with TradingView's Pine team to steer the future of the language, test new features, and make Pine Script™ indicators and strategies easier to use for all TradingViewers.
+- Represent the interests of programmers, publishers and users of scripts on the platform. We collaborate with TradingView's teams to steer the future of the language, test new features, and make Pine Script™ indicators and strategies more powerful and easier to use for all TradingViewers.
 - Pilot the [PineCoders](https://www.tradingview.com/u/PineCoders/#published-charts) moderator account on TV from where we curate the 100,000-strong [Community Scripts](https://www.tradingview.com/scripts/) by analyzing all new script publications and moderating those that do not comply with House Rules.
 - Select the [Editors' Picks for scripts](https://www.tradingview.com/scripts/editors-picks/).
 - Answer questions in the <a href="https://stackoverflow.com/questions/tagged/pine-script?tab=Newest">Stack Overflow [pine-script] tag</a>, 
@@ -59,6 +59,7 @@ and in the <a href="https://www.tradingview.com/chat/#BfmVowG1TZkKO235">Pine Scr
 [PineCodersTASC](https://www.tradingview.com/u/PineCodersTASC/#published-scripts),
 and [TradingView](https://www.tradingview.com/u/TradingView/#published-scripts) accounts on TradingView.
 - Follow [leading publishers](https://www.tradingview.com/u/PineCoders/#following-people) of open-source scripts on TV.
+- Manage the list of <a href="https://www.tradingview.com/?solution=43000601677">Trusted Pine Script™ Programmers for Hire</a>.
 
 [Pine Script™ Reference Manual](https://www.tradingview.com/pine-script-reference/v5/)  
 [Pine Script™ User Manual](https://www.tradingview.com/pine-script-docs/en/v5/)
