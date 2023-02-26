@@ -156,6 +156,8 @@ We maintain a list of [trusted Pine programmers for hire in TradingView's Help C
 
 [ProfitView](https://wiki.profitview.app/home): Google Chrome extension that receives TV alerts and relays orders to crypto exchanges. Among PineCoders, has the reputation of being better than AutoView.
 
+[Tickerly](https://tickerly.net/) can receive TV strategy alerts and execute them on major crypto and forex exchanges. Built for low latency and to give full control of the order execution to the strategy script.
+
 [TradersPost](https://traderspost.io/) can receive TradingView alerts via webhook and send buy/sell orders to popular brokers like TDAmeritrade, TradeStation, Robinhood, Alpaca and more. Currently supports US Equities and other asset classes coming in the future.
 
 [TradingView alerts to MT4/MT5](https://www.tradingconnector.com/) receives TV alerts and converts them into instant orders on MT4/MT5 in forex, indices and commodities markets. Latency is below 1 second.
