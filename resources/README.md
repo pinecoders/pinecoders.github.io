@@ -163,7 +163,7 @@ We maintain a list of [trusted Pine programmers for hire in TradingView's Help C
 [WolfBot](https://wolfbot.org/) can receive TV alerts via Email or Webhook URL and trade on 25+ cryptocurrency exchanges. Supported alerts include buy/sell (limit and market orders), as well as more advanced order types such as stop-loss and trailing-stop.
 
 
-
+ 
 <br>
 
 ## Text Editor Highlighters and Utilities for Pine
