@@ -154,6 +154,8 @@ We maintain a list of [trusted Pine programmers for hire in TradingView's Help C
 
 [Instabot](https://instabot42.github.io/): An open source execution engine that relays orders received from HTTP requests to Bitfinex, Deribit and Coinbase Pro, with support for Bitmex and Binance planned.
 
+[PineConnector](https://www.pineconnector.com/): PineConnector is a user-friendly bridge that enables retail traders to auto-execute TradingView alerts on MetaTrader 4 & MetaTrader 5 without fancy coding. Trade FX, Indices, Commodities, Crypto, and other symbols to any of your MT4 & MT5 brokers.
+
 [ProfitView](https://wiki.profitview.app/home): Google Chrome extension that receives TV alerts and relays orders to crypto exchanges. Among PineCoders, has the reputation of being better than AutoView.
 
 [TradersPost](https://traderspost.io/) can receive TradingView alerts via webhook and send buy/sell orders to popular brokers like TDAmeritrade, TradeStation, Robinhood, Alpaca and more. Currently supports US Equities and other asset classes coming in the future.
