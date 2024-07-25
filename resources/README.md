@@ -163,6 +163,8 @@ We maintain a list of [trusted Pine programmers for hire in TradingView's Help C
 [WolfBot](https://wolfbot.org/) can receive TV alerts via Email or Webhook URL and trade on 25+ cryptocurrency exchanges. Supported alerts include buy/sell (limit and market orders), as well as more advanced order types such as stop-loss and trailing-stop.
 
 
+[PickMyTrade](https://pickmytrade.trade/) can receive TradingView alerts via webhook and send buy/sell orders to Tradovate. iy have Trade copier as well so with single alerts you can trade into multiple accounts . It support demo account trading as well 
+
  
 <br>
 
