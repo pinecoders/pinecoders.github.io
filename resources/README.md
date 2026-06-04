@@ -162,6 +162,8 @@ We maintain a list of [trusted Pine programmers for hire in TradingView's Help C
 
 [WolfBot](https://wolfbot.org/) can receive TV alerts via Email or Webhook URL and trade on 25+ cryptocurrency exchanges. Supported alerts include buy/sell (limit and market orders), as well as more advanced order types such as stop-loss and trailing-stop.
 
+[FillEdge](https://filledge.com/): receives TradingView alerts via webhook and executes them on MT4/MT5 in forex, indices, metals and commodities. Verifies each fill against the original signal, intercepts ghost positions, and includes built-in prop firm compliance guardrails.
+
 
  
 <br>
